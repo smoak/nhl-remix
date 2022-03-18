@@ -13,7 +13,6 @@ export const loader = async (): Promise<ScheduleGame[]> => {
 
 export const Index = () => {
   const games = useLoaderData<ScheduleGame[]>();
-  console.log(games);
 
   return (
     <Layout>

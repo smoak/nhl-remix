@@ -16,7 +16,7 @@ export const GameCard = ({
   awayTeam,
   status,
 }: GameCardProps) => (
-  <article className="flex rounded-lg border">
+  <article className="flex rounded-lg border-nhl-black border">
     <div className="flex w-full flex-col">
       <div className="flex p-9">
         <TeamInfo team={awayTeam} />
