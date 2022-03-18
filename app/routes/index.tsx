@@ -1,17 +1,18 @@
 import { useLoaderData } from "remix";
 import { GamesList } from "~/components/GamesList";
 import { Layout } from "~/components/Layout";
-import { Schedule } from "~/types";
+import { Schedule, ScheduleGame } from "~/types";
 
-export const loader = async (): Promise<Schedule> => {
+export const loader = async (): Promise<ScheduleGame[]> => {
   const res = await fetch("https://statsapi.web.nhl.com/api/v1/schedule");
 
-  return (await res.json()) as Schedule;
+  const { dates } = (await res.json()) as Schedule;
+  const { games } = dates[0];
+  return games;
 };
 
 export const Index = () => {
-  const { dates } = useLoaderData<Schedule>();
-  const { games } = dates[0];
+  const games = useLoaderData<ScheduleGame[]>();
   console.log(games);
 
   return (

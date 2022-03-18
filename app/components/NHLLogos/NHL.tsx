@@ -6,7 +6,7 @@ export const NHL: NHLLogo = ({ size }) => (
     width={size}
     height={size}
     viewBox="0 0 400 300"
-    enable-background="new 0 0 400 300"
+    enableBackground="new 0 0 400 300"
   >
     <path
       id="bg"

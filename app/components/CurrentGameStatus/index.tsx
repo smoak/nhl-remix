@@ -1,10 +1,14 @@
-import { GameStatus } from "~/types";
+import { ScheduleGame, GameStatus } from "~/types";
 
 export type CurrentGameStatusProps = {
   readonly status: GameStatus;
+  readonly startTime: ScheduleGame["gameDate"];
 };
 
-export const CurrentGameStatus = ({ status }: CurrentGameStatusProps) => {
+export const CurrentGameStatus = ({
+  startTime,
+  status,
+}: CurrentGameStatusProps) => {
   if (status.abstractGameState === "Live") {
     return (
       <span className="mx-auto block pt-2 text-xs tracking-widest">
@@ -18,5 +22,11 @@ export const CurrentGameStatus = ({ status }: CurrentGameStatusProps) => {
     return <>Final</>;
   }
 
-  return null;
+  return (
+    <>
+      {new Intl.DateTimeFormat("en-US", { timeStyle: "short" }).format(
+        new Date(startTime)
+      )}
+    </>
+  );
 };

@@ -2,7 +2,7 @@ import { NHLLogo } from "./types";
 
 export const OTT: NHLLogo = ({ size }) => (
   <svg
-    enable-background="new 0 0 212.204 250"
+    enableBackground="new 0 0 212.204 250"
     height={size}
     viewBox="0 0 212.204 250"
     width={size}

@@ -14,7 +14,7 @@ export type GameContent = {
 };
 
 export type GameStatus = {
-  readonly abstractGameState: string;
+  readonly abstractGameState: "Live" | "Final" | "Preview";
   readonly codedGameState: string;
   readonly detailedState: string;
   readonly startTimeTBD: boolean;

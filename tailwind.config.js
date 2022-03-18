@@ -2,11 +2,8 @@ module.exports = {
   content: ["./app/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
-      colors: {
-        xiketic: "#07020D",
-        cyanprocess: "#5DB7DE",
-        alabaster: "#F1E9DB",
-        grullo: "#A39B8B",
+      backgroundColor: {
+        main: "#ECECEC",
       },
       borderColor: {
         main: "rgba(255, 255, 255, 0.24)",

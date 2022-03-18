@@ -2,7 +2,7 @@ import { NHLLogo } from "./types";
 
 export const NSH: NHLLogo = ({ size }) => (
   <svg
-    enable-background="new 0 0 437.904 253.71"
+    enableBackground="new 0 0 437.904 253.71"
     height={size}
     viewBox="0 0 437.904 253.71"
     width={size}

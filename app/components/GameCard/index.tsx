@@ -1,6 +1,7 @@
 import { GameStatus, GameTeam, ScheduleGame } from "~/types";
 import { TeamInfo } from "~/components/TeamInfo";
 import { CurrentGameStatus } from "~/components/CurrentGameStatus";
+import { TeamScore } from "~/components/TeamScore";
 
 export type GameCardProps = {
   readonly startTime: ScheduleGame["gameDate"];
@@ -15,16 +16,16 @@ export const GameCard = ({
   awayTeam,
   status,
 }: GameCardProps) => (
-  <article className="flex rounded-lg border border-xiketic">
+  <article className="flex rounded-lg border">
     <div className="flex w-full flex-col">
       <div className="flex p-9">
         <TeamInfo team={awayTeam} />
         <div className="mt-3 flex flex-1">
-          <p className="w-1/3 text-left text-2xl font-bold">{awayTeam.score}</p>
+          <TeamScore score={awayTeam.score} gameStatus={status} />
           <p className="flex-1 whitespace-nowrap px-3 pt-1.5 text-center uppercase">
-            <CurrentGameStatus status={status} />
+            <CurrentGameStatus status={status} startTime={startTime} />
           </p>
-          <p className="w-1/3 text-right text-2xl font-bold">{homeTeam.score}</p>
+          <TeamScore score={homeTeam.score} gameStatus={status} />
         </div>
         <TeamInfo team={homeTeam} />
       </div>

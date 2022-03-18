@@ -1,12 +1,10 @@
 import { Link, NavLink } from "remix";
+import { NHL } from "~/components/NHLLogos/NHL";
 
 export const Header = () => (
   <header className="container mx-auto flex items-center justify-between px-4 py-8">
     <Link to="/">
-      <img
-        src="//www-league.nhlstatic.com/images/logos/league-dark/133-flat.svg"
-        alt="NHL Logo"
-      />
+      <NHL size={96} />
     </Link>
     <nav className="flex gap-6">
       <NavLink to="/">Home</NavLink>
