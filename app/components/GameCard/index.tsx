@@ -17,14 +17,14 @@ export const GameCard = ({
 }: GameCardProps) => (
   <article className="flex rounded-lg border border-xiketic">
     <div className="flex w-full flex-col">
-      <div className="flex p-6">
+      <div className="flex p-9">
         <TeamInfo team={awayTeam} />
-        <div className="mt-6 flex flex-1">
-          <p className="text-left text-2xl font-bold">{awayTeam.score}</p>
+        <div className="mt-3 flex flex-1">
+          <p className="w-1/3 text-left text-2xl font-bold">{awayTeam.score}</p>
           <p className="flex-1 whitespace-nowrap px-3 pt-1.5 text-center uppercase">
             <CurrentGameStatus status={status} />
           </p>
-          <p className="text-right text-2xl font-bold">{homeTeam.score}</p>
+          <p className="w-1/3 text-right text-2xl font-bold">{homeTeam.score}</p>
         </div>
         <TeamInfo team={homeTeam} />
       </div>
