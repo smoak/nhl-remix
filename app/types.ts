@@ -51,6 +51,17 @@ export type GameVenue = {
   readonly name: string;
 };
 
+export type GameLinescore = {
+  readonly currentPeriod: number;
+  readonly currentPeriodTimeRemaining: string;
+  readonly hasShootout: boolean;
+  readonly intermissionInfo: {
+    readonly intermissionTimeRemaining: number;
+    readonly intermissionTimeElapsed: number;
+    readonly inIntermission: boolean;
+  };
+};
+
 export type ScheduleGame = {
   readonly content: GameContent;
   readonly gameDate: string;
@@ -61,6 +72,7 @@ export type ScheduleGame = {
   readonly status: GameStatus;
   readonly teams: GameTeams;
   readonly venue: GameVenue;
+  readonly linescore: GameLinescore;
 };
 
 export type Schedule = {
