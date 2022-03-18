@@ -11,7 +11,7 @@ export const TeamInfo = ({ team }: TeamInfoProps) => (
     <p className="mt-1 whitespace-nowrap text-sm font-semibold break-words">
       {team.team.name}
     </p>
-    <p className="text-xs text-gray-400">
+    <p className="text-xs">
       {team.leagueRecord.wins}-{team.leagueRecord.losses}-{team.leagueRecord.ot}
     </p>
   </div>
