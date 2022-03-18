@@ -3,10 +3,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'xiketic': '#07020D',
-        'cyanprocess': '#5DB7DE',
-        'alabaster': '#F1E9DB',
-        'grullo': '#A39B8B',
+        xiketic: "#07020D",
+        cyanprocess: "#5DB7DE",
+        alabaster: "#F1E9DB",
+        grullo: "#A39B8B",
       },
       borderColor: {
         main: "rgba(255, 255, 255, 0.24)",

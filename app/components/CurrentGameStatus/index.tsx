@@ -14,7 +14,7 @@ export const CurrentGameStatus = ({ status }: CurrentGameStatusProps) => {
     );
   }
 
-  if (status.abstractGameState === 'Final') {
+  if (status.abstractGameState === "Final") {
     return <>Final</>;
   }
 
