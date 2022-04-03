@@ -32,6 +32,14 @@ export type Team = {
   readonly id: number;
   readonly link: string;
   readonly name: string;
+  readonly abbreviation: string;
+  readonly teamName: string;
+  readonly locationName: string;
+  readonly firstYearOfPlay: string;
+  readonly shortName: string;
+  readonly officialSiteUrl: string;
+  readonly franchiseId: number;
+  readonly active: boolean;
 };
 
 export type GameTeam = {
@@ -51,6 +59,15 @@ export type GameVenue = {
   readonly name: string;
 };
 
+export type LinescoreTeam = {
+  readonly powerPlay: boolean;
+};
+
+export type LinescoreTeams = {
+  readonly home: LinescoreTeam;
+  readonly away: LinescoreTeam;
+};
+
 export type GameLinescore = {
   readonly currentPeriod: number;
   readonly currentPeriodTimeRemaining: string;
@@ -60,6 +77,7 @@ export type GameLinescore = {
     readonly intermissionTimeElapsed: number;
     readonly inIntermission: boolean;
   };
+  readonly teams: LinescoreTeams;
 };
 
 export type ScheduleGame = {

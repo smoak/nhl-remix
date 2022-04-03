@@ -5,7 +5,7 @@ import { Schedule, ScheduleGame } from "~/types";
 
 export const loader = async (): Promise<ScheduleGame[]> => {
   const res = await fetch(
-    "https://statsapi.web.nhl.com/api/v1/schedule?hydrate=linescore"
+    "https://statsapi.web.nhl.com/api/v1/schedule?hydrate=linescore,team"
   );
 
   const { dates } = (await res.json()) as Schedule;
