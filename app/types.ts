@@ -13,8 +13,10 @@ export type GameContent = {
   readonly link: string;
 };
 
+export type AbstractGameState = "Live" | "Final" | "Preview";
+
 export type GameStatus = {
-  readonly abstractGameState: "Live" | "Final" | "Preview";
+  readonly abstractGameState: AbstractGameState;
   readonly codedGameState: string;
   readonly detailedState: string;
   readonly startTimeTBD: boolean;
@@ -61,6 +63,15 @@ export type GameVenue = {
 
 export type LinescoreTeam = {
   readonly powerPlay: boolean;
+  readonly goals: number;
+  readonly shotsOnGoal: number;
+  readonly goaliePulled: boolean;
+  readonly numSkaters: number;
+  readonly team: {
+    readonly id: number;
+    readonly name: string;
+    readonly link: string;
+  };
 };
 
 export type LinescoreTeams = {
@@ -68,9 +79,16 @@ export type LinescoreTeams = {
   readonly away: LinescoreTeam;
 };
 
+export type LinescorePowerPlayInfo = {
+  readonly situationTimeRemaining: number;
+  readonly situationTimeElapsed: number;
+  readonly inSituation: boolean;
+};
+
 export type GameLinescore = {
   readonly currentPeriod: number;
   readonly currentPeriodTimeRemaining: string;
+  readonly powerPlayStrength: "Even" | "5-on-4";
   readonly hasShootout: boolean;
   readonly intermissionInfo: {
     readonly intermissionTimeRemaining: number;
@@ -79,6 +97,7 @@ export type GameLinescore = {
   };
   readonly teams: LinescoreTeams;
   readonly currentPeriodOrdinal: string;
+  readonly powerPlayInfo: LinescorePowerPlayInfo;
 };
 
 export type ScheduleGame = {

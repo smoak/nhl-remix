@@ -21,7 +21,11 @@ export const GameCard = ({
   <article className="flex rounded-lg border border-nhl-black">
     <div className="flex w-full flex-col">
       <div className="flex p-9">
-        <TeamInfo team={awayTeam} />
+        <TeamInfo
+          team={awayTeam}
+          linescoreTeam={linescore.teams.away}
+          abstractGameState={status.abstractGameState}
+        />
         <div className="mt-3 flex flex-1">
           <TeamScore score={awayTeam.score} gameStatus={status} />
           <p className="flex-1 whitespace-nowrap px-3 pt-1.5 text-center uppercase">
@@ -33,7 +37,11 @@ export const GameCard = ({
           </p>
           <TeamScore score={homeTeam.score} gameStatus={status} />
         </div>
-        <TeamInfo team={homeTeam} />
+        <TeamInfo
+          team={homeTeam}
+          linescoreTeam={linescore.teams.home}
+          abstractGameState={status.abstractGameState}
+        />
       </div>
     </div>
   </article>
