@@ -38,6 +38,20 @@ export const CurrentGameStatus = ({
     );
   }
 
+  if (
+    status.abstractGameState === "Final" &&
+    linescore.currentPeriodOrdinal === "OT"
+  ) {
+    return <>Final/OT</>;
+  }
+
+  if (
+    status.abstractGameState === "Final" &&
+    linescore.currentPeriodOrdinal === "SO"
+  ) {
+    return <>Final/SO</>;
+  }
+
   if (status.abstractGameState === "Final") {
     return <>Final</>;
   }

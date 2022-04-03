@@ -78,6 +78,7 @@ export type GameLinescore = {
     readonly inIntermission: boolean;
   };
   readonly teams: LinescoreTeams;
+  readonly currentPeriodOrdinal: string;
 };
 
 export type ScheduleGame = {
