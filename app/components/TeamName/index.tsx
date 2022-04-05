@@ -14,7 +14,7 @@ export const TeamName = ({
   if (linescoreTeam.powerPlay && abstractGameState === "Live") {
     return (
       <p className="mt-1 whitespace-nowrap text-sm font-semibold">
-        {name} <span className="italic text-red-500">PP</span>
+        {name} <span className="italic text-red-800">PP</span>
       </p>
     );
   }
