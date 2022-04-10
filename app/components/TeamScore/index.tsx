@@ -1,12 +1,12 @@
-import { GameStatus } from "~/types";
+import { AbstractGameState } from "~/types";
 
 export type TeamScoreProps = {
   readonly score: number;
-  readonly gameStatus: GameStatus;
+  readonly gameState: AbstractGameState;
 };
 
-export const TeamScore = ({ gameStatus, score }: TeamScoreProps) => {
-  if (gameStatus.abstractGameState === "Preview") {
+export const TeamScore = ({ gameState, score }: TeamScoreProps) => {
+  if (gameState === "Preview") {
     return null;
   }
 

@@ -27,7 +27,10 @@ export const GameCard = ({
           abstractGameState={status.abstractGameState}
         />
         <div className="mt-3 flex flex-1">
-          <TeamScore score={awayTeam.score} gameStatus={status} />
+          <TeamScore
+            score={awayTeam.score}
+            gameState={status.abstractGameState}
+          />
           <p className="flex-1 whitespace-nowrap px-3 pt-1.5 text-center uppercase">
             <CurrentGameStatus
               currentPeriod={linescore.currentPeriod}
@@ -37,7 +40,10 @@ export const GameCard = ({
               startTime={startTime}
             />
           </p>
-          <TeamScore score={homeTeam.score} gameStatus={status} />
+          <TeamScore
+            score={homeTeam.score}
+            gameState={status.abstractGameState}
+          />
         </div>
         <TeamInfo
           team={homeTeam}
