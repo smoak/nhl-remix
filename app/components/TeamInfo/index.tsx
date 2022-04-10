@@ -1,6 +1,7 @@
 import { AbstractGameState, GameTeam, LinescoreTeam } from "~/types";
 import { TeamLogo } from "~/components/TeamLogo";
 import { TeamName } from "../TeamName";
+import { TeamRecord } from "../TeamRecord";
 
 export type TeamInfoProps = {
   readonly team: GameTeam;
@@ -20,8 +21,10 @@ export const TeamInfo = ({
       linescoreTeam={linescoreTeam}
       abstractGameState={abstractGameState}
     />
-    <p className="text-xs">
-      {team.leagueRecord.wins}-{team.leagueRecord.losses}-{team.leagueRecord.ot}
-    </p>
+    <TeamRecord
+      wins={team.leagueRecord.wins}
+      losses={team.leagueRecord.losses}
+      otWins={team.leagueRecord.ot}
+    />
   </div>
 );
