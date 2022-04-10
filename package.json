@@ -14,7 +14,7 @@
     "generate:css": "tailwindcss -i ./styles/tailwind.css -o ./app/tailwind.css",
     "postinstall": "remix setup node",
     "lint": "eslint app --max-warnings=0",
-    "test": "jest --maxWorkers=50%",
+    "test": "TZ=UTC jest --maxWorkers=50%",
     "test:watch": "jest --watch --maxWorkers=25%",
     "test:ci": "jest --runInBand"
   },

@@ -114,7 +114,7 @@ describe("CurrentGameStatus", () => {
     });
 
     it("should show the start time", () => {
-      expect(screen.getByText("2:00 PM")).toBeInTheDocument();
+      expect(screen.getByText("9:00 PM")).toBeInTheDocument();
     });
   });
 });
