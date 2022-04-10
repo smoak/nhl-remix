@@ -1,4 +1,5 @@
 import { ScheduleGame, AbstractGameState, CurrentPeriodOrdinal } from "~/types";
+import { LiveGameStatus } from "../LiveGameStatus";
 
 export type CurrentGameStatusProps = {
   readonly gameState: AbstractGameState;
@@ -6,20 +7,6 @@ export type CurrentGameStatusProps = {
   readonly currentPeriod: number;
   readonly currentPeriodTimeRemaining: string;
   readonly currentPeriodOrdinal: CurrentPeriodOrdinal;
-};
-
-// TODO: i18n
-const pr = new Intl.PluralRules("en-US", { type: "ordinal" });
-const suffixes = new Map([
-  ["one", "st"],
-  ["two", "nd"],
-  ["few", "rd"],
-  ["other", "th"],
-]);
-const formatOrdinals = (n: number) => {
-  const rule = pr.select(n);
-  const suffix = suffixes.get(rule);
-  return `${n}${suffix}`;
 };
 
 export const CurrentGameStatus = ({
@@ -31,13 +18,10 @@ export const CurrentGameStatus = ({
 }: CurrentGameStatusProps) => {
   if (gameState === "Live") {
     return (
-      <>
-        {formatOrdinals(currentPeriod)} - {currentPeriodTimeRemaining}
-        <span className="mx-auto block pt-2 text-xs tracking-widest">
-          <span className="mr-1 inline-block h-2 w-2 animate-pulse rounded-full bg-red-700" />
-          Live
-        </span>
-      </>
+      <LiveGameStatus
+        currentPeriod={currentPeriod}
+        currentPeriodTimeRemaining={currentPeriodTimeRemaining}
+      />
     );
   }
 
