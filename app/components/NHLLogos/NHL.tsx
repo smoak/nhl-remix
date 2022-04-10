@@ -7,7 +7,9 @@ export const NHL: NHLLogo = ({ size }) => (
     height={size}
     viewBox="0 0 400 300"
     enableBackground="new 0 0 400 300"
+    role="img"
   >
+    <title>NHL Logo</title>
     <path
       id="bg"
       fill="#E4E5E6"

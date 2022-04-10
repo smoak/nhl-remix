@@ -7,7 +7,9 @@ export const SEA: NHLLogo = ({ size }) => (
     width={size}
     version="1.1"
     viewBox="0 0 288 288"
+    role="img"
   >
+    <title>Seattle Kraken Logo</title>
     <path
       fill="#001425"
       d="M29.31,234.51c56.12,4.91,91.71,20.73,109.03,53.49c59.31-9.61,114.17-47.65,114.17-96.69

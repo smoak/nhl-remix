@@ -7,7 +7,9 @@ export const BUF: NHLLogo = ({ size }) => (
     width={size}
     version="1.1"
     viewBox="0 0 240.96002 240.96002"
+    role="img"
   >
+    <title>Buffalo Sabres Logo</title>
     <path
       d="M239.96,119.98A119.98,119.98,0,1,0,119.98,239.96,120.11127,120.11127,0,0,0,239.96,119.98Z"
       fill="#adafaa"

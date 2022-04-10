@@ -7,7 +7,9 @@ export const LAK: NHLLogo = ({ size }) => (
     width={size}
     version="1.1"
     viewBox="0 0 134.3968 159.22594"
+    role="img"
   >
+    <title>Los Angeles Kings Logo</title>
     <polygon
       points="133.397 0 0 0 0 111.012 1.049 111.792 65.165 158.123 66.698 159.226 68.205 158.123 132.321 111.792 133.37 111.038 133.37 0 133.397 0"
       fill="#111"

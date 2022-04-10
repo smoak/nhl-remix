@@ -7,7 +7,9 @@ export const WPG: NHLLogo = ({ size }) => (
     width={size}
     version="1.1"
     viewBox="0 0 248.49334 248.49334"
+    role="img"
   >
+    <title>Winnipeg Jets Logo</title>
     <path
       d="M247.49334,123.74667A123.74667,123.74667,0,1,1,123.74667,0,123.754,123.754,0,0,1,247.49334,123.74667Z"
       fill="#8e9090"

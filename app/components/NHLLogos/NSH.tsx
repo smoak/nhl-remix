@@ -7,7 +7,9 @@ export const NSH: NHLLogo = ({ size }) => (
     viewBox="0 0 437.904 253.71"
     width={size}
     xmlns="http://www.w3.org/2000/svg"
+    role="img"
   >
+    <title>Nashville Predators Logo</title>
     <clipPath id="a">
       <path d="m0 .001h437.904v253.709h-437.904z" />
     </clipPath>

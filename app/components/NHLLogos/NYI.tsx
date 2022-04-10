@@ -7,7 +7,9 @@ export const NYI: NHLLogo = ({ size }) => (
     width={size}
     version="1.1"
     viewBox="0 0 297.48001 286.98001"
+    role="img"
   >
+    <title>New York Islanders Logo</title>
     <path
       d="M148.74,0C66.6,0,0,64.26,0,143.52c0,79.2,66.6,143.46,148.74,143.46s148.74-64.26,148.74-143.46C297.48,64.26,230.88,0,148.74,0Z"
       fill="#fff"

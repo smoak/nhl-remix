@@ -7,7 +7,9 @@ export const BOS: NHLLogo = ({ size }) => (
     width={size}
     version="1.1"
     viewBox="0 0 225.96002 225.96002"
+    role="img"
   >
+    <title>Boston Bruins Logo</title>
     <path
       d="M112.48,224.96A112.48,112.48,0,1,0,0,112.48,112.48663,112.48663,0,0,0,112.48,224.96Z"
       fill="#fcb514"
