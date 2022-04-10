@@ -85,6 +85,8 @@ export type LinescorePowerPlayInfo = {
   readonly inSituation: boolean;
 };
 
+export type CurrentPeriodOrdinal = "1st" | "2nd" | "3rd" | "OT" | "SO";
+
 export type GameLinescore = {
   readonly currentPeriod: number;
   readonly currentPeriodTimeRemaining: string;
@@ -96,7 +98,7 @@ export type GameLinescore = {
     readonly inIntermission: boolean;
   };
   readonly teams: LinescoreTeams;
-  readonly currentPeriodOrdinal: string;
+  readonly currentPeriodOrdinal: CurrentPeriodOrdinal;
   readonly powerPlayInfo: LinescorePowerPlayInfo;
 };
 

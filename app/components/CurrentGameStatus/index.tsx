@@ -1,9 +1,11 @@
-import { ScheduleGame, GameStatus, GameLinescore } from "~/types";
+import { ScheduleGame, AbstractGameState, CurrentPeriodOrdinal } from "~/types";
 
 export type CurrentGameStatusProps = {
-  readonly status: GameStatus;
+  readonly gameState: AbstractGameState;
   readonly startTime: ScheduleGame["gameDate"];
-  readonly linescore: GameLinescore;
+  readonly currentPeriod: number;
+  readonly currentPeriodTimeRemaining: string;
+  readonly currentPeriodOrdinal: CurrentPeriodOrdinal;
 };
 
 // TODO: i18n
@@ -21,15 +23,16 @@ const formatOrdinals = (n: number) => {
 };
 
 export const CurrentGameStatus = ({
-  linescore,
+  currentPeriod,
+  currentPeriodOrdinal,
+  currentPeriodTimeRemaining,
   startTime,
-  status,
+  gameState,
 }: CurrentGameStatusProps) => {
-  if (status.abstractGameState === "Live") {
+  if (gameState === "Live") {
     return (
       <>
-        {formatOrdinals(linescore.currentPeriod)} -{" "}
-        {linescore.currentPeriodTimeRemaining}
+        {formatOrdinals(currentPeriod)} - {currentPeriodTimeRemaining}
         <span className="mx-auto block pt-2 text-xs tracking-widest">
           <span className="mr-1 inline-block h-2 w-2 animate-pulse rounded-full bg-red-700" />
           Live
@@ -38,21 +41,15 @@ export const CurrentGameStatus = ({
     );
   }
 
-  if (
-    status.abstractGameState === "Final" &&
-    linescore.currentPeriodOrdinal === "OT"
-  ) {
+  if (gameState === "Final" && currentPeriodOrdinal === "OT") {
     return <>Final/OT</>;
   }
 
-  if (
-    status.abstractGameState === "Final" &&
-    linescore.currentPeriodOrdinal === "SO"
-  ) {
+  if (gameState === "Final" && currentPeriodOrdinal === "SO") {
     return <>Final/SO</>;
   }
 
-  if (status.abstractGameState === "Final") {
+  if (gameState === "Final") {
     return <>Final</>;
   }
 
