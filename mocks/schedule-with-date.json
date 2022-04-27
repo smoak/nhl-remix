@@ -1,0 +1,275 @@
+{
+  "copyright" : "NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2022. All Rights Reserved.",
+  "totalItems" : 5,
+  "totalEvents" : 0,
+  "totalGames" : 5,
+  "totalMatches" : 0,
+  "metaData" : {
+    "timeStamp" : "20220427_043306"
+  },
+  "wait" : 10,
+  "dates" : [ {
+    "date" : "2022-04-27",
+    "totalItems" : 5,
+    "totalEvents" : 0,
+    "totalGames" : 5,
+    "totalMatches" : 0,
+    "games" : [ {
+      "gamePk" : 2021021288,
+      "link" : "/api/v1/game/2021021288/feed/live",
+      "gameType" : "R",
+      "season" : "20212022",
+      "gameDate" : "2022-04-27T23:30:00Z",
+      "status" : {
+        "abstractGameState" : "Preview",
+        "codedGameState" : "1",
+        "detailedState" : "Scheduled",
+        "statusCode" : "1",
+        "startTimeTBD" : false
+      },
+      "teams" : {
+        "away" : {
+          "leagueRecord" : {
+            "wins" : 25,
+            "losses" : 44,
+            "ot" : 11,
+            "type" : "league"
+          },
+          "score" : 0,
+          "team" : {
+            "id" : 4,
+            "name" : "Philadelphia Flyers",
+            "link" : "/api/v1/teams/4"
+          }
+        },
+        "home" : {
+          "leagueRecord" : {
+            "wins" : 36,
+            "losses" : 32,
+            "ot" : 11,
+            "type" : "league"
+          },
+          "score" : 0,
+          "team" : {
+            "id" : 52,
+            "name" : "Winnipeg Jets",
+            "link" : "/api/v1/teams/52"
+          }
+        }
+      },
+      "venue" : {
+        "id" : 5058,
+        "name" : "Canada Life Centre",
+        "link" : "/api/v1/venues/5058"
+      },
+      "content" : {
+        "link" : "/api/v1/game/2021021288/content"
+      }
+    }, {
+      "gamePk" : 2021020505,
+      "link" : "/api/v1/game/2021020505/feed/live",
+      "gameType" : "R",
+      "season" : "20212022",
+      "gameDate" : "2022-04-27T23:30:00Z",
+      "status" : {
+        "abstractGameState" : "Preview",
+        "codedGameState" : "1",
+        "detailedState" : "Scheduled",
+        "statusCode" : "1",
+        "startTimeTBD" : false
+      },
+      "teams" : {
+        "away" : {
+          "leagueRecord" : {
+            "wins" : 20,
+            "losses" : 49,
+            "ot" : 11,
+            "type" : "league"
+          },
+          "score" : 0,
+          "team" : {
+            "id" : 8,
+            "name" : "Montréal Canadiens",
+            "link" : "/api/v1/teams/8"
+          }
+        },
+        "home" : {
+          "leagueRecord" : {
+            "wins" : 51,
+            "losses" : 23,
+            "ot" : 6,
+            "type" : "league"
+          },
+          "score" : 0,
+          "team" : {
+            "id" : 3,
+            "name" : "New York Rangers",
+            "link" : "/api/v1/teams/3"
+          }
+        }
+      },
+      "venue" : {
+        "id" : 5054,
+        "name" : "Madison Square Garden",
+        "link" : "/api/v1/venues/5054"
+      },
+      "content" : {
+        "link" : "/api/v1/game/2021020505/content"
+      }
+    }, {
+      "gamePk" : 2021021286,
+      "link" : "/api/v1/game/2021021286/feed/live",
+      "gameType" : "R",
+      "season" : "20212022",
+      "gameDate" : "2022-04-28T00:30:00Z",
+      "status" : {
+        "abstractGameState" : "Preview",
+        "codedGameState" : "1",
+        "detailedState" : "Scheduled",
+        "statusCode" : "1",
+        "startTimeTBD" : false
+      },
+      "teams" : {
+        "away" : {
+          "leagueRecord" : {
+            "wins" : 42,
+            "losses" : 31,
+            "ot" : 7,
+            "type" : "league"
+          },
+          "score" : 0,
+          "team" : {
+            "id" : 54,
+            "name" : "Vegas Golden Knights",
+            "link" : "/api/v1/teams/54"
+          }
+        },
+        "home" : {
+          "leagueRecord" : {
+            "wins" : 27,
+            "losses" : 42,
+            "ot" : 11,
+            "type" : "league"
+          },
+          "score" : 0,
+          "team" : {
+            "id" : 16,
+            "name" : "Chicago Blackhawks",
+            "link" : "/api/v1/teams/16"
+          }
+        }
+      },
+      "venue" : {
+        "id" : 5092,
+        "name" : "United Center",
+        "link" : "/api/v1/venues/5092"
+      },
+      "content" : {
+        "link" : "/api/v1/game/2021021286/content"
+      }
+    }, {
+      "gamePk" : 2021021287,
+      "link" : "/api/v1/game/2021021287/feed/live",
+      "gameType" : "R",
+      "season" : "20212022",
+      "gameDate" : "2022-04-28T00:30:00Z",
+      "status" : {
+        "abstractGameState" : "Preview",
+        "codedGameState" : "1",
+        "detailedState" : "Scheduled",
+        "statusCode" : "1",
+        "startTimeTBD" : false
+      },
+      "teams" : {
+        "away" : {
+          "leagueRecord" : {
+            "wins" : 23,
+            "losses" : 50,
+            "ot" : 7,
+            "type" : "league"
+          },
+          "score" : 0,
+          "team" : {
+            "id" : 53,
+            "name" : "Arizona Coyotes",
+            "link" : "/api/v1/teams/53"
+          }
+        },
+        "home" : {
+          "leagueRecord" : {
+            "wins" : 45,
+            "losses" : 30,
+            "ot" : 5,
+            "type" : "league"
+          },
+          "score" : 0,
+          "team" : {
+            "id" : 25,
+            "name" : "Dallas Stars",
+            "link" : "/api/v1/teams/25"
+          }
+        }
+      },
+      "venue" : {
+        "id" : 5019,
+        "name" : "American Airlines Center",
+        "link" : "/api/v1/venues/5019"
+      },
+      "content" : {
+        "link" : "/api/v1/game/2021021287/content"
+      }
+    }, {
+      "gamePk" : 2021021289,
+      "link" : "/api/v1/game/2021021289/feed/live",
+      "gameType" : "R",
+      "season" : "20212022",
+      "gameDate" : "2022-04-28T02:00:00Z",
+      "status" : {
+        "abstractGameState" : "Preview",
+        "codedGameState" : "1",
+        "detailedState" : "Scheduled",
+        "statusCode" : "1",
+        "startTimeTBD" : false
+      },
+      "teams" : {
+        "away" : {
+          "leagueRecord" : {
+            "wins" : 43,
+            "losses" : 27,
+            "ot" : 10,
+            "type" : "league"
+          },
+          "score" : 0,
+          "team" : {
+            "id" : 26,
+            "name" : "Los Angeles Kings",
+            "link" : "/api/v1/teams/26"
+          }
+        },
+        "home" : {
+          "leagueRecord" : {
+            "wins" : 26,
+            "losses" : 46,
+            "ot" : 6,
+            "type" : "league"
+          },
+          "score" : 0,
+          "team" : {
+            "id" : 55,
+            "name" : "Seattle Kraken",
+            "link" : "/api/v1/teams/55"
+          }
+        }
+      },
+      "venue" : {
+        "name" : "Climate Pledge Arena",
+        "link" : "/api/v1/venues/null"
+      },
+      "content" : {
+        "link" : "/api/v1/game/2021021289/content"
+      }
+    } ],
+    "events" : [ ],
+    "matches" : [ ]
+  } ]
+}
