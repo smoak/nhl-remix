@@ -16,6 +16,10 @@ export const getGamesByDate: GetGamesByDate = async (date) => {
   const response = await fetch(url.toString());
   const { dates } = (await response.json()) as Schedule;
 
+  if (dates.length === 0) {
+    return [];
+  }
+
   if (date) {
     return dates.find((d) => d.date === date)?.games ?? dates[0].games;
   }

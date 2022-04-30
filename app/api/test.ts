@@ -1,5 +1,5 @@
 import { ScheduleGame } from "~/types";
-import { getGamesByDate } from ".";
+import { getGamesByDate } from "./index";
 
 describe("api", () => {
   describe(".getGamesByDate", () => {
@@ -24,6 +24,18 @@ describe("api", () => {
 
       it("should return the games", () => {
         expect(games).toHaveLength(5);
+      });
+    });
+
+    describe("when there are no games scheduled", () => {
+      let games: ScheduleGame[];
+
+      beforeEach(async () => {
+        games = await getGamesByDate("2022-04-30");
+      });
+
+      it("should return an empty array", () => {
+        expect(games).toHaveLength(0);
       });
     });
   });
