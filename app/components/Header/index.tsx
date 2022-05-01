@@ -2,7 +2,7 @@ import { Link, NavLink } from "remix";
 import { NHL } from "~/components/NHLLogos/NHL";
 
 export const Header = () => (
-  <header className="container mx-auto flex items-center justify-between px-4 py-8">
+  <header className="container mx-auto flex items-center justify-between">
     <Link to="/" aria-label="Home">
       <NHL size={96} />
     </Link>

@@ -3,6 +3,7 @@ import { utcToZonedTime } from "date-fns-tz";
 
 export const EST_IANA_ZONE_ID = "America/New_York";
 export const DATE_LINK_FORMAT = "yyyy-MM-dd";
+export const DATE_DISPLAY_FORMAT = "dd MMMM yyyy";
 
 const getTimeZonedDay = (date: Date): Date => {
   const hours = getHours(date);

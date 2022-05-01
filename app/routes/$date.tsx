@@ -1,23 +1,22 @@
-import { json, LoaderFunction, useLoaderData } from "remix";
+import { json, LoaderFunction, useLoaderData, useParams } from "remix";
+import { getGamesByDate } from "~/api";
+import { DateSelector } from "~/components/DateSelector";
 import { GamesList } from "~/components/GamesList";
 import { Layout } from "~/components/Layout";
-import { ScheduleGame } from "~/types";
-import { getGamesByDate } from "~/api";
-import { DATE_LINK_FORMAT, getToday } from "~/date-fns";
-import { format } from "date-fns";
 import { useDays } from "~/hooks/useDays";
-import { DateSelector } from "~/components/DateSelector";
+import { ScheduleGame } from "~/types";
 
-export const loader: LoaderFunction = async () => {
-  const today = getToday();
-  const date = format(today, DATE_LINK_FORMAT);
+export const loader: LoaderFunction = async ({ params }) => {
+  const { date } = params;
+
   const games = await getGamesByDate(date);
 
   return json<ScheduleGame[]>(games);
 };
 
 export const Index = () => {
-  const { prevDay, day, nextDay } = useDays();
+  const { date } = useParams();
+  const { prevDay, day, nextDay } = useDays(date);
   const games = useLoaderData<ScheduleGame[]>();
 
   return (
