@@ -1,30 +1,34 @@
-import { AbstractGameState, GameTeam, LinescoreTeam } from "~/types";
+import { AbstractGameState, LeagueRecord, LinescoreTeam } from "~/types";
 import { TeamLogo } from "~/components/TeamLogo";
 import { TeamName } from "../TeamName";
 import { TeamRecord } from "../TeamRecord";
 
 export type TeamInfoProps = {
-  readonly team: GameTeam;
+  readonly teamId: number;
+  readonly teamName: string;
+  readonly leagueRecord: LeagueRecord;
   readonly linescoreTeam: LinescoreTeam;
   readonly abstractGameState: AbstractGameState;
 };
 
 export const TeamInfo = ({
   abstractGameState,
+  leagueRecord,
   linescoreTeam,
-  team,
+  teamId,
+  teamName,
 }: TeamInfoProps) => (
   <div className="flex w-1/3 flex-col items-center text-center">
-    <TeamLogo teamId={team.team.id} size={48} />
+    <TeamLogo teamId={teamId} size={48} />
     <TeamName
-      name={team.team.teamName}
+      name={teamName}
       linescoreTeam={linescoreTeam}
       abstractGameState={abstractGameState}
     />
     <TeamRecord
-      wins={team.leagueRecord.wins}
-      losses={team.leagueRecord.losses}
-      otWins={team.leagueRecord.ot}
+      wins={leagueRecord.wins}
+      losses={leagueRecord.losses}
+      otWins={leagueRecord.ot}
     />
   </div>
 );

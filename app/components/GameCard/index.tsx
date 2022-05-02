@@ -22,7 +22,9 @@ export const GameCard = ({
     <div className="flex w-full flex-col">
       <div className="flex p-9">
         <TeamInfo
-          team={awayTeam}
+          teamName={awayTeam.team.teamName}
+          teamId={awayTeam.team.id}
+          leagueRecord={awayTeam.leagueRecord}
           linescoreTeam={linescore.teams.away}
           abstractGameState={status.abstractGameState}
         />
@@ -46,7 +48,9 @@ export const GameCard = ({
           />
         </div>
         <TeamInfo
-          team={homeTeam}
+          leagueRecord={homeTeam.leagueRecord}
+          teamId={homeTeam.team.id}
+          teamName={homeTeam.team.teamName}
           linescoreTeam={linescore.teams.home}
           abstractGameState={status.abstractGameState}
         />

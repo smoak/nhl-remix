@@ -1,29 +1,6 @@
 import { render, screen } from "@testing-library/react";
-import { GameTeam, LinescoreTeam } from "~/types";
+import { LeagueRecord, LinescoreTeam } from "~/types";
 import { TeamInfo } from "./index";
-
-const team: GameTeam = {
-  leagueRecord: {
-    losses: 28,
-    ot: 10,
-    type: "league",
-    wins: 35,
-  },
-  score: 0,
-  team: {
-    abbreviation: "VAN",
-    active: true,
-    firstYearOfPlay: "1970",
-    franchiseId: 20,
-    id: 23,
-    link: "/api/v1/teams/23",
-    locationName: "Vancouver",
-    name: "Vancouver Canucks",
-    officialSiteUrl: "http://www.canucks.com/",
-    shortName: "Vancouver",
-    teamName: "Canucks",
-  },
-};
 
 const linescoreTeam: LinescoreTeam = {
   goaliePulled: false,
@@ -38,11 +15,22 @@ const linescoreTeam: LinescoreTeam = {
   },
 };
 
+const teamId = 23;
+const teamName = "Canucks";
+const leagueRecord: LeagueRecord = {
+  losses: 28,
+  ot: 10,
+  type: "league",
+  wins: 35,
+};
+
 describe("TeamInfo", () => {
   beforeEach(() => {
     render(
       <TeamInfo
-        team={team}
+        leagueRecord={leagueRecord}
+        teamId={teamId}
+        teamName={teamName}
         linescoreTeam={linescoreTeam}
         abstractGameState="Live"
       />
