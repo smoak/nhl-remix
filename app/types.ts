@@ -25,7 +25,7 @@ export type GameStatus = {
 
 export type LeagueRecord = {
   readonly losses: number;
-  readonly ot: number;
+  readonly ot?: number;
   readonly type: string;
   readonly wins: number;
 };
@@ -102,17 +102,31 @@ export type GameLinescore = {
   readonly powerPlayInfo: LinescorePowerPlayInfo;
 };
 
+export type GameType = "R" | "P";
+
+export type SeriesSummary = {
+  readonly gamePk: string;
+  readonly gameNumber: number;
+  readonly gameLabel: string;
+  readonly necessary: boolean;
+  readonly gameCode: number;
+  readonly gameTime: string;
+  readonly seriesStatus: string;
+  readonly seriesStatusShort: string;
+};
+
 export type ScheduleGame = {
   readonly content: GameContent;
   readonly gameDate: string;
   readonly gamePk: number;
-  readonly gameType: string;
+  readonly gameType: GameType;
   readonly link: string;
   readonly season: string;
   readonly status: GameStatus;
   readonly teams: GameTeams;
   readonly venue: GameVenue;
   readonly linescore: GameLinescore;
+  readonly seriesSummary?: SeriesSummary;
 };
 
 export type Schedule = {

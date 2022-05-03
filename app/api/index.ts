@@ -7,7 +7,7 @@ export const SCHEDULE_URL = `${BASE_URL}/schedule`;
 type GetGamesByDate = (date?: string) => Promise<ScheduleGame[]>;
 export const getGamesByDate: GetGamesByDate = async (date) => {
   const url = new URL(SCHEDULE_URL);
-  url.searchParams.append("hydrate", "linescore,team");
+  url.searchParams.append("hydrate", "linescore,team,game(seriesSummary)");
 
   if (date) {
     url.searchParams.append("date", date);

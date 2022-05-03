@@ -1,4 +1,9 @@
-import { AbstractGameState, LeagueRecord, LinescoreTeam } from "~/types";
+import {
+  AbstractGameState,
+  GameType,
+  LeagueRecord,
+  LinescoreTeam,
+} from "~/types";
 import { TeamLogo } from "~/components/TeamLogo";
 import { TeamName } from "../TeamName";
 import { TeamRecord } from "../TeamRecord";
@@ -9,10 +14,12 @@ export type TeamInfoProps = {
   readonly leagueRecord: LeagueRecord;
   readonly linescoreTeam: LinescoreTeam;
   readonly abstractGameState: AbstractGameState;
+  readonly gameType: GameType;
 };
 
 export const TeamInfo = ({
   abstractGameState,
+  gameType,
   leagueRecord,
   linescoreTeam,
   teamId,
@@ -29,6 +36,7 @@ export const TeamInfo = ({
       wins={leagueRecord.wins}
       losses={leagueRecord.losses}
       otWins={leagueRecord.ot}
+      gameType={gameType}
     />
   </div>
 );

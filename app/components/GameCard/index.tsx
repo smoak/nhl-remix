@@ -1,7 +1,14 @@
-import { GameLinescore, GameStatus, GameTeam, ScheduleGame } from "~/types";
+import {
+  GameLinescore,
+  GameStatus,
+  GameTeam,
+  GameType,
+  ScheduleGame,
+} from "~/types";
 import { TeamInfo } from "~/components/TeamInfo";
 import { CurrentGameStatus } from "~/components/CurrentGameStatus";
 import { TeamScore } from "~/components/TeamScore";
+import { PlayoffSeriesSummary } from "../PlayoffSeriesSummary";
 
 export type GameCardProps = {
   readonly startTime: ScheduleGame["gameDate"];
@@ -9,6 +16,7 @@ export type GameCardProps = {
   readonly awayTeam: GameTeam;
   readonly status: GameStatus;
   readonly linescore: GameLinescore;
+  readonly gameType: GameType;
 };
 
 export const GameCard = ({
@@ -17,6 +25,7 @@ export const GameCard = ({
   homeTeam,
   awayTeam,
   status,
+  gameType,
 }: GameCardProps) => (
   <article className="flex rounded-lg border border-nhl-black">
     <div className="flex w-full flex-col">
@@ -27,6 +36,7 @@ export const GameCard = ({
           leagueRecord={awayTeam.leagueRecord}
           linescoreTeam={linescore.teams.away}
           abstractGameState={status.abstractGameState}
+          gameType={gameType}
         />
         <div className="mt-3 flex flex-1">
           <TeamScore
@@ -41,6 +51,11 @@ export const GameCard = ({
               gameState={status.abstractGameState}
               startTime={startTime}
             />
+            <PlayoffSeriesSummary
+              homeTeam={homeTeam}
+              awayTeam={awayTeam}
+              gameType={gameType}
+            />
           </p>
           <TeamScore
             score={homeTeam.score}
@@ -53,6 +68,7 @@ export const GameCard = ({
           teamName={homeTeam.team.teamName}
           linescoreTeam={linescore.teams.home}
           abstractGameState={status.abstractGameState}
+          gameType={gameType}
         />
       </div>
     </div>

@@ -33,6 +33,7 @@ describe("TeamInfo", () => {
         teamName={teamName}
         linescoreTeam={linescoreTeam}
         abstractGameState="Live"
+        gameType="R"
       />
     );
   });

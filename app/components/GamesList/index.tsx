@@ -20,7 +20,7 @@ export const GamesList: GamesListFunction = ({ games }) => {
 
   return (
     <div className="grid grid-cols-auto-fill gap-5">
-      {games.map(({ gamePk, gameDate, linescore, teams, status }) => (
+      {games.map(({ gamePk, gameDate, gameType, linescore, teams, status }) => (
         <Link prefetch="intent" to={`/game/${gamePk}`} key={gamePk}>
           <GameCard
             status={status}
@@ -28,6 +28,7 @@ export const GamesList: GamesListFunction = ({ games }) => {
             homeTeam={teams.home}
             awayTeam={teams.away}
             linescore={linescore}
+            gameType={gameType}
           />
         </Link>
       ))}
