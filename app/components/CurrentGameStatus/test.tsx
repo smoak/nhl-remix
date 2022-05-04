@@ -7,9 +7,9 @@ describe("CurrentGameStatus", () => {
       render(
         <CurrentGameStatus
           currentPeriod={1}
-          currentPeriodOrdinal="1st"
           currentPeriodTimeRemaining="03:14"
           gameState="Live"
+          gameType="R"
           startTime="2022-04-09T00:00:00Z"
         />
       );
@@ -24,12 +24,12 @@ describe("CurrentGameStatus", () => {
     });
   });
 
-  describe("for a live game in overtime", () => {
+  describe("for a live game in 1st overtime", () => {
     beforeEach(() => {
       render(
         <CurrentGameStatus
           currentPeriod={4}
-          currentPeriodOrdinal="OT"
+          gameType="R"
           currentPeriodTimeRemaining="03:14"
           gameState="Live"
           startTime="2022-04-09T00:00:00Z"
@@ -46,13 +46,57 @@ describe("CurrentGameStatus", () => {
     });
   });
 
-  describe("for a game that finished in overtime", () => {
+  describe("for a live game in 2nd overtime", () => {
+    beforeEach(() => {
+      render(
+        <CurrentGameStatus
+          currentPeriod={5}
+          currentPeriodTimeRemaining="03:14"
+          gameState="Live"
+          gameType="P"
+          startTime="2022-04-09T00:00:00Z"
+        />
+      );
+    });
+
+    it("should render the current period and the time remaining", () => {
+      expect(screen.getByText("2OT - 03:14")).toBeInTheDocument();
+    });
+
+    it("should render a live indicator", () => {
+      expect(screen.getByText("Live")).toBeInTheDocument();
+    });
+  });
+
+  describe("for a live game in 3rd overtime", () => {
+    beforeEach(() => {
+      render(
+        <CurrentGameStatus
+          currentPeriod={6}
+          currentPeriodTimeRemaining="03:14"
+          gameState="Live"
+          gameType="P"
+          startTime="2022-04-09T00:00:00Z"
+        />
+      );
+    });
+
+    it("should render the current period and the time remaining", () => {
+      expect(screen.getByText("3OT - 03:14")).toBeInTheDocument();
+    });
+
+    it("should render a live indicator", () => {
+      expect(screen.getByText("Live")).toBeInTheDocument();
+    });
+  });
+
+  describe("for a game that finished in 1st overtime", () => {
     beforeEach(() => {
       render(
         <CurrentGameStatus
           currentPeriod={4}
-          currentPeriodOrdinal="OT"
           currentPeriodTimeRemaining="Final"
+          gameType="R"
           gameState="Final"
           startTime="2022-04-08T23:00:00Z"
         />
@@ -69,7 +113,7 @@ describe("CurrentGameStatus", () => {
       render(
         <CurrentGameStatus
           currentPeriod={5}
-          currentPeriodOrdinal="SO"
+          gameType="R"
           currentPeriodTimeRemaining="Final"
           gameState="Final"
           startTime="2022-04-08T23:00:00Z"
@@ -82,12 +126,30 @@ describe("CurrentGameStatus", () => {
     });
   });
 
+  describe("for a game that finished in 3rd overtime", () => {
+    beforeEach(() => {
+      render(
+        <CurrentGameStatus
+          currentPeriod={6}
+          currentPeriodTimeRemaining="Final"
+          gameType="P"
+          gameState="Final"
+          startTime="2022-04-08T23:00:00Z"
+        />
+      );
+    });
+
+    it("should say that the game finished in 3rd overtime", () => {
+      expect(screen.getByText("Final/3OT")).toBeInTheDocument();
+    });
+  });
+
   describe("for a game that finished in regulation", () => {
     beforeEach(() => {
       render(
         <CurrentGameStatus
           currentPeriod={3}
-          currentPeriodOrdinal="3rd"
+          gameType="R"
           currentPeriodTimeRemaining="Final"
           gameState="Final"
           startTime="2022-04-08T23:00:00Z"
@@ -105,7 +167,7 @@ describe("CurrentGameStatus", () => {
       render(
         <CurrentGameStatus
           currentPeriod={1}
-          currentPeriodOrdinal="1st"
+          gameType="R"
           currentPeriodTimeRemaining="20:00"
           gameState="Preview"
           startTime="2022-04-10T21:00:00Z"

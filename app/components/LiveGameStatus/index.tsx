@@ -37,9 +37,20 @@ export const LiveGameStatus = ({
     );
   }
 
+  if (currentPeriod === 4) {
+    return (
+      <>
+        OT - {currentPeriodTimeRemaining}
+        <LiveIndicator />
+      </>
+    );
+  }
+
+  const otPeriods = currentPeriod - 3;
+
   return (
     <>
-      OT - {currentPeriodTimeRemaining}
+      {otPeriods}OT - {currentPeriodTimeRemaining}
       <LiveIndicator />
     </>
   );

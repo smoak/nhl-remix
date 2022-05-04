@@ -46,9 +46,9 @@ export const GameCard = ({
           <p className="flex-1 whitespace-nowrap px-3 pt-1.5 text-center uppercase">
             <CurrentGameStatus
               currentPeriod={linescore.currentPeriod}
-              currentPeriodOrdinal={linescore.currentPeriodOrdinal}
               currentPeriodTimeRemaining={linescore.currentPeriodTimeRemaining}
               gameState={status.abstractGameState}
+              gameType={gameType}
               startTime={startTime}
             />
             <PlayoffSeriesSummary

@@ -1,4 +1,5 @@
-import { ScheduleGame, AbstractGameState, CurrentPeriodOrdinal } from "~/types";
+import { ScheduleGame, AbstractGameState, GameType } from "~/types";
+import { FinalGameStatus } from "../FinalGameStatus";
 import { LiveGameStatus } from "../LiveGameStatus";
 
 export type CurrentGameStatusProps = {
@@ -6,13 +7,13 @@ export type CurrentGameStatusProps = {
   readonly startTime: ScheduleGame["gameDate"];
   readonly currentPeriod: number;
   readonly currentPeriodTimeRemaining: string;
-  readonly currentPeriodOrdinal: CurrentPeriodOrdinal;
+  readonly gameType: GameType;
 };
 
 export const CurrentGameStatus = ({
   currentPeriod,
-  currentPeriodOrdinal,
   currentPeriodTimeRemaining,
+  gameType,
   startTime,
   gameState,
 }: CurrentGameStatusProps) => {
@@ -25,16 +26,10 @@ export const CurrentGameStatus = ({
     );
   }
 
-  if (gameState === "Final" && currentPeriodOrdinal === "OT") {
-    return <>Final/OT</>;
-  }
-
-  if (gameState === "Final" && currentPeriodOrdinal === "SO") {
-    return <>Final/SO</>;
-  }
-
   if (gameState === "Final") {
-    return <>Final</>;
+    return (
+      <FinalGameStatus gameType={gameType} endedInPeriod={currentPeriod} />
+    );
   }
 
   return (
