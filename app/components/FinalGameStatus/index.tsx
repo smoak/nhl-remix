@@ -5,6 +5,31 @@ type FinalGameStatusProps = {
   readonly endedInPeriod: number;
 };
 
+const FinalOvertime = ({ otPeriods }: { otPeriods: number }) => {
+  if (otPeriods === 1) {
+    return (
+      <>
+        <span className="mx-auto block">Final/OT</span>
+        <span className="mx-auto block pt-6"></span>
+      </>
+    );
+  }
+
+  return (
+    <>
+      <span className="mx-auto block">Final/{otPeriods}OT</span>
+      <span className="mx-auto block pt-6"></span>
+    </>
+  );
+};
+
+const FinalShootout = () => (
+  <>
+    <span className="mx-auto block">Final/SO</span>
+    <span className="mx-auto block pt-6"></span>
+  </>
+);
+
 export const FinalGameStatus = ({
   gameType,
   endedInPeriod,
@@ -13,18 +38,17 @@ export const FinalGameStatus = ({
   const endedInOvertime = endedInPeriod > 3 && !endedInShootout;
 
   if (endedInShootout) {
-    return <>Final/SO</>;
+    return <FinalShootout />;
   }
 
   if (endedInOvertime) {
     const otPeriods = endedInPeriod - 3;
-    return otPeriods > 1 ? <>Final/{otPeriods}OT</> : <>Final/OT</>;
+    return <FinalOvertime otPeriods={otPeriods} />;
   }
 
   return (
     <>
       <span className="mx-auto block">Final</span>
-
       <span className="mx-auto block pt-6"></span>
     </>
   );
