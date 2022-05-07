@@ -4,6 +4,7 @@ import { DateSelector } from "~/components/DateSelector";
 import { GamesList } from "~/components/GamesList";
 import { Layout } from "~/components/Layout";
 import { useDays } from "~/hooks/useDays";
+import { useGames } from "~/hooks/useGames";
 import { ScheduleGame } from "~/types";
 
 export const loader: LoaderFunction = async ({ params }) => {
@@ -17,7 +18,8 @@ export const loader: LoaderFunction = async ({ params }) => {
 export const Index = () => {
   const { date } = useParams();
   const { prevDay, day, nextDay } = useDays(date);
-  const games = useLoaderData<ScheduleGame[]>();
+  const loadedGames = useLoaderData<ScheduleGame[]>();
+  const games = useGames({ route: `/${date}`, preloadedGames: loadedGames });
 
   return (
     <Layout>

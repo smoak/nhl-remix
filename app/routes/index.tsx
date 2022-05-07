@@ -7,6 +7,7 @@ import { DATE_LINK_FORMAT, getToday } from "~/date-fns";
 import { format } from "date-fns";
 import { useDays } from "~/hooks/useDays";
 import { DateSelector } from "~/components/DateSelector";
+import { useGames } from "~/hooks/useGames";
 
 export const loader: LoaderFunction = async () => {
   const today = getToday();
@@ -18,7 +19,8 @@ export const loader: LoaderFunction = async () => {
 
 export const Index = () => {
   const { prevDay, day, nextDay } = useDays();
-  const games = useLoaderData<ScheduleGame[]>();
+  const loadedGames = useLoaderData<ScheduleGame[]>();
+  const games = useGames({ route: "?index", preloadedGames: loadedGames });
 
   return (
     <Layout>
