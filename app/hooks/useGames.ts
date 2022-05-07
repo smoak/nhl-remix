@@ -27,6 +27,9 @@ export const useGames = ({ route, preloadedGames }: Options) => {
 
   useRevalidateOnVisible(revalidate);
   useRevalidateOnInterval({ interval: WAIT, revalidateCallback: revalidate });
+  useEffect(() => {
+    setGames(preloadedGames);
+  }, [route, preloadedGames]);
 
   return games;
 };
