@@ -12,5 +12,6 @@ export const useRevalidateOnVisible = (callback: () => void): void => {
     return () => {
       document.removeEventListener("visibilitychange", onVisibilityChanged);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 };
