@@ -1,22 +1,27 @@
-import { GameTeam, GameType } from "~/types";
+import { GameType } from "~/types";
+
+type Team = {
+  readonly abbreviation: string;
+  readonly wins: number;
+};
 
 export type PlayoffSeriesSummaryProps = {
-  readonly homeTeam: GameTeam;
-  readonly awayTeam: GameTeam;
+  readonly homeTeam: Team;
+  readonly awayTeam: Team;
   readonly gameType: GameType;
 };
 
 type UseSeriesSummaryTextOptions = {
-  readonly homeTeam: GameTeam;
-  readonly awayTeam: GameTeam;
+  readonly homeTeam: Team;
+  readonly awayTeam: Team;
 };
 
 const useSeriesSummaryText = ({
   homeTeam,
   awayTeam,
 }: UseSeriesSummaryTextOptions): string => {
-  const homeTeamWins = homeTeam.leagueRecord.wins;
-  const awayTeamWins = awayTeam.leagueRecord.wins;
+  const homeTeamWins = homeTeam.wins;
+  const awayTeamWins = awayTeam.wins;
 
   const isTied = homeTeamWins === awayTeamWins;
   const isHomeTeamLeading = homeTeamWins > awayTeamWins;
@@ -28,18 +33,18 @@ const useSeriesSummaryText = ({
   }
 
   if (isHomeTeamWinner) {
-    return `${homeTeam.team.abbreviation} wins ${homeTeamWins}-${awayTeamWins}`;
+    return `${homeTeam.abbreviation} wins ${homeTeamWins}-${awayTeamWins}`;
   }
 
   if (isAwayTeamWinner) {
-    return `${awayTeam.team.abbreviation} wins ${awayTeamWins}-${homeTeamWins}`;
+    return `${awayTeam.abbreviation} wins ${awayTeamWins}-${homeTeamWins}`;
   }
 
   if (isHomeTeamLeading) {
-    return `${homeTeam.team.abbreviation} leads ${homeTeamWins}-${awayTeamWins}`;
+    return `${homeTeam.abbreviation} leads ${homeTeamWins}-${awayTeamWins}`;
   }
 
-  return `${awayTeam.team.abbreviation} leads ${awayTeamWins}-${homeTeamWins}`;
+  return `${awayTeam.abbreviation} leads ${awayTeamWins}-${homeTeamWins}`;
 };
 
 export const PlayoffSeriesSummary = ({

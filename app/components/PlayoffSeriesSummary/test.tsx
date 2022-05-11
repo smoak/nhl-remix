@@ -1,91 +1,14 @@
 import { render, screen } from "@testing-library/react";
-import { GameTeam } from "~/types";
 import { PlayoffSeriesSummary } from "./index";
 
-const canucks: GameTeam["team"] = {
+const homeTeam = {
   abbreviation: "VAN",
-  active: true,
-  firstYearOfPlay: "1970",
-  franchiseId: 20,
-  id: 23,
-  link: "/api/v1/teams/23",
-  locationName: "Vancouver",
-  name: "Vancouver Canucks",
-  officialSiteUrl: "http://www.canucks.com/",
-  shortName: "Vancouver",
-  teamName: "Canucks",
+  wins: 0,
 };
 
-const kraken: GameTeam["team"] = {
+const awayTeam = {
   abbreviation: "SEA",
-  active: true,
-  firstYearOfPlay: "2021",
-  franchiseId: 39,
-  id: 55,
-  link: "/api/v1/teams/55",
-  locationName: "Seattle",
-  name: "Seattle Kraken",
-  officialSiteUrl: "https://www.nhl.com/seattle",
-  shortName: "Seattle",
-  teamName: "Kraken",
-};
-
-const homeTeam: GameTeam = {
-  leagueRecord: {
-    losses: 0,
-    wins: 0,
-    type: "league",
-    ot: 0,
-  },
-  score: 0,
-  team: canucks,
-};
-
-const awayTeam: GameTeam = {
-  leagueRecord: {
-    losses: 0,
-    wins: 0,
-    type: "league",
-    ot: 0,
-  },
-  score: 0,
-  team: kraken,
-};
-
-const leadingAwayTeam: GameTeam = {
-  ...awayTeam,
-  leagueRecord: {
-    losses: 0,
-    wins: 1,
-    type: "league",
-  },
-};
-
-const leadingHomeTeam: GameTeam = {
-  ...homeTeam,
-  leagueRecord: {
-    losses: 0,
-    wins: 1,
-    type: "league",
-  },
-};
-
-const homeTeamWonSeries: GameTeam = {
-  ...homeTeam,
-  leagueRecord: {
-    losses: 0,
-    wins: 4,
-    type: "league",
-  },
-};
-
-const awayTeamWonSeries: GameTeam = {
-  ...awayTeam,
-  leagueRecord: {
-    losses: 0,
-    wins: 4,
-    type: "league",
-  },
+  wins: 0,
 };
 
 describe("PlayoffSeriesSummary", () => {
@@ -128,7 +51,7 @@ describe("PlayoffSeriesSummary", () => {
       render(
         <PlayoffSeriesSummary
           gameType="P"
-          homeTeam={leadingHomeTeam}
+          homeTeam={{ ...homeTeam, wins: 1 }}
           awayTeam={awayTeam}
         />
       );
@@ -145,7 +68,7 @@ describe("PlayoffSeriesSummary", () => {
         <PlayoffSeriesSummary
           gameType="P"
           homeTeam={homeTeam}
-          awayTeam={leadingAwayTeam}
+          awayTeam={{ ...awayTeam, wins: 1 }}
         />
       );
     });
@@ -160,7 +83,7 @@ describe("PlayoffSeriesSummary", () => {
       render(
         <PlayoffSeriesSummary
           gameType="P"
-          homeTeam={homeTeamWonSeries}
+          homeTeam={{ ...homeTeam, wins: 4 }}
           awayTeam={awayTeam}
         />
       );
@@ -177,7 +100,7 @@ describe("PlayoffSeriesSummary", () => {
         <PlayoffSeriesSummary
           gameType="P"
           homeTeam={homeTeam}
-          awayTeam={awayTeamWonSeries}
+          awayTeam={{ ...awayTeam, wins: 4 }}
         />
       );
     });

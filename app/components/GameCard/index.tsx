@@ -54,8 +54,14 @@ export const GameCard = ({
               startTime={startTime}
             />
             <PlayoffSeriesSummary
-              homeTeam={homeTeam}
-              awayTeam={awayTeam}
+              homeTeam={{
+                abbreviation: homeTeam.team.abbreviation,
+                wins: homeTeam.leagueRecord.wins,
+              }}
+              awayTeam={{
+                abbreviation: awayTeam.team.abbreviation,
+                wins: awayTeam.leagueRecord.wins,
+              }}
               gameType={gameType}
             />
           </p>
