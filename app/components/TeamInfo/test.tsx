@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { LeagueRecord, LinescoreTeam } from "~/types";
+import { LinescoreTeam } from "~/types";
 import { TeamInfo } from "./index";
 
 const linescoreTeam: LinescoreTeam = {
@@ -17,18 +17,17 @@ const linescoreTeam: LinescoreTeam = {
 
 const teamId = 23;
 const teamName = "Canucks";
-const leagueRecord: LeagueRecord = {
-  losses: 28,
-  ot: 10,
-  type: "league",
-  wins: 35,
-};
+const losses = 28;
+const ot = 10;
+const wins = 35;
 
 describe("TeamInfo", () => {
   beforeEach(() => {
     render(
       <TeamInfo
-        leagueRecord={leagueRecord}
+        wins={wins}
+        losses={losses}
+        ot={ot}
         teamId={teamId}
         teamName={teamName}
         linescoreTeam={linescoreTeam}

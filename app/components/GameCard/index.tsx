@@ -33,7 +33,9 @@ export const GameCard = ({
         <TeamInfo
           teamName={awayTeam.team.teamName}
           teamId={awayTeam.team.id}
-          leagueRecord={awayTeam.leagueRecord}
+          losses={awayTeam.leagueRecord.losses}
+          ot={awayTeam.leagueRecord.ot}
+          wins={awayTeam.leagueRecord.wins}
           linescoreTeam={linescore.teams.away}
           abstractGameState={status.abstractGameState}
           gameType={gameType}
@@ -63,7 +65,9 @@ export const GameCard = ({
           />
         </div>
         <TeamInfo
-          leagueRecord={homeTeam.leagueRecord}
+          losses={homeTeam.leagueRecord.losses}
+          wins={homeTeam.leagueRecord.wins}
+          ot={homeTeam.leagueRecord.ot}
           teamId={homeTeam.team.id}
           teamName={homeTeam.team.teamName}
           linescoreTeam={linescore.teams.home}
