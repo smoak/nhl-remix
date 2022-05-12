@@ -1,19 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { LinescoreTeam } from "~/types";
 import { TeamInfo } from "./index";
-
-const linescoreTeam: LinescoreTeam = {
-  goaliePulled: false,
-  goals: 0,
-  numSkaters: 5,
-  powerPlay: false,
-  shotsOnGoal: 0,
-  team: {
-    id: 23,
-    link: "/api/v1/teams/23",
-    name: "Vancouver Canucks",
-  },
-};
 
 const teamId = 23;
 const teamName = "Canucks";
@@ -30,8 +16,9 @@ describe("TeamInfo", () => {
         ot={ot}
         teamId={teamId}
         teamName={teamName}
-        linescoreTeam={linescoreTeam}
-        abstractGameState="Live"
+        isGameInProgress={true}
+        isGoaliePulled={false}
+        isOnPowerPlay={false}
         gameType="R"
       />
     );

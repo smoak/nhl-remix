@@ -34,61 +34,69 @@ export const GameCard = ({
   awayTeam,
   status,
   gameType,
-}: GameCardProps) => (
-  <article className="flex rounded-lg border border-nhl-black">
-    <div className="flex w-full flex-col">
-      <div className="flex p-9">
-        <TeamInfo
-          teamName={awayTeam.name}
-          teamId={awayTeam.id}
-          losses={awayTeam.record.losses}
-          ot={awayTeam.record.ot}
-          wins={awayTeam.record.wins}
-          linescoreTeam={linescore.teams.away}
-          abstractGameState={status.abstractGameState}
-          gameType={gameType}
-        />
-        <div className="mt-3 flex flex-1">
-          <TeamScore
-            score={awayTeam.score}
-            gameState={status.abstractGameState}
+}: GameCardProps) => {
+  const isGameInProgress = status.abstractGameState === "Live";
+
+  return (
+    <article className="flex rounded-lg border border-nhl-black">
+      <div className="flex w-full flex-col">
+        <div className="flex p-9">
+          <TeamInfo
+            teamName={awayTeam.name}
+            teamId={awayTeam.id}
+            losses={awayTeam.record.losses}
+            ot={awayTeam.record.ot}
+            wins={awayTeam.record.wins}
+            isGameInProgress={isGameInProgress}
+            isGoaliePulled={linescore.teams.away.goaliePulled}
+            isOnPowerPlay={linescore.teams.away.powerPlay}
+            gameType={gameType}
           />
-          <p className="flex-1 whitespace-nowrap px-3 pt-1.5 text-center uppercase">
-            <CurrentGameStatus
-              currentPeriod={linescore.currentPeriod}
-              currentPeriodTimeRemaining={linescore.currentPeriodTimeRemaining}
+          <div className="mt-3 flex flex-1">
+            <TeamScore
+              score={awayTeam.score}
               gameState={status.abstractGameState}
-              gameType={gameType}
-              startTime={startTime}
             />
-            <PlayoffSeriesSummary
-              homeTeam={{
-                abbreviation: homeTeam.abbreviation,
-                wins: homeTeam.record.wins,
-              }}
-              awayTeam={{
-                abbreviation: awayTeam.abbreviation,
-                wins: awayTeam.record.wins,
-              }}
-              gameType={gameType}
+            <p className="flex-1 whitespace-nowrap px-3 pt-1.5 text-center uppercase">
+              <CurrentGameStatus
+                currentPeriod={linescore.currentPeriod}
+                currentPeriodTimeRemaining={
+                  linescore.currentPeriodTimeRemaining
+                }
+                gameState={status.abstractGameState}
+                gameType={gameType}
+                startTime={startTime}
+              />
+              <PlayoffSeriesSummary
+                homeTeam={{
+                  abbreviation: homeTeam.abbreviation,
+                  wins: homeTeam.record.wins,
+                }}
+                awayTeam={{
+                  abbreviation: awayTeam.abbreviation,
+                  wins: awayTeam.record.wins,
+                }}
+                gameType={gameType}
+              />
+            </p>
+            <TeamScore
+              score={homeTeam.score}
+              gameState={status.abstractGameState}
             />
-          </p>
-          <TeamScore
-            score={homeTeam.score}
-            gameState={status.abstractGameState}
+          </div>
+          <TeamInfo
+            losses={homeTeam.record.losses}
+            wins={homeTeam.record.wins}
+            ot={homeTeam.record.ot}
+            teamId={homeTeam.id}
+            teamName={homeTeam.name}
+            isGameInProgress={isGameInProgress}
+            isGoaliePulled={linescore.teams.home.goaliePulled}
+            isOnPowerPlay={linescore.teams.home.powerPlay}
+            gameType={gameType}
           />
         </div>
-        <TeamInfo
-          losses={homeTeam.record.losses}
-          wins={homeTeam.record.wins}
-          ot={homeTeam.record.ot}
-          teamId={homeTeam.id}
-          teamName={homeTeam.name}
-          linescoreTeam={linescore.teams.home}
-          abstractGameState={status.abstractGameState}
-          gameType={gameType}
-        />
       </div>
-    </div>
-  </article>
-);
+    </article>
+  );
+};

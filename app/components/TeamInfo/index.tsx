@@ -9,15 +9,17 @@ export type TeamInfoProps = {
   readonly wins: number;
   readonly losses: number;
   readonly ot?: number;
-  readonly linescoreTeam: LinescoreTeam;
-  readonly abstractGameState: AbstractGameState;
+  readonly isGameInProgress: boolean;
+  readonly isGoaliePulled: boolean;
+  readonly isOnPowerPlay: boolean;
   readonly gameType: GameType;
 };
 
 export const TeamInfo = ({
-  abstractGameState,
+  isGameInProgress,
+  isGoaliePulled,
+  isOnPowerPlay,
   gameType,
-  linescoreTeam,
   losses,
   ot,
   teamId,
@@ -27,9 +29,9 @@ export const TeamInfo = ({
   <div className="flex w-1/3 flex-col items-center text-center">
     <TeamLogo teamId={teamId} size={48} />
     <TeamName
-      isGameInProgress={abstractGameState === "Live"}
-      isGoaliePulled={linescoreTeam.goaliePulled}
-      isOnPowerPlay={linescoreTeam.powerPlay}
+      isGameInProgress={isGameInProgress}
+      isGoaliePulled={isGoaliePulled}
+      isOnPowerPlay={isOnPowerPlay}
       name={teamName}
     />
     <TeamRecord wins={wins} losses={losses} otWins={ot} gameType={gameType} />
