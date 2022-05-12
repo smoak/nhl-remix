@@ -27,9 +27,10 @@ export const TeamInfo = ({
   <div className="flex w-1/3 flex-col items-center text-center">
     <TeamLogo teamId={teamId} size={48} />
     <TeamName
+      isGameInProgress={abstractGameState === "Live"}
+      isGoaliePulled={linescoreTeam.goaliePulled}
+      isOnPowerPlay={linescoreTeam.powerPlay}
       name={teamName}
-      linescoreTeam={linescoreTeam}
-      abstractGameState={abstractGameState}
     />
     <TeamRecord wins={wins} losses={losses} otWins={ot} gameType={gameType} />
   </div>

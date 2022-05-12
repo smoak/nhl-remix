@@ -1,24 +1,15 @@
 import { render, screen } from "@testing-library/react";
 import { TeamName } from "./index";
-import { LinescoreTeam } from "../../types";
-
-const linescoreTeam: LinescoreTeam = {
-  goaliePulled: false,
-  goals: 0,
-  numSkaters: 5,
-  powerPlay: false,
-  shotsOnGoal: 0,
-  team: { id: 1, link: "link", name: "Test team" },
-};
 
 describe("TeamName", () => {
   describe("when there is no goalie pulled or power play", () => {
     beforeEach(() => {
       render(
         <TeamName
+          isGameInProgress={true}
+          isOnPowerPlay={false}
+          isGoaliePulled={false}
           name="Test team"
-          linescoreTeam={linescoreTeam}
-          abstractGameState="Live"
         />
       );
     });
@@ -40,9 +31,10 @@ describe("TeamName", () => {
     beforeEach(() => {
       render(
         <TeamName
+          isGameInProgress={true}
+          isGoaliePulled={true}
+          isOnPowerPlay={false}
           name="Test team"
-          linescoreTeam={{ ...linescoreTeam, goaliePulled: true }}
-          abstractGameState="Live"
         />
       );
     });
@@ -64,9 +56,10 @@ describe("TeamName", () => {
     beforeEach(() => {
       render(
         <TeamName
+          isGameInProgress={true}
+          isGoaliePulled={false}
+          isOnPowerPlay={true}
           name="Test team"
-          linescoreTeam={{ ...linescoreTeam, powerPlay: true }}
-          abstractGameState="Live"
         />
       );
     });

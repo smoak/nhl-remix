@@ -1,17 +1,17 @@
-import { AbstractGameState, LinescoreTeam } from "~/types";
-
 export type TeamNameProps = {
   readonly name: string;
-  readonly linescoreTeam: LinescoreTeam;
-  readonly abstractGameState: AbstractGameState;
+  readonly isOnPowerPlay: boolean;
+  readonly isGoaliePulled: boolean;
+  readonly isGameInProgress: boolean;
 };
 
 export const TeamName = ({
-  abstractGameState,
-  linescoreTeam,
+  isGameInProgress,
+  isGoaliePulled,
+  isOnPowerPlay,
   name,
 }: TeamNameProps) => {
-  if (linescoreTeam.powerPlay && abstractGameState === "Live") {
+  if (isOnPowerPlay && isGameInProgress) {
     return (
       <p className="mt-1 whitespace-nowrap text-sm font-semibold">
         {name} <span className="italic text-red-800">PP</span>
@@ -19,7 +19,7 @@ export const TeamName = ({
     );
   }
 
-  if (linescoreTeam.goaliePulled && abstractGameState === "Live") {
+  if (isGoaliePulled && isGameInProgress) {
     return (
       <p className="mt-1 whitespace-nowrap text-sm font-semibold">
         {name} <span className="italic text-red-500">EN</span>
