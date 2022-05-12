@@ -1,10 +1,4 @@
-import {
-  GameLinescore,
-  GameStatus,
-  GameTeam,
-  GameType,
-  ScheduleGame,
-} from "~/types";
+import { GameLinescore, GameStatus, GameType, ScheduleGame } from "~/types";
 import { TeamInfo } from "~/components/TeamInfo";
 import { CurrentGameStatus } from "~/components/CurrentGameStatus";
 import { TeamScore } from "~/components/TeamScore";
@@ -12,11 +6,25 @@ import { PlayoffSeriesSummary } from "../PlayoffSeriesSummary";
 
 export type GameCardProps = {
   readonly startTime: ScheduleGame["gameDate"];
-  readonly homeTeam: GameTeam;
-  readonly awayTeam: GameTeam;
+  readonly homeTeam: Team;
+  readonly awayTeam: Team;
   readonly status: GameStatus;
   readonly linescore: GameLinescore;
   readonly gameType: GameType;
+};
+
+type Record = {
+  readonly wins: number;
+  readonly losses: number;
+  readonly ot?: number;
+};
+
+type Team = {
+  readonly name: string;
+  readonly abbreviation: string;
+  readonly id: number;
+  readonly record: Record;
+  readonly score: number;
 };
 
 export const GameCard = ({
@@ -31,11 +39,11 @@ export const GameCard = ({
     <div className="flex w-full flex-col">
       <div className="flex p-9">
         <TeamInfo
-          teamName={awayTeam.team.teamName}
-          teamId={awayTeam.team.id}
-          losses={awayTeam.leagueRecord.losses}
-          ot={awayTeam.leagueRecord.ot}
-          wins={awayTeam.leagueRecord.wins}
+          teamName={awayTeam.name}
+          teamId={awayTeam.id}
+          losses={awayTeam.record.losses}
+          ot={awayTeam.record.ot}
+          wins={awayTeam.record.wins}
           linescoreTeam={linescore.teams.away}
           abstractGameState={status.abstractGameState}
           gameType={gameType}
@@ -55,12 +63,12 @@ export const GameCard = ({
             />
             <PlayoffSeriesSummary
               homeTeam={{
-                abbreviation: homeTeam.team.abbreviation,
-                wins: homeTeam.leagueRecord.wins,
+                abbreviation: homeTeam.abbreviation,
+                wins: homeTeam.record.wins,
               }}
               awayTeam={{
-                abbreviation: awayTeam.team.abbreviation,
-                wins: awayTeam.leagueRecord.wins,
+                abbreviation: awayTeam.abbreviation,
+                wins: awayTeam.record.wins,
               }}
               gameType={gameType}
             />
@@ -71,11 +79,11 @@ export const GameCard = ({
           />
         </div>
         <TeamInfo
-          losses={homeTeam.leagueRecord.losses}
-          wins={homeTeam.leagueRecord.wins}
-          ot={homeTeam.leagueRecord.ot}
-          teamId={homeTeam.team.id}
-          teamName={homeTeam.team.teamName}
+          losses={homeTeam.record.losses}
+          wins={homeTeam.record.wins}
+          ot={homeTeam.record.ot}
+          teamId={homeTeam.id}
+          teamName={homeTeam.name}
           linescoreTeam={linescore.teams.home}
           abstractGameState={status.abstractGameState}
           gameType={gameType}
