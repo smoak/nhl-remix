@@ -1,4 +1,4 @@
-import { AbstractGameState, GameType, LinescoreTeam } from "~/types";
+import { GameType } from "~/types";
 import { TeamLogo } from "~/components/TeamLogo";
 import { TeamName } from "../TeamName";
 import { TeamRecord } from "../TeamRecord";
