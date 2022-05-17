@@ -87,6 +87,7 @@ describe("GameCard", () => {
           linescore={linescore}
           startTime="2022-05-10T23:00:00Z"
           status={status}
+          seriesStatusShort=""
         />
       );
     });

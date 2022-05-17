@@ -11,6 +11,7 @@ export type GameCardProps = {
   readonly status: GameStatus;
   readonly linescore: GameLinescore;
   readonly gameType: GameType;
+  readonly seriesStatusShort: string;
 };
 
 type Record = {
@@ -20,9 +21,9 @@ type Record = {
 };
 
 type Team = {
-  readonly name: string;
   readonly abbreviation: string;
   readonly id: number;
+  readonly name: string;
   readonly record: Record;
   readonly score: number;
 };
@@ -34,6 +35,7 @@ export const GameCard = ({
   awayTeam,
   status,
   gameType,
+  seriesStatusShort,
 }: GameCardProps) => {
   const isGameInProgress = status.abstractGameState === "Live";
 
@@ -68,15 +70,8 @@ export const GameCard = ({
                 startTime={startTime}
               />
               <PlayoffSeriesSummary
-                homeTeam={{
-                  abbreviation: homeTeam.abbreviation,
-                  wins: homeTeam.record.wins,
-                }}
-                awayTeam={{
-                  abbreviation: awayTeam.abbreviation,
-                  wins: awayTeam.record.wins,
-                }}
                 gameType={gameType}
+                seriesStatusShort={seriesStatusShort}
               />
             </p>
             <TeamScore

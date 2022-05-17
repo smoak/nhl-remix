@@ -104,6 +104,30 @@ export type GameLinescore = {
 
 export type GameType = "R" | "P";
 
+export type SeriesRecord = {
+  readonly wins: number;
+  readonly losses: number;
+};
+
+export type MatchupTeam = {
+  readonly team: {
+    readonly id: number;
+  };
+  readonly seed: {
+    readonly type: string;
+  };
+  readonly seriesRecord: SeriesRecord;
+};
+
+export type Series = {
+  readonly seriesNumber: number;
+  readonly seriesCode: string;
+  readonly round: {
+    readonly number: number;
+  };
+  readonly matchupTeams: MatchupTeam[];
+};
+
 export type SeriesSummary = {
   readonly gamePk: string;
   readonly gameNumber: number;
@@ -113,6 +137,7 @@ export type SeriesSummary = {
   readonly gameTime: string;
   readonly seriesStatus: string;
   readonly seriesStatusShort: string;
+  readonly series: Series;
 };
 
 export type ScheduleGame = {

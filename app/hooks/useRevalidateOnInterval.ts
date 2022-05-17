@@ -11,7 +11,6 @@ export const useRevalidateOnInterval = ({
 }: Options): void => {
   const revalidate = useCallback(() => {
     if (document.visibilityState === "hidden") {
-      console.log("skipping the revalidate because document not visible");
       return;
     }
     revalidateCallback();

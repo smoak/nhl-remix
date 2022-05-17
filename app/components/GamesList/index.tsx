@@ -20,34 +20,45 @@ export const GamesList: GamesListFunction = ({ games }) => {
 
   return (
     <div className="grid grid-cols-auto-fill gap-5">
-      {games.map(({ gamePk, gameDate, gameType, linescore, teams, status }) => {
-        const homeTeam = {
-          id: teams.home.team.id,
-          name: teams.home.team.teamName,
-          score: teams.home.score,
-          record: teams.home.leagueRecord,
-          abbreviation: teams.home.team.abbreviation,
-        };
-        const awayTeam = {
-          id: teams.away.team.id,
-          name: teams.away.team.teamName,
-          score: teams.away.score,
-          record: teams.away.leagueRecord,
-          abbreviation: teams.away.team.abbreviation,
-        };
-        return (
-          <Link prefetch="intent" to={`/game/${gamePk}`} key={gamePk}>
-            <GameCard
-              status={status}
-              startTime={gameDate}
-              homeTeam={homeTeam}
-              awayTeam={awayTeam}
-              linescore={linescore}
-              gameType={gameType}
-            />
-          </Link>
-        );
-      })}
+      {games.map(
+        ({
+          gamePk,
+          gameDate,
+          gameType,
+          linescore,
+          teams,
+          seriesSummary,
+          status,
+        }) => {
+          const homeTeam = {
+            id: teams.home.team.id,
+            name: teams.home.team.teamName,
+            score: teams.home.score,
+            record: teams.home.leagueRecord,
+            abbreviation: teams.home.team.abbreviation,
+          };
+          const awayTeam = {
+            id: teams.away.team.id,
+            name: teams.away.team.teamName,
+            score: teams.away.score,
+            record: teams.away.leagueRecord,
+            abbreviation: teams.away.team.abbreviation,
+          };
+          return (
+            <Link prefetch="intent" to={`/game/${gamePk}`} key={gamePk}>
+              <GameCard
+                status={status}
+                startTime={gameDate}
+                homeTeam={homeTeam}
+                awayTeam={awayTeam}
+                linescore={linescore}
+                gameType={gameType}
+                seriesStatusShort={seriesSummary?.seriesStatusShort ?? ""}
+              />
+            </Link>
+          );
+        }
+      )}
     </div>
   );
 };
