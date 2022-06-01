@@ -1,4 +1,4 @@
-import { GameType } from "~/types";
+import { GameType } from "~/api/types";
 import { TeamLogo } from "~/components/TeamLogo";
 import { TeamName } from "../TeamName";
 import { TeamRecord } from "../TeamRecord";

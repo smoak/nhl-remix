@@ -1,5 +1,5 @@
 import { Link } from "remix";
-import { ScheduleGame } from "~/types";
+import { ScheduleGame } from "~/api/types";
 import { GameCard } from "~/components/GameCard";
 
 export type GamesListProps = {

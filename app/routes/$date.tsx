@@ -5,7 +5,7 @@ import { GamesList } from "~/components/GamesList";
 import { Layout } from "~/components/Layout";
 import { useDays } from "~/hooks/useDays";
 import { useGames } from "~/hooks/useGames";
-import { ScheduleGame } from "~/types";
+import { ScheduleGame } from "~/api/types";
 
 export const loader: LoaderFunction = async ({ params }) => {
   const { date } = params;

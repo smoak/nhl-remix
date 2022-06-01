@@ -1,4 +1,4 @@
-import { GameLinescore, GameStatus, GameType, ScheduleGame } from "~/types";
+import { GameLinescore, GameStatus, GameType, ScheduleGame } from "~/api/types";
 import { TeamInfo } from "~/components/TeamInfo";
 import { CurrentGameStatus } from "~/components/CurrentGameStatus";
 import { TeamScore } from "~/components/TeamScore";
