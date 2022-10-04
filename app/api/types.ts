@@ -102,7 +102,7 @@ export type GameLinescore = {
   readonly powerPlayInfo: LinescorePowerPlayInfo;
 };
 
-export type GameType = "R" | "P";
+export type GameType = "R" | "P" | "PR";
 
 export type SeriesRecord = {
   readonly wins: number;

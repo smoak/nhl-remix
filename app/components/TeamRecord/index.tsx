@@ -17,6 +17,14 @@ export const TeamRecord = ({
     return null;
   }
 
+  if (!otWins) {
+    return (
+      <p className="text-xs">
+        {wins}-{losses}
+      </p>
+    );
+  }
+
   return (
     <p className="text-xs">
       {wins}-{losses}-{otWins}

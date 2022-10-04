@@ -20,6 +20,7 @@ describe("TeamInfo", () => {
         isGoaliePulled={false}
         isOnPowerPlay={false}
         gameType="R"
+        teamAbbreviation="VAN"
       />
     );
   });

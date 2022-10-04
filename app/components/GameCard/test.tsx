@@ -76,18 +76,24 @@ const status: GameStatus = {
   statusCode: "7",
 };
 
+const game = {
+  id: 1,
+  startTime: "",
+  homeTeam,
+  awayTeam,
+  isCurrentlyInProgress: false,
+};
+
 describe("GameCard", () => {
   describe("for a regular season or playoff game", () => {
     beforeEach(() => {
       render(
         <GameCard
-          awayTeam={awayTeam}
-          homeTeam={homeTeam}
           gameType="R"
           linescore={linescore}
-          startTime="2022-05-10T23:00:00Z"
           status={status}
           seriesStatusShort=""
+          game={game}
         />
       );
     });

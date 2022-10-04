@@ -44,15 +44,20 @@ export const GamesList: GamesListFunction = ({ games }) => {
             record: teams.away.leagueRecord,
             abbreviation: teams.away.team.abbreviation,
           };
+          const game = {
+            id: gamePk,
+            startTime: gameDate,
+            homeTeam,
+            awayTeam,
+            isCurrentlyInProgress: status.abstractGameState === "Live",
+          };
           return (
             <Link prefetch="intent" to={`/game/${gamePk}`} key={gamePk}>
               <GameCard
                 status={status}
-                startTime={gameDate}
-                homeTeam={homeTeam}
-                awayTeam={awayTeam}
                 linescore={linescore}
                 gameType={gameType}
+                game={game}
                 seriesStatusShort={seriesSummary?.seriesStatusShort ?? ""}
               />
             </Link>
