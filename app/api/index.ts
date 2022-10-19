@@ -1,8 +1,10 @@
 import { fetch } from "cross-fetch";
-import { Schedule, ScheduleGame } from "~/api/types";
+import { Schedule, ScheduleGame, Standings } from "~/api/types";
+import { ConferenceStandings } from "~/data/types";
 
 export const BASE_URL = "https://statsapi.web.nhl.com/api/v1";
 export const SCHEDULE_URL = `${BASE_URL}/schedule`;
+export const STANDINGS_URL = `${BASE_URL}/standings/byConference`;
 
 type GetGamesByDate = (date?: string) => Promise<ScheduleGame[]>;
 export const getGamesByDate: GetGamesByDate = async (date) => {
@@ -28,4 +30,22 @@ export const getGamesByDate: GetGamesByDate = async (date) => {
   }
 
   return dates[0].games;
+};
+
+type GetStandings = () => Promise<ConferenceStandings>;
+export const getStandings: GetStandings = async () => {
+  const url = new URL(STANDINGS_URL);
+  url.searchParams.append(
+    "hydrate",
+    "record(overall),division,conference,team(nextSchedule(team),previousSchedule(team))"
+  );
+
+  const response = await fetch(url.toString());
+  const standings = (await response.json()) as Standings;
+  const [east, west] = standings.records;
+
+  return {
+    east,
+    west,
+  };
 };

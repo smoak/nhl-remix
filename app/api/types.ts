@@ -163,3 +163,54 @@ export type Schedule = {
   readonly totalMatches: number;
   readonly wait: number;
 };
+
+export type OverallRecord = {
+  readonly wins: number;
+  readonly losses: number;
+  readonly ot: number;
+  readonly type: "home" | "away" | "shootOuts" | "lastTen";
+};
+
+export type TeamRecord = {
+  readonly leagueRecord: LeagueRecord;
+  readonly team: Team;
+  readonly regulationWins: number;
+  readonly goalsAgainst: number;
+  readonly goalsScored: number;
+  readonly points: number;
+  readonly divisionRank: string;
+  readonly divisionL10Rank: string;
+  readonly divisionHomeRank: string;
+  readonly conferenceRank: string;
+  readonly conferenceL10Rank: string;
+  readonly conferenceRoadRank: string;
+  readonly conferenceHomeRank: string;
+  readonly row: number;
+  readonly gamesPlayed: number;
+  readonly streak: {
+    readonly streakType: "wins" | "losses" | "ot";
+    readonly streakNumber: number;
+    readonly streakCode: string;
+  };
+  readonly records: {
+    readonly overallRecords: OverallRecord[];
+  };
+};
+
+export type Conference = {
+  readonly id: number;
+  readonly name: string;
+  readonly link: string;
+  readonly abbreviation: string;
+  readonly shortname: string;
+  readonly active: true;
+};
+
+export type StandingsRecord = {
+  readonly teamRecords: TeamRecord[];
+  readonly conference: Conference;
+};
+
+export type Standings = {
+  readonly records: StandingsRecord[];
+};
