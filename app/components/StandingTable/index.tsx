@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { OverallRecord, StandingsRecord, TeamRecord } from "~/api/types";
+import { StandingsRecord, TeamRecord } from "~/api/types";
 import { TeamLogo } from "../TeamLogo";
 
 type StandingTableProps = {
