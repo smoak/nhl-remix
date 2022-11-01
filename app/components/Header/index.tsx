@@ -1,4 +1,4 @@
-import { Link, NavLink } from "remix";
+import { Link, NavLink } from "@remix-run/react";
 import { NHL } from "~/components/NHLLogos/NHL";
 
 export const Header = () => (

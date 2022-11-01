@@ -1,5 +1,5 @@
+import { Link } from "@remix-run/react";
 import { format } from "date-fns";
-import { Link } from "remix";
 import { DATE_DISPLAY_FORMAT, DATE_LINK_FORMAT } from "~/date-fns";
 import { ArrowIcon } from "../ArrowIcon";
 

@@ -1,8 +1,10 @@
-import { json, LoaderFunction, useLoaderData } from "remix";
+import { useLoaderData } from "@remix-run/react";
 import { getStandings } from "~/api";
 import { Layout } from "~/components/Layout";
 import { StandingTable } from "~/components/StandingTable";
 import { ConferenceStandings } from "~/data/types";
+import { json } from "@remix-run/node";
+import type { LoaderFunction } from "@remix-run/node";
 
 export const loader: LoaderFunction = async () => {
   const standings = await getStandings();

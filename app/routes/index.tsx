@@ -1,4 +1,6 @@
-import { json, LoaderFunction, useLoaderData } from "remix";
+import { useLoaderData } from "@remix-run/react";
+import { json } from "@remix-run/node";
+import type { LoaderFunction } from "@remix-run/node";
 import { GamesList } from "~/components/GamesList";
 import { Layout } from "~/components/Layout";
 import { ScheduleGame } from "~/api/types";
