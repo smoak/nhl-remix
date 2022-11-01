@@ -1,4 +1,4 @@
-import { AbstractGameState } from "~/api/types";
+import type { AbstractGameState } from "~/api/types";
 
 export type TeamScoreProps = {
   readonly score: number;

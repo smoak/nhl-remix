@@ -1,6 +1,6 @@
 import { fetch } from "cross-fetch";
-import { Schedule, ScheduleGame, Standings } from "~/api/types";
-import { ConferenceStandings } from "~/data/types";
+import type { Schedule, ScheduleGame, Standings } from "~/api/types";
+import type { ConferenceStandings } from "~/data/types";
 
 export const BASE_URL = "https://statsapi.web.nhl.com/api/v1";
 export const SCHEDULE_URL = `${BASE_URL}/schedule`;

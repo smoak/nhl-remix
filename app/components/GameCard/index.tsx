@@ -1,9 +1,9 @@
-import { GameLinescore, GameStatus, GameType } from "~/api/types";
+import type { GameLinescore, GameStatus, GameType } from "~/api/types";
 import { TeamInfo } from "~/components/TeamInfo";
 import { CurrentGameStatus } from "~/components/CurrentGameStatus";
 import { TeamScore } from "~/components/TeamScore";
 import { PlayoffSeriesSummary } from "../PlayoffSeriesSummary";
-import { Game } from "../types";
+import type { Game } from "../types";
 
 export type GameCardProps = {
   readonly game: Game;

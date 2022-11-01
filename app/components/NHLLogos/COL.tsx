@@ -1,4 +1,4 @@
-import { NHLLogo } from "./types";
+import type { NHLLogo } from "./types";
 
 export const COL: NHLLogo = ({ size }) => (
   <svg

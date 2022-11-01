@@ -1,4 +1,4 @@
-import { Team } from "~/api/types";
+import type { Team } from "~/api/types";
 import { TeamIdToLogo } from "~/components/NHLLogos";
 
 export type TeamLogoProps = {

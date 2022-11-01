@@ -1,4 +1,4 @@
-import { StandingsRecord } from "~/api/types";
+import type { StandingsRecord } from "~/api/types";
 
 export type ConferenceStandings = {
   readonly east: StandingsRecord;

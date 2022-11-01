@@ -1,5 +1,5 @@
 import { Link } from "@remix-run/react";
-import { ScheduleGame } from "~/api/types";
+import type { ScheduleGame } from "~/api/types";
 import { GameCard } from "~/components/GameCard";
 
 export type GamesListProps = {

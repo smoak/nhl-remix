@@ -1,4 +1,4 @@
-import { GameType } from "~/api/types";
+import type { GameType } from "~/api/types";
 
 export type PlayoffSeriesSummaryProps = {
   readonly gameType: GameType;

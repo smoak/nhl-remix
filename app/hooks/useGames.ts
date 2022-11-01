@@ -1,6 +1,6 @@
 import { useFetcher } from "@remix-run/react";
 import { useEffect, useState } from "react";
-import { ScheduleGame } from "~/api/types";
+import type { ScheduleGame } from "~/api/types";
 import { useRevalidateOnInterval } from "./useRevalidateOnInterval";
 import { useRevalidateOnVisible } from "./useRevalidateOnVisible";
 

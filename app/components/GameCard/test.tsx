@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { GameLinescore, GameStatus } from "~/api/types";
+import type { GameLinescore, GameStatus } from "~/api/types";
 import { GameCard } from "./index";
 
 const homeTeam = {

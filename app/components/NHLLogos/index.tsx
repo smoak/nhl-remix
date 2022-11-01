@@ -1,4 +1,4 @@
-import { NHLLogo } from "./types";
+import type { NHLLogo } from "./types";
 import { NJD } from "./NJD";
 import { VAN } from "./VAN";
 import { DET } from "./DET";

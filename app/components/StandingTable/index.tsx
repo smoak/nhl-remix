@@ -1,5 +1,6 @@
-import React, { FC } from "react";
-import { StandingsRecord, TeamRecord } from "~/api/types";
+import type { FC } from "react";
+import React from "react";
+import type { StandingsRecord, TeamRecord } from "~/api/types";
 import { TeamLogo } from "../TeamLogo";
 
 type StandingTableProps = {

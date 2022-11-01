@@ -1,4 +1,4 @@
-import { GameType } from "~/api/types";
+import type { GameType } from "~/api/types";
 
 type FinalGameStatusProps = {
   readonly gameType: GameType;

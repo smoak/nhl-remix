@@ -1,4 +1,4 @@
-import { ScheduleGame, AbstractGameState, GameType } from "~/api/types";
+import type { ScheduleGame, AbstractGameState, GameType } from "~/api/types";
 import { FinalGameStatus } from "../FinalGameStatus";
 import { LiveGameStatus } from "../LiveGameStatus";
 

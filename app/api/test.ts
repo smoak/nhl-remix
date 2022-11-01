@@ -1,4 +1,4 @@
-import { ScheduleGame } from "~/api/types";
+import type { ScheduleGame } from "~/api/types";
 import { getGamesByDate } from "./index";
 
 describe("api", () => {

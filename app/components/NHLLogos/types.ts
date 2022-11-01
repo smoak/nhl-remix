@@ -1,4 +1,4 @@
-import { ComponentType, SVGAttributes } from "react";
+import type { ComponentType, SVGAttributes } from "react";
 
 interface NHLLogoProps extends SVGAttributes<SVGElement> {
   size?: string | number;
