@@ -18,6 +18,7 @@ export type AbstractGameState = "Live" | "Final" | "Preview";
 export type DetailedState =
   | "Scheduled"
   | "Postponed"
+  | "Pre-Game"
   | "In Progress - Critical"
   | "In Progress"
   | "Final";

@@ -71,7 +71,8 @@ export const normalizeScheduleGame: NormalizeScheduleGame = (game) => {
 
   if (
     status.abstractGameState === "Preview" &&
-    status.detailedState === "Scheduled"
+    (status.detailedState === "Scheduled" ||
+      status.detailedState === "Pre-Game")
   ) {
     return {
       ...baseGame,
