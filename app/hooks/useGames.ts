@@ -1,6 +1,7 @@
 import { useFetcher } from "@remix-run/react";
 import { useEffect, useState } from "react";
-import type { ScheduleGame } from "~/api/types";
+import type { Game } from "~/components/types";
+import { isLiveGame } from "~/components/types";
 import { useRevalidateOnInterval } from "./useRevalidateOnInterval";
 import { useRevalidateOnVisible } from "./useRevalidateOnVisible";
 
@@ -8,14 +9,14 @@ const WAIT = 10000;
 
 type Options = {
   readonly route: string;
-  readonly preloadedGames: ScheduleGame[];
+  readonly preloadedGames: Game[];
 };
 
 export const useGames = ({ route, preloadedGames }: Options) => {
-  const fetcher = useFetcher<ScheduleGame[]>();
+  const fetcher = useFetcher<Game[]>();
   const [games, setGames] = useState(preloadedGames);
   const revalidate = () => {
-    if (preloadedGames.some((g) => g.status.abstractGameState === "Live")) {
+    if (preloadedGames.some(isLiveGame)) {
       fetcher.load(route);
     }
   };

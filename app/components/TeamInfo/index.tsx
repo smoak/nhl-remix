@@ -2,14 +2,10 @@ import type { GameType } from "~/api/types";
 import { TeamLogo } from "~/components/TeamLogo";
 import { TeamName } from "../TeamName";
 import { TeamRecord } from "../TeamRecord";
+import type { Team } from "../types";
 
 export type TeamInfoProps = {
-  readonly teamAbbreviation: string;
-  readonly teamId: number;
-  readonly teamName: string;
-  readonly wins: number;
-  readonly losses: number;
-  readonly ot?: number;
+  readonly team: Team;
   readonly isGameInProgress: boolean;
   readonly isGoaliePulled: boolean;
   readonly isOnPowerPlay: boolean;
@@ -17,25 +13,20 @@ export type TeamInfoProps = {
 };
 
 export const TeamInfo = ({
+  gameType,
   isGameInProgress,
   isGoaliePulled,
   isOnPowerPlay,
-  gameType,
-  losses,
-  ot,
-  teamAbbreviation,
-  teamId,
-  teamName,
-  wins,
+  team,
 }: TeamInfoProps) => (
   <div className="flex w-1/3 flex-col items-center text-center">
-    <TeamLogo teamId={teamId} size={48} teamAbbreviation={teamAbbreviation} />
+    <TeamLogo teamId={team.id} size={48} teamAbbreviation={team.abbreviation} />
     <TeamName
       isGameInProgress={isGameInProgress}
       isGoaliePulled={isGoaliePulled}
       isOnPowerPlay={isOnPowerPlay}
-      name={teamName}
+      name={team.name}
     />
-    <TeamRecord wins={wins} losses={losses} otWins={ot} gameType={gameType} />
+    <TeamRecord record={team.record} gameType={gameType} />
   </div>
 );

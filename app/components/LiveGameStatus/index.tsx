@@ -1,4 +1,7 @@
+import type { GameType } from "~/api/types";
+
 export type LiveGameStatusProps = {
+  readonly gameType: GameType;
   readonly currentPeriod: number;
   readonly currentPeriodTimeRemaining: string;
 };
@@ -27,6 +30,7 @@ const LiveIndicator = () => (
 export const LiveGameStatus = ({
   currentPeriod,
   currentPeriodTimeRemaining,
+  gameType,
 }: LiveGameStatusProps) => {
   if (currentPeriod < 4) {
     return (
@@ -41,6 +45,15 @@ export const LiveGameStatus = ({
     return (
       <>
         OT - {currentPeriodTimeRemaining}
+        <LiveIndicator />
+      </>
+    );
+  }
+
+  if (gameType === "R") {
+    return (
+      <>
+        SO - {currentPeriodTimeRemaining}
         <LiveIndicator />
       </>
     );

@@ -1,18 +1,18 @@
 import { render, screen } from "@testing-library/react";
+import {
+  createFinalGame,
+  createLiveGame,
+  createPostponedGame,
+  createScheduledGame,
+} from "~/data/mocks";
 import { CurrentGameStatus } from "./index";
 
 describe("CurrentGameStatus", () => {
   describe("for a live game in period 1", () => {
+    const game = createLiveGame({ currentPeriodTimeRemaining: "03:14" });
+
     beforeEach(() => {
-      render(
-        <CurrentGameStatus
-          currentPeriod={1}
-          currentPeriodTimeRemaining="03:14"
-          gameState="Live"
-          gameType="R"
-          startTime="2022-04-09T00:00:00Z"
-        />
-      );
+      render(<CurrentGameStatus game={game} />);
     });
 
     it("should render the current period and the time remaining", () => {
@@ -25,16 +25,13 @@ describe("CurrentGameStatus", () => {
   });
 
   describe("for a live game in 1st overtime", () => {
+    const game = createLiveGame({
+      currentPeriod: 4,
+      currentPeriodTimeRemaining: "03:14",
+    });
+
     beforeEach(() => {
-      render(
-        <CurrentGameStatus
-          currentPeriod={4}
-          gameType="R"
-          currentPeriodTimeRemaining="03:14"
-          gameState="Live"
-          startTime="2022-04-09T00:00:00Z"
-        />
-      );
+      render(<CurrentGameStatus game={game} />);
     });
 
     it("should render the current period and the time remaining", () => {
@@ -46,17 +43,15 @@ describe("CurrentGameStatus", () => {
     });
   });
 
-  describe("for a live game in 2nd overtime", () => {
+  describe("for a live playoff game in 2nd overtime", () => {
+    const game = createLiveGame({
+      currentPeriod: 5,
+      currentPeriodTimeRemaining: "03:14",
+      type: "P",
+    });
+
     beforeEach(() => {
-      render(
-        <CurrentGameStatus
-          currentPeriod={5}
-          currentPeriodTimeRemaining="03:14"
-          gameState="Live"
-          gameType="P"
-          startTime="2022-04-09T00:00:00Z"
-        />
-      );
+      render(<CurrentGameStatus game={game} />);
     });
 
     it("should render the current period and the time remaining", () => {
@@ -68,17 +63,15 @@ describe("CurrentGameStatus", () => {
     });
   });
 
-  describe("for a live game in 3rd overtime", () => {
+  describe("for a live playoff game in 3rd overtime", () => {
+    const game = createLiveGame({
+      currentPeriod: 6,
+      currentPeriodTimeRemaining: "03:14",
+      type: "P",
+    });
+
     beforeEach(() => {
-      render(
-        <CurrentGameStatus
-          currentPeriod={6}
-          currentPeriodTimeRemaining="03:14"
-          gameState="Live"
-          gameType="P"
-          startTime="2022-04-09T00:00:00Z"
-        />
-      );
+      render(<CurrentGameStatus game={game} />);
     });
 
     it("should render the current period and the time remaining", () => {
@@ -91,16 +84,10 @@ describe("CurrentGameStatus", () => {
   });
 
   describe("for a game that finished in 1st overtime", () => {
+    const game = createFinalGame({ currentPeriod: 4 });
+
     beforeEach(() => {
-      render(
-        <CurrentGameStatus
-          currentPeriod={4}
-          currentPeriodTimeRemaining="Final"
-          gameType="R"
-          gameState="Final"
-          startTime="2022-04-08T23:00:00Z"
-        />
-      );
+      render(<CurrentGameStatus game={game} />);
     });
 
     it("should say that the game finished in overtime", () => {
@@ -109,16 +96,10 @@ describe("CurrentGameStatus", () => {
   });
 
   describe("for a game that finished in a shootout", () => {
+    const game = createFinalGame({ currentPeriod: 5 });
+
     beforeEach(() => {
-      render(
-        <CurrentGameStatus
-          currentPeriod={5}
-          gameType="R"
-          currentPeriodTimeRemaining="Final"
-          gameState="Final"
-          startTime="2022-04-08T23:00:00Z"
-        />
-      );
+      render(<CurrentGameStatus game={game} />);
     });
 
     it("should say that the game finished in overtime", () => {
@@ -126,17 +107,11 @@ describe("CurrentGameStatus", () => {
     });
   });
 
-  describe("for a game that finished in 3rd overtime", () => {
+  describe("for a playoff game that finished in 3rd overtime", () => {
+    const game = createFinalGame({ currentPeriod: 6, type: "P" });
+
     beforeEach(() => {
-      render(
-        <CurrentGameStatus
-          currentPeriod={6}
-          currentPeriodTimeRemaining="Final"
-          gameType="P"
-          gameState="Final"
-          startTime="2022-04-08T23:00:00Z"
-        />
-      );
+      render(<CurrentGameStatus game={game} />);
     });
 
     it("should say that the game finished in 3rd overtime", () => {
@@ -145,16 +120,10 @@ describe("CurrentGameStatus", () => {
   });
 
   describe("for a game that finished in regulation", () => {
+    const game = createFinalGame({ currentPeriod: 3 });
+
     beforeEach(() => {
-      render(
-        <CurrentGameStatus
-          currentPeriod={3}
-          gameType="R"
-          currentPeriodTimeRemaining="Final"
-          gameState="Final"
-          startTime="2022-04-08T23:00:00Z"
-        />
-      );
+      render(<CurrentGameStatus game={game} />);
     });
 
     it("should say that the game finished", () => {
@@ -163,20 +132,26 @@ describe("CurrentGameStatus", () => {
   });
 
   describe("for a game that has not started yet", () => {
+    const game = createScheduledGame({ startTime: "2022-04-10T21:00:00Z" });
+
     beforeEach(() => {
-      render(
-        <CurrentGameStatus
-          currentPeriod={1}
-          gameType="R"
-          currentPeriodTimeRemaining="20:00"
-          gameState="Preview"
-          startTime="2022-04-10T21:00:00Z"
-        />
-      );
+      render(<CurrentGameStatus game={game} />);
     });
 
     it("should show the start time", () => {
       expect(screen.getByText("9:00 PM")).toBeInTheDocument();
+    });
+  });
+
+  describe("for a game that has been postponed", () => {
+    const game = createPostponedGame();
+
+    beforeEach(() => {
+      render(<CurrentGameStatus game={game} />);
+    });
+
+    it("should indicate the game has been postponed", () => {
+      expect(screen.getByText("Postponed")).toBeInTheDocument();
     });
   });
 });

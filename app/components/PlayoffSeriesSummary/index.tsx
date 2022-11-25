@@ -1,15 +1,11 @@
-import type { GameType } from "~/api/types";
-
 export type PlayoffSeriesSummaryProps = {
-  readonly gameType: GameType;
-  readonly seriesStatusShort: string;
+  readonly seriesStatusShort?: string;
 };
 
 export const PlayoffSeriesSummary = ({
-  gameType,
   seriesStatusShort,
 }: PlayoffSeriesSummaryProps) => {
-  if (gameType !== "P") {
+  if (!seriesStatusShort) {
     return null;
   }
 

@@ -1,26 +1,28 @@
 import { render, screen } from "@testing-library/react";
+import type { Team } from "../types";
 import { TeamInfo } from "./index";
 
-const teamId = 23;
-const teamName = "Canucks";
-const losses = 28;
-const ot = 10;
-const wins = 35;
+const team: Team = {
+  abbreviation: "VAN",
+  id: 23,
+  name: "Canucks",
+  record: {
+    losses: 28,
+    ot: 10,
+    wins: 35,
+  },
+  score: 0,
+};
 
 describe("TeamInfo", () => {
   beforeEach(() => {
     render(
       <TeamInfo
-        wins={wins}
-        losses={losses}
-        ot={ot}
-        teamId={teamId}
-        teamName={teamName}
+        team={team}
         isGameInProgress={true}
         isGoaliePulled={false}
         isOnPowerPlay={false}
         gameType="R"
-        teamAbbreviation="VAN"
       />
     );
   });

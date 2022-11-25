@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import type { GameLinescore, GameStatus } from "~/api/types";
+import { createScheduledGame } from "~/data/mocks";
 import { GameCard } from "./index";
 
 const homeTeam = {
@@ -24,78 +24,10 @@ const awayTeam = {
   abbreviation: "BOS",
 };
 
-const linescore: GameLinescore = {
-  currentPeriod: 3,
-  currentPeriodOrdinal: "3rd",
-  currentPeriodTimeRemaining: "Final",
-  hasShootout: false,
-  intermissionInfo: {
-    inIntermission: false,
-    intermissionTimeElapsed: 0,
-    intermissionTimeRemaining: 0,
-  },
-  powerPlayInfo: {
-    inSituation: false,
-    situationTimeElapsed: 220,
-    situationTimeRemaining: 0,
-  },
-  powerPlayStrength: "Even",
-  teams: {
-    away: {
-      goaliePulled: false,
-      goals: 1,
-      numSkaters: 5,
-      powerPlay: false,
-      shotsOnGoal: 34,
-      team: {
-        id: 6,
-        link: "/api/v1/teams/6",
-        name: "Boston Bruins",
-      },
-    },
-    home: {
-      goaliePulled: false,
-      goals: 5,
-      numSkaters: 5,
-      powerPlay: false,
-      shotsOnGoal: 38,
-      team: {
-        id: 12,
-        link: "/api/v1/teams/12",
-        name: "Carolina Hurricanes",
-      },
-    },
-  },
-};
-
-const status: GameStatus = {
-  abstractGameState: "Final",
-  codedGameState: "7",
-  detailedState: "Final",
-  startTimeTBD: false,
-  statusCode: "7",
-};
-
-const game = {
-  id: 1,
-  startTime: "",
-  homeTeam,
-  awayTeam,
-  isCurrentlyInProgress: false,
-};
-
 describe("GameCard", () => {
   describe("for a regular season or playoff game", () => {
     beforeEach(() => {
-      render(
-        <GameCard
-          gameType="R"
-          linescore={linescore}
-          status={status}
-          seriesStatusShort=""
-          game={game}
-        />
-      );
+      render(<GameCard game={createScheduledGame({ homeTeam, awayTeam })} />);
     });
 
     it("should render the home team name", () => {

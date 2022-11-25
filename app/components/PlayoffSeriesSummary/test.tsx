@@ -6,9 +6,7 @@ describe("PlayoffSeriesSummary", () => {
     let container: HTMLElement;
 
     beforeEach(() => {
-      container = render(
-        <PlayoffSeriesSummary gameType="R" seriesStatusShort="" />
-      ).container;
+      container = render(<PlayoffSeriesSummary />).container;
     });
 
     it("renders empty", () => {
@@ -18,9 +16,7 @@ describe("PlayoffSeriesSummary", () => {
 
   describe("when a playoff game", () => {
     beforeEach(() => {
-      render(
-        <PlayoffSeriesSummary gameType="P" seriesStatusShort="CAR leads 2-0" />
-      );
+      render(<PlayoffSeriesSummary seriesStatusShort="CAR leads 2-0" />);
     });
 
     it("renders the series status", () => {

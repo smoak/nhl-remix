@@ -15,12 +15,24 @@ export type GameContent = {
 
 export type AbstractGameState = "Live" | "Final" | "Preview";
 
+export type DetailedState =
+  | "Scheduled"
+  | "Postponed"
+  | "In Progress - Critical"
+  | "In Progress"
+  | "Final";
+
 export type GameStatus = {
   readonly abstractGameState: AbstractGameState;
   readonly codedGameState: string;
-  readonly detailedState: string;
+  readonly detailedState: DetailedState;
   readonly startTimeTBD: boolean;
   readonly statusCode: string;
+};
+
+type LiveGameStatus = GameStatus & {
+  readonly abstractGameState: "Live";
+  readonly detailedState: "In Progress" | "In Progress - Critical";
 };
 
 export type LeagueRecord = {
@@ -87,17 +99,15 @@ export type LinescorePowerPlayInfo = {
 
 export type CurrentPeriodOrdinal = "1st" | "2nd" | "3rd" | "OT" | "SO";
 
-export type GameLinescore = {
+type Linescore = {
   readonly currentPeriod: number;
-  readonly currentPeriodTimeRemaining: string;
   readonly powerPlayStrength: "Even" | "5-on-4";
   readonly hasShootout: boolean;
-  readonly intermissionInfo: {
-    readonly intermissionTimeRemaining: number;
-    readonly intermissionTimeElapsed: number;
-    readonly inIntermission: boolean;
-  };
   readonly teams: LinescoreTeams;
+};
+
+type LiveLinescore = Linescore & {
+  readonly currentPeriodTimeRemaining: string;
   readonly currentPeriodOrdinal: CurrentPeriodOrdinal;
   readonly powerPlayInfo: LinescorePowerPlayInfo;
 };
@@ -140,7 +150,7 @@ export type SeriesSummary = {
   readonly series: Series;
 };
 
-export type ScheduleGame = {
+type BaseGame = {
   readonly content: GameContent;
   readonly gameDate: string;
   readonly gamePk: number;
@@ -150,9 +160,27 @@ export type ScheduleGame = {
   readonly status: GameStatus;
   readonly teams: GameTeams;
   readonly venue: GameVenue;
-  readonly linescore: GameLinescore;
   readonly seriesSummary?: SeriesSummary;
 };
+
+type PostponedGame = BaseGame & {
+  readonly linescore: Linescore;
+};
+
+type ScheduledGame = BaseGame & {
+  readonly linescore: Linescore;
+};
+
+type LiveGame = BaseGame & {
+  readonly linescore: LiveLinescore;
+  readonly status: LiveGameStatus;
+};
+
+type FinalGame = BaseGame & {
+  readonly linescore: Linescore;
+};
+
+export type ScheduleGame = PostponedGame | ScheduledGame | LiveGame | FinalGame;
 
 export type Schedule = {
   readonly copyright: string;
@@ -213,4 +241,8 @@ export type StandingsRecord = {
 
 export type Standings = {
   readonly records: StandingsRecord[];
+};
+
+export const isLiveGame = (game: ScheduleGame): game is LiveGame => {
+  return game.status.abstractGameState === "Live";
 };

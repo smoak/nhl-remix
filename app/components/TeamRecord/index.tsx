@@ -1,33 +1,27 @@
 import type { GameType } from "~/api/types";
+import type { Record } from "../types";
 
 export type TeamRecordProps = {
-  readonly wins: number;
-  readonly losses: number;
-  readonly otWins?: number;
   readonly gameType: GameType;
+  readonly record: Record;
 };
 
-export const TeamRecord = ({
-  gameType,
-  wins,
-  losses,
-  otWins,
-}: TeamRecordProps) => {
+export const TeamRecord = ({ gameType, record }: TeamRecordProps) => {
   if (gameType === "P") {
     return null;
   }
 
-  if (!otWins) {
+  if (!record.ot) {
     return (
       <p className="text-xs">
-        {wins}-{losses}
+        {record.wins}-{record.losses}
       </p>
     );
   }
 
   return (
     <p className="text-xs">
-      {wins}-{losses}-{otWins}
+      {record.wins}-{record.losses}-{record.ot}
     </p>
   );
 };
