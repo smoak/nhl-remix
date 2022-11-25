@@ -7,20 +7,22 @@ import { GamesList } from "~/components/GamesList";
 import { Layout } from "~/components/Layout";
 import { useDays } from "~/hooks/useDays";
 import { useGames } from "~/hooks/useGames";
-import type { ScheduleGame } from "~/api/types";
+import type { Game } from "~/components/types";
+import { normalizeScheduleGames } from "~/data/normalization";
 
 export const loader: LoaderFunction = async ({ params }) => {
   const { date } = params;
 
-  const games = await getGamesByDate(date);
+  const scheduledGames = await getGamesByDate(date);
+  const { games } = normalizeScheduleGames(scheduledGames);
 
-  return json<ScheduleGame[]>(games);
+  return json<Game[]>(games);
 };
 
 export const Index = () => {
   const { date } = useParams();
   const { prevDay, day, nextDay } = useDays(date);
-  const loadedGames = useLoaderData<ScheduleGame[]>();
+  const loadedGames = useLoaderData<Game[]>();
   const games = useGames({ route: `/${date}`, preloadedGames: loadedGames });
 
   return (
