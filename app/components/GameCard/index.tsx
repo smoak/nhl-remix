@@ -16,7 +16,7 @@ export const GameCard = ({ game }: GameCardProps) => (
         <HomeTeamInfo game={game} />
         <div className="mt-3 flex flex-1">
           <TeamScore
-            score={game.awayTeam.score}
+            score={game.homeTeam.score}
             gameState={game.status.abstract}
           />
           <p className="flex-1 whitespace-nowrap px-3 pt-1.5 text-center uppercase">
@@ -24,7 +24,7 @@ export const GameCard = ({ game }: GameCardProps) => (
             <PlayoffSeriesSummary seriesStatusShort={game.seriesStatusShort} />
           </p>
           <TeamScore
-            score={game.homeTeam.score}
+            score={game.awayTeam.score}
             gameState={game.status.abstract}
           />
         </div>
