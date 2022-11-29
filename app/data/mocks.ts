@@ -38,6 +38,7 @@ export const createLiveGame = (overrides?: Partial<LiveGame>): LiveGame => {
         isGoaliePulled: false,
         isOnPowerPlay: false,
       },
+      periods: [],
     },
     startTime: "2022-02-04T00:00:00Z",
     status: {
@@ -60,6 +61,17 @@ export const createFinalGame = (overrides?: Partial<FinalGame>): FinalGame => {
     status: {
       abstract: "Final",
       detailed: "Final",
+    },
+    linescore: {
+      away: {
+        isGoaliePulled: false,
+        isOnPowerPlay: false,
+      },
+      home: {
+        isGoaliePulled: false,
+        isOnPowerPlay: false,
+      },
+      periods: [],
     },
     type: "R",
     ...overrides,
