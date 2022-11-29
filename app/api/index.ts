@@ -49,3 +49,22 @@ export const getStandings: GetStandings = async () => {
     west,
   };
 };
+
+type GetGameDetails = (gameId: string) => Promise<ScheduleGame | undefined>;
+export const getGameDetails: GetGameDetails = async (gameId) => {
+  const url = new URL(SCHEDULE_URL);
+  url.searchParams.append(
+    "hydrate",
+    "linescore,team,game(seriesSummary(series))"
+  );
+  url.searchParams.append("gamePk", gameId);
+
+  const response = await fetch(url.toString());
+  const { dates } = (await response.json()) as Schedule;
+
+  if (dates.length === 0) {
+    return;
+  }
+
+  return dates[0].games[0];
+};

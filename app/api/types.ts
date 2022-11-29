@@ -100,11 +100,26 @@ export type LinescorePowerPlayInfo = {
 
 export type CurrentPeriodOrdinal = "1st" | "2nd" | "3rd" | "OT" | "SO";
 
+type LinescorePeriod = {
+  readonly num: number;
+  readonly ordinalNum: CurrentPeriodOrdinal;
+  readonly periodType: string;
+  readonly away: {
+    readonly goals: number;
+    readonly shotsOnGoal: number;
+  };
+  readonly home: {
+    readonly goals: number;
+    readonly shotsOnGoal: number;
+  };
+};
+
 type Linescore = {
   readonly currentPeriod: number;
   readonly powerPlayStrength: "Even" | "5-on-4";
   readonly hasShootout: boolean;
   readonly teams: LinescoreTeams;
+  readonly periods: LinescorePeriod[];
 };
 
 type LiveLinescore = Linescore & {

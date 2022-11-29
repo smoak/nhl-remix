@@ -8,6 +8,19 @@ type Status = {
     | "Final";
 };
 
+type PeriodTeam = {
+  readonly goals: number;
+  readonly shotsOnGoal: number;
+};
+
+type Period = {
+  readonly ordinalNum: string;
+  readonly periodType: string;
+  readonly num: number;
+  readonly away: PeriodTeam;
+  readonly home: PeriodTeam;
+};
+
 type Linescore = {
   readonly home: {
     readonly isGoaliePulled: boolean;
@@ -17,6 +30,7 @@ type Linescore = {
     readonly isGoaliePulled: boolean;
     readonly isOnPowerPlay: boolean;
   };
+  readonly periods: Period[];
 };
 
 type BaseGame = {
@@ -65,6 +79,7 @@ export type FinalGame =
   | BaseGame & {
       readonly isCurrentlyInProgress: false;
       readonly currentPeriod: number;
+      readonly linescore: Linescore;
       readonly status: {
         readonly abstract: "Final";
         readonly detailed: "Final";

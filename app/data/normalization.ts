@@ -57,6 +57,7 @@ export const normalizeScheduleGame: NormalizeScheduleGame = (game) => {
       currentPeriodTimeRemaining: game.linescore.currentPeriodTimeRemaining,
       currentPeriodOrdinal: game.linescore.currentPeriodOrdinal,
       linescore: {
+        periods: linescore.periods,
         away: {
           isGoaliePulled: linescore.teams.away.goaliePulled,
           isOnPowerPlay: linescore.teams.away.powerPlay,
@@ -103,6 +104,17 @@ export const normalizeScheduleGame: NormalizeScheduleGame = (game) => {
     status: {
       abstract: "Final",
       detailed: "Final",
+    },
+    linescore: {
+      periods: linescore.periods,
+      away: {
+        isGoaliePulled: linescore.teams.away.goaliePulled,
+        isOnPowerPlay: linescore.teams.away.powerPlay,
+      },
+      home: {
+        isGoaliePulled: linescore.teams.home.goaliePulled,
+        isOnPowerPlay: linescore.teams.home.powerPlay,
+      },
     },
     isCurrentlyInProgress: false,
   };
