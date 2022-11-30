@@ -8,6 +8,7 @@ import { normalizeScheduleGame } from "~/data/normalization";
 import { BackButton } from "~/components/BackButton";
 import { GameCard } from "~/components/GameCard";
 import { GameSummary } from "~/components/GameSummary";
+import { useGameDetails } from "~/hooks/useGameDetails";
 
 export const loader: LoaderFunction = async ({ params }) => {
   const { gameId } = params;
@@ -31,7 +32,11 @@ export const loader: LoaderFunction = async ({ params }) => {
 };
 
 export const Index = () => {
-  const game = useLoaderData<Game>();
+  const preloadedGame = useLoaderData<Game>();
+  const game = useGameDetails({
+    route: `/game/${preloadedGame.id}`,
+    preloadedGame,
+  });
 
   return (
     <Layout>

@@ -61,10 +61,14 @@ export const normalizeScheduleGame: NormalizeScheduleGame = (game) => {
         away: {
           isGoaliePulled: linescore.teams.away.goaliePulled,
           isOnPowerPlay: linescore.teams.away.powerPlay,
+          goals: linescore.teams.away.goals,
+          shotsOnGoal: linescore.teams.away.shotsOnGoal,
         },
         home: {
           isGoaliePulled: linescore.teams.home.goaliePulled,
           isOnPowerPlay: linescore.teams.home.powerPlay,
+          goals: linescore.teams.home.goals,
+          shotsOnGoal: linescore.teams.home.shotsOnGoal,
         },
       },
     };
@@ -110,10 +114,14 @@ export const normalizeScheduleGame: NormalizeScheduleGame = (game) => {
       away: {
         isGoaliePulled: linescore.teams.away.goaliePulled,
         isOnPowerPlay: linescore.teams.away.powerPlay,
+        goals: linescore.teams.away.goals,
+        shotsOnGoal: linescore.teams.away.shotsOnGoal,
       },
       home: {
         isGoaliePulled: linescore.teams.home.goaliePulled,
         isOnPowerPlay: linescore.teams.home.powerPlay,
+        goals: linescore.teams.home.goals,
+        shotsOnGoal: linescore.teams.home.shotsOnGoal,
       },
     },
     isCurrentlyInProgress: false,

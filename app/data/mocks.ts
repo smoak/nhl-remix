@@ -33,10 +33,14 @@ export const createLiveGame = (overrides?: Partial<LiveGame>): LiveGame => {
       away: {
         isGoaliePulled: false,
         isOnPowerPlay: false,
+        shotsOnGoal: 0,
+        goals: 0,
       },
       home: {
         isGoaliePulled: false,
         isOnPowerPlay: false,
+        shotsOnGoal: 0,
+        goals: 0,
       },
       periods: [],
     },
@@ -66,10 +70,14 @@ export const createFinalGame = (overrides?: Partial<FinalGame>): FinalGame => {
       away: {
         isGoaliePulled: false,
         isOnPowerPlay: false,
+        goals: 0,
+        shotsOnGoal: 0,
       },
       home: {
         isGoaliePulled: false,
         isOnPowerPlay: false,
+        shotsOnGoal: 0,
+        goals: 0,
       },
       periods: [],
     },

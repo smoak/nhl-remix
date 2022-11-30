@@ -23,10 +23,14 @@ type Period = {
 
 type Linescore = {
   readonly home: {
+    readonly shotsOnGoal: number;
+    readonly goals: number;
     readonly isGoaliePulled: boolean;
     readonly isOnPowerPlay: boolean;
   };
   readonly away: {
+    readonly shotsOnGoal: number;
+    readonly goals: number;
     readonly isGoaliePulled: boolean;
     readonly isOnPowerPlay: boolean;
   };
