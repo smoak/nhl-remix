@@ -31,6 +31,8 @@
     "remix": "^1.7.4"
   },
   "devDependencies": {
+    "@headlessui/react": "^1.7.9",
+    "@headlessui/tailwindcss": "^0.1.2",
     "@remix-run/dev": "^1.7.4",
     "@remix-run/eslint-config": "^1.7.4",
     "@remix-run/serve": "^1.7.4",

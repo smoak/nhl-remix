@@ -1,11 +1,13 @@
 import type { FC } from "react";
-import React from "react";
 import type { StandingsRecord, TeamRecord } from "~/api/types";
 import { TeamLogo } from "../TeamLogo";
 
-type StandingTableProps = {
+type StandingsMode = "Conference" | "Division";
+
+type StandingsTableProps = {
   readonly label: string;
-  readonly conference: StandingsRecord;
+  readonly standingsRecord: StandingsRecord;
+  readonly standingsMode?: StandingsMode;
 };
 
 const TableCell: FC = ({ children }) => {
@@ -14,17 +16,14 @@ const TableCell: FC = ({ children }) => {
 
 type TableRowRecordProps = {
   readonly record: TeamRecord;
+  readonly standingsMode: StandingsMode;
 };
-const TableRowRecord: FC<TableRowRecordProps> = ({ record }) => {
-  const {
-    team,
-    gamesPlayed,
-    conferenceRank,
-    leagueRecord,
-    points,
-    streak,
-    records,
-  } = record;
+const TableRowRecord: FC<TableRowRecordProps> = ({ record, standingsMode }) => {
+  const { team, gamesPlayed, leagueRecord, points, streak, records } = record;
+  const rank =
+    standingsMode === "Conference"
+      ? record.conferenceRank
+      : record.divisionRank;
   const homeRecord = records.overallRecords.find((or) => or.type === "home");
   const awayRecord = records.overallRecords.find((or) => or.type === "away");
   const lastTenRecord = records.overallRecords.find(
@@ -33,7 +32,7 @@ const TableRowRecord: FC<TableRowRecordProps> = ({ record }) => {
 
   return (
     <tr className="text-black">
-      <TableCell>{conferenceRank}</TableCell>
+      <TableCell>{rank}</TableCell>
       <TableCell>
         <div className="flex items-center gap-2">
           <TeamLogo
@@ -63,9 +62,10 @@ const TableRowRecord: FC<TableRowRecordProps> = ({ record }) => {
   );
 };
 
-export const StandingTable: FC<StandingTableProps> = ({
-  conference,
+export const StandingsTable: FC<StandingsTableProps> = ({
   label,
+  standingsMode = "Conference",
+  standingsRecord,
 }) => {
   return (
     <div className="overflow-x-auto py-5">
@@ -87,8 +87,12 @@ export const StandingTable: FC<StandingTableProps> = ({
           </tr>
         </thead>
         <tbody>
-          {conference.teamRecords.map((record) => (
-            <TableRowRecord key={record.team.abbreviation} record={record} />
+          {standingsRecord.teamRecords.map((record) => (
+            <TableRowRecord
+              key={record.team.abbreviation}
+              record={record}
+              standingsMode={standingsMode}
+            />
           ))}
         </tbody>
       </table>

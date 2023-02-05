@@ -1,25 +1,21 @@
-import { useLoaderData } from "@remix-run/react";
 import { getStandings } from "~/api";
 import { Layout } from "~/components/Layout";
-import { StandingTable } from "~/components/StandingTable";
-import type { ConferenceStandings } from "~/data/types";
+import type { Standings as NHLStandings } from "~/data/types";
 import { json } from "@remix-run/node";
 import type { LoaderFunction } from "@remix-run/node";
+import { StandingsTabs } from "~/components/StandingsTabs";
 
 export const loader: LoaderFunction = async () => {
   const standings = await getStandings();
 
-  return json<ConferenceStandings>(standings);
+  return json<NHLStandings>(standings);
 };
 
 export const Standings = () => {
-  const { east, west } = useLoaderData<ConferenceStandings>();
-
   return (
     <Layout>
       <h1 className="mb-3 text-4xl font-bold">Standings</h1>
-      <StandingTable label="Eastern Conference" conference={east} />
-      <StandingTable label="Western Conference" conference={west} />
+      <StandingsTabs />
     </Layout>
   );
 };
