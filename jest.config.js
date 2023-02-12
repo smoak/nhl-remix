@@ -13,6 +13,14 @@ module.exports = {
     "!app/**/stories.tsx",
   ],
   coverageDirectory: "coverage",
+  coverageThreshold: {
+    global: {
+      branches: 20,
+      functions: 25,
+      lines: 50,
+      statements: 50,
+    },
+  },
   testPathIgnorePatterns: ["/node_modules/", ".cache/"],
   moduleNameMapper: {
     "^~/(.*)$": "<rootDir>/app/$1",
