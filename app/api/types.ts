@@ -229,6 +229,7 @@ export type TeamRecord = {
   readonly conferenceL10Rank: string;
   readonly conferenceRoadRank: string;
   readonly conferenceHomeRank: string;
+  readonly wildCardRank: string;
   readonly row: number;
   readonly gamesPlayed: number;
   readonly streak: {

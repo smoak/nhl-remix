@@ -2,12 +2,31 @@ import type { FC } from "react";
 import type { StandingsRecord, TeamRecord } from "~/api/types";
 import { TeamLogo } from "../TeamLogo";
 
-type StandingsMode = "Conference" | "Division";
+type StandingsMode = "Conference" | "Division" | "WildCard";
 
 type StandingsTableProps = {
   readonly label: string;
   readonly standingsRecord: StandingsRecord;
   readonly standingsMode?: StandingsMode;
+};
+
+type GetRankFromRecordOptions = {
+  readonly standingsMode: StandingsMode;
+  readonly record: TeamRecord;
+};
+const getRankFromRecord = ({
+  standingsMode,
+  record,
+}: GetRankFromRecordOptions) => {
+  if (standingsMode === "Conference") {
+    return record.conferenceRank;
+  }
+
+  if (standingsMode === "Division") {
+    return record.divisionRank;
+  }
+
+  return record.wildCardRank;
 };
 
 const TableCell: FC = ({ children }) => {
@@ -20,10 +39,7 @@ type TableRowRecordProps = {
 };
 const TableRowRecord: FC<TableRowRecordProps> = ({ record, standingsMode }) => {
   const { team, gamesPlayed, leagueRecord, points, streak, records } = record;
-  const rank =
-    standingsMode === "Conference"
-      ? record.conferenceRank
-      : record.divisionRank;
+  const rank = getRankFromRecord({ standingsMode, record });
   const homeRecord = records.overallRecords.find((or) => or.type === "home");
   const awayRecord = records.overallRecords.find((or) => or.type === "away");
   const lastTenRecord = records.overallRecords.find(
