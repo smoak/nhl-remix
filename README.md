@@ -4,6 +4,8 @@
 
 A simple app to show NHL games and scores/details
 
+![screen](./docs/screen.png)
+
 ## Setup
 
 ```bash
