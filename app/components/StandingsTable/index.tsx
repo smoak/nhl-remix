@@ -30,7 +30,7 @@ const getRankFromRecord = ({
 };
 
 const TableCell: FC = ({ children }) => {
-  return <td className="border-main border px-3 py-2">{children}</td>;
+  return <td className="border border-nhl-silver px-3 py-2">{children}</td>;
 };
 
 type TableRowRecordProps = {

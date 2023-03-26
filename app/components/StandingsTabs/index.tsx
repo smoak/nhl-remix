@@ -15,13 +15,13 @@ export const StandingsTabs = () => {
         <Tab className={tabClasses}>Wild Card</Tab>
       </Tab.List>
       <Tab.Panels className="py-3">
-        <Tab.Panel>
+        <Tab.Panel id="conference">
           <ConferenceStandingsTab />
         </Tab.Panel>
-        <Tab.Panel>
+        <Tab.Panel id="division">
           <DivisionStandingsTab />
         </Tab.Panel>
-        <Tab.Panel>
+        <Tab.Panel id="wildcard">
           <WildCardStandingsTab />
         </Tab.Panel>
       </Tab.Panels>
