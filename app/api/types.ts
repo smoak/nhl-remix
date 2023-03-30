@@ -237,6 +237,7 @@ export type TeamRecord = {
     readonly streakNumber: number;
     readonly streakCode: string;
   };
+  readonly clinchIndicator?: string;
   readonly records: {
     readonly overallRecords: OverallRecord[];
   };

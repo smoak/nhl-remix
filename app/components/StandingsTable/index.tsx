@@ -38,13 +38,24 @@ type TableRowRecordProps = {
   readonly standingsMode: StandingsMode;
 };
 const TableRowRecord: FC<TableRowRecordProps> = ({ record, standingsMode }) => {
-  const { team, gamesPlayed, leagueRecord, points, streak, records } = record;
+  const {
+    team,
+    gamesPlayed,
+    leagueRecord,
+    points,
+    streak,
+    records,
+    clinchIndicator,
+  } = record;
   const rank = getRankFromRecord({ standingsMode, record });
   const homeRecord = records.overallRecords.find((or) => or.type === "home");
   const awayRecord = records.overallRecords.find((or) => or.type === "away");
   const lastTenRecord = records.overallRecords.find(
     (or) => or.type === "lastTen"
   );
+  const teamName = clinchIndicator
+    ? `${clinchIndicator}-${team.shortName}`
+    : team.shortName;
 
   return (
     <tr className="text-black">
@@ -56,7 +67,7 @@ const TableRowRecord: FC<TableRowRecordProps> = ({ record, standingsMode }) => {
             teamId={team.id}
             size={32}
           />
-          <span>{team.shortName}</span>
+          <span>{teamName}</span>
         </div>
       </TableCell>
       <TableCell>{gamesPlayed}</TableCell>
