@@ -1,4 +1,3 @@
-import type { FC } from "react";
 import type { StandingsRecord, TeamRecord } from "~/api/types";
 import { TeamLogo } from "../TeamLogo";
 
@@ -29,7 +28,7 @@ const getRankFromRecord = ({
   return record.wildCardRank;
 };
 
-const TableCell: FC = ({ children }) => {
+const TableCell = ({ children }: { children: React.ReactNode }) => {
   return <td className="border border-nhl-silver px-3 py-2">{children}</td>;
 };
 
@@ -37,7 +36,7 @@ type TableRowRecordProps = {
   readonly record: TeamRecord;
   readonly standingsMode: StandingsMode;
 };
-const TableRowRecord: FC<TableRowRecordProps> = ({ record, standingsMode }) => {
+const TableRowRecord = ({ record, standingsMode }: TableRowRecordProps) => {
   const {
     team,
     gamesPlayed,
@@ -89,11 +88,11 @@ const TableRowRecord: FC<TableRowRecordProps> = ({ record, standingsMode }) => {
   );
 };
 
-export const StandingsTable: FC<StandingsTableProps> = ({
+export const StandingsTable = ({
   label,
   standingsMode = "Conference",
   standingsRecord,
-}) => {
+}: StandingsTableProps) => {
   return (
     <div className="overflow-x-auto py-5">
       <h1 className="text-3xl font-bold">{label}</h1>
