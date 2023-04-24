@@ -12,7 +12,6 @@
     "dev:css": "run-s -n 'generate:css -- --watch'",
     "dev:remix": "remix dev",
     "generate:css": "tailwindcss -i ./styles/tailwind.css -o ./app/tailwind.css",
-    "postinstall": "remix setup node",
     "lint": "eslint app --max-warnings=0",
     "start": "run-s -n dev",
     "test": "TZ=UTC jest --maxWorkers=50%",
@@ -21,26 +20,28 @@
     "typecheck": "tsc -b"
   },
   "dependencies": {
-    "@remix-run/react": "^1.7.4",
-    "@remix-run/vercel": "^1.7.4",
+    "@remix-run/node": "^1.15.0",
+    "@remix-run/react": "^1.15.0",
+    "@remix-run/vercel": "^1.15.0",
+    "@vercel/node": "^2.6.2",
     "cross-fetch": "^3.1.5",
-    "date-fns": "^2.28.0",
-    "date-fns-tz": "^1.3.3",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "remix": "^1.7.4"
+    "date-fns": "^2.29.3",
+    "date-fns-tz": "^2.0.0",
+    "isbot": "^3.6.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@headlessui/react": "^1.7.9",
     "@headlessui/tailwindcss": "^0.1.2",
-    "@remix-run/dev": "^1.7.4",
-    "@remix-run/eslint-config": "^1.7.4",
-    "@remix-run/serve": "^1.7.4",
+    "@remix-run/dev": "^1.15.0",
+    "@remix-run/eslint-config": "^1.15.0",
+    "@remix-run/serve": "^1.15.0",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.4",
     "@types/jest": "^27.4.1",
-    "@types/react": "^17.0.24",
-    "@types/react-dom": "^17.0.9",
+    "@types/react": "^18.0.25",
+    "@types/react-dom": "^17.0.8",
     "@typescript-eslint/parser": "^5.15.0",
     "autoprefixer": "^10.4.4",
     "eslint": "^8.11.0",
@@ -49,14 +50,16 @@
     "jest": "^27.5.1",
     "msw": "^0.39.2",
     "npm-run-all": "^4.1.5",
-    "postcss": "^8.4.12",
     "prettier": "^2.6.0",
     "prettier-plugin-tailwindcss": "^0.1.8",
     "tailwindcss": "^3.0.23",
     "ts-jest": "^27.1.3",
-    "typescript": "^4.5.5"
+    "typescript": "^4.9.5"
   },
   "engines": {
     "node": ">=14"
+  },
+  "volta": {
+    "node": "18.16.0"
   }
 }
