@@ -1,5 +1,5 @@
 export const Footer = () => (
-  <footer className="container mx-auto px-4 pt-16 pb-8 text-center">
+  <footer className="container mx-auto px-4 pb-8 pt-16 text-center">
     Made with <span className="text-rose-600">♥️</span> by{" "}
     <a
       href="https://github.com/smoak"
