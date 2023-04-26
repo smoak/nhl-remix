@@ -3,8 +3,33 @@ import type {
   LiveGame,
   PostponedGame,
   ScheduledGame,
+  ScoringPlay,
   Team,
 } from "~/components/types";
+
+export const createScoringPlay = (
+  overrides?: Partial<ScoringPlay>
+): ScoringPlay => {
+  return {
+    description: "Goal scored",
+    goals: {
+      away: 1,
+      home: 0,
+    },
+    goalScorer: {
+      id: 1,
+      name: "Goal scorer",
+      seasonGoals: 1,
+    },
+    id: "1",
+    period: 1,
+    periodOrdinalNum: "1st",
+    periodTime: "10:00",
+    scoringTeamId: 55,
+    strength: "EVEN",
+    ...overrides,
+  };
+};
 
 export const createTeam = (overrides?: Partial<Team>): Team => {
   return {
@@ -50,6 +75,7 @@ export const createLiveGame = (overrides?: Partial<LiveGame>): LiveGame => {
       detailed: "In Progress",
     },
     type: "R",
+    scoringPlays: [],
     ...overrides,
   };
 };
@@ -82,6 +108,7 @@ export const createFinalGame = (overrides?: Partial<FinalGame>): FinalGame => {
       periods: [],
     },
     type: "R",
+    scoringPlays: [],
     ...overrides,
   };
 };
@@ -100,6 +127,7 @@ export const createScheduledGame = (
       detailed: "Scheduled",
     },
     type: "R",
+    scoringPlays: [],
     ...overrides,
   };
 };
@@ -118,6 +146,7 @@ export const createPostponedGame = (
       detailed: "Postponed",
     },
     type: "R",
+    scoringPlays: [],
     ...overrides,
   };
 };

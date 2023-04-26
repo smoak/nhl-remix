@@ -20,7 +20,7 @@ export const getGamesByDate: GetGamesByDate = async (date) => {
   const url = new URL(SCHEDULE_URL);
   url.searchParams.append(
     "hydrate",
-    "linescore,team,game(seriesSummary(series))"
+    "scoringplays,linescore,team,game(seriesSummary(series))"
   );
 
   if (date) {
@@ -126,7 +126,7 @@ export const getGameDetails: GetGameDetails = async (gameId) => {
   const url = new URL(SCHEDULE_URL);
   url.searchParams.append(
     "hydrate",
-    "linescore,team,game(seriesSummary(series))"
+    "scoringplays,linescore,team,game(seriesSummary(series))"
   );
   url.searchParams.append("gamePk", gameId);
 

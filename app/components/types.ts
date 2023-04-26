@@ -37,6 +37,33 @@ type Linescore = {
   readonly periods: Period[];
 };
 
+export type ScoringPlayAssister = {
+  readonly id: number;
+  readonly name: string;
+  readonly seasonAssists: number;
+};
+
+export type ScoringPlay = {
+  readonly id: string;
+  readonly description: string;
+  readonly period: number;
+  readonly periodOrdinalNum: string;
+  readonly periodTime: string;
+  readonly goals: {
+    readonly away: number;
+    readonly home: number;
+  };
+  readonly goalScorer: {
+    readonly id: number;
+    readonly name: string;
+    readonly seasonGoals: number;
+  };
+  readonly primaryAssist?: ScoringPlayAssister;
+  readonly secondaryAssist?: ScoringPlayAssister;
+  readonly scoringTeamId: number;
+  readonly strength: "PPG" | "EVEN" | "SHG";
+};
+
 type BaseGame = {
   readonly id: number;
   readonly startTime: string;
@@ -46,6 +73,7 @@ type BaseGame = {
   readonly status: Status;
   readonly type: "R" | "P" | "PR";
   readonly seriesStatusShort?: string;
+  readonly scoringPlays: ScoringPlay[];
 };
 
 export type LiveGame =
@@ -120,4 +148,8 @@ export const isFinalGame = (g: Game): g is FinalGame => {
 
 export const isPostponedGame = (g: Game): g is PostponedGame => {
   return g.status.detailed === "Postponed";
+};
+
+export const isScheduledGame = (g: Game): g is ScheduledGame => {
+  return g.status.detailed === "Scheduled";
 };

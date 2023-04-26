@@ -166,6 +166,82 @@ export type SeriesSummary = {
   readonly series: Series;
 };
 
+type Coordinates = {
+  readonly x: number;
+  readonly y: number;
+};
+
+type ScoringPlayerScorer = {
+  readonly playerType: "Scorer";
+  readonly player: {
+    readonly id: number;
+    readonly fullName: string;
+    readonly link: string;
+  };
+  readonly seasonTotal: number;
+};
+
+type ScoringPlayerAssist = {
+  readonly playerType: "Assist";
+  readonly player: {
+    readonly id: number;
+    readonly fullName: string;
+    readonly link: string;
+  };
+  readonly seasonTotal: number;
+};
+
+type ScoringPlayerGoalie = {
+  readonly playerType: "Goalie";
+  readonly player: {
+    readonly id: number;
+    readonly fullName: string;
+    readonly link: string;
+  };
+};
+
+type ScoringPlay = {
+  readonly players:
+    | [ScoringPlayerScorer]
+    | [ScoringPlayerScorer, ScoringPlayerGoalie]
+    | [ScoringPlayerScorer, ScoringPlayerAssist, ScoringPlayerGoalie]
+    | [
+        ScoringPlayerScorer,
+        ScoringPlayerAssist,
+        ScoringPlayerAssist,
+        ScoringPlayerGoalie
+      ];
+  readonly result: {
+    readonly event: string;
+    readonly eventCode: string;
+    readonly eventTypeId: string;
+    readonly description: string;
+    readonly secondaryType: string;
+    readonly strength: {
+      readonly code: "EVEN" | "PPG" | "SHG";
+      readonly name: string;
+    };
+    readonly gameWinningGoal: boolean;
+    readonly emptyNet: boolean;
+  };
+  readonly about: {
+    readonly period: number;
+    readonly ordinalNum: string;
+    readonly periodTime: string;
+    readonly periodTimeRemaining: string;
+    readonly goals: {
+      readonly away: number;
+      readonly home: number;
+    };
+  };
+  readonly coordinates: Coordinates;
+  readonly team: {
+    readonly id: number;
+    readonly name: string;
+    readonly link: string;
+  };
+};
+
 type BaseGame = {
   readonly content: GameContent;
   readonly gameDate: string;
@@ -176,6 +252,7 @@ type BaseGame = {
   readonly status: GameStatus;
   readonly teams: GameTeams;
   readonly venue: GameVenue;
+  readonly scoringPlays: ScoringPlay[];
   readonly seriesSummary?: SeriesSummary;
 };
 

@@ -9,6 +9,7 @@ import { BackButton } from "~/components/BackButton";
 import { GameCard } from "~/components/GameCard";
 import { GameSummary } from "~/components/GameSummary";
 import { useGameDetails } from "~/hooks/useGameDetails";
+import { ScoringSummary } from "~/components/ScoringSummary";
 
 export const loader: LoaderFunction = async ({ params }) => {
   const { gameId } = params;
@@ -44,7 +45,14 @@ export const Index = () => {
       <div className="py-5 md:max-w-sm">
         <GameCard game={game} />
       </div>
-      <GameSummary game={game} />
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
+        <div>
+          <GameSummary game={game} />
+        </div>
+        <div>
+          <ScoringSummary game={game} />
+        </div>
+      </div>
     </Layout>
   );
 };

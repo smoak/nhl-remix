@@ -16,7 +16,7 @@ export const GameSummary = ({ game }: GameSummaryProps) => {
   }
 
   return (
-    <div className="py-5">
+    <div>
       <h1 className="text-2xl font-semibold">Game Summary</h1>
       <div className="overflow-x-auto">
         <GameSummaryTable game={game} />
