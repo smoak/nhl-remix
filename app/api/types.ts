@@ -338,6 +338,79 @@ export type Standings = {
   readonly records: StandingsRecord[];
 };
 
+export type PlayoffMatchupTeam = {
+  readonly team: {
+    readonly id: number;
+    readonly name: string;
+    readonly link: string;
+  };
+  readonly seed: {
+    readonly type: string;
+    readonly rank: number;
+    readonly isTop: boolean;
+  };
+  readonly seriesRecord: {
+    readonly wins: number;
+    readonly losses: number;
+  };
+};
+
+export type PlayoffSeries = {
+  readonly seriesNumber?: number;
+  readonly seriesCode: string;
+  readonly names: {
+    readonly matchupName: string;
+    readonly matchupShortName: string;
+    readonly teamAbbreviationA: string;
+    readonly teamAbbreviationB: string;
+    readonly seriesSlug?: string;
+  };
+  readonly currentGame: {
+    readonly seriesSummary: {
+      readonly gamePk?: number;
+      readonly gameNumber?: number;
+      readonly gameLabel: string;
+      readonly necessary?: boolean;
+      readonly gameCode?: number;
+      readonly gameTime?: string;
+      readonly seriesStatus?: string;
+      readonly seriesStatusShort?: string;
+    };
+  };
+  readonly conference: {
+    readonly id?: number;
+    readonly name?: string;
+    readonly link: string;
+  };
+  readonly round: {
+    readonly number: number;
+  };
+  readonly matchupTeams?: PlayoffMatchupTeam[];
+};
+
+export type PlayoffRound = {
+  readonly number: number;
+  readonly code: number;
+  readonly names: {
+    readonly name: string;
+    readonly shortName: string;
+  };
+  readonly format: {
+    readonly name: string;
+    readonly description: string;
+    readonly numberOfGames: number;
+    readonly numberOfWins: number;
+  };
+  readonly series: PlayoffSeries[];
+};
+
+export type Playoffs = {
+  readonly season: string;
+  readonly name: string;
+  readonly defaultRound: number;
+  readonly rounds: PlayoffRound[];
+};
+
 export const isLiveGame = (game: ScheduleGame): game is LiveGame => {
   return game.status.abstractGameState === "Live";
 };

@@ -120,7 +120,7 @@ export type FinalGame =
 
 export type Game = LiveGame | ScheduledGame | PostponedGame | FinalGame;
 
-export type Record = {
+export type TeamRecord = {
   readonly wins: number;
   readonly losses: number;
   readonly ot?: number;
@@ -130,12 +130,37 @@ export type Team = {
   readonly abbreviation: string;
   readonly id: number;
   readonly name: string;
-  readonly record: Record;
+  readonly record: TeamRecord;
   readonly score: number;
 };
 
 export type GameList = {
   readonly games: Game[];
+};
+
+export type PlayoffTeam = {
+  readonly abbrev: string;
+  readonly id: number;
+  readonly seriesWins: number;
+  readonly seriesLosses: number;
+  readonly isEliminated: boolean;
+};
+
+export type Matchup = {
+  readonly id: string;
+  readonly topTeam?: PlayoffTeam;
+  readonly bottomTeam?: PlayoffTeam;
+  readonly seriesSummary?: string;
+};
+
+type PlayoffRound = {
+  readonly matchups: Matchup[];
+};
+
+export type PlayoffBracket = {
+  readonly eastern: Record<1 | 2 | 3, PlayoffRound>;
+  readonly western: Record<1 | 2 | 3, PlayoffRound>;
+  readonly finalRound: Matchup;
 };
 
 export const isLiveGame = (g: Game): g is LiveGame => {

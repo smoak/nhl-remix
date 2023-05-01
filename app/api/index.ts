@@ -1,5 +1,5 @@
 import { fetch } from "cross-fetch";
-import type { Schedule, ScheduleGame } from "~/api/types";
+import type { Playoffs, Schedule, ScheduleGame } from "~/api/types";
 import type {
   ConferenceStandings,
   DivisionStandings,
@@ -14,6 +14,7 @@ export const STANDINGS_BASE_URL = `${BASE_URL}/standings`;
 export const CONFERENCE_STANDINGS_URL = `${STANDINGS_BASE_URL}/byConference`;
 export const DIVISION_STANDINGS_URL = `${STANDINGS_BASE_URL}/byDivision`;
 export const WILD_CARD_STANDINGS_URL = `${STANDINGS_BASE_URL}/wildCardWithLeaders`;
+export const PLAYOFFS_URL = `${BASE_URL}/tournaments/playoffs`;
 
 type GetGamesByDate = (date?: string) => Promise<ScheduleGame[]>;
 export const getGamesByDate: GetGamesByDate = async (date) => {
@@ -138,4 +139,14 @@ export const getGameDetails: GetGameDetails = async (gameId) => {
   }
 
   return dates[0].games[0];
+};
+
+type GetPlayoffs = () => Promise<Playoffs>;
+export const getPlayoffs: GetPlayoffs = async () => {
+  const url = new URL(PLAYOFFS_URL);
+  url.searchParams.append("expand", "round.series,schedule.game.seriesSummary");
+
+  const response = await fetch(url.toString());
+
+  return (await response.json()) as Playoffs;
 };

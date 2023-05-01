@@ -1,9 +1,9 @@
 import type { GameType } from "~/api/types";
-import type { Record } from "../types";
+import type { TeamRecord as TeamData } from "../types";
 
 export type TeamRecordProps = {
   readonly gameType: GameType;
-  readonly record: Record;
+  readonly record: TeamData;
 };
 
 export const TeamRecord = ({ gameType, record }: TeamRecordProps) => {
