@@ -10,9 +10,9 @@ export type GameCardProps = {
 };
 
 export const GameCard = ({ game }: GameCardProps) => (
-  <article className="flex rounded-lg border border-nhl-black">
+  <article className="flex h-36 rounded-lg border border-nhl-black">
     <div className="flex w-full flex-col">
-      <div className="flex p-9">
+      <div className="flex p-8">
         <HomeTeamInfo game={game} />
         <div className="mt-3 flex flex-1">
           <TeamScore

@@ -1,6 +1,13 @@
-import type { ScheduleGame } from "~/api/types";
+import { hasScoringPlayers } from "~/api/types";
 import { isLiveGame } from "~/api/types";
 import type { Game, GameList, ScoringPlay } from "~/components/types";
+import type {
+  ScoringPlay as ApiScoringPlay,
+  DoubleAssist,
+  ScheduleGame,
+  SingleAssit,
+  SingleScorer,
+} from "~/api/types";
 
 type NormalizeScheduleGames = (games: ScheduleGame[]) => GameList;
 export const normalizeScheduleGames: NormalizeScheduleGames = (games) => {
@@ -15,7 +22,7 @@ type NormalizedScoringPlayers = {
   readonly secondaryAssist: ScoringPlay["secondaryAssist"];
 };
 type NormalizeScoringPlayers = (
-  players: ScheduleGame["scoringPlays"][0]["players"]
+  players: SingleAssit | DoubleAssist | SingleScorer
 ) => NormalizedScoringPlayers;
 const normalizeScoringPlayers: NormalizeScoringPlayers = (players) => {
   const [scorer, primaryAssistOrGoalie, secondaryAssistOrGoalie] = players;
@@ -48,9 +55,7 @@ const normalizeScoringPlayers: NormalizeScoringPlayers = (players) => {
   };
 };
 
-type NormalizeScoringPlay = (
-  scoringPlay: ScheduleGame["scoringPlays"][0]
-) => ScoringPlay;
+type NormalizeScoringPlay = (scoringPlay: ApiScoringPlay) => ScoringPlay;
 const normalizeScoringPlay: NormalizeScoringPlay = ({
   about,
   players,
@@ -79,7 +84,9 @@ type NormalizeScoringPlays = (
   scoringPlays: ScheduleGame["scoringPlays"]
 ) => ScoringPlay[];
 const normalizeScoringPlays: NormalizeScoringPlays = (scoringPlays) => {
-  return scoringPlays.map<ScoringPlay>(normalizeScoringPlay);
+  return scoringPlays
+    .filter(hasScoringPlayers)
+    .map<ScoringPlay>(normalizeScoringPlay);
 };
 
 type NormalizeScheduleGame = (game: ScheduleGame) => Game;

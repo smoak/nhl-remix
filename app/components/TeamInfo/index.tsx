@@ -19,7 +19,7 @@ export const TeamInfo = ({
   isOnPowerPlay,
   team,
 }: TeamInfoProps) => (
-  <div className="flex w-1/3 flex-col items-center text-center">
+  <div className="flex w-1/3 w-16 flex-col items-center text-center">
     <TeamLogo teamId={team.id} size={48} teamAbbreviation={team.abbreviation} />
     <TeamName
       isGameInProgress={isGameInProgress}

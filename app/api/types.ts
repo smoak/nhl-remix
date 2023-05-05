@@ -69,7 +69,7 @@ export type GameTeams = {
 };
 
 export type GameVenue = {
-  readonly id: number;
+  // readonly id: number;
   readonly link: string;
   readonly name: string;
 };
@@ -155,7 +155,7 @@ export type Series = {
 };
 
 export type SeriesSummary = {
-  readonly gamePk: string;
+  readonly gamePk: number;
   readonly gameNumber: number;
   readonly gameLabel: string;
   readonly necessary: boolean;
@@ -200,17 +200,31 @@ type ScoringPlayerGoalie = {
   };
 };
 
-type ScoringPlay = {
-  readonly players:
-    | [ScoringPlayerScorer]
-    | [ScoringPlayerScorer, ScoringPlayerGoalie]
-    | [ScoringPlayerScorer, ScoringPlayerAssist, ScoringPlayerGoalie]
-    | [
-        ScoringPlayerScorer,
-        ScoringPlayerAssist,
-        ScoringPlayerAssist,
-        ScoringPlayerGoalie
-      ];
+export type SingleScorer =
+  | [ScoringPlayerScorer]
+  | [ScoringPlayerScorer, ScoringPlayerGoalie];
+export type SingleAssit = [
+  ScoringPlayerScorer,
+  ScoringPlayerAssist,
+  ScoringPlayerGoalie
+];
+export type DoubleAssist = [
+  ScoringPlayerScorer,
+  ScoringPlayerAssist,
+  ScoringPlayerAssist,
+  ScoringPlayerGoalie
+];
+
+export type ScoringPlayPlayers = SingleScorer | SingleAssit | DoubleAssist;
+
+type Concrete<Type> = {
+  [Property in keyof Type]-?: Type[Property];
+};
+
+export type ScoringPlay = Concrete<MaybeScoringPlay>;
+
+type MaybeScoringPlay = {
+  readonly players?: ScoringPlayPlayers;
   readonly result: {
     readonly event: string;
     readonly eventCode: string;
@@ -221,7 +235,7 @@ type ScoringPlay = {
       readonly code: "EVEN" | "PPG" | "SHG";
       readonly name: string;
     };
-    readonly gameWinningGoal: boolean;
+    readonly gameWinningGoal?: boolean;
     readonly emptyNet: boolean;
   };
   readonly about: {
@@ -252,7 +266,7 @@ type BaseGame = {
   readonly status: GameStatus;
   readonly teams: GameTeams;
   readonly venue: GameVenue;
-  readonly scoringPlays: ScoringPlay[];
+  readonly scoringPlays: MaybeScoringPlay[];
   readonly seriesSummary?: SeriesSummary;
 };
 
@@ -264,7 +278,7 @@ type ScheduledGame = BaseGame & {
   readonly linescore: Linescore;
 };
 
-type LiveGame = BaseGame & {
+export type LiveGame = BaseGame & {
   readonly linescore: LiveLinescore;
   readonly status: LiveGameStatus;
 };
@@ -413,4 +427,10 @@ export type Playoffs = {
 
 export const isLiveGame = (game: ScheduleGame): game is LiveGame => {
   return game.status.abstractGameState === "Live";
+};
+
+export const hasScoringPlayers = (
+  scoringPlay: MaybeScoringPlay
+): scoringPlay is ScoringPlay => {
+  return scoringPlay.players != null;
 };
