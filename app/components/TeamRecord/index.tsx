@@ -11,7 +11,7 @@ export const TeamRecord = ({ gameType, record }: TeamRecordProps) => {
     return null;
   }
 
-  if (!record.ot) {
+  if (record.ot == null) {
     return (
       <p className="text-xs">
         {record.wins}-{record.losses}

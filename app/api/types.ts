@@ -45,12 +45,16 @@ export type LeagueRecord = {
 
 export type Team = {
   readonly id: number;
-  readonly link: string;
   readonly name: string;
+  readonly link: string;
+  readonly venue: object;
   readonly abbreviation: string;
   readonly teamName: string;
   readonly locationName: string;
   readonly firstYearOfPlay: string;
+  readonly division: object;
+  readonly conference: object;
+  readonly franchise: object;
   readonly shortName: string;
   readonly officialSiteUrl: string;
   readonly franchiseId: number;

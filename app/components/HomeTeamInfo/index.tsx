@@ -22,7 +22,7 @@ export const HomeTeamInfo = ({ game }: HomeTeamInfoProps) => {
   return (
     <TeamInfo
       gameType={game.type}
-      isGameInProgress={true}
+      isGameInProgress={false}
       isGoaliePulled={false}
       isOnPowerPlay={false}
       team={game.homeTeam}
