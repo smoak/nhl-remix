@@ -327,7 +327,7 @@ export type TeamRecord = {
   readonly wildCardRank: string;
   readonly row: number;
   readonly gamesPlayed: number;
-  readonly streak: {
+  readonly streak?: {
     readonly streakType: "wins" | "losses" | "ot";
     readonly streakNumber: number;
     readonly streakCode: string;

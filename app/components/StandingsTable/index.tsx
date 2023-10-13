@@ -1,91 +1,12 @@
-import type { StandingsRecord, TeamRecord } from "~/api/types";
-import { TeamLogo } from "../TeamLogo";
-
-type StandingsMode = "Conference" | "Division" | "WildCard";
+import type { StandingsRecord } from "~/api/types";
+import type { StandingsMode } from "./types";
+import { TableRowRecord } from "./TableRowRecord";
+import { TableCell } from "../Table";
 
 type StandingsTableProps = {
   readonly label: string;
   readonly standingsRecord: StandingsRecord;
   readonly standingsMode?: StandingsMode;
-};
-
-type GetRankFromRecordOptions = {
-  readonly standingsMode: StandingsMode;
-  readonly record: TeamRecord;
-};
-const getRankFromRecord = ({
-  standingsMode,
-  record,
-}: GetRankFromRecordOptions) => {
-  if (standingsMode === "Conference") {
-    return record.conferenceRank;
-  }
-
-  if (standingsMode === "Division") {
-    return record.divisionRank;
-  }
-
-  return record.wildCardRank;
-};
-
-const TableCell = ({ children }: { children: React.ReactNode }) => {
-  return <td className="border border-nhl-silver px-3 py-2">{children}</td>;
-};
-
-type TableRowRecordProps = {
-  readonly record: TeamRecord;
-  readonly standingsMode: StandingsMode;
-};
-const TableRowRecord = ({ record, standingsMode }: TableRowRecordProps) => {
-  const {
-    team,
-    gamesPlayed,
-    leagueRecord,
-    points,
-    streak,
-    records,
-    clinchIndicator,
-  } = record;
-  const rank = getRankFromRecord({ standingsMode, record });
-  const homeRecord = records.overallRecords.find((or) => or.type === "home");
-  const awayRecord = records.overallRecords.find((or) => or.type === "away");
-  const lastTenRecord = records.overallRecords.find(
-    (or) => or.type === "lastTen"
-  );
-  const teamName = clinchIndicator
-    ? `${clinchIndicator}-${team.shortName}`
-    : team.shortName;
-
-  return (
-    <tr className="text-black">
-      <TableCell>{rank}</TableCell>
-      <TableCell>
-        <div className="flex items-center gap-2">
-          <TeamLogo
-            teamAbbreviation={team.abbreviation}
-            teamId={team.id}
-            size={32}
-          />
-          <span>{teamName}</span>
-        </div>
-      </TableCell>
-      <TableCell>{gamesPlayed}</TableCell>
-      <TableCell>{leagueRecord.wins}</TableCell>
-      <TableCell>{leagueRecord.losses}</TableCell>
-      <TableCell>{leagueRecord.ot}</TableCell>
-      <TableCell>{points}</TableCell>
-      <TableCell>
-        {homeRecord?.wins}-{homeRecord?.losses}-{homeRecord?.ot}
-      </TableCell>
-      <TableCell>
-        {awayRecord?.wins}-{awayRecord?.losses}-{awayRecord?.ot}
-      </TableCell>
-      <TableCell>
-        {lastTenRecord?.wins}-{lastTenRecord?.losses}-{lastTenRecord?.ot}
-      </TableCell>
-      <TableCell>{streak.streakCode}</TableCell>
-    </tr>
-  );
 };
 
 export const StandingsTable = ({
