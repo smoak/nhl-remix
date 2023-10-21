@@ -19,6 +19,7 @@ const TeamNameTableCell = ({ shotsOnGoal, team }: TeamNameTableCellProps) => {
           teamId={team.id}
           size={43}
           teamAbbreviation={team.abbreviation}
+          teamName={team.name}
         />
         <div className="items-center px-2 text-left text-sm">
           {team.name}

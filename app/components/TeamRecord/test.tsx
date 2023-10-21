@@ -4,9 +4,7 @@ import { TeamRecord } from "./index";
 describe("TeamRecord", () => {
   describe("for a regular season game", () => {
     beforeEach(() => {
-      render(
-        <TeamRecord gameType="R" record={{ wins: 5, losses: 0, ot: 1 }} />
-      );
+      render(<TeamRecord gameType="R" record="5-0-1" />);
     });
 
     it("renders correctly", () => {
@@ -18,9 +16,7 @@ describe("TeamRecord", () => {
     let container: HTMLElement;
 
     beforeEach(() => {
-      container = render(
-        <TeamRecord gameType="P" record={{ wins: 4, losses: 0 }} />
-      ).container;
+      container = render(<TeamRecord gameType="P" record="" />).container;
     });
 
     it("renders empty", () => {

@@ -1,12 +1,9 @@
-import type { AbstractGameState } from "~/api/types";
-
 export type TeamScoreProps = {
-  readonly score: number;
-  readonly gameState: AbstractGameState;
+  readonly score?: number;
 };
 
-export const TeamScore = ({ gameState, score }: TeamScoreProps) => {
-  if (gameState === "Preview") {
+export const TeamScore = ({ score }: TeamScoreProps) => {
+  if (score == null) {
     return null;
   }
 

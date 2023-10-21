@@ -7,6 +7,7 @@ import type {
   ScheduleGame,
   SingleAssit,
   SingleScorer,
+  LeagueRecord,
 } from "~/api/types";
 
 type NormalizeScheduleGames = (games: ScheduleGame[]) => GameList;
@@ -89,6 +90,14 @@ const normalizeScoringPlays: NormalizeScoringPlays = (scoringPlays) => {
     .map<ScoringPlay>(normalizeScoringPlay);
 };
 
+const normalizeRecord = ({ losses, wins, ot }: LeagueRecord): string => {
+  if (ot == null) {
+    return [wins, losses].join("-");
+  }
+
+  return [wins, losses, ot].join("-");
+};
+
 type NormalizeScheduleGame = (game: ScheduleGame) => Game;
 export const normalizeScheduleGame: NormalizeScheduleGame = (game) => {
   const {
@@ -106,14 +115,14 @@ export const normalizeScheduleGame: NormalizeScheduleGame = (game) => {
     id: teams.home.team.id,
     name: teams.home.team.teamName,
     score: teams.home.score,
-    record: teams.home.leagueRecord,
+    record: normalizeRecord(teams.home.leagueRecord),
     abbreviation: teams.home.team.abbreviation,
   };
   const awayTeam = {
     id: teams.away.team.id,
     name: teams.away.team.teamName,
     score: teams.away.score,
-    record: teams.away.leagueRecord,
+    record: normalizeRecord(teams.away.leagueRecord),
     abbreviation: teams.away.team.abbreviation,
   };
 
@@ -137,7 +146,6 @@ export const normalizeScheduleGame: NormalizeScheduleGame = (game) => {
         detailed: game.status.detailedState,
       },
       currentPeriodTimeRemaining: game.linescore.currentPeriodTimeRemaining,
-      currentPeriodOrdinal: game.linescore.currentPeriodOrdinal,
       linescore: {
         periods: linescore.periods,
         away: {

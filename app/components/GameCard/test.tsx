@@ -6,10 +6,7 @@ const homeTeam = {
   id: 12,
   name: "Hurricanes",
   score: 5,
-  record: {
-    wins: 3,
-    losses: 2,
-  },
+  record: "3-2",
   abbreviation: "CAR",
 };
 
@@ -17,10 +14,7 @@ const awayTeam = {
   id: 6,
   name: "Bruins",
   score: 1,
-  record: {
-    wins: 2,
-    losses: 3,
-  },
+  record: "2-3",
   abbreviation: "BOS",
 };
 

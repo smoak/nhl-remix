@@ -21,7 +21,7 @@ type Period = {
   readonly home: PeriodTeam;
 };
 
-type Linescore = {
+export type Linescore = {
   readonly home: {
     readonly shotsOnGoal: number;
     readonly goals: number;
@@ -57,6 +57,7 @@ export type ScoringPlay = {
     readonly id: number;
     readonly name: string;
     readonly seasonGoals: number;
+    readonly mugshot?: string;
   };
   readonly primaryAssist?: ScoringPlayAssister;
   readonly secondaryAssist?: ScoringPlayAssister;
@@ -81,12 +82,11 @@ export type LiveGame =
       readonly isCurrentlyInProgress: true;
       readonly currentPeriod: number;
       readonly currentPeriodTimeRemaining: string;
-      readonly currentPeriodOrdinal: string;
-      readonly linescore: Linescore;
-      readonly status: {
-        readonly abstract: "Live";
-        readonly detailed: "In Progress" | "In Progress - Critical";
-      };
+      // readonly linescore: Linescore;
+      // readonly status: {
+      //   readonly abstract: "Live";
+      //   readonly detailed: "In Progress" | "In Progress - Critical";
+      // };
     };
 
 export type ScheduledGame =
@@ -120,18 +120,13 @@ export type FinalGame =
 
 export type Game = LiveGame | ScheduledGame | PostponedGame | FinalGame;
 
-export type TeamRecord = {
-  readonly wins: number;
-  readonly losses: number;
-  readonly ot?: number;
-};
-
 export type Team = {
   readonly abbreviation: string;
   readonly id: number;
   readonly name: string;
-  readonly record: TeamRecord;
-  readonly score: number;
+  readonly record?: string;
+  readonly score?: number;
+  readonly logo?: string;
 };
 
 export type GameList = {

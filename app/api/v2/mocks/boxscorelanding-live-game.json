@@ -1,0 +1,211 @@
+{
+  "id": 2023020068,
+  "season": 20232024,
+  "gameType": 2,
+  "gameDate": "2023-10-21",
+  "venue": { "default": "Amerant Bank Arena" },
+  "startTimeUTC": "2023-10-21T23:00:00Z",
+  "easternUTCOffset": "-04:00",
+  "venueUTCOffset": "-04:00",
+  "venueTimezone": "US/Eastern",
+  "tvBroadcasts": [
+    { "id": 290, "market": "N", "countryCode": "CA", "network": "SNP" },
+    { "id": 353, "market": "H", "countryCode": "US", "network": "BSFL" }
+  ],
+  "gameState": "LIVE",
+  "gameScheduleState": "OK",
+  "awayTeam": {
+    "id": 23,
+    "name": { "default": "Canucks" },
+    "abbrev": "VAN",
+    "placeName": { "default": "Vancouver" },
+    "score": 0,
+    "sog": 3,
+    "logo": "https://assets.nhle.com/logos/nhl/svg/VAN_light.svg",
+    "radioLink": "https://d2igy0yla8zi0u.cloudfront.net/van/20232024/van-radio.m3u8"
+  },
+  "homeTeam": {
+    "id": 13,
+    "name": { "default": "Panthers" },
+    "abbrev": "FLA",
+    "placeName": { "default": "Florida", "fr": "Floride" },
+    "score": 0,
+    "sog": 7,
+    "logo": "https://assets.nhle.com/logos/nhl/svg/FLA_light.svg",
+    "radioLink": "https://d2igy0yla8zi0u.cloudfront.net/fla/20232024/fla-radio.m3u8"
+  },
+  "shootoutInUse": true,
+  "maxPeriods": 5,
+  "regPeriods": 3,
+  "otInUse": true,
+  "tiesInUse": false,
+  "clock": {
+    "timeRemaining": "11:39",
+    "secondsRemaining": 699,
+    "running": true,
+    "inIntermission": false
+  },
+  "summary": {
+    "linescore": {
+      "byPeriod": [
+        {
+          "period": 1,
+          "periodDescriptor": { "number": 1, "periodType": "REG" },
+          "away": 0,
+          "home": 0
+        }
+      ],
+      "totals": { "away": 0, "home": 0 }
+    },
+    "scoring": [
+      {
+        "period": 1,
+        "periodDescriptor": { "number": 1, "periodType": "REG" },
+        "goals": []
+      }
+    ],
+    "shootout": [],
+    "threeStars": [],
+    "teamGameStats": [
+      { "category": "sog", "awayValue": "3", "homeValue": "7" },
+      { "category": "faceoffPctg", "awayValue": "62.5", "homeValue": "37.5" },
+      { "category": "powerPlay", "awayValue": "0/0", "homeValue": "0/1" },
+      { "category": "pim", "awayValue": "2", "homeValue": "0" },
+      { "category": "hits", "awayValue": "1", "homeValue": "2" },
+      { "category": "blockedShots", "awayValue": "2", "homeValue": "2" },
+      { "category": "giveaways", "awayValue": "1", "homeValue": "3" },
+      { "category": "takeaways", "awayValue": "0", "homeValue": "1" }
+    ],
+    "shotsByPeriod": [
+      {
+        "period": 1,
+        "periodDescriptor": { "number": 1, "periodType": "REG" },
+        "away": 3,
+        "home": 7
+      }
+    ],
+    "penalties": [
+      {
+        "period": 1,
+        "periodDescriptor": { "number": 1, "periodType": "REG" },
+        "penalties": [
+          {
+            "timeInPeriod": "00:31",
+            "type": "MIN",
+            "duration": 2,
+            "committedByPlayer": "J.T. Miller",
+            "teamAbbrev": "VAN",
+            "drawnBy": "Sergei Bobrovsky",
+            "descKey": "holding"
+          }
+        ]
+      }
+    ],
+    "seasonSeries": [
+      {
+        "id": 2023020068,
+        "season": 20232024,
+        "gameType": 2,
+        "gameDate": "2023-10-21",
+        "startTimeUTC": "2023-10-21T23:00:00Z",
+        "easternUTCOffset": "-04:00",
+        "venueUTCOffset": "-04:00",
+        "tvBroadcasts": ["SNP", "BSFL"],
+        "gameState": "LIVE",
+        "gameScheduleState": "OK",
+        "awayTeam": {
+          "id": 23,
+          "abbrev": "VAN",
+          "logo": "https://assets.nhle.com/logos/nhl/svg/VAN_light.svg",
+          "score": 0
+        },
+        "homeTeam": {
+          "id": 13,
+          "abbrev": "FLA",
+          "logo": "https://assets.nhle.com/logos/nhl/svg/FLA_light.svg",
+          "score": 0
+        },
+        "clock": {
+          "timeRemaining": "11:39",
+          "secondsRemaining": 699,
+          "running": true,
+          "inIntermission": false
+        },
+        "period": 1,
+        "periodDescriptor": { "number": 1, "periodType": "REG" },
+        "gameOutcome": { "lastPeriodType": "REG" }
+      },
+      {
+        "id": 2023020454,
+        "season": 20232024,
+        "gameType": 2,
+        "gameDate": "2023-12-14",
+        "startTimeUTC": "2023-12-15T03:00:00Z",
+        "easternUTCOffset": "-05:00",
+        "venueUTCOffset": "-08:00",
+        "gameState": "FUT",
+        "gameScheduleState": "OK",
+        "awayTeam": {
+          "id": 13,
+          "abbrev": "FLA",
+          "logo": "https://assets.nhle.com/logos/nhl/svg/FLA_light.svg"
+        },
+        "homeTeam": {
+          "id": 23,
+          "abbrev": "VAN",
+          "logo": "https://assets.nhle.com/logos/nhl/svg/VAN_light.svg"
+        }
+      }
+    ],
+    "gameInfo": {
+      "referees": [
+        { "default": "Francois StLaurent" },
+        { "default": "Ghislain Hebert" }
+      ],
+      "linesmen": [{ "default": "Devin Berg" }, { "default": "Jonny Murray" }],
+      "awayTeam": {
+        "headCoach": { "default": "Rick Tocchet" },
+        "scratches": [
+          {
+            "id": 8476927,
+            "firstName": {
+              "default": "Teddy",
+              "cs": "Theodors",
+              "sk": "Theodors"
+            },
+            "lastName": {
+              "default": "Blueger",
+              "cs": "Blugers",
+              "sk": "Blugers"
+            }
+          },
+          {
+            "id": 8478454,
+            "firstName": { "default": "Noah" },
+            "lastName": { "default": "Juulsen" }
+          },
+          {
+            "id": 8481535,
+            "firstName": { "default": "Nils" },
+            "lastName": { "default": "Hoglander" }
+          }
+        ]
+      },
+      "homeTeam": {
+        "headCoach": { "default": "Paul Maurice" },
+        "scratches": [
+          {
+            "id": 8476422,
+            "firstName": { "default": "Mike" },
+            "lastName": { "default": "Reilly" }
+          },
+          {
+            "id": 8479367,
+            "firstName": { "default": "William" },
+            "lastName": { "default": "Lockwood" }
+          }
+        ]
+      }
+    }
+  }
+}

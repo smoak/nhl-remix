@@ -1,0 +1,36 @@
+{
+  "id": 2023020067,
+  "season": 20232024,
+  "gameType": 2,
+  "gameDate": "2023-10-21",
+  "venue": { "default": "KeyBank Center" },
+  "startTimeUTC": "2023-10-21T23:00:00Z",
+  "easternUTCOffset": "-04:00",
+  "venueUTCOffset": "-04:00",
+  "tvBroadcasts": [
+    { "id": 28, "market": "H", "countryCode": "US", "network": "MSG-B" },
+    { "id": 409, "market": "A", "countryCode": "US", "network": "MSGSN" }
+  ],
+  "gameState": "FUT",
+  "gameScheduleState": "OK",
+  "awayTeam": {
+    "id": 2,
+    "name": { "default": "Islanders" },
+    "abbrev": "NYI",
+    "logo": "https://assets.nhle.com/logos/nhl/svg/NYI_light.svg",
+    "radioLink": "https://d2igy0yla8zi0u.cloudfront.net/nyi/20232024/nyi-radio.m3u8"
+  },
+  "homeTeam": {
+    "id": 7,
+    "name": { "default": "Sabres" },
+    "abbrev": "BUF",
+    "logo": "https://assets.nhle.com/logos/nhl/svg/BUF_light.svg",
+    "radioLink": "https://d2igy0yla8zi0u.cloudfront.net/buf/20232024/buf-radio.m3u8"
+  },
+  "clock": {
+    "timeRemaining": "20:00",
+    "secondsRemaining": 1200,
+    "running": false,
+    "inIntermission": false
+  }
+}

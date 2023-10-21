@@ -1,0 +1,143 @@
+{
+  "id": 2023020065,
+  "season": 20232024,
+  "gameType": 2,
+  "gameDate": "2023-10-21",
+  "venue": { "default": "Canadian Tire Centre" },
+  "startTimeUTC": "2023-10-21T17:00:00Z",
+  "easternUTCOffset": "-04:00",
+  "venueUTCOffset": "-04:00",
+  "tvBroadcasts": [
+    { "id": 33, "market": "H", "countryCode": "CA", "network": "RDS" },
+    { "id": 294, "market": "H", "countryCode": "CA", "network": "TSN5" },
+    { "id": 351, "market": "A", "countryCode": "US", "network": "BSDET" }
+  ],
+  "gameState": "LIVE",
+  "gameScheduleState": "OK",
+  "awayTeam": {
+    "id": 17,
+    "name": { "default": "Red Wings" },
+    "abbrev": "DET",
+    "score": 0,
+    "sog": 2,
+    "logo": "https://assets.nhle.com/logos/nhl/svg/DET_light.svg"
+  },
+  "homeTeam": {
+    "id": 9,
+    "name": { "default": "Senators" },
+    "abbrev": "OTT",
+    "score": 0,
+    "sog": 9,
+    "logo": "https://assets.nhle.com/logos/nhl/svg/OTT_light.svg"
+  },
+  "gameCenterLink": "/gamecenter/det-vs-ott/2023/10/21/2023020065",
+  "clock": {
+    "timeRemaining": "03:28",
+    "secondsRemaining": 208,
+    "running": true,
+    "inIntermission": false
+  },
+  "neutralSite": false,
+  "venueTimezone": "US/Eastern",
+  "period": 1,
+  "periodDescriptor": { "number": 1, "periodType": "REG" },
+  "situation": {
+    "homeTeam": {
+      "abbrev": "OTT",
+      "situationDescriptions": ["PP"],
+      "strength": 5
+    },
+    "awayTeam": { "abbrev": "DET", "strength": 4 },
+    "situationCode": "1451",
+    "timeRemaining": "00:58",
+    "secondsRemaining": 58
+  },
+  "teamLeaders": [
+    {
+      "id": 8479337,
+      "name": { "default": "A. DeBrincat" },
+      "headshot": "https://assets.nhle.com/mugs/nhl/20232024/DET/8479337.png",
+      "teamAbbrev": "DET",
+      "category": "goals",
+      "value": 5
+    },
+    {
+      "id": 8480801,
+      "name": { "default": "B. Tkachuk" },
+      "headshot": "https://assets.nhle.com/mugs/nhl/20232024/OTT/8480801.png",
+      "teamAbbrev": "OTT",
+      "category": "goals",
+      "value": 4
+    },
+    {
+      "id": 8477946,
+      "name": { "default": "D. Larkin" },
+      "headshot": "https://assets.nhle.com/mugs/nhl/20232024/DET/8477946.png",
+      "teamAbbrev": "DET",
+      "category": "assists",
+      "value": 5
+    },
+    {
+      "id": 8482116,
+      "name": { "default": "T. Stützle" },
+      "headshot": "https://assets.nhle.com/mugs/nhl/20232024/OTT/8482116.png",
+      "teamAbbrev": "OTT",
+      "category": "assists",
+      "value": 4
+    },
+    {
+      "id": 8476341,
+      "name": { "default": "A. Forsberg" },
+      "headshot": "https://assets.nhle.com/mugs/nhl/20232024/OTT/8476341.png",
+      "teamAbbrev": "OTT",
+      "category": "wins",
+      "value": 2
+    },
+    {
+      "id": 8478024,
+      "name": { "default": "V. Husso" },
+      "headshot": "https://assets.nhle.com/mugs/nhl/20232024/DET/8478024.png",
+      "teamAbbrev": "DET",
+      "category": "wins",
+      "value": 2
+    }
+  ],
+  "goals": [
+    {
+      "period": 1,
+      "periodDescriptor": {
+        "number": 1,
+        "periodType": "REG"
+      },
+      "timeInPeriod": "16:54",
+      "playerId": 8482105,
+      "name": {
+        "default": "J. Sanderson"
+      },
+      "mugshot": "https://assets.nhle.com/mugs/nhl/20232024/OTT/8482105.png",
+      "teamAbbrev": "OTT",
+      "goalsToDate": 3,
+      "awayScore": 0,
+      "homeScore": 1,
+      "strength": "PP"
+    },
+    {
+      "period": 1,
+      "periodDescriptor": {
+        "number": 1,
+        "periodType": "REG"
+      },
+      "timeInPeriod": "18:15",
+      "playerId": 8476906,
+      "name": {
+        "default": "S. Gostisbehere"
+      },
+      "mugshot": "https://assets.nhle.com/mugs/nhl/20232024/DET/8476906.png",
+      "teamAbbrev": "DET",
+      "goalsToDate": 2,
+      "awayScore": 1,
+      "homeScore": 1,
+      "strength": "PP"
+    }
+  ]
+}

@@ -16,32 +16,6 @@ export const DIVISION_STANDINGS_URL = `${STANDINGS_BASE_URL}/byDivision`;
 export const WILD_CARD_STANDINGS_URL = `${STANDINGS_BASE_URL}/wildCardWithLeaders`;
 export const PLAYOFFS_URL = `${BASE_URL}/tournaments/playoffs`;
 
-type GetGamesByDate = (date?: string) => Promise<ScheduleGame[]>;
-export const getGamesByDate: GetGamesByDate = async (date) => {
-  const url = new URL(SCHEDULE_URL);
-  url.searchParams.append(
-    "hydrate",
-    "scoringplays,linescore,team,game(seriesSummary(series))"
-  );
-
-  if (date) {
-    url.searchParams.append("date", date);
-  }
-
-  const response = await fetch(url.toString());
-  const { dates } = (await response.json()) as Schedule;
-
-  if (dates.length === 0) {
-    return [];
-  }
-
-  if (date) {
-    return dates.find((d) => d.date === date)?.games ?? dates[0].games;
-  }
-
-  return dates[0].games;
-};
-
 type GetConferenceStandings = () => Promise<ConferenceStandings>;
 export const getConferenceStandings: GetConferenceStandings = async () => {
   const url = new URL(CONFERENCE_STANDINGS_URL);

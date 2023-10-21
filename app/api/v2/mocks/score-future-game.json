@@ -1,0 +1,100 @@
+{
+      "id": 2023020066,
+      "season": 20232024,
+      "gameType": 2,
+      "gameDate": "2023-10-21",
+      "venue": { "default": "Mullett Arena" },
+      "startTimeUTC": "2023-10-21T20:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-07:00",
+      "tvBroadcasts": [
+        { "id": 284, "market": "N", "countryCode": "CA", "network": "SN1" },
+        { "id": 341, "market": "A", "countryCode": "US", "network": "BSSC" },
+        { "id": 365, "market": "A", "countryCode": "US", "network": "BSSD" },
+        { "id": 521, "market": "H", "countryCode": "US", "network": "SCRIPPS" }
+      ],
+      "gameState": "FUT",
+      "gameScheduleState": "OK",
+      "awayTeam": {
+        "id": 24,
+        "name": { "default": "Ducks" },
+        "abbrev": "ANA",
+        "record": "1-2-0",
+        "logo": "https://assets.nhle.com/logos/nhl/svg/ANA_light.svg",
+        "odds": [
+          { "providerId": 4, "value": "2.4500" },
+          { "providerId": 2, "value": "250.0000" },
+          { "providerId": 3, "value": "4.3100" },
+          { "providerId": 6, "value": "3.4500" },
+          { "providerId": 8, "value": "154.0000" }
+        ]
+      },
+      "homeTeam": {
+        "id": 53,
+        "name": { "default": "Coyotes" },
+        "abbrev": "ARI",
+        "record": "2-2-0",
+        "logo": "https://assets.nhle.com/logos/nhl/svg/ARI_light.svg",
+        "odds": [
+          { "providerId": 4, "value": "1.5500" },
+          { "providerId": 2, "value": "-117.0000" },
+          { "providerId": 3, "value": "4.3100" },
+          { "providerId": 6, "value": "1.8200" },
+          { "providerId": 8, "value": "-183.0000" }
+        ]
+      },
+      "gameCenterLink": "/gamecenter/ana-vs-ari/2023/10/21/2023020066",
+      "neutralSite": false,
+      "venueTimezone": "America/Phoenix",
+      "ticketsLink": "https://www.ticketmaster.com/event/19005EEA7F800CA1?brand=nhl&wt.mc_id=NHL_LEAGUE_ARI_SCORE_TAB_APP_GM1&utm_source=nhl.com&utm_medium=client&utm_campaign=NHL_LEAGUE_ARI&utm_content=SCORE_TAB_APP_GM1",
+      "teamLeaders": [
+        {
+          "id": 8478366,
+          "name": { "default": "F. Vatrano" },
+          "headshot": "https://assets.nhle.com/mugs/nhl/20232024/ANA/8478366.png",
+          "teamAbbrev": "ANA",
+          "category": "goals",
+          "value": 3
+        },
+        {
+          "id": 8479343,
+          "name": { "default": "C. Keller" },
+          "headshot": "https://assets.nhle.com/mugs/nhl/20232024/ARI/8479343.png",
+          "teamAbbrev": "ARI",
+          "category": "goals",
+          "value": 2
+        },
+        {
+          "id": 8483431,
+          "name": { "default": "L. Cooley" },
+          "headshot": "https://assets.nhle.com/mugs/nhl/20232024/ARI/8483431.png",
+          "teamAbbrev": "ARI",
+          "category": "assists",
+          "value": 4
+        },
+        {
+          "id": 8476458,
+          "name": { "default": "R. Strome" },
+          "headshot": "https://assets.nhle.com/mugs/nhl/20232024/ANA/8476458.png",
+          "teamAbbrev": "ANA",
+          "category": "assists",
+          "value": 3
+        },
+        {
+          "id": 8480843,
+          "name": { "default": "L. Dostal" },
+          "headshot": "https://assets.nhle.com/mugs/nhl/20232024/ANA/8480843.png",
+          "teamAbbrev": "ANA",
+          "category": "wins",
+          "value": 1
+        },
+        {
+          "id": 8478872,
+          "name": { "default": "K. Vejmelka" },
+          "headshot": "https://assets.nhle.com/mugs/nhl/20232024/ARI/8478872.png",
+          "teamAbbrev": "ARI",
+          "category": "wins",
+          "value": 1
+        }
+      ]
+    }

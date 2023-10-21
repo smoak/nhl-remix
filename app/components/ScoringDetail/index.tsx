@@ -73,7 +73,11 @@ export const ScoringDetail = ({
 
   return (
     <div className="flex pb-4">
-      <PlayerAvatar playerName={goalScorer.name} playerId={goalScorer.id} />
+      <PlayerAvatar
+        playerName={goalScorer.name}
+        playerId={goalScorer.id}
+        mugshot={goalScorer.mugshot}
+      />
       <div className="inline-block whitespace-nowrap pl-3 text-center">
         <span className="font-bold">
           {goalScorer.name} ({goalScorer.seasonGoals})

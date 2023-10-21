@@ -3,20 +3,20 @@ import { json } from "@remix-run/node";
 import type { LoaderFunction } from "@remix-run/node";
 import { GamesList } from "~/components/GamesList";
 import { Layout } from "~/components/Layout";
-import { getGamesByDate } from "~/api";
+import { getGamesByDate } from "~/api/v2";
 import { DATE_LINK_FORMAT, getToday } from "~/date-fns";
 import { format } from "date-fns";
 import { useDays } from "~/hooks/useDays";
 import { DateSelector } from "~/components/DateSelector";
 import { useGames } from "~/hooks/useGames";
 import type { Game } from "~/components/types";
-import { normalizeScheduleGames } from "~/data/normalization";
+import { normalizeGames } from "~/data/normalization/api-web";
 
 export const loader: LoaderFunction = async () => {
   const today = getToday();
   const date = format(today, DATE_LINK_FORMAT);
-  const scheduledGames = await getGamesByDate(date);
-  const { games } = normalizeScheduleGames(scheduledGames);
+  const apiGames = await getGamesByDate(date);
+  const games = normalizeGames(apiGames);
 
   return json<Game[]>(games);
 };

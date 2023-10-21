@@ -6,11 +6,7 @@ const team: Team = {
   abbreviation: "VAN",
   id: 23,
   name: "Canucks",
-  record: {
-    losses: 28,
-    ot: 10,
-    wins: 35,
-  },
+  record: "35-28-10",
   score: 0,
 };
 

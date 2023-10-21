@@ -87,7 +87,6 @@ export const createLiveGame = (overrides?: Partial<LiveGame>): LiveGame => {
     gameType: "P",
     linescore: {
       currentPeriod: 3,
-      currentPeriodOrdinal: "3rd",
       currentPeriodTimeRemaining: "16:02",
       periods: [],
       teams: {

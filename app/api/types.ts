@@ -128,7 +128,6 @@ type Linescore = {
 
 type LiveLinescore = Linescore & {
   readonly currentPeriodTimeRemaining: string;
-  readonly currentPeriodOrdinal: CurrentPeriodOrdinal;
   readonly powerPlayInfo: LinescorePowerPlayInfo;
 };
 
