@@ -1,8 +1,7 @@
 import { FinalGameStatus } from "../FinalGameStatus";
 import { LiveGameStatus } from "../LiveGameStatus";
 import type { Game } from "../types";
-import { isPostponedGame } from "../types";
-import { isFinalGame, isLiveGame } from "../types";
+import { isFinalGame, isLiveGame, isPostponedGame } from "../types";
 
 export type CurrentGameStatusProps = {
   readonly game: Game;

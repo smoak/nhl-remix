@@ -1,3 +1,4 @@
+import { cssBundleHref } from "@remix-run/css-bundle";
 import {
   Links,
   LiveReload,
@@ -6,10 +7,11 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
-import type { V2_MetaFunction, LinksFunction } from "@remix-run/node";
-import styles from "./tailwind.css";
+import type { MetaFunction, LinksFunction } from "@remix-run/node";
+import { Analytics } from "@vercel/analytics/react";
+import "~/tailwind.css";
 
-export const meta: V2_MetaFunction = () => {
+export const meta: MetaFunction = () => {
   return [
     {
       title: "NHL App",
@@ -18,7 +20,7 @@ export const meta: V2_MetaFunction = () => {
 };
 
 export const links: LinksFunction = () => [
-  { rel: "stylesheet", href: styles },
+  ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
   { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
 ];
 
@@ -36,6 +38,7 @@ export default function App() {
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
+        <Analytics />
       </body>
     </html>
   );

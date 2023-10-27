@@ -1,5 +1,4 @@
-import { hasScoringPlayers } from "~/api/types";
-import { isLiveGame } from "~/api/types";
+import { hasScoringPlayers, isLiveGame } from "~/api/types";
 import type { Game, GameList, ScoringPlay } from "~/components/types";
 import type {
   ScoringPlay as ApiScoringPlay,

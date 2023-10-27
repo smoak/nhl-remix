@@ -1,6 +1,5 @@
 import { TeamLogo } from "../TeamLogo";
-import type { PlayoffBracket, PlayoffTeam } from "../types";
-import type { Matchup } from "../types";
+import type { Matchup, PlayoffBracket, PlayoffTeam } from "../types";
 import { teamIdToColors } from "../styles";
 
 type MatchupTeamProps = {

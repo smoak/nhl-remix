@@ -1,12 +1,16 @@
 import { fetch } from "cross-fetch";
-import type { Playoffs, Schedule, ScheduleGame } from "~/api/types";
+import type {
+  Playoffs,
+  Schedule,
+  ScheduleGame,
+  Standings as StandingsResponse,
+} from "~/api/types";
 import type {
   ConferenceStandings,
   DivisionStandings,
   Standings,
   WildCardStandings,
 } from "~/data/types";
-import type { Standings as StandingsResponse } from "~/api/types";
 
 export const BASE_URL = "https://statsapi.web.nhl.com/api/v1";
 export const SCHEDULE_URL = `${BASE_URL}/schedule`;
