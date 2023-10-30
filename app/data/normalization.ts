@@ -1,8 +1,9 @@
 import { hasScoringPlayers, isLiveGame } from "~/api/types";
-import type { Game, GameList, ScoringPlay } from "~/components/types";
+import type { Game, GameList, ScoringPlay, Team } from "~/components/types";
 import type {
   ScoringPlay as ApiScoringPlay,
   DoubleAssist,
+  GameTeam,
   ScheduleGame,
   SingleAssit,
   SingleScorer,
@@ -88,6 +89,30 @@ const normalizeScoringPlays: NormalizeScoringPlays = (scoringPlays) => {
     .map<ScoringPlay>(normalizeScoringPlay);
 };
 
+const normalizeTeamRecord = ({
+  losses,
+  wins,
+  ot,
+}: GameTeam["leagueRecord"]): string => {
+  if (ot != null) {
+    return [wins, losses, ot].join("-");
+  }
+
+  return [wins, losses].join("-");
+};
+
+const normalizeTeam = (team: GameTeam): Team => {
+  const record = normalizeTeamRecord(team.leagueRecord);
+
+  return {
+    abbreviation: team.team.abbreviation,
+    id: team.team.id,
+    name: team.team.teamName,
+    score: team.score,
+    record,
+  };
+};
+
 type NormalizeScheduleGame = (game: ScheduleGame) => Game;
 export const normalizeScheduleGame: NormalizeScheduleGame = (game) => {
   const {
@@ -101,20 +126,8 @@ export const normalizeScheduleGame: NormalizeScheduleGame = (game) => {
     scoringPlays,
   } = game;
 
-  const homeTeam = {
-    id: teams.home.team.id,
-    name: teams.home.team.teamName,
-    score: teams.home.score,
-    record: teams.home.leagueRecord,
-    abbreviation: teams.home.team.abbreviation,
-  };
-  const awayTeam = {
-    id: teams.away.team.id,
-    name: teams.away.team.teamName,
-    score: teams.away.score,
-    record: teams.away.leagueRecord,
-    abbreviation: teams.away.team.abbreviation,
-  };
+  const homeTeam = normalizeTeam(teams.home);
+  const awayTeam = normalizeTeam(teams.away);
 
   const baseGame = {
     id: gamePk,

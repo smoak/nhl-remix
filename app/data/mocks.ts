@@ -36,10 +36,7 @@ export const createTeam = (overrides?: Partial<Team>): Team => {
     abbreviation: "VAN",
     id: 23,
     name: "Canucks",
-    record: {
-      losses: 0,
-      wins: 0,
-    },
+    record: "0-0",
     score: 0,
     ...overrides,
   };

@@ -2,11 +2,9 @@ import { render, screen } from "@testing-library/react";
 import { TeamRecord } from "./index";
 
 describe("TeamRecord", () => {
-  describe("for a regular season game", () => {
+  describe("with a record", () => {
     beforeEach(() => {
-      render(
-        <TeamRecord gameType="R" record={{ wins: 5, losses: 0, ot: 1 }} />
-      );
+      render(<TeamRecord record="5-0-1" />);
     });
 
     it("renders correctly", () => {
@@ -14,13 +12,11 @@ describe("TeamRecord", () => {
     });
   });
 
-  describe("for a playoff game", () => {
+  describe("without a record", () => {
     let container: HTMLElement;
 
     beforeEach(() => {
-      container = render(
-        <TeamRecord gameType="P" record={{ wins: 4, losses: 0 }} />
-      ).container;
+      container = render(<TeamRecord />).container;
     });
 
     it("renders empty", () => {

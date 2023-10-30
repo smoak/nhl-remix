@@ -10,7 +10,6 @@ export const AwayTeamInfo = ({ game }: AwayTeamInfoProps) => {
   if (isLiveGame(game)) {
     return (
       <TeamInfo
-        gameType={game.type}
         isGameInProgress={true}
         isGoaliePulled={game.linescore.away.isGoaliePulled}
         isOnPowerPlay={game.linescore.away.isOnPowerPlay}
@@ -21,7 +20,6 @@ export const AwayTeamInfo = ({ game }: AwayTeamInfoProps) => {
 
   return (
     <TeamInfo
-      gameType={game.type}
       isGameInProgress={true}
       isGoaliePulled={false}
       isOnPowerPlay={false}

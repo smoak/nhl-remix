@@ -23,5 +23,6 @@ export const Default: Story = {
   args: {
     size: 48,
     teamAbbreviation: "VAN",
+    teamId: 23,
   },
 };

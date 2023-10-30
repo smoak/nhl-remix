@@ -130,7 +130,7 @@ export type Team = {
   readonly abbreviation: string;
   readonly id: number;
   readonly name: string;
-  readonly record: TeamRecord;
+  readonly record?: string;
   readonly score: number;
 };
 
