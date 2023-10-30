@@ -6,7 +6,9 @@ describe("TeamScore", () => {
     let container: HTMLElement;
 
     beforeEach(() => {
-      container = render(<TeamScore score={0} gameState="Preview" />).container;
+      container = render(
+        <TeamScore score={0} isScheduledGame={true} />
+      ).container;
     });
 
     it("renders empty", () => {
@@ -16,7 +18,7 @@ describe("TeamScore", () => {
 
   describe("when the game has started or finished", () => {
     beforeEach(() => {
-      render(<TeamScore score={5} gameState="Final" />);
+      render(<TeamScore score={5} isScheduledGame={false} />);
     });
 
     it("should render the score", () => {
