@@ -1,29 +1,34 @@
 import { TeamLogo } from "~/components/TeamLogo";
 import { TeamName } from "../TeamName";
 import { TeamRecord } from "../TeamRecord";
-import type { Team } from "../types";
 
 export type TeamInfoProps = {
-  readonly team: Team;
   readonly isGameInProgress: boolean;
   readonly isGoaliePulled: boolean;
   readonly isOnPowerPlay: boolean;
+  readonly teamId: number;
+  readonly teamAbbrev: string;
+  readonly teamName: string;
+  readonly teamRecord?: string;
 };
 
 export const TeamInfo = ({
   isGameInProgress,
   isGoaliePulled,
   isOnPowerPlay,
-  team,
+  teamAbbrev,
+  teamId,
+  teamName,
+  teamRecord,
 }: TeamInfoProps) => (
   <div className="flex w-1/3 w-16 flex-col items-center text-center">
-    <TeamLogo teamId={team.id} size={48} teamAbbreviation={team.abbreviation} />
+    <TeamLogo teamId={teamId} size={48} teamAbbreviation={teamAbbrev} />
     <TeamName
       isGameInProgress={isGameInProgress}
       isGoaliePulled={isGoaliePulled}
       isOnPowerPlay={isOnPowerPlay}
-      name={team.name}
+      name={teamName}
     />
-    <TeamRecord record={team.record} />
+    <TeamRecord record={teamRecord} />
   </div>
 );

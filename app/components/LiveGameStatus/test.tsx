@@ -12,7 +12,7 @@ describe("LiveGameStatus", () => {
         <LiveGameStatus
           currentPeriod={periodNumber}
           currentPeriodTimeRemaining="02:00"
-          gameType="R"
+          isRegularSeasonGame={true}
         />
       );
     });
@@ -28,7 +28,7 @@ describe("LiveGameStatus", () => {
         <LiveGameStatus
           currentPeriod={4}
           currentPeriodTimeRemaining="02:00"
-          gameType="R"
+          isRegularSeasonGame={true}
         />
       );
     });
@@ -44,7 +44,7 @@ describe("LiveGameStatus", () => {
         <LiveGameStatus
           currentPeriod={5}
           currentPeriodTimeRemaining="00:00"
-          gameType="R"
+          isRegularSeasonGame={true}
         />
       );
     });
@@ -60,7 +60,7 @@ describe("LiveGameStatus", () => {
         <LiveGameStatus
           currentPeriod={5}
           currentPeriodTimeRemaining="02:00"
-          gameType="P"
+          isRegularSeasonGame={false}
         />
       );
     });

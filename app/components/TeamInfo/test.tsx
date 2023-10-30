@@ -14,7 +14,10 @@ describe("TeamInfo", () => {
   beforeEach(() => {
     render(
       <TeamInfo
-        team={team}
+        teamAbbrev={team.abbreviation}
+        teamId={team.id}
+        teamName={team.name}
+        teamRecord={team.record}
         isGameInProgress={true}
         isGoaliePulled={false}
         isOnPowerPlay={false}

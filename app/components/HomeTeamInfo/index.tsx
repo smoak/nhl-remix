@@ -13,7 +13,10 @@ export const HomeTeamInfo = ({ game }: HomeTeamInfoProps) => {
         isGameInProgress={true}
         isGoaliePulled={game.linescore.home.isGoaliePulled}
         isOnPowerPlay={game.linescore.home.isOnPowerPlay}
-        team={game.homeTeam}
+        teamAbbrev={game.homeTeam.abbreviation}
+        teamId={game.homeTeam.id}
+        teamName={game.homeTeam.name}
+        teamRecord={game.homeTeam.record}
       />
     );
   }
@@ -23,7 +26,10 @@ export const HomeTeamInfo = ({ game }: HomeTeamInfoProps) => {
       isGameInProgress={false}
       isGoaliePulled={false}
       isOnPowerPlay={false}
-      team={game.homeTeam}
+      teamAbbrev={game.homeTeam.abbreviation}
+      teamId={game.homeTeam.id}
+      teamName={game.homeTeam.name}
+      teamRecord={game.homeTeam.record}
     />
   );
 };

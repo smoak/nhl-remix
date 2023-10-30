@@ -11,9 +11,9 @@ export const CurrentGameStatus = ({ game }: CurrentGameStatusProps) => {
   if (isLiveGame(game)) {
     return (
       <LiveGameStatus
-        gameType={game.type}
         currentPeriod={game.currentPeriod}
         currentPeriodTimeRemaining={game.currentPeriodTimeRemaining}
+        isRegularSeasonGame={game.type === "R"}
       />
     );
   }

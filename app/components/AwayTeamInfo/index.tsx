@@ -13,7 +13,10 @@ export const AwayTeamInfo = ({ game }: AwayTeamInfoProps) => {
         isGameInProgress={true}
         isGoaliePulled={game.linescore.away.isGoaliePulled}
         isOnPowerPlay={game.linescore.away.isOnPowerPlay}
-        team={game.awayTeam}
+        teamAbbrev={game.awayTeam.abbreviation}
+        teamId={game.awayTeam.id}
+        teamName={game.awayTeam.name}
+        teamRecord={game.awayTeam.record}
       />
     );
   }
@@ -23,7 +26,10 @@ export const AwayTeamInfo = ({ game }: AwayTeamInfoProps) => {
       isGameInProgress={true}
       isGoaliePulled={false}
       isOnPowerPlay={false}
-      team={game.awayTeam}
+      teamAbbrev={game.awayTeam.abbreviation}
+      teamId={game.awayTeam.id}
+      teamName={game.awayTeam.name}
+      teamRecord={game.awayTeam.record}
     />
   );
 };
