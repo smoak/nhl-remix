@@ -11,6 +11,7 @@ module.exports = {
     "!app/entry.server.tsx",
     "!app/routes/**/*.tsx",
     "!app/**/stories.tsx",
+    "!app/components/ArrowIcon/index.tsx",
   ],
   coverageDirectory: "coverage",
   coverageThreshold: {

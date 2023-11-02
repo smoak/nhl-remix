@@ -6,7 +6,6 @@ export type TeamInfoProps = {
   readonly isGameInProgress: boolean;
   readonly isGoaliePulled: boolean;
   readonly isOnPowerPlay: boolean;
-  readonly teamId: number;
   readonly teamAbbrev: string;
   readonly teamName: string;
   readonly teamRecord?: string;
@@ -17,12 +16,11 @@ export const TeamInfo = ({
   isGoaliePulled,
   isOnPowerPlay,
   teamAbbrev,
-  teamId,
   teamName,
   teamRecord,
 }: TeamInfoProps) => (
   <div className="flex w-1/3 w-16 flex-col items-center text-center">
-    <TeamLogo teamId={teamId} size={48} teamAbbreviation={teamAbbrev} />
+    <TeamLogo teamAbbreviation={teamAbbrev} teamName={teamName} />
     <TeamName
       isGameInProgress={isGameInProgress}
       isGoaliePulled={isGoaliePulled}

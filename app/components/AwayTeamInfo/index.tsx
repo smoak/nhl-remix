@@ -14,7 +14,6 @@ export const AwayTeamInfo = ({ game }: AwayTeamInfoProps) => {
         isGoaliePulled={game.linescore.away.isGoaliePulled}
         isOnPowerPlay={game.linescore.away.isOnPowerPlay}
         teamAbbrev={game.awayTeam.abbreviation}
-        teamId={game.awayTeam.id}
         teamName={game.awayTeam.name}
         teamRecord={game.awayTeam.record}
       />
@@ -27,7 +26,6 @@ export const AwayTeamInfo = ({ game }: AwayTeamInfoProps) => {
       isGoaliePulled={false}
       isOnPowerPlay={false}
       teamAbbrev={game.awayTeam.abbreviation}
-      teamId={game.awayTeam.id}
       teamName={game.awayTeam.name}
       teamRecord={game.awayTeam.record}
     />

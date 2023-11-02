@@ -14,7 +14,6 @@ export const HomeTeamInfo = ({ game }: HomeTeamInfoProps) => {
         isGoaliePulled={game.linescore.home.isGoaliePulled}
         isOnPowerPlay={game.linescore.home.isOnPowerPlay}
         teamAbbrev={game.homeTeam.abbreviation}
-        teamId={game.homeTeam.id}
         teamName={game.homeTeam.name}
         teamRecord={game.homeTeam.record}
       />
@@ -27,7 +26,6 @@ export const HomeTeamInfo = ({ game }: HomeTeamInfoProps) => {
       isGoaliePulled={false}
       isOnPowerPlay={false}
       teamAbbrev={game.homeTeam.abbreviation}
-      teamId={game.homeTeam.id}
       teamName={game.homeTeam.name}
       teamRecord={game.homeTeam.record}
     />

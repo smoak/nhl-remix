@@ -5,10 +5,40 @@ import { TeamLogo } from "~/components/TeamLogo";
 const meta: Meta<typeof TeamLogo> = {
   component: TeamLogo,
   argTypes: {
-    teamId: {
+    teamAbbreviation: {
       options: [
-        1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
-        22, 23, 24, 25, 26, 28, 29, 30, 52, 53, 54, 55,
+        "ANA",
+        "ARI",
+        "BOS",
+        "BUF",
+        "CAR",
+        "CBJ",
+        "CGY",
+        "CHI",
+        "COL",
+        "DAL",
+        "DET",
+        "EDM",
+        "FLA",
+        "LAK",
+        "MIN",
+        "MTL",
+        "NJD",
+        "NSH",
+        "NYI",
+        "NYR",
+        "OTT",
+        "PHI",
+        "PIT",
+        "SEA",
+        "SJS",
+        "STL",
+        "TBL",
+        "TOR",
+        "VAN",
+        "VGK",
+        "WPG",
+        "WSH",
       ],
       control: { type: "select" },
     },
@@ -21,8 +51,7 @@ type Story = StoryObj<typeof TeamLogo>;
 
 export const Default: Story = {
   args: {
-    size: 48,
     teamAbbreviation: "VAN",
-    teamId: 23,
+    teamName: "Canucks",
   },
 };

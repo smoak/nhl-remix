@@ -56,11 +56,7 @@ export const TableRowRecord = ({
       <TableCell>{rank}</TableCell>
       <TableCell>
         <div className="flex items-center gap-2">
-          <TeamLogo
-            teamAbbreviation={team.abbreviation}
-            teamId={team.id}
-            size={32}
-          />
+          <TeamLogo teamAbbreviation={team.abbreviation} teamName={team.name} />
           <span>{teamName}</span>
         </div>
       </TableCell>

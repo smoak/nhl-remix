@@ -26,7 +26,9 @@ describe("AwayTeamInfo", () => {
     });
 
     it("displays the team logo", () => {
-      expect(screen.getByRole("img")).toBeInTheDocument();
+      expect(
+        screen.getByRole("presentation", { hidden: true })
+      ).toBeInTheDocument();
     });
 
     it("displays that the net is empty", () => {
@@ -57,7 +59,9 @@ describe("AwayTeamInfo", () => {
     });
 
     it("displays the team logo", () => {
-      expect(screen.getByRole("img")).toBeInTheDocument();
+      expect(
+        screen.getByRole("presentation", { hidden: true })
+      ).toBeInTheDocument();
     });
 
     it("displays that the net is empty", () => {

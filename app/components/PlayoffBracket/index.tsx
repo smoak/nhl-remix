@@ -20,7 +20,7 @@ const MatchupTeam = ({ team }: MatchupTeamProps): JSX.Element => {
         className="flex h-16 w-16 justify-center self-center rounded-full px-2 py-2 opacity-70"
         style={{ backgroundColor: teamIdToColors[team.id] }}
       >
-        <TeamLogo teamAbbreviation={team.abbrev} teamId={team.id} size={50} />
+        <TeamLogo teamAbbreviation={team.abbrev} teamName={team.abbrev} />
       </div>
     );
   }
@@ -30,7 +30,7 @@ const MatchupTeam = ({ team }: MatchupTeamProps): JSX.Element => {
       className="flex h-16 w-16 justify-center self-center rounded-full px-2 py-2"
       style={{ backgroundColor: teamIdToColors[team.id] }}
     >
-      <TeamLogo teamAbbreviation={team.abbrev} teamId={team.id} size={50} />
+      <TeamLogo teamAbbreviation={team.abbrev} teamName={team.abbrev} />
     </div>
   );
 };

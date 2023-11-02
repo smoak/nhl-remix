@@ -1,13 +1,15 @@
-import type { NHLLogo } from "./types";
+type NHLProps = {
+  readonly size: string | number;
+};
 
-export const NHL: NHLLogo = ({ size }) => (
+export const NHL = ({ size }: NHLProps) => (
   <svg
     version="1.1"
     width={size}
     height={size}
     viewBox="0 0 400 300"
     enableBackground="new 0 0 400 300"
-    role="img"
+    role="presentation"
   >
     <title>NHL Logo</title>
     <path

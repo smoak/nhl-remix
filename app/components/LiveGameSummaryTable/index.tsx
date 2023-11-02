@@ -15,11 +15,7 @@ const TeamNameTableCell = ({ shotsOnGoal, team }: TeamNameTableCellProps) => {
   return (
     <TableCell>
       <div className="flex">
-        <TeamLogo
-          teamId={team.id}
-          size={43}
-          teamAbbreviation={team.abbreviation}
-        />
+        <TeamLogo teamAbbreviation={team.abbreviation} teamName={team.name} />
         <div className="items-center px-2 text-left text-sm">
           {team.name}
           <p className="text-xs">{shotsOnGoal} SOG</p>

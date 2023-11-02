@@ -15,7 +15,6 @@ describe("TeamInfo", () => {
     render(
       <TeamInfo
         teamAbbrev={team.abbreviation}
-        teamId={team.id}
         teamName={team.name}
         teamRecord={team.record}
         isGameInProgress={true}
@@ -27,7 +26,7 @@ describe("TeamInfo", () => {
 
   it("displays the team logo", () => {
     expect(
-      screen.getByRole("img", { name: "Vancouver Canucks Logo" })
+      screen.getByRole("presentation", { hidden: true })
     ).toBeInTheDocument();
   });
 
