@@ -12,7 +12,6 @@ type Story = StoryObj<typeof TeamInfo>;
 
 export const Default: Story = {
   args: {
-    isGameInProgress: false,
     isGoaliePulled: false,
     isOnPowerPlay: false,
     teamAbbrev: "VAN",
@@ -22,7 +21,6 @@ export const Default: Story = {
 
 export const PowerPlay: Story = {
   args: {
-    isGameInProgress: true,
     isGoaliePulled: false,
     isOnPowerPlay: true,
     teamAbbrev: "VAN",
@@ -32,7 +30,6 @@ export const PowerPlay: Story = {
 
 export const EmptyNet: Story = {
   args: {
-    isGameInProgress: true,
     isGoaliePulled: true,
     isOnPowerPlay: false,
     teamAbbrev: "VAN",

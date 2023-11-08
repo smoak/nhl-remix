@@ -1,7 +1,7 @@
 import { FinalGameStatus } from "../FinalGameStatus";
 import { LiveGameStatus } from "../LiveGameStatus";
 import type { Game } from "../types";
-import { isFinalGame, isLiveGame, isPostponedGame } from "../types";
+import { isFinalGame, isLiveGame } from "../types";
 
 export type CurrentGameStatusProps = {
   readonly game: Game;
@@ -25,10 +25,6 @@ export const CurrentGameStatus = ({ game }: CurrentGameStatusProps) => {
         endedInPeriod={game.endedInPeriod}
       />
     );
-  }
-
-  if (isPostponedGame(game)) {
-    return <span className="mx-auto block">Postponed</span>;
   }
 
   return (

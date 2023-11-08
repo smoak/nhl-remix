@@ -57,7 +57,6 @@ type GetGameDetails = (
 ) => Promise<GamecenterResponse | undefined>;
 export const getGameDetails: GetGameDetails = async (gameId) => {
   const url = new URL(`${GAME_CENTER_URL}/${gameId}/landing`);
-  console.log("getGameDetails", { url: url.toString() });
 
   const response = await fetch(url.toString());
   const gamecenterResponse = (await response.json()) as GamecenterResponse;

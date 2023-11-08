@@ -69,10 +69,7 @@ const normalizeScheduledGame: NormalizeScheduledGame = (game) => {
     id: game.id,
     isCurrentlyInProgress: false,
     startTime: game.startTimeUTC,
-    status: {
-      abstract: "Preview",
-      detailed: "Scheduled",
-    },
+    gameState: "Scheduled",
     type: ApiGameTypeToGameType[game.gameType],
   };
 };
@@ -85,10 +82,7 @@ const normalizeFinalGame: NormalizeFinalGame = (game) => {
     id: game.id,
     isCurrentlyInProgress: false,
     startTime: game.startTimeUTC,
-    status: {
-      abstract: "Final",
-      detailed: "Final",
-    },
+    gameState: "Final",
     type: ApiGameTypeToGameType[game.gameType],
     endedInPeriod: game.periodDescriptor?.number ?? 1,
   };
@@ -106,10 +100,7 @@ const normalizeLiveGame: NormalizeLiveGame = (game) => {
     id: game.id,
     isCurrentlyInProgress: true,
     startTime: game.startTimeUTC,
-    status: {
-      abstract: "Live",
-      detailed: "In Progress",
-    },
+    gameState: "Live",
     sog: {
       away: 0,
       home: 0,

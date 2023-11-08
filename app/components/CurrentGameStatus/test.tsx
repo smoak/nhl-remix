@@ -2,7 +2,6 @@ import { render, screen } from "@testing-library/react";
 import {
   createFinalGame,
   createLiveGame,
-  createPostponedGame,
   createScheduledGame,
 } from "~/data/mocks";
 import { CurrentGameStatus } from "./index";
@@ -140,18 +139,6 @@ describe("CurrentGameStatus", () => {
 
     it("should show the start time", () => {
       expect(screen.getByText("9:00 PM")).toBeInTheDocument();
-    });
-  });
-
-  describe("for a game that has been postponed", () => {
-    const game = createPostponedGame();
-
-    beforeEach(() => {
-      render(<CurrentGameStatus game={game} />);
-    });
-
-    it("should indicate the game has been postponed", () => {
-      expect(screen.getByText("Postponed")).toBeInTheDocument();
     });
   });
 });

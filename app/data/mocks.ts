@@ -1,7 +1,6 @@
 import type {
   FinalGame,
   LiveGame,
-  PostponedGame,
   ScheduledGame,
   ScoringPlay,
   Team,
@@ -53,12 +52,8 @@ export const createLiveGame = (overrides?: Partial<LiveGame>): LiveGame => {
     currentPeriodTimeRemaining: "20:00",
     homeTeam: createTeam(),
     id: 123,
-    isCurrentlyInProgress: true,
     startTime: "2022-02-04T00:00:00Z",
-    status: {
-      abstract: "Live",
-      detailed: "In Progress",
-    },
+    gameState: "Live",
     type: "R",
     ...overrides,
   };
@@ -70,12 +65,8 @@ export const createFinalGame = (overrides?: Partial<FinalGame>): FinalGame => {
     homeTeam: createTeam(),
     endedInPeriod: 3,
     id: 123,
-    isCurrentlyInProgress: false,
     startTime: "2022-02-04T00:00:00Z",
-    status: {
-      abstract: "Final",
-      detailed: "Final",
-    },
+    gameState: "Final",
     type: "R",
     ...overrides,
   };
@@ -88,30 +79,8 @@ export const createScheduledGame = (
     awayTeam: createTeam(),
     homeTeam: createTeam(),
     id: 123,
-    isCurrentlyInProgress: false,
     startTime: "2022-02-04T00:00:00Z",
-    status: {
-      abstract: "Preview",
-      detailed: "Scheduled",
-    },
-    type: "R",
-    ...overrides,
-  };
-};
-
-export const createPostponedGame = (
-  overrides?: Partial<PostponedGame>
-): PostponedGame => {
-  return {
-    awayTeam: createTeam(),
-    homeTeam: createTeam(),
-    id: 123,
-    isCurrentlyInProgress: false,
-    startTime: "2022-02-04T00:00:00Z",
-    status: {
-      abstract: "Preview",
-      detailed: "Postponed",
-    },
+    gameState: "Scheduled",
     type: "R",
     ...overrides,
   };

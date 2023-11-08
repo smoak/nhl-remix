@@ -1,13 +1,3 @@
-type Status = {
-  readonly abstract: "Live" | "Final" | "Preview";
-  readonly detailed:
-    | "Scheduled"
-    | "Postponed"
-    | "In Progress - Critical"
-    | "In Progress"
-    | "Final";
-};
-
 export type ScoringPlayAssister = {
   readonly id: number;
   readonly firstName: string;
@@ -36,27 +26,23 @@ export type ScoringPlay = {
 };
 
 export type GameType = "R" | "P" | "PR";
+export type GameState = "Live" | "Scheduled" | "Final";
 
 type BaseGame = {
   readonly id: number;
   readonly startTime: string;
   readonly homeTeam: Team;
   readonly awayTeam: Team;
-  readonly isCurrentlyInProgress: boolean;
-  readonly status: Status;
   readonly type: GameType;
+  readonly gameState: GameState;
   readonly seriesStatusShort?: string;
 };
 
 export type LiveGame =
   | BaseGame & {
-      readonly isCurrentlyInProgress: true;
+      readonly gameState: "Live";
       readonly currentPeriod: number;
       readonly currentPeriodTimeRemaining: string;
-      readonly status: {
-        readonly abstract: "Live";
-        readonly detailed: "In Progress" | "In Progress - Critical";
-      };
       readonly sog: {
         readonly home: number;
         readonly away: number;
@@ -65,33 +51,16 @@ export type LiveGame =
 
 export type ScheduledGame =
   | BaseGame & {
-      readonly isCurrentlyInProgress: false;
-      readonly status: {
-        readonly abstract: "Preview";
-        readonly detailed: "Scheduled";
-      };
-    };
-
-export type PostponedGame =
-  | BaseGame & {
-      readonly isCurrentlyInProgress: false;
-      readonly status: {
-        readonly abstract: "Preview";
-        readonly detailed: "Postponed";
-      };
+      readonly gameState: "Scheduled";
     };
 
 export type FinalGame =
   | BaseGame & {
-      readonly isCurrentlyInProgress: false;
-      readonly status: {
-        readonly abstract: "Final";
-        readonly detailed: "Final";
-      };
+      readonly gameState: "Final";
       readonly endedInPeriod: number;
     };
 
-export type Game = LiveGame | ScheduledGame | PostponedGame | FinalGame;
+export type Game = LiveGame | ScheduledGame | FinalGame;
 
 export type TeamRecord = {
   readonly wins: number;
@@ -114,19 +83,15 @@ export type GameList = {
 };
 
 export const isLiveGame = (g: Game): g is LiveGame => {
-  return g.status.abstract === "Live";
+  return g.gameState === "Live";
 };
 
 export const isFinalGame = (g: Game): g is FinalGame => {
-  return g.status.abstract === "Final";
-};
-
-export const isPostponedGame = (g: Game): g is PostponedGame => {
-  return g.status.detailed === "Postponed";
+  return g.gameState === "Final";
 };
 
 export const isScheduledGame = (g: Game): g is ScheduledGame => {
-  return g.status.detailed === "Scheduled";
+  return g.gameState === "Scheduled";
 };
 
 export type ScoringPlays = Record<number, ScoringPlay[]>;
