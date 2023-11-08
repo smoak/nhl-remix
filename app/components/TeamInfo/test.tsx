@@ -19,7 +19,6 @@ describe("TeamInfo", () => {
         teamAbbrev={team.abbreviation}
         teamName={team.name}
         teamRecord={team.record}
-        isGameInProgress={true}
         isGoaliePulled={false}
         isOnPowerPlay={false}
       />

@@ -12,7 +12,6 @@ type Story = StoryObj<typeof TeamName>;
 
 export const Default: Story = {
   args: {
-    isGameInProgress: false,
     isGoaliePulled: false,
     isOnPowerPlay: false,
     name: "Canucks",

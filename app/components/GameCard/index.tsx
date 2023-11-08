@@ -1,7 +1,7 @@
 import { CurrentGameStatus } from "~/components/CurrentGameStatus";
 import { TeamScore } from "~/components/TeamScore";
 import { PlayoffSeriesSummary } from "../PlayoffSeriesSummary";
-import { isLiveGame, type Game } from "../types";
+import { type Game } from "../types";
 import { TeamInfo } from "../TeamInfo";
 
 export type GameCardProps = {
@@ -16,7 +16,6 @@ export const GameCard = ({ game }: GameCardProps) => {
       <div className="flex w-full flex-col">
         <div className="flex p-8">
           <TeamInfo
-            isGameInProgress={isLiveGame(game)}
             isGoaliePulled={game.homeTeam.isGoaliePulled}
             isOnPowerPlay={game.homeTeam.isOnPowerPlay}
             teamAbbrev={game.homeTeam.abbreviation}
@@ -39,7 +38,6 @@ export const GameCard = ({ game }: GameCardProps) => {
             />
           </div>
           <TeamInfo
-            isGameInProgress={isLiveGame(game)}
             isGoaliePulled={game.awayTeam.isGoaliePulled}
             isOnPowerPlay={game.awayTeam.isOnPowerPlay}
             teamAbbrev={game.awayTeam.abbreviation}

@@ -6,7 +6,6 @@ describe("TeamName", () => {
     beforeEach(() => {
       render(
         <TeamName
-          isGameInProgress={true}
           isOnPowerPlay={false}
           isGoaliePulled={false}
           name="Test team"
@@ -31,7 +30,6 @@ describe("TeamName", () => {
     beforeEach(() => {
       render(
         <TeamName
-          isGameInProgress={true}
           isGoaliePulled={true}
           isOnPowerPlay={false}
           name="Test team"
@@ -56,7 +54,6 @@ describe("TeamName", () => {
     beforeEach(() => {
       render(
         <TeamName
-          isGameInProgress={true}
           isGoaliePulled={false}
           isOnPowerPlay={true}
           name="Test team"
