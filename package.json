@@ -21,7 +21,8 @@
     "test:watch": "TZ=UTC jest --watch --maxWorkers=25%",
     "test:ci": "TZ=UTC jest --runInBand",
     "typecheck": "tsc -b",
-    "storybook": "storybook dev -p 6006",
+    "storybook": "run-p -s 'dev:css' 'storybook:run'",
+    "storybook:run": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
   "dependencies": {
