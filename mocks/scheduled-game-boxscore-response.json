@@ -1,0 +1,36 @@
+{
+  "id": 2023020180,
+  "season": 20232024,
+  "gameType": 2,
+  "gameDate": "2023-11-07",
+  "venue": { "default": "PNC Arena" },
+  "startTimeUTC": "2023-11-08T00:00:00Z",
+  "easternUTCOffset": "-05:00",
+  "venueUTCOffset": "-05:00",
+  "tvBroadcasts": [
+    { "id": 28, "market": "A", "countryCode": "US", "network": "MSG-B" },
+    { "id": 375, "market": "H", "countryCode": "US", "network": "BSSO" }
+  ],
+  "gameState": "FUT",
+  "gameScheduleState": "OK",
+  "awayTeam": {
+    "id": 7,
+    "name": { "default": "Sabres" },
+    "abbrev": "BUF",
+    "logo": "https://assets.nhle.com/logos/nhl/svg/BUF_light.svg",
+    "radioLink": "https://d2igy0yla8zi0u.cloudfront.net/buf/20232024/buf-radio.m3u8"
+  },
+  "homeTeam": {
+    "id": 12,
+    "name": { "default": "Hurricanes", "es": "Hurri\tcanes" },
+    "abbrev": "CAR",
+    "logo": "https://assets.nhle.com/logos/nhl/svg/CAR_light.svg",
+    "radioLink": "https://d2igy0yla8zi0u.cloudfront.net/car/20232024/car-radio.m3u8"
+  },
+  "clock": {
+    "timeRemaining": "20:00",
+    "secondsRemaining": 1200,
+    "running": false,
+    "inIntermission": false
+  }
+}

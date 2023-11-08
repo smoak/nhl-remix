@@ -1,21 +1,21 @@
 import { rest } from "msw";
 import { SCHEDULE_URL } from "~/api";
-import scheduleWithoutDate from "./schedule-without-date.json";
-import scheduleWithDate from "./schedule-with-date.json";
 import scheduleWithoutGames from "./schedule-without-games.json";
+import scheduleWithFutureGames from "./schedule-with-future-games.json";
+import scheduleWithFinishedGames from "./schedule-with-finished-games.json";
 
 export const handlers = [
-  rest.get(SCHEDULE_URL, (req, res, ctx) => {
-    const date = req.url.searchParams.get("date");
+  rest.get(`${SCHEDULE_URL}/:date`, (req, res, ctx) => {
+    const date = req.params.date as string;
 
-    if (date && date === "2022-04-27") {
-      return res(ctx.status(200), ctx.json(scheduleWithDate));
+    if (date === "2022-04-27") {
+      return res(ctx.status(200), ctx.json(scheduleWithFinishedGames));
     }
 
-    if (date && date === "2022-04-30") {
+    if (date === "2023-09-07") {
       return res(ctx.status(200), ctx.json(scheduleWithoutGames));
     }
 
-    return res(ctx.status(200), ctx.json(scheduleWithoutDate));
+    return res(ctx.status(200), ctx.json(scheduleWithFutureGames));
   }),
 ];

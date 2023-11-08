@@ -1,21 +1,9 @@
+import { PeriodOrdinal } from "../PeriodOrdinal";
+
 export type LiveGameStatusProps = {
   readonly isRegularSeasonGame: boolean;
   readonly currentPeriod: number;
   readonly currentPeriodTimeRemaining: string;
-};
-
-// TODO: i18n
-const pr = new Intl.PluralRules("en-US", { type: "ordinal" });
-const suffixes = new Map([
-  ["one", "st"],
-  ["two", "nd"],
-  ["few", "rd"],
-  ["other", "th"],
-]);
-const formatOrdinals = (n: number) => {
-  const rule = pr.select(n);
-  const suffix = suffixes.get(rule);
-  return `${n}${suffix}`;
 };
 
 const LiveIndicator = () => (
@@ -33,7 +21,7 @@ export const LiveGameStatus = ({
   if (currentPeriod < 4) {
     return (
       <>
-        {formatOrdinals(currentPeriod)} - {currentPeriodTimeRemaining}
+        <PeriodOrdinal period={currentPeriod} /> - {currentPeriodTimeRemaining}
         <LiveIndicator />
       </>
     );

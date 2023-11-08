@@ -8,13 +8,17 @@ import { Layout } from "~/components/Layout";
 import { useDays } from "~/hooks/useDays";
 import { useGames } from "~/hooks/useGames";
 import type { Game } from "~/components/types";
-import { normalizeScheduleGames } from "~/data/normalization";
+import { normalizeGames } from "~/data/normalization";
 
 export const loader: LoaderFunction = async ({ params }) => {
   const { date } = params;
 
+  if (date == null) {
+    throw new Response(null, { status: 404, statusText: "Not Found" });
+  }
+
   const scheduledGames = await getGamesByDate(date);
-  const { games } = normalizeScheduleGames(scheduledGames);
+  const games = normalizeGames(scheduledGames);
 
   return json<Game[]>(games);
 };

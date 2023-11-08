@@ -3,8 +3,8 @@ import { json } from "@remix-run/node";
 import type { LoaderFunction } from "@remix-run/node";
 import { Layout } from "~/components/Layout";
 import { getGameDetails } from "~/api";
-import type { Game } from "~/components/types";
-import { normalizeScheduleGame } from "~/data/normalization";
+import type { GameDetails } from "~/components/types";
+import { normalizeGameDetails } from "~/data/normalization";
 import { BackButton } from "~/components/BackButton";
 import { GameCard } from "~/components/GameCard";
 import { GameSummary } from "~/components/GameSummary";
@@ -15,25 +15,32 @@ export const loader: LoaderFunction = async ({ params }) => {
   const { gameId } = params;
 
   if (!gameId) {
-    throw new Response("Not Found", {
+    throw new Response(null, {
       status: 404,
+      statusText: "Not Found",
     });
   }
 
-  const gameDetails = await getGameDetails(gameId);
+  const gameDetailsResponse = await getGameDetails(gameId);
 
-  if (!gameDetails) {
-    throw new Response("Not Found", {
+  if (!gameDetailsResponse) {
+    throw new Response(null, {
       status: 404,
+      statusText: "Not Found",
     });
   }
 
-  const game = normalizeScheduleGame(gameDetails);
-  return json<Game>(game);
+  const gameDetails = normalizeGameDetails(gameDetailsResponse);
+  return json<GameDetails>(gameDetails);
 };
 
 export const Index = () => {
-  const preloadedGame = useLoaderData<Game>();
+  const preloadedGameDetails = useLoaderData<GameDetails>();
+  const {
+    game: preloadedGame,
+    periodSummaries,
+    scoringPlays,
+  } = preloadedGameDetails;
   const game = useGameDetails({
     route: `/game/${preloadedGame.id}`,
     preloadedGame,
@@ -47,10 +54,10 @@ export const Index = () => {
       </div>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
         <div>
-          <GameSummary game={game} />
+          <GameSummary game={game} periodSummaries={periodSummaries} />
         </div>
         <div>
-          <ScoringSummary game={game} />
+          <ScoringSummary game={game} scoringPlays={scoringPlays} />
         </div>
       </div>
     </Layout>

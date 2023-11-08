@@ -8,61 +8,35 @@ type Status = {
     | "Final";
 };
 
-type PeriodTeam = {
-  readonly goals: number;
-  readonly shotsOnGoal: number;
-};
-
-type Period = {
-  readonly ordinalNum: string;
-  readonly periodType: string;
-  readonly num: number;
-  readonly away: PeriodTeam;
-  readonly home: PeriodTeam;
-};
-
-type Linescore = {
-  readonly home: {
-    readonly shotsOnGoal: number;
-    readonly goals: number;
-    readonly isGoaliePulled: boolean;
-    readonly isOnPowerPlay: boolean;
-  };
-  readonly away: {
-    readonly shotsOnGoal: number;
-    readonly goals: number;
-    readonly isGoaliePulled: boolean;
-    readonly isOnPowerPlay: boolean;
-  };
-  readonly periods: Period[];
-};
-
-export type ScoringPlayAssister = {
-  readonly id: number;
-  readonly name: string;
-  readonly seasonAssists: number;
-};
+// export type ScoringPlayAssister = {
+//   readonly id: number;
+//   readonly name: string;
+//   readonly seasonAssists: number;
+// };
 
 export type ScoringPlay = {
-  readonly id: string;
-  readonly description: string;
   readonly period: number;
-  readonly periodOrdinalNum: string;
-  readonly periodTime: string;
-  readonly goals: {
-    readonly away: number;
-    readonly home: number;
-  };
+  readonly timeInPeriod: string;
   readonly goalScorer: {
     readonly id: number;
     readonly name: string;
     readonly seasonGoals: number;
+    readonly firstName: string;
+    readonly lastName: string;
+    readonly headshot: string;
   };
-  readonly primaryAssist?: ScoringPlayAssister;
-  readonly secondaryAssist?: ScoringPlayAssister;
-  readonly scoringTeamId: number;
-  readonly strength: "PPG" | "EVEN" | "SHG";
+  readonly teamAbbrev: string;
+  readonly highlightClip: number;
+  readonly awayScore: number;
+  readonly homeScore: number;
+  readonly leadingTeamAbbrev?: string;
+  // readonly primaryAssist?: ScoringPlayAssister;
+  // readonly secondaryAssist?: ScoringPlayAssister;
+  // readonly scoringTeamId: number;
+  // readonly strength: "PPG" | "EVEN" | "SHG";
 };
+
+export type GameType = "R" | "P" | "PR";
 
 type BaseGame = {
   readonly id: number;
@@ -71,9 +45,8 @@ type BaseGame = {
   readonly awayTeam: Team;
   readonly isCurrentlyInProgress: boolean;
   readonly status: Status;
-  readonly type: "R" | "P" | "PR";
+  readonly type: GameType;
   readonly seriesStatusShort?: string;
-  readonly scoringPlays: ScoringPlay[];
 };
 
 export type LiveGame =
@@ -81,8 +54,6 @@ export type LiveGame =
       readonly isCurrentlyInProgress: true;
       readonly currentPeriod: number;
       readonly currentPeriodTimeRemaining: string;
-      readonly currentPeriodOrdinal: string;
-      readonly linescore: Linescore;
       readonly status: {
         readonly abstract: "Live";
         readonly detailed: "In Progress" | "In Progress - Critical";
@@ -110,8 +81,6 @@ export type PostponedGame =
 export type FinalGame =
   | BaseGame & {
       readonly isCurrentlyInProgress: false;
-      readonly currentPeriod: number;
-      readonly linescore: Linescore;
       readonly status: {
         readonly abstract: "Final";
         readonly detailed: "Final";
@@ -177,4 +146,18 @@ export const isPostponedGame = (g: Game): g is PostponedGame => {
 
 export const isScheduledGame = (g: Game): g is ScheduledGame => {
   return g.status.detailed === "Scheduled";
+};
+
+export type ScoringPlays = Record<number, ScoringPlay[]>;
+
+export type PeriodSummary = {
+  readonly homeScore: number;
+  readonly awayScore: number;
+  readonly periodNumber: number;
+};
+
+export type GameDetails = {
+  readonly game: Game;
+  readonly scoringPlays: ScoringPlays;
+  readonly periodSummaries: PeriodSummary[];
 };

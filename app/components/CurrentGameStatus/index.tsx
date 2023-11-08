@@ -19,12 +19,7 @@ export const CurrentGameStatus = ({ game }: CurrentGameStatusProps) => {
   }
 
   if (isFinalGame(game)) {
-    return (
-      <FinalGameStatus
-        gameType={game.type}
-        endedInPeriod={game.currentPeriod}
-      />
-    );
+    return <FinalGameStatus gameType={game.type} endedInPeriod={3} />;
   }
 
   if (isPostponedGame(game)) {

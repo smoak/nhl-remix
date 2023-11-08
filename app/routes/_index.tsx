@@ -10,13 +10,13 @@ import { useDays } from "~/hooks/useDays";
 import { DateSelector } from "~/components/DateSelector";
 import { useGames } from "~/hooks/useGames";
 import type { Game } from "~/components/types";
-import { normalizeScheduleGames } from "~/data/normalization";
+import { normalizeGames } from "~/data/normalization";
 
 export const loader: LoaderFunction = async () => {
   const today = getToday();
   const date = format(today, DATE_LINK_FORMAT);
   const scheduledGames = await getGamesByDate(date);
-  const { games } = normalizeScheduleGames(scheduledGames);
+  const games = normalizeGames(scheduledGames);
 
   return json<Game[]>(games);
 };

@@ -1,14 +1,14 @@
 import { render, screen } from "@testing-library/react";
 import { ScoringPlayList } from ".";
-import { createScoringPlay, createTeam } from "~/data/mocks";
+import { createScoringPlay } from "~/data/mocks";
 
 describe("ScoringPlayList", () => {
   describe("when there are no scoring plays", () => {
     beforeEach(() => {
       render(
         <ScoringPlayList
-          awayTeam={createTeam()}
-          homeTeam={createTeam()}
+          // awayTeam={createTeam()}
+          // homeTeam={createTeam()}
           scoringPlays={[]}
         />
       );
@@ -23,8 +23,8 @@ describe("ScoringPlayList", () => {
     beforeEach(() => {
       render(
         <ScoringPlayList
-          awayTeam={createTeam()}
-          homeTeam={createTeam()}
+          // awayTeam={createTeam()}
+          // homeTeam={createTeam()}
           scoringPlays={[createScoringPlay()]}
         />
       );

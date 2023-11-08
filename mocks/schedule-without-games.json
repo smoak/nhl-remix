@@ -1,12 +1,53 @@
 {
-  "copyright" : "NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2022. All Rights Reserved.",
-  "totalItems" : 0,
-  "totalEvents" : 0,
-  "totalGames" : 0,
-  "totalMatches" : 0,
-  "metaData" : {
-    "timeStamp" : "20220430_190626"
-  },
-  "wait" : 10,
-  "dates" : [ ]
+  "nextStartDate": "2023-09-21",
+  "previousStartDate": "2023-06-08",
+  "gameWeek": [
+    {
+      "date": "2023-09-07",
+      "dayAbbrev": "THU",
+      "numberOfGames": 0,
+      "games": []
+    },
+    {
+      "date": "2023-09-08",
+      "dayAbbrev": "FRI",
+      "numberOfGames": 0,
+      "games": []
+    },
+    {
+      "date": "2023-09-09",
+      "dayAbbrev": "SAT",
+      "numberOfGames": 0,
+      "games": []
+    },
+    {
+      "date": "2023-09-10",
+      "dayAbbrev": "SUN",
+      "numberOfGames": 0,
+      "games": []
+    },
+    {
+      "date": "2023-09-11",
+      "dayAbbrev": "MON",
+      "numberOfGames": 0,
+      "games": []
+    },
+    {
+      "date": "2023-09-12",
+      "dayAbbrev": "TUE",
+      "numberOfGames": 0,
+      "games": []
+    },
+    {
+      "date": "2023-09-13",
+      "dayAbbrev": "WED",
+      "numberOfGames": 0,
+      "games": []
+    }
+  ],
+  "preSeasonStartDate": "2023-09-23",
+  "regularSeasonStartDate": "2023-10-10",
+  "regularSeasonEndDate": "2024-04-18",
+  "playoffEndDate": "2024-06-18",
+  "numberOfGames": 0
 }
