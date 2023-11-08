@@ -1,4 +1,4 @@
-import type { GameType } from "~/api/types";
+import type { GameType } from "../types";
 
 type FinalGameStatusProps = {
   readonly gameType: GameType;
@@ -46,10 +46,5 @@ export const FinalGameStatus = ({
     return <FinalOvertime otPeriods={otPeriods} />;
   }
 
-  return (
-    <>
-      <span className="mx-auto block">Final</span>
-      <span className="mx-auto block pt-6"></span>
-    </>
-  );
+  return <span className="mx-auto block">Final</span>;
 };

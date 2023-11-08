@@ -1,223 +1,214 @@
-import { hasScoringPlayers, isLiveGame } from "~/api/types";
-import type { Game, GameList, ScoringPlay, Team } from "~/components/types";
 import type {
-  ScoringPlay as ApiScoringPlay,
-  DoubleAssist,
-  GameTeam,
-  ScheduleGame,
-  SingleAssit,
-  SingleScorer,
+  FinalGame,
+  Game,
+  GameDetails,
+  GameType,
+  LiveGame,
+  PeriodSummary,
+  ScheduledGame,
+  ScoringPlay,
+  ScoringPlayAssister,
+  Team,
+} from "~/components/types";
+import {
+  type Game as ApiGame,
+  type GameType as ApiGameType,
+  type FinishedGame,
+  type GamecenterResponse,
+  type GamecenterScoring,
+  type LiveGame as ApiLiveGame,
+  isFutureGame,
+  isFinishedGame,
+  type Team as ApiTeam,
+  type TeamWithScore,
+  type GameSituation,
+  type GamecenterScoringGoalAssist,
 } from "~/api/types";
 
-type NormalizeScheduleGames = (games: ScheduleGame[]) => GameList;
-export const normalizeScheduleGames: NormalizeScheduleGames = (games) => {
+type NormalizeGames = (games: ApiGame[]) => Game[];
+export const normalizeGames: NormalizeGames = (games) =>
+  games.map(normalizeGame);
+
+const ApiGameTypeToGameType: Record<ApiGameType, GameType> = {
+  "1": "PR",
+  "2": "R",
+  "3": "P",
+};
+
+type NormalizeTeam = (team: ApiTeam, situation?: GameSituation) => Team;
+const normalizeTeam: NormalizeTeam = (team, situation) => {
+  const isOnPowerPlay =
+    situation?.teamAbbrev === team.abbrev && situation.situationCode === "PP";
+
   return {
-    games: games.map(normalizeScheduleGame),
+    abbreviation: team.abbrev,
+    id: team.id,
+    isGoaliePulled: false,
+    isOnPowerPlay: isOnPowerPlay,
+    name: team.placeName.default,
+    score: 0,
   };
 };
 
-type NormalizedScoringPlayers = {
-  readonly goalScorer: ScoringPlay["goalScorer"];
-  readonly primaryAssist: ScoringPlay["primaryAssist"];
-  readonly secondaryAssist: ScoringPlay["secondaryAssist"];
-};
-type NormalizeScoringPlayers = (
-  players: SingleAssit | DoubleAssist | SingleScorer
-) => NormalizedScoringPlayers;
-const normalizeScoringPlayers: NormalizeScoringPlayers = (players) => {
-  const [scorer, primaryAssistOrGoalie, secondaryAssistOrGoalie] = players;
-  const primaryAssist =
-    primaryAssistOrGoalie?.playerType === "Assist"
-      ? {
-          id: primaryAssistOrGoalie.player.id,
-          name: primaryAssistOrGoalie.player.fullName,
-          seasonAssists: primaryAssistOrGoalie.seasonTotal,
-        }
-      : undefined;
-  const secondaryAssist =
-    secondaryAssistOrGoalie?.playerType === "Assist"
-      ? {
-          id: secondaryAssistOrGoalie.player.id,
-          name: secondaryAssistOrGoalie.player.fullName,
-          seasonAssists: secondaryAssistOrGoalie.seasonTotal,
-        }
-      : undefined;
-  const goalScorer = {
-    id: scorer.player.id,
-    name: scorer.player.fullName,
-    seasonGoals: scorer.seasonTotal,
-  };
-
+type NormalizeTeamWithScore = (
+  team: TeamWithScore<ApiTeam>,
+  situation?: GameSituation
+) => Team;
+const normalizeTeamWithScore: NormalizeTeamWithScore = (team, situation) => {
   return {
-    goalScorer,
-    primaryAssist,
-    secondaryAssist,
-  };
-};
-
-type NormalizeScoringPlay = (scoringPlay: ApiScoringPlay) => ScoringPlay;
-const normalizeScoringPlay: NormalizeScoringPlay = ({
-  about,
-  players,
-  result,
-  team,
-}) => {
-  const { goalScorer, primaryAssist, secondaryAssist } =
-    normalizeScoringPlayers(players);
-
-  return {
-    description: result.description,
-    id: result.eventCode,
-    goals: about.goals,
-    period: about.period,
-    periodOrdinalNum: about.ordinalNum,
-    periodTime: about.periodTime,
-    goalScorer,
-    primaryAssist,
-    secondaryAssist,
-    scoringTeamId: team.id,
-    strength: result.strength.code,
-  };
-};
-
-type NormalizeScoringPlays = (
-  scoringPlays: ScheduleGame["scoringPlays"]
-) => ScoringPlay[];
-const normalizeScoringPlays: NormalizeScoringPlays = (scoringPlays) => {
-  return scoringPlays
-    .filter(hasScoringPlayers)
-    .map<ScoringPlay>(normalizeScoringPlay);
-};
-
-const normalizeTeamRecord = ({
-  losses,
-  wins,
-  ot,
-}: GameTeam["leagueRecord"]): string => {
-  if (ot != null) {
-    return [wins, losses, ot].join("-");
-  }
-
-  return [wins, losses].join("-");
-};
-
-const normalizeTeam = (team: GameTeam): Team => {
-  const record = normalizeTeamRecord(team.leagueRecord);
-
-  return {
-    abbreviation: team.team.abbreviation,
-    id: team.team.id,
-    name: team.team.teamName,
+    ...normalizeTeam(team, situation),
     score: team.score,
-    record,
   };
 };
 
-type NormalizeScheduleGame = (game: ScheduleGame) => Game;
-export const normalizeScheduleGame: NormalizeScheduleGame = (game) => {
-  const {
-    gamePk,
-    gameDate,
-    gameType,
-    linescore,
-    teams,
-    status,
-    seriesSummary,
-    scoringPlays,
-  } = game;
-
-  const homeTeam = normalizeTeam(teams.home);
-  const awayTeam = normalizeTeam(teams.away);
-
-  const baseGame = {
-    id: gamePk,
-    currentPeriod: linescore.currentPeriod,
-    startTime: gameDate,
-    awayTeam,
-    homeTeam,
-    type: gameType,
-    seriesStatusShort: seriesSummary?.seriesStatusShort,
-    scoringPlays: normalizeScoringPlays(scoringPlays),
-  };
-
-  if (isLiveGame(game)) {
-    return {
-      ...baseGame,
-      isCurrentlyInProgress: true,
-      status: {
-        abstract: "Live",
-        detailed: game.status.detailedState,
-      },
-      currentPeriodTimeRemaining: game.linescore.currentPeriodTimeRemaining,
-      currentPeriodOrdinal: game.linescore.currentPeriodOrdinal,
-      linescore: {
-        periods: linescore.periods,
-        away: {
-          isGoaliePulled: linescore.teams.away.goaliePulled,
-          isOnPowerPlay: linescore.teams.away.powerPlay,
-          goals: linescore.teams.away.goals,
-          shotsOnGoal: linescore.teams.away.shotsOnGoal,
-        },
-        home: {
-          isGoaliePulled: linescore.teams.home.goaliePulled,
-          isOnPowerPlay: linescore.teams.home.powerPlay,
-          goals: linescore.teams.home.goals,
-          shotsOnGoal: linescore.teams.home.shotsOnGoal,
-        },
-      },
-    };
-  }
-
-  if (
-    status.abstractGameState === "Preview" &&
-    (status.detailedState === "Scheduled" ||
-      status.detailedState === "Pre-Game")
-  ) {
-    return {
-      ...baseGame,
-      isCurrentlyInProgress: false,
-      status: {
-        abstract: "Preview",
-        detailed: "Scheduled",
-      },
-    };
-  }
-
-  if (
-    status.abstractGameState === "Preview" &&
-    status.detailedState === "Postponed"
-  ) {
-    return {
-      ...baseGame,
-      isCurrentlyInProgress: false,
-      status: {
-        abstract: "Preview",
-        detailed: "Postponed",
-      },
-    };
-  }
-
+type NormalizeScheduledGame = (game: ApiGame) => ScheduledGame;
+const normalizeScheduledGame: NormalizeScheduledGame = (game) => {
   return {
-    ...baseGame,
+    awayTeam: normalizeTeam(game.awayTeam),
+    homeTeam: normalizeTeam(game.homeTeam),
+    id: game.id,
+    isCurrentlyInProgress: false,
+    startTime: game.startTimeUTC,
+    status: {
+      abstract: "Preview",
+      detailed: "Scheduled",
+    },
+    type: ApiGameTypeToGameType[game.gameType],
+  };
+};
+
+type NormalizeFinalGame = (game: FinishedGame) => FinalGame;
+const normalizeFinalGame: NormalizeFinalGame = (game) => {
+  return {
+    awayTeam: normalizeTeamWithScore(game.awayTeam),
+    homeTeam: normalizeTeamWithScore(game.homeTeam),
+    id: game.id,
+    isCurrentlyInProgress: false,
+    startTime: game.startTimeUTC,
     status: {
       abstract: "Final",
       detailed: "Final",
     },
-    linescore: {
-      periods: linescore.periods,
-      away: {
-        isGoaliePulled: linescore.teams.away.goaliePulled,
-        isOnPowerPlay: linescore.teams.away.powerPlay,
-        goals: linescore.teams.away.goals,
-        shotsOnGoal: linescore.teams.away.shotsOnGoal,
-      },
-      home: {
-        isGoaliePulled: linescore.teams.home.goaliePulled,
-        isOnPowerPlay: linescore.teams.home.powerPlay,
-        goals: linescore.teams.home.goals,
-        shotsOnGoal: linescore.teams.home.shotsOnGoal,
-      },
+    type: ApiGameTypeToGameType[game.gameType],
+    endedInPeriod: game.periodDescriptor?.number ?? 1,
+  };
+};
+
+type NormalizeLiveGame = (game: ApiLiveGame) => LiveGame;
+const normalizeLiveGame: NormalizeLiveGame = (game) => {
+  return {
+    awayTeam: normalizeTeamWithScore(game.awayTeam, game.situation),
+    currentPeriod: game.periodDescriptor?.number ?? 1,
+    currentPeriodTimeRemaining: game.clock.inIntermission
+      ? "END"
+      : game.clock.timeRemaining,
+    homeTeam: normalizeTeamWithScore(game.homeTeam, game.situation),
+    id: game.id,
+    isCurrentlyInProgress: true,
+    startTime: game.startTimeUTC,
+    status: {
+      abstract: "Live",
+      detailed: "In Progress",
     },
-    isCurrentlyInProgress: false,
+    sog: {
+      away: 0,
+      home: 0,
+    },
+    type: ApiGameTypeToGameType[game.gameType],
+  };
+};
+
+type NormalizeGame = (game: ApiGame) => Game;
+export const normalizeGame: NormalizeGame = (game) => {
+  if (game.gameState === "FINAL" || game.gameState === "OFF") {
+    return normalizeFinalGame(game);
+  }
+
+  if (game.gameState === "LIVE" || game.gameState === "CRIT") {
+    return normalizeLiveGame(game);
+  }
+
+  return normalizeScheduledGame(game);
+};
+
+const normalizeAssist = (
+  assist?: GamecenterScoringGoalAssist
+): ScoringPlayAssister | undefined => {
+  if (assist == null) {
+    return;
+  }
+
+  return {
+    firstName: assist.firstName,
+    id: assist.playerId,
+    lastName: assist.lastName,
+    seasonAssists: assist.assistsToDate,
+  };
+};
+
+type NormalizeScoringPlays = (
+  scoring: GamecenterScoring[]
+) => Record<number, ScoringPlay[]>;
+const normalizeScoringPlays: NormalizeScoringPlays = (scoring) => {
+  return scoring.reduce<Record<number, ScoringPlay[]>>((accum, scoring) => {
+    accum[scoring.period] = scoring.goals.map((g) => ({
+      awayScore: g.awayScore,
+      goalScorer: {
+        firstName: g.firstName,
+        id: g.playerId,
+        lastName: g.lastName,
+        seasonGoals: g.goalsToDate,
+        name: g.name,
+        headshot: g.headshot,
+      },
+      highlightClip: g.highlightClip,
+      homeScore: g.homeScore,
+      leadingTeamAbbrev: g.leadingTeamAbbrev,
+      teamAbbrev: g.teamAbbrev,
+      period: scoring.period,
+      timeInPeriod: g.timeInPeriod,
+      primaryAssist: normalizeAssist(g.assists[0]),
+      secondaryAssist: normalizeAssist(g.assists[1]),
+    }));
+    return accum;
+  }, {});
+};
+
+type NormalizeGameDetails = (response: GamecenterResponse) => GameDetails;
+export const normalizeGameDetails: NormalizeGameDetails = (response) => {
+  if (isFutureGame(response)) {
+    return {
+      game: normalizeScheduledGame(response),
+      scoringPlays: [],
+      periodSummaries: [],
+    };
+  }
+
+  const scoringPlays = normalizeScoringPlays(response.summary.scoring);
+  const periodSummaries: PeriodSummary[] =
+    response.summary.linescore.byPeriod.map((p) => ({
+      awayScore: p.away,
+      homeScore: p.home,
+      periodNumber: p.period,
+    }));
+
+  if (isFinishedGame(response)) {
+    return {
+      game: {
+        ...normalizeFinalGame(response),
+        endedInPeriod:
+          response.summary.linescore.byPeriod[
+            response.summary.linescore.byPeriod.length - 1
+          ].period,
+      },
+      scoringPlays,
+      periodSummaries,
+    };
+  }
+
+  return {
+    game: normalizeLiveGame(response),
+    scoringPlays,
+    periodSummaries,
   };
 };

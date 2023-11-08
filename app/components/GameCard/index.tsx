@@ -1,9 +1,8 @@
 import { CurrentGameStatus } from "~/components/CurrentGameStatus";
 import { TeamScore } from "~/components/TeamScore";
 import { PlayoffSeriesSummary } from "../PlayoffSeriesSummary";
-import type { Game } from "../types";
-import { HomeTeamInfo } from "../HomeTeamInfo";
-import { AwayTeamInfo } from "../AwayTeamInfo";
+import { isLiveGame, type Game } from "../types";
+import { TeamInfo } from "../TeamInfo";
 
 export type GameCardProps = {
   readonly game: Game;
@@ -16,7 +15,13 @@ export const GameCard = ({ game }: GameCardProps) => {
     <article className="flex h-36 rounded-lg border border-nhl-black">
       <div className="flex w-full flex-col">
         <div className="flex p-8">
-          <HomeTeamInfo game={game} />
+          <TeamInfo
+            isGameInProgress={isLiveGame(game)}
+            isGoaliePulled={game.homeTeam.isGoaliePulled}
+            isOnPowerPlay={game.homeTeam.isOnPowerPlay}
+            teamAbbrev={game.homeTeam.abbreviation}
+            teamName={game.homeTeam.name}
+          />
           <div className="mt-3 flex flex-1">
             <TeamScore
               score={game.homeTeam.score}
@@ -33,7 +38,13 @@ export const GameCard = ({ game }: GameCardProps) => {
               isScheduledGame={isScheduledGame}
             />
           </div>
-          <AwayTeamInfo game={game} />
+          <TeamInfo
+            isGameInProgress={isLiveGame(game)}
+            isGoaliePulled={game.awayTeam.isGoaliePulled}
+            isOnPowerPlay={game.awayTeam.isOnPowerPlay}
+            teamAbbrev={game.awayTeam.abbreviation}
+            teamName={game.awayTeam.name}
+          />
         </div>
       </div>
     </article>

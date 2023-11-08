@@ -1,440 +1,313 @@
-export type ScheduleDay = {
+export type ScheduleResponse = {
+  readonly nextStartDate: string;
+  readonly previousStartDate: string;
+  readonly gameWeek: GameWeek[];
+  readonly oddsPartners?: object[];
+  readonly preSeasonStartDate: string;
+  readonly regularSeasonStartDate: string;
+  readonly regularSeasonEndDate: string;
+  readonly playoffEndDate: string;
+  readonly numberOfGames: number;
+};
+
+type GameState = "FUT" | "OFF" | "FINAL" | "LIVE" | "PRE" | "CRIT";
+
+type GameWeek = {
   readonly date: string;
-  readonly events: unknown[];
-  readonly games: ScheduleGame[];
-  readonly matches: unknown[];
-  readonly totalEvents: number;
-  readonly totalGames: number;
-  readonly totalItems: number;
-  readonly totalMatches: number;
+  readonly dayAbbrev: string;
+  readonly numberOfGames: number;
+  readonly games: Game[];
 };
 
-export type GameContent = {
-  readonly link: string;
+type GameVenue = {
+  readonly default: string;
 };
 
-export type AbstractGameState = "Live" | "Final" | "Preview";
-
-export type DetailedState =
-  | "Scheduled"
-  | "Postponed"
-  | "Pre-Game"
-  | "In Progress - Critical"
-  | "In Progress"
-  | "Final";
-
-export type GameStatus = {
-  readonly abstractGameState: AbstractGameState;
-  readonly codedGameState: string;
-  readonly detailedState: DetailedState;
-  readonly startTimeTBD: boolean;
-  readonly statusCode: string;
+type AwayTeam = Team & {
+  readonly awaySplitSquad?: boolean;
 };
 
-type LiveGameStatus = GameStatus & {
-  readonly abstractGameState: "Live";
-  readonly detailedState: "In Progress" | "In Progress - Critical";
-};
-
-export type LeagueRecord = {
-  readonly losses: number;
-  readonly ot?: number;
-  readonly type: string;
-  readonly wins: number;
+type HomeTeam = Team & {
+  readonly homeSplitSquad?: boolean;
 };
 
 export type Team = {
   readonly id: number;
-  readonly name: string;
-  readonly link: string;
-  readonly venue: object;
-  readonly abbreviation: string;
-  readonly teamName: string;
-  readonly locationName: string;
-  readonly firstYearOfPlay: string;
-  readonly division: object;
-  readonly conference: object;
-  readonly franchise: object;
-  readonly shortName: string;
-  readonly officialSiteUrl: string;
-  readonly franchiseId: number;
-  readonly active: boolean;
+  readonly placeName: {
+    readonly default: string;
+    readonly fr?: string;
+  };
+  readonly abbrev: string;
+  readonly logo: string;
+  readonly darkLogo?: string;
+  readonly radioLink?: string;
 };
 
-export type GameTeam = {
-  readonly leagueRecord: LeagueRecord;
+type TeamWithOdds<T extends Team> = T & {
+  readonly odds?: object[];
+};
+
+export type TeamWithScore<T extends Team> = T & {
   readonly score: number;
-  readonly team: Team;
 };
 
-export type GameTeams = {
-  readonly home: GameTeam;
-  readonly away: GameTeam;
+// type TeamWithSog<T extends Team> = T & {
+//   readonly sog: number;
+// };
+
+type PeriodType = "REG" | "SO" | "OT";
+
+type PeriodDescriptor = {
+  readonly number: number;
+  readonly periodType: PeriodType;
 };
 
-export type GameVenue = {
-  // readonly id: number;
-  readonly link: string;
-  readonly name: string;
+type GameOutcome = {
+  readonly lastPeriodType: PeriodType;
 };
 
-export type LinescoreTeam = {
-  readonly powerPlay: boolean;
-  readonly goals: number;
-  readonly shotsOnGoal: number;
-  readonly goaliePulled: boolean;
-  readonly numSkaters: number;
-  readonly team: {
-    readonly id: number;
-    readonly name: string;
-    readonly link: string;
+type WinningPlayer = {
+  readonly playerId: number;
+  readonly firstInitial: {
+    readonly default: string;
+  };
+  readonly lastName: {
+    readonly default: string;
   };
 };
 
-export type LinescoreTeams = {
-  readonly home: LinescoreTeam;
-  readonly away: LinescoreTeam;
+// 1 - pre season
+// 2 - regular season
+// 3 - playoff
+export type GameType = 1 | 2 | 3;
+
+type SeriesStatus = {
+  readonly round: number;
+  readonly gameNumberOfSeries: number;
+  readonly roundAbbrev: string;
+  readonly roundCode: string;
+  readonly seriesLetter: string;
+  readonly neededToWin: number;
+  readonly length: number;
+  readonly topSeedTeamId: number;
+  readonly topSeedWins: number;
+  readonly bottomSeedTeamId: number;
+  readonly bottomSeedWins: number;
+  readonly awayTeamWins: number;
+  readonly homeTeamWins: number;
 };
 
-export type LinescorePowerPlayInfo = {
-  readonly situationTimeRemaining: number;
-  readonly situationTimeElapsed: number;
-  readonly inSituation: boolean;
+type PowerPlayGameSituation = {
+  readonly teamAbbrev: string;
+  readonly timeRemaining: string;
+  readonly situationCode: "PP";
 };
 
-export type CurrentPeriodOrdinal = "1st" | "2nd" | "3rd" | "OT" | "SO";
+// type EmptyNetSituation = {
+//   readonly awayTeam: {
+//     readonly abbrev: string;
+//     readonly situationDescriptions: string[];
+//     readonly strength: number;
+//   };
+//   readonly homeTeam: {
+//     readonly abbrev: string;
+//     readonly strength: number;
+//   };
+//   readonly situationCode: "0651";
+// };
 
-type LinescorePeriod = {
-  readonly num: number;
-  readonly ordinalNum: CurrentPeriodOrdinal;
-  readonly periodType: string;
-  readonly away: {
-    readonly goals: number;
-    readonly shotsOnGoal: number;
-  };
-  readonly home: {
-    readonly goals: number;
-    readonly shotsOnGoal: number;
-  };
-};
-
-type Linescore = {
-  readonly currentPeriod: number;
-  readonly powerPlayStrength: "Even" | "5-on-4";
-  readonly hasShootout: boolean;
-  readonly teams: LinescoreTeams;
-  readonly periods: LinescorePeriod[];
-};
-
-type LiveLinescore = Linescore & {
-  readonly currentPeriodTimeRemaining: string;
-  readonly currentPeriodOrdinal: CurrentPeriodOrdinal;
-  readonly powerPlayInfo: LinescorePowerPlayInfo;
-};
-
-export type GameType = "R" | "P" | "PR";
-
-export type SeriesRecord = {
-  readonly wins: number;
-  readonly losses: number;
-};
-
-export type MatchupTeam = {
-  readonly team: {
-    readonly id: number;
-  };
-  readonly seed: {
-    readonly type: string;
-  };
-  readonly seriesRecord: SeriesRecord;
-};
-
-export type Series = {
-  readonly seriesNumber: number;
-  readonly seriesCode: string;
-  readonly round: {
-    readonly number: number;
-  };
-  readonly matchupTeams: MatchupTeam[];
-};
-
-export type SeriesSummary = {
-  readonly gamePk: number;
-  readonly gameNumber: number;
-  readonly gameLabel: string;
-  readonly necessary: boolean;
-  readonly gameCode: number;
-  readonly gameTime: string;
-  readonly seriesStatus: string;
-  readonly seriesStatusShort: string;
-  readonly series: Series;
-};
-
-type Coordinates = {
-  readonly x: number;
-  readonly y: number;
-};
-
-type ScoringPlayerScorer = {
-  readonly playerType: "Scorer";
-  readonly player: {
-    readonly id: number;
-    readonly fullName: string;
-    readonly link: string;
-  };
-  readonly seasonTotal: number;
-};
-
-type ScoringPlayerAssist = {
-  readonly playerType: "Assist";
-  readonly player: {
-    readonly id: number;
-    readonly fullName: string;
-    readonly link: string;
-  };
-  readonly seasonTotal: number;
-};
-
-type ScoringPlayerGoalie = {
-  readonly playerType: "Goalie";
-  readonly player: {
-    readonly id: number;
-    readonly fullName: string;
-    readonly link: string;
-  };
-};
-
-export type SingleScorer =
-  | [ScoringPlayerScorer]
-  | [ScoringPlayerScorer, ScoringPlayerGoalie];
-export type SingleAssit = [
-  ScoringPlayerScorer,
-  ScoringPlayerAssist,
-  ScoringPlayerGoalie
-];
-export type DoubleAssist = [
-  ScoringPlayerScorer,
-  ScoringPlayerAssist,
-  ScoringPlayerAssist,
-  ScoringPlayerGoalie
-];
-
-export type ScoringPlayPlayers = SingleScorer | SingleAssit | DoubleAssist;
-
-type Concrete<Type> = {
-  [Property in keyof Type]-?: Type[Property];
-};
-
-export type ScoringPlay = Concrete<MaybeScoringPlay>;
-
-type MaybeScoringPlay = {
-  readonly players?: ScoringPlayPlayers;
-  readonly result: {
-    readonly event: string;
-    readonly eventCode: string;
-    readonly eventTypeId: string;
-    readonly description: string;
-    readonly secondaryType: string;
-    readonly strength: {
-      readonly code: "EVEN" | "PPG" | "SHG";
-      readonly name: string;
-    };
-    readonly gameWinningGoal?: boolean;
-    readonly emptyNet: boolean;
-  };
-  readonly about: {
-    readonly period: number;
-    readonly ordinalNum: string;
-    readonly periodTime: string;
-    readonly periodTimeRemaining: string;
-    readonly goals: {
-      readonly away: number;
-      readonly home: number;
-    };
-  };
-  readonly coordinates: Coordinates;
-  readonly team: {
-    readonly id: number;
-    readonly name: string;
-    readonly link: string;
-  };
-};
+export type GameSituation = PowerPlayGameSituation;
 
 type BaseGame = {
-  readonly content: GameContent;
-  readonly gameDate: string;
-  readonly gamePk: number;
+  readonly id: number;
+  readonly season: number;
   readonly gameType: GameType;
-  readonly link: string;
-  readonly season: string;
-  readonly status: GameStatus;
-  readonly teams: GameTeams;
   readonly venue: GameVenue;
-  readonly scoringPlays: MaybeScoringPlay[];
-  readonly seriesSummary?: SeriesSummary;
-};
-
-type PostponedGame = BaseGame & {
-  readonly linescore: Linescore;
-};
-
-type ScheduledGame = BaseGame & {
-  readonly linescore: Linescore;
+  readonly neutralSite?: boolean;
+  readonly startTimeUTC: string;
+  readonly easternUTCOffset: string;
+  readonly venueUTCOffset: string;
+  readonly venueTimezone: string;
+  readonly gameState: GameState;
+  readonly gameScheduleState: "OK";
+  readonly tvBroadcasts: object[];
+  readonly awayTeam: AwayTeam;
+  readonly homeTeam: HomeTeam;
+  readonly periodDescriptor?: object | PeriodDescriptor;
+  readonly gameCenterLink?: string;
 };
 
 export type LiveGame = BaseGame & {
-  readonly linescore: LiveLinescore;
-  readonly status: LiveGameStatus;
+  readonly gameState: "LIVE" | "CRIT";
+  readonly awayTeam: TeamWithScore<AwayTeam>;
+  readonly homeTeam: TeamWithScore<HomeTeam>;
+  readonly periodDescriptor?: PeriodDescriptor;
+  readonly clock: GameClock;
+  readonly situation?: GameSituation;
 };
 
-type FinalGame = BaseGame & {
-  readonly linescore: Linescore;
+export type FutureGame = BaseGame & {
+  readonly neutralSite: boolean;
+  readonly gameState: "FUT" | "PRE";
+  readonly periodDescriptor?: object;
+  readonly awayTeam: TeamWithOdds<AwayTeam>;
+  readonly homeTeam: TeamWithOdds<HomeTeam>;
+  readonly ticketsLink: string;
 };
 
-export type ScheduleGame = PostponedGame | ScheduledGame | LiveGame | FinalGame;
-
-export type Schedule = {
-  readonly copyright: string;
-  readonly dates: ScheduleDay[];
-  readonly totalItems: number;
-  readonly totalEvents: number;
-  readonly totalGames: number;
-  readonly totalMatches: number;
-  readonly wait: number;
-};
-
-export type OverallRecord = {
-  readonly wins: number;
-  readonly losses: number;
-  readonly ot: number;
-  readonly type: "home" | "away" | "shootOuts" | "lastTen";
-};
-
-export type TeamRecord = {
-  readonly leagueRecord: LeagueRecord;
-  readonly team: Team;
-  readonly regulationWins: number;
-  readonly goalsAgainst: number;
-  readonly goalsScored: number;
-  readonly points: number;
-  readonly divisionRank: string;
-  readonly divisionL10Rank: string;
-  readonly divisionHomeRank: string;
-  readonly conferenceRank: string;
-  readonly conferenceL10Rank: string;
-  readonly conferenceRoadRank: string;
-  readonly conferenceHomeRank: string;
-  readonly wildCardRank: string;
-  readonly row: number;
-  readonly gamesPlayed: number;
-  readonly streak?: {
-    readonly streakType: "wins" | "losses" | "ot";
-    readonly streakNumber: number;
-    readonly streakCode: string;
+export type FinishedGame = BaseGame & {
+  readonly neutralSite: boolean;
+  readonly gameState: "OFF" | "FINAL";
+  readonly awayTeam: TeamWithScore<AwayTeam>;
+  readonly homeTeam: TeamWithScore<HomeTeam>;
+  readonly periodDescriptor?: PeriodDescriptor;
+  readonly gameOutcome: GameOutcome;
+  readonly winningGoalie: WinningPlayer;
+  readonly winningGoalScorer: WinningPlayer;
+  readonly seriesStatus?: SeriesStatus;
+  readonly specialEvent?: {
+    readonly default: string;
   };
-  readonly clinchIndicator?: string;
-  readonly records: {
-    readonly overallRecords: OverallRecord[];
-  };
+  readonly threeMinRecap?: string;
 };
 
-export type Conference = {
+export type Game = FutureGame | FinishedGame | LiveGame;
+
+export type GamecenterTeam = {
   readonly id: number;
+  readonly name: {
+    readonly default: string;
+  };
+  readonly abbrev: string;
+  readonly placeName: {
+    readonly default: string;
+  };
+  readonly score: number;
+  readonly sog: number;
+  readonly logo: string;
+};
+
+type GamecenterClock = {
+  readonly timeRemaining: string;
+  readonly secondsRemaining: number;
+  readonly running: boolean;
+  readonly inIntermission: boolean;
+};
+
+type GamecenterLinescorePeriod = {
+  readonly period: number;
+  readonly periodDescriptor: PeriodDescriptor;
+  readonly away: number;
+  readonly home: number;
+};
+
+type GamecenterLinescore = {
+  readonly byPeriod: GamecenterLinescorePeriod[];
+  readonly totals: {
+    readonly away: number;
+    readonly home: number;
+  };
+};
+
+export type GamecenterScoringGoalAssist = {
+  readonly playerId: number;
+  readonly firstName: string;
+  readonly lastName: string;
+  readonly assistsToDate: number;
+};
+
+type GamecenterScoringGoal = {
+  readonly situationCode: string;
+  readonly strength: "ev" | "pp";
+  readonly playerId: number;
+  readonly firstName: string;
+  readonly lastName: string;
   readonly name: string;
-  readonly link: string;
-  readonly abbreviation: string;
-  readonly shortname: string;
-  readonly active: true;
+  readonly teamAbbrev: string;
+  readonly headshot: string;
+  readonly highlightClip: number;
+  readonly goalsToDate: number;
+  readonly awayScore: number;
+  readonly homeScore: number;
+  readonly leadingTeamAbbrev?: string;
+  readonly timeInPeriod: string;
+  readonly shotType: string;
+  readonly goalModifier: string;
+  readonly assists: GamecenterScoringGoalAssist[];
 };
 
-export type StandingsRecord = {
-  readonly teamRecords: TeamRecord[];
-  readonly conference: Conference;
+export type GamecenterScoring = {
+  readonly period: number;
+  readonly periodDescriptor: PeriodDescriptor;
+  readonly goals: GamecenterScoringGoal[];
 };
 
-export type Standings = {
-  readonly records: StandingsRecord[];
-};
-
-export type PlayoffMatchupTeam = {
-  readonly team: {
-    readonly id: number;
-    readonly name: string;
-    readonly link: string;
-  };
-  readonly seed: {
-    readonly type: string;
-    readonly rank: number;
-    readonly isTop: boolean;
-  };
-  readonly seriesRecord: {
-    readonly wins: number;
-    readonly losses: number;
+type GamecenterSummary = {
+  readonly linescore: GamecenterLinescore;
+  readonly scoring: GamecenterScoring[];
+  readonly shootout: object[];
+  readonly threeStars: object[];
+  readonly teamGameStats: object[];
+  readonly shotsByPeriod: object[];
+  readonly penalties: object[];
+  readonly seasonSeries: object[];
+  readonly gameVideo: {
+    readonly threeMinRecap: number;
+    readonly condensedGame: number;
   };
 };
 
-export type PlayoffSeries = {
-  readonly seriesNumber?: number;
-  readonly seriesCode: string;
-  readonly names: {
-    readonly matchupName: string;
-    readonly matchupShortName: string;
-    readonly teamAbbreviationA: string;
-    readonly teamAbbreviationB: string;
-    readonly seriesSlug?: string;
-  };
-  readonly currentGame: {
-    readonly seriesSummary: {
-      readonly gamePk?: number;
-      readonly gameNumber?: number;
-      readonly gameLabel: string;
-      readonly necessary?: boolean;
-      readonly gameCode?: number;
-      readonly gameTime?: string;
-      readonly seriesStatus?: string;
-      readonly seriesStatusShort?: string;
-    };
-  };
-  readonly conference: {
-    readonly id?: number;
-    readonly name?: string;
-    readonly link: string;
-  };
-  readonly round: {
-    readonly number: number;
-  };
-  readonly matchupTeams?: PlayoffMatchupTeam[];
+export type GamecenterResponse = Game & {
+  readonly gameDate: string;
+  readonly awayTeam: GamecenterTeam;
+  readonly homeTeam: GamecenterTeam;
+  readonly shootoutInUse: boolean;
+  readonly maxPeriods: number;
+  readonly regPeriods: number;
+  readonly otInUse: boolean;
+  readonly tiesInUse: boolean;
+  readonly clock: GamecenterClock;
+  readonly summary: GamecenterSummary;
 };
 
-export type PlayoffRound = {
-  readonly number: number;
-  readonly code: number;
-  readonly names: {
-    readonly name: string;
-    readonly shortName: string;
+type ScoreboardGame = {
+  readonly id: number;
+  readonly season: number;
+  readonly gameType: GameType;
+  readonly gameDate: string;
+  readonly gameCenterLink: string;
+  readonly venue: {
+    readonly default: string;
   };
-  readonly format: {
-    readonly name: string;
-    readonly description: string;
-    readonly numberOfGames: number;
-    readonly numberOfWins: number;
-  };
-  readonly series: PlayoffSeries[];
+  readonly gameState: GameState;
+  readonly gameScheduleState: "OK";
+  readonly clock: GameClock;
+  readonly situation?: GameSituation;
 };
 
-export type Playoffs = {
-  readonly season: string;
-  readonly name: string;
-  readonly defaultRound: number;
-  readonly rounds: PlayoffRound[];
+type GameClock = {
+  readonly timeRemaining: string;
+  readonly secondsRemaining: number;
+  readonly running: boolean;
+  readonly inIntermission: boolean;
 };
 
-export const isLiveGame = (game: ScheduleGame): game is LiveGame => {
-  return game.status.abstractGameState === "Live";
+type GamesByDate = {
+  readonly date: string;
+  readonly games: ScoreboardGame[];
 };
 
-export const hasScoringPlayers = (
-  scoringPlay: MaybeScoringPlay
-): scoringPlay is ScoringPlay => {
-  return scoringPlay.players != null;
+export type ScoreboardResponse = {
+  readonly focusedDate: string;
+  readonly focusedDateCount: number;
+  readonly gamesByDate: GamesByDate[];
 };
+
+export const isLiveGame = (game: Game): game is LiveGame =>
+  game.gameState === "LIVE" || game.gameState === "CRIT";
+
+export const isFinishedGame = (game: Game): game is FinishedGame =>
+  game.gameState === "FINAL" || game.gameState === "OFF";
+
+export const isFutureGame = (game: Game): game is FutureGame =>
+  game.gameState === "FUT" || game.gameState === "PRE";

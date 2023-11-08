@@ -1,156 +1,76 @@
 import { fetch } from "cross-fetch";
 import type {
-  Playoffs,
-  Schedule,
-  ScheduleGame,
-  Standings as StandingsResponse,
+  Game,
+  GamecenterResponse,
+  ScheduleResponse,
+  ScoreboardResponse,
 } from "~/api/types";
-import type {
-  ConferenceStandings,
-  DivisionStandings,
-  Standings,
-  WildCardStandings,
-} from "~/data/types";
 
-export const BASE_URL = "https://statsapi.web.nhl.com/api/v1";
+export const BASE_URL = "https://api-web.nhle.com/v1";
 export const SCHEDULE_URL = `${BASE_URL}/schedule`;
-export const STANDINGS_BASE_URL = `${BASE_URL}/standings`;
-export const CONFERENCE_STANDINGS_URL = `${STANDINGS_BASE_URL}/byConference`;
-export const DIVISION_STANDINGS_URL = `${STANDINGS_BASE_URL}/byDivision`;
-export const WILD_CARD_STANDINGS_URL = `${STANDINGS_BASE_URL}/wildCardWithLeaders`;
-export const PLAYOFFS_URL = `${BASE_URL}/tournaments/playoffs`;
+export const GAME_CENTER_URL = `${BASE_URL}/gamecenter`;
+export const SCOREBOARD_URL = `${BASE_URL}/scoreboard/now`;
 
-type GetGamesByDate = (date?: string) => Promise<ScheduleGame[]>;
+type GetGamesByDate = (date: string) => Promise<Game[]>;
 export const getGamesByDate: GetGamesByDate = async (date) => {
-  const url = new URL(SCHEDULE_URL);
-  url.searchParams.append(
-    "hydrate",
-    "scoringplays,linescore,team,game(seriesSummary(series))"
-  );
+  const url = new URL(`${SCHEDULE_URL}/${date}`);
 
-  if (date) {
-    url.searchParams.append("date", date);
+  const response = await fetch(url.toString());
+  const scheduleResponse = (await response.json()) as ScheduleResponse;
+
+  // the first "gameWeek" item is the date we care about
+  const { games } = scheduleResponse.gameWeek[0];
+
+  if (games.some((g) => g.gameState === "LIVE" || g.gameState === "CRIT")) {
+    const scoreboard = await getScoreboard();
+    const scoreboardGames =
+      scoreboard.gamesByDate.find((gd) => gd.date === date)?.games ?? [];
+
+    return games.reduce<Game[]>((accum, g) => {
+      if (g.gameState === "LIVE" || g.gameState === "CRIT") {
+        const sg = scoreboardGames.find((sg) => sg.id === g.id);
+
+        if (sg == null) {
+          throw new Error("Missing game from the scoreboard!");
+        }
+
+        const { clock, situation } = sg;
+
+        accum.push({
+          ...g,
+          clock,
+          situation,
+        });
+      } else {
+        accum.push(g);
+      }
+
+      return accum;
+    }, []);
   }
 
-  const response = await fetch(url.toString());
-  const { dates } = (await response.json()) as Schedule;
-
-  if (dates.length === 0) {
-    return [];
-  }
-
-  if (date) {
-    return dates.find((d) => d.date === date)?.games ?? dates[0].games;
-  }
-
-  return dates[0].games;
+  return games;
 };
 
-type GetConferenceStandings = () => Promise<ConferenceStandings>;
-export const getConferenceStandings: GetConferenceStandings = async () => {
-  const url = new URL(CONFERENCE_STANDINGS_URL);
-  url.searchParams.append(
-    "hydrate",
-    "record(overall),division,conference,team(nextSchedule(team),previousSchedule(team))"
-  );
-
-  const response = await fetch(url.toString());
-  const standings = (await response.json()) as StandingsResponse;
-  const [east, west] = standings.records;
-
-  return {
-    east,
-    west,
-  };
-};
-
-type GetDivisionStandings = () => Promise<DivisionStandings>;
-export const getDivisionStandings: GetDivisionStandings = async () => {
-  const url = new URL(DIVISION_STANDINGS_URL);
-  url.searchParams.append(
-    "hydrate",
-    "record(overall),division,conference,team(nextSchedule(team),previousSchedule(team))"
-  );
-
-  const response = await fetch(url.toString());
-  const standings = (await response.json()) as StandingsResponse;
-  const [metropolitan, atlantic, central, pacific] = standings.records;
-
-  return {
-    atlantic,
-    central,
-    metropolitan,
-    pacific,
-  };
-};
-
-type GetWildCardStandings = () => Promise<WildCardStandings>;
-export const getWildCardStandings: GetWildCardStandings = async () => {
-  const url = new URL(WILD_CARD_STANDINGS_URL);
-  url.searchParams.append(
-    "hydrate",
-    "record(overall),division,conference,team(nextSchedule(team),previousSchedule(team))"
-  );
-
-  const response = await fetch(url.toString());
-  const standings = (await response.json()) as StandingsResponse;
-  const [eastWildCard, westWildCard, metropolitan, atlantic, central, pacific] =
-    standings.records;
-
-  return {
-    east: {
-      atlantic,
-      metropolitan,
-      wildcard: eastWildCard,
-    },
-    west: {
-      central,
-      pacific,
-      wildcard: westWildCard,
-    },
-  };
-};
-
-type GetStandings = () => Promise<Standings>;
-export const getStandings: GetStandings = async () => {
-  const [conference, division, wildCard] = await Promise.all([
-    getConferenceStandings(),
-    getDivisionStandings(),
-    getWildCardStandings(),
-  ]);
-
-  return {
-    conference,
-    division,
-    wildCard,
-  };
-};
-
-type GetGameDetails = (gameId: string) => Promise<ScheduleGame | undefined>;
+type GetGameDetails = (
+  gameId: string
+) => Promise<GamecenterResponse | undefined>;
 export const getGameDetails: GetGameDetails = async (gameId) => {
-  const url = new URL(SCHEDULE_URL);
-  url.searchParams.append(
-    "hydrate",
-    "scoringplays,linescore,team,game(seriesSummary(series))"
-  );
-  url.searchParams.append("gamePk", gameId);
+  const url = new URL(`${GAME_CENTER_URL}/${gameId}/landing`);
+  console.log("getGameDetails", { url: url.toString() });
 
   const response = await fetch(url.toString());
-  const { dates } = (await response.json()) as Schedule;
+  const gamecenterResponse = (await response.json()) as GamecenterResponse;
 
-  if (dates.length === 0) {
-    return;
-  }
-
-  return dates[0].games[0];
+  return gamecenterResponse;
 };
 
-type GetPlayoffs = () => Promise<Playoffs>;
-export const getPlayoffs: GetPlayoffs = async () => {
-  const url = new URL(PLAYOFFS_URL);
-  url.searchParams.append("expand", "round.series,schedule.game.seriesSummary");
+type GetScoreboard = () => Promise<ScoreboardResponse>;
+const getScoreboard: GetScoreboard = async () => {
+  const url = new URL(SCOREBOARD_URL);
 
   const response = await fetch(url.toString());
+  const scoreboardResponse = (await response.json()) as ScoreboardResponse;
 
-  return (await response.json()) as Playoffs;
+  return scoreboardResponse;
 };

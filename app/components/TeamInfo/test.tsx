@@ -8,6 +8,8 @@ const team: Team = {
   name: "Canucks",
   record: "35-28-10",
   score: 0,
+  isGoaliePulled: false,
+  isOnPowerPlay: false,
 };
 
 describe("TeamInfo", () => {

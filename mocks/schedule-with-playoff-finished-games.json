@@ -1,0 +1,366 @@
+{
+  "nextStartDate": "2023-05-30",
+  "previousStartDate": "2023-05-16",
+  "gameWeek": [
+    {
+      "date": "2023-05-23",
+      "dayAbbrev": "TUE",
+      "numberOfGames": 1,
+      "games": [
+        {
+          "id": 2022030323,
+          "season": 20222023,
+          "gameType": 3,
+          "venue": { "default": "American Airlines Center" },
+          "neutralSite": false,
+          "startTimeUTC": "2023-05-24T00:00:00Z",
+          "easternUTCOffset": "-04:00",
+          "venueUTCOffset": "-05:00",
+          "venueTimezone": "US/Central",
+          "gameState": "OFF",
+          "gameScheduleState": "OK",
+          "tvBroadcasts": [],
+          "awayTeam": {
+            "id": 54,
+            "placeName": { "default": "Vegas" },
+            "abbrev": "VGK",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/VGK_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/VGK_dark.svg",
+            "awaySplitSquad": false,
+            "score": 4
+          },
+          "homeTeam": {
+            "id": 25,
+            "placeName": { "default": "Dallas" },
+            "abbrev": "DAL",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/DAL_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/DAL_dark.svg",
+            "homeSplitSquad": false,
+            "score": 0
+          },
+          "periodDescriptor": { "number": 3, "periodType": "REG" },
+          "gameOutcome": { "lastPeriodType": "REG" },
+          "winningGoalie": {
+            "playerId": 8478499,
+            "firstInitial": { "default": "A." },
+            "lastName": { "default": "Hill" }
+          },
+          "winningGoalScorer": {
+            "playerId": 8476539,
+            "firstInitial": { "default": "J." },
+            "lastName": { "default": "Marchessault" }
+          },
+          "seriesStatus": {
+            "round": 3,
+            "gameNumberOfSeries": 3,
+            "roundAbbrev": "CF",
+            "roundCode": "conference_finals",
+            "seriesLetter": "N",
+            "neededToWin": 4,
+            "length": 7,
+            "topSeedTeamId": 54,
+            "topSeedWins": 3,
+            "bottomSeedTeamId": 25,
+            "bottomSeedWins": 0,
+            "awayTeamWins": 3,
+            "homeTeamWins": 0
+          },
+          "threeMinRecap": "/video/recap-vgk-4-dal-0-344548994",
+          "gameCenterLink": "/gamecenter/vgk-vs-dal/2023/05/23/2022030323"
+        }
+      ]
+    },
+    {
+      "date": "2023-05-24",
+      "dayAbbrev": "WED",
+      "numberOfGames": 1,
+      "games": [
+        {
+          "id": 2022030314,
+          "season": 20222023,
+          "gameType": 3,
+          "venue": { "default": "FLA Live Arena" },
+          "neutralSite": false,
+          "startTimeUTC": "2023-05-25T00:00:00Z",
+          "easternUTCOffset": "-04:00",
+          "venueUTCOffset": "-04:00",
+          "venueTimezone": "US/Eastern",
+          "gameState": "OFF",
+          "gameScheduleState": "OK",
+          "tvBroadcasts": [],
+          "awayTeam": {
+            "id": 12,
+            "placeName": { "default": "Carolina", "fr": "Caroline" },
+            "abbrev": "CAR",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/CAR_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/CAR_dark.svg",
+            "awaySplitSquad": false,
+            "score": 3
+          },
+          "homeTeam": {
+            "id": 13,
+            "placeName": { "default": "Florida", "fr": "Floride" },
+            "abbrev": "FLA",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/FLA_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/FLA_dark.svg",
+            "homeSplitSquad": false,
+            "score": 4
+          },
+          "periodDescriptor": { "number": 3, "periodType": "REG" },
+          "gameOutcome": { "lastPeriodType": "REG" },
+          "winningGoalie": {
+            "playerId": 8475683,
+            "firstInitial": { "default": "S." },
+            "lastName": {
+              "default": "Bobrovsky",
+              "cs": "Bobrovskij",
+              "sk": "Bobrovskij"
+            }
+          },
+          "winningGoalScorer": {
+            "playerId": 8479314,
+            "firstInitial": { "default": "M." },
+            "lastName": { "default": "Tkachuk" }
+          },
+          "seriesStatus": {
+            "round": 3,
+            "gameNumberOfSeries": 4,
+            "roundAbbrev": "CF",
+            "roundCode": "conference_finals",
+            "seriesLetter": "M",
+            "neededToWin": 4,
+            "length": 7,
+            "topSeedTeamId": 12,
+            "topSeedWins": 0,
+            "bottomSeedTeamId": 13,
+            "bottomSeedWins": 4,
+            "awayTeamWins": 0,
+            "homeTeamWins": 4
+          },
+          "threeMinRecap": "/video/recap-fla-4-car-3-344573200",
+          "gameCenterLink": "/gamecenter/car-vs-fla/2023/05/24/2022030314"
+        }
+      ]
+    },
+    {
+      "date": "2023-05-25",
+      "dayAbbrev": "THU",
+      "numberOfGames": 1,
+      "games": [
+        {
+          "id": 2022030324,
+          "season": 20222023,
+          "gameType": 3,
+          "venue": { "default": "American Airlines Center" },
+          "neutralSite": false,
+          "startTimeUTC": "2023-05-26T00:00:00Z",
+          "easternUTCOffset": "-04:00",
+          "venueUTCOffset": "-05:00",
+          "venueTimezone": "US/Central",
+          "gameState": "OFF",
+          "gameScheduleState": "OK",
+          "tvBroadcasts": [],
+          "awayTeam": {
+            "id": 54,
+            "placeName": { "default": "Vegas" },
+            "abbrev": "VGK",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/VGK_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/VGK_dark.svg",
+            "awaySplitSquad": false,
+            "score": 2
+          },
+          "homeTeam": {
+            "id": 25,
+            "placeName": { "default": "Dallas" },
+            "abbrev": "DAL",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/DAL_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/DAL_dark.svg",
+            "homeSplitSquad": false,
+            "score": 3
+          },
+          "periodDescriptor": { "number": 4, "periodType": "OT" },
+          "gameOutcome": { "lastPeriodType": "OT" },
+          "winningGoalie": {
+            "playerId": 8479979,
+            "firstInitial": { "default": "J." },
+            "lastName": { "default": "Oettinger" }
+          },
+          "winningGoalScorer": {
+            "playerId": 8470794,
+            "firstInitial": { "default": "J." },
+            "lastName": { "default": "Pavelski" }
+          },
+          "seriesStatus": {
+            "round": 3,
+            "gameNumberOfSeries": 4,
+            "roundAbbrev": "CF",
+            "roundCode": "conference_finals",
+            "seriesLetter": "N",
+            "neededToWin": 4,
+            "length": 7,
+            "topSeedTeamId": 54,
+            "topSeedWins": 3,
+            "bottomSeedTeamId": 25,
+            "bottomSeedWins": 1,
+            "awayTeamWins": 3,
+            "homeTeamWins": 1
+          },
+          "threeMinRecap": "/video/recap-dal-3-vgk-2-f-ot-344594030",
+          "gameCenterLink": "/gamecenter/vgk-vs-dal/2023/05/25/2022030324"
+        }
+      ]
+    },
+    {
+      "date": "2023-05-26",
+      "dayAbbrev": "FRI",
+      "numberOfGames": 0,
+      "games": []
+    },
+    {
+      "date": "2023-05-27",
+      "dayAbbrev": "SAT",
+      "numberOfGames": 1,
+      "games": [
+        {
+          "id": 2022030325,
+          "season": 20222023,
+          "gameType": 3,
+          "venue": { "default": "T-Mobile Arena" },
+          "neutralSite": false,
+          "startTimeUTC": "2023-05-28T00:00:00Z",
+          "easternUTCOffset": "-04:00",
+          "venueUTCOffset": "-07:00",
+          "venueTimezone": "US/Pacific",
+          "gameState": "OFF",
+          "gameScheduleState": "OK",
+          "tvBroadcasts": [],
+          "awayTeam": {
+            "id": 25,
+            "placeName": { "default": "Dallas" },
+            "abbrev": "DAL",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/DAL_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/DAL_dark.svg",
+            "awaySplitSquad": false,
+            "score": 4
+          },
+          "homeTeam": {
+            "id": 54,
+            "placeName": { "default": "Vegas" },
+            "abbrev": "VGK",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/VGK_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/VGK_dark.svg",
+            "homeSplitSquad": false,
+            "score": 2
+          },
+          "periodDescriptor": { "number": 3, "periodType": "REG" },
+          "gameOutcome": { "lastPeriodType": "REG" },
+          "winningGoalie": {
+            "playerId": 8479979,
+            "firstInitial": { "default": "J." },
+            "lastName": { "default": "Oettinger" }
+          },
+          "winningGoalScorer": {
+            "playerId": 8480848,
+            "firstInitial": { "default": "T." },
+            "lastName": { "default": "Dellandrea" }
+          },
+          "seriesStatus": {
+            "round": 3,
+            "gameNumberOfSeries": 5,
+            "roundAbbrev": "CF",
+            "roundCode": "conference_finals",
+            "seriesLetter": "N",
+            "neededToWin": 4,
+            "length": 7,
+            "topSeedTeamId": 54,
+            "topSeedWins": 3,
+            "bottomSeedTeamId": 25,
+            "bottomSeedWins": 2,
+            "awayTeamWins": 2,
+            "homeTeamWins": 3
+          },
+          "gameCenterLink": "/gamecenter/dal-vs-vgk/2023/05/27/2022030325"
+        }
+      ]
+    },
+    {
+      "date": "2023-05-28",
+      "dayAbbrev": "SUN",
+      "numberOfGames": 0,
+      "games": []
+    },
+    {
+      "date": "2023-05-29",
+      "dayAbbrev": "MON",
+      "numberOfGames": 1,
+      "games": [
+        {
+          "id": 2022030326,
+          "season": 20222023,
+          "gameType": 3,
+          "venue": { "default": "American Airlines Center" },
+          "neutralSite": false,
+          "startTimeUTC": "2023-05-30T00:00:00Z",
+          "easternUTCOffset": "-04:00",
+          "venueUTCOffset": "-05:00",
+          "venueTimezone": "US/Central",
+          "gameState": "OFF",
+          "gameScheduleState": "OK",
+          "tvBroadcasts": [],
+          "awayTeam": {
+            "id": 54,
+            "placeName": { "default": "Vegas" },
+            "abbrev": "VGK",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/VGK_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/VGK_dark.svg",
+            "awaySplitSquad": false,
+            "score": 6
+          },
+          "homeTeam": {
+            "id": 25,
+            "placeName": { "default": "Dallas" },
+            "abbrev": "DAL",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/DAL_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/DAL_dark.svg",
+            "homeSplitSquad": false,
+            "score": 0
+          },
+          "periodDescriptor": { "number": 3, "periodType": "REG" },
+          "gameOutcome": { "lastPeriodType": "REG" },
+          "winningGoalie": {
+            "playerId": 8478499,
+            "firstInitial": { "default": "A." },
+            "lastName": { "default": "Hill" }
+          },
+          "winningGoalScorer": {
+            "playerId": 8477478,
+            "firstInitial": { "default": "W." },
+            "lastName": { "default": "Carrier" }
+          },
+          "seriesStatus": {
+            "round": 3,
+            "gameNumberOfSeries": 6,
+            "roundAbbrev": "CF",
+            "roundCode": "conference_finals",
+            "seriesLetter": "N",
+            "neededToWin": 4,
+            "length": 7,
+            "topSeedTeamId": 54,
+            "topSeedWins": 4,
+            "bottomSeedTeamId": 25,
+            "bottomSeedWins": 2,
+            "awayTeamWins": 4,
+            "homeTeamWins": 2
+          },
+          "threeMinRecap": "/video/recap-vgk-6-dal-0-344646948",
+          "gameCenterLink": "/gamecenter/vgk-vs-dal/2023/05/29/2022030326"
+        }
+      ]
+    }
+  ],
+  "preSeasonStartDate": "2022-09-24",
+  "regularSeasonStartDate": "2022-10-07",
+  "regularSeasonEndDate": "2023-04-14",
+  "playoffEndDate": "2023-06-13",
+  "numberOfGames": 5
+}

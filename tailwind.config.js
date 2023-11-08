@@ -8,6 +8,7 @@ module.exports = {
         "nhl-gray": {
           50: "#ECECEC",
           100: "#E3E4E6",
+          200: "#E5E5E5",
         },
         blue: {
           1000: "#5963b3",

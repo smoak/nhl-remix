@@ -11,22 +11,20 @@ export const createScoringPlay = (
   overrides?: Partial<ScoringPlay>
 ): ScoringPlay => {
   return {
-    description: "Goal scored",
-    goals: {
-      away: 1,
-      home: 0,
-    },
+    awayScore: 2,
     goalScorer: {
-      id: 1,
-      name: "Goal scorer",
-      seasonGoals: 1,
+      firstName: "Some",
+      headshot: "url",
+      id: 5,
+      lastName: "Body",
+      name: "Some Body",
+      seasonGoals: 100,
     },
-    id: "1",
+    highlightClip: 5,
+    homeScore: 5,
+    teamAbbrev: "ABBR",
     period: 1,
-    periodOrdinalNum: "1st",
-    periodTime: "10:00",
-    scoringTeamId: 55,
-    strength: "EVEN",
+    timeInPeriod: "10:00",
     ...overrides,
   };
 };
@@ -38,6 +36,8 @@ export const createTeam = (overrides?: Partial<Team>): Team => {
     name: "Canucks",
     record: "0-0",
     score: 0,
+    isGoaliePulled: false,
+    isOnPowerPlay: false,
     ...overrides,
   };
 };
@@ -46,33 +46,20 @@ export const createLiveGame = (overrides?: Partial<LiveGame>): LiveGame => {
   return {
     awayTeam: createTeam(),
     currentPeriod: 1,
-    currentPeriodOrdinal: "1ST",
+    sog: {
+      away: 5,
+      home: 3,
+    },
     currentPeriodTimeRemaining: "20:00",
     homeTeam: createTeam(),
     id: 123,
     isCurrentlyInProgress: true,
-    linescore: {
-      away: {
-        isGoaliePulled: false,
-        isOnPowerPlay: false,
-        shotsOnGoal: 0,
-        goals: 0,
-      },
-      home: {
-        isGoaliePulled: false,
-        isOnPowerPlay: false,
-        shotsOnGoal: 0,
-        goals: 0,
-      },
-      periods: [],
-    },
     startTime: "2022-02-04T00:00:00Z",
     status: {
       abstract: "Live",
       detailed: "In Progress",
     },
     type: "R",
-    scoringPlays: [],
     ...overrides,
   };
 };
@@ -80,8 +67,8 @@ export const createLiveGame = (overrides?: Partial<LiveGame>): LiveGame => {
 export const createFinalGame = (overrides?: Partial<FinalGame>): FinalGame => {
   return {
     awayTeam: createTeam(),
-    currentPeriod: 1,
     homeTeam: createTeam(),
+    endedInPeriod: 3,
     id: 123,
     isCurrentlyInProgress: false,
     startTime: "2022-02-04T00:00:00Z",
@@ -89,23 +76,7 @@ export const createFinalGame = (overrides?: Partial<FinalGame>): FinalGame => {
       abstract: "Final",
       detailed: "Final",
     },
-    linescore: {
-      away: {
-        isGoaliePulled: false,
-        isOnPowerPlay: false,
-        goals: 0,
-        shotsOnGoal: 0,
-      },
-      home: {
-        isGoaliePulled: false,
-        isOnPowerPlay: false,
-        shotsOnGoal: 0,
-        goals: 0,
-      },
-      periods: [],
-    },
     type: "R",
-    scoringPlays: [],
     ...overrides,
   };
 };
@@ -124,7 +95,6 @@ export const createScheduledGame = (
       detailed: "Scheduled",
     },
     type: "R",
-    scoringPlays: [],
     ...overrides,
   };
 };
@@ -143,7 +113,6 @@ export const createPostponedGame = (
       detailed: "Postponed",
     },
     type: "R",
-    scoringPlays: [],
     ...overrides,
   };
 };

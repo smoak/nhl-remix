@@ -84,7 +84,7 @@ describe("CurrentGameStatus", () => {
   });
 
   describe("for a game that finished in 1st overtime", () => {
-    const game = createFinalGame({ currentPeriod: 4 });
+    const game = createFinalGame({ endedInPeriod: 4 });
 
     beforeEach(() => {
       render(<CurrentGameStatus game={game} />);
@@ -96,7 +96,7 @@ describe("CurrentGameStatus", () => {
   });
 
   describe("for a game that finished in a shootout", () => {
-    const game = createFinalGame({ currentPeriod: 5 });
+    const game = createFinalGame({ endedInPeriod: 5 });
 
     beforeEach(() => {
       render(<CurrentGameStatus game={game} />);
@@ -108,7 +108,7 @@ describe("CurrentGameStatus", () => {
   });
 
   describe("for a playoff game that finished in 3rd overtime", () => {
-    const game = createFinalGame({ currentPeriod: 6, type: "P" });
+    const game = createFinalGame({ endedInPeriod: 6, type: "P" });
 
     beforeEach(() => {
       render(<CurrentGameStatus game={game} />);
@@ -120,7 +120,7 @@ describe("CurrentGameStatus", () => {
   });
 
   describe("for a game that finished in regulation", () => {
-    const game = createFinalGame({ currentPeriod: 3 });
+    const game = createFinalGame({ endedInPeriod: 3 });
 
     beforeEach(() => {
       render(<CurrentGameStatus game={game} />);

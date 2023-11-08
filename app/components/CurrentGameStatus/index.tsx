@@ -22,7 +22,7 @@ export const CurrentGameStatus = ({ game }: CurrentGameStatusProps) => {
     return (
       <FinalGameStatus
         gameType={game.type}
-        endedInPeriod={game.currentPeriod}
+        endedInPeriod={game.endedInPeriod}
       />
     );
   }

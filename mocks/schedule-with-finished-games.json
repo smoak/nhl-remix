@@ -1,0 +1,2430 @@
+{
+  "nextStartDate": "2022-05-04",
+  "previousStartDate": "2022-04-20",
+  "gameWeek": [
+    {
+      "date": "2022-04-27",
+      "dayAbbrev": "WED",
+      "numberOfGames": 5,
+      "games": [
+        {
+          "id": 2021020505,
+          "season": 20212022,
+          "gameType": 2,
+          "venue": { "default": "Madison Square Garden" },
+          "neutralSite": false,
+          "startTimeUTC": "2022-04-27T23:30:00Z",
+          "easternUTCOffset": "-04:00",
+          "venueUTCOffset": "-04:00",
+          "venueTimezone": "America/New_York",
+          "gameState": "OFF",
+          "gameScheduleState": "OK",
+          "tvBroadcasts": [
+            { "id": 27, "market": "H", "countryCode": "US", "network": "MSG" },
+            { "id": 33, "market": "A", "countryCode": "CA", "network": "RDS" },
+            { "id": 287, "market": "N", "countryCode": "CA", "network": "SNE" },
+            { "id": 288, "market": "N", "countryCode": "CA", "network": "SNO" }
+          ],
+          "awayTeam": {
+            "id": 8,
+            "placeName": { "default": "Montréal" },
+            "abbrev": "MTL",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/MTL_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/MTL_dark.svg",
+            "awaySplitSquad": false,
+            "score": 4
+          },
+          "homeTeam": {
+            "id": 3,
+            "placeName": { "default": "New York" },
+            "abbrev": "NYR",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/NYR_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/NYR_dark.svg",
+            "homeSplitSquad": false,
+            "score": 3
+          },
+          "periodDescriptor": { "number": 3, "periodType": "REG" },
+          "gameOutcome": { "lastPeriodType": "REG" },
+          "winningGoalie": {
+            "playerId": 8478470,
+            "firstInitial": { "default": "S." },
+            "lastName": { "default": "Montembeault" }
+          },
+          "winningGoalScorer": {
+            "playerId": 8473507,
+            "firstInitial": { "default": "J." },
+            "lastName": { "default": "Petry" }
+          },
+          "threeMinRecap": "/video/recap-mtl-4-nyr-3-333499870",
+          "gameCenterLink": "/gamecenter/mtl-vs-nyr/2022/04/27/2021020505"
+        },
+        {
+          "id": 2021021288,
+          "season": 20212022,
+          "gameType": 2,
+          "venue": { "default": "Canada Life Centre" },
+          "neutralSite": false,
+          "startTimeUTC": "2022-04-27T23:30:00Z",
+          "easternUTCOffset": "-04:00",
+          "venueUTCOffset": "-05:00",
+          "venueTimezone": "America/Winnipeg",
+          "gameState": "OFF",
+          "gameScheduleState": "OK",
+          "tvBroadcasts": [
+            {
+              "id": 281,
+              "market": "N",
+              "countryCode": "CA",
+              "network": "TVAS"
+            },
+            { "id": 289, "market": "N", "countryCode": "CA", "network": "SNW" },
+            { "id": 290, "market": "N", "countryCode": "CA", "network": "SNP" },
+            {
+              "id": 322,
+              "market": "A",
+              "countryCode": "US",
+              "network": "NBCSP"
+            }
+          ],
+          "awayTeam": {
+            "id": 4,
+            "placeName": { "default": "Philadelphia", "fr": "Philadelphie" },
+            "abbrev": "PHI",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/PHI_19992000-20222023_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/PHI_19992000-20222023_dark.svg",
+            "awaySplitSquad": false,
+            "score": 0
+          },
+          "homeTeam": {
+            "id": 52,
+            "placeName": { "default": "Winnipeg" },
+            "abbrev": "WPG",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/WPG_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/WPG_dark.svg",
+            "homeSplitSquad": false,
+            "score": 4
+          },
+          "periodDescriptor": { "number": 3, "periodType": "REG" },
+          "gameOutcome": { "lastPeriodType": "REG" },
+          "winningGoalie": {
+            "playerId": 8477480,
+            "firstInitial": { "default": "E." },
+            "lastName": { "default": "Comrie" }
+          },
+          "winningGoalScorer": {
+            "playerId": 8479400,
+            "firstInitial": { "default": "P." },
+            "lastName": { "default": "Dubois" }
+          },
+          "threeMinRecap": "/video/recap-wpg-4-phi-0-333499154",
+          "gameCenterLink": "/gamecenter/phi-vs-wpg/2022/04/27/2021021288"
+        },
+        {
+          "id": 2021021286,
+          "season": 20212022,
+          "gameType": 2,
+          "venue": { "default": "United Center" },
+          "neutralSite": false,
+          "startTimeUTC": "2022-04-28T00:30:00Z",
+          "easternUTCOffset": "-04:00",
+          "venueUTCOffset": "-05:00",
+          "venueTimezone": "America/Chicago",
+          "gameState": "OFF",
+          "gameScheduleState": "OK",
+          "tvBroadcasts": [
+            {
+              "id": 317,
+              "market": "A",
+              "countryCode": "US",
+              "network": "ATTSN-RM"
+            },
+            {
+              "id": 406,
+              "market": "H",
+              "countryCode": "US",
+              "network": "NBCSCH+ 2"
+            }
+          ],
+          "awayTeam": {
+            "id": 54,
+            "placeName": { "default": "Vegas" },
+            "abbrev": "VGK",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/VGK_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/VGK_dark.svg",
+            "awaySplitSquad": false,
+            "score": 3
+          },
+          "homeTeam": {
+            "id": 16,
+            "placeName": { "default": "Chicago" },
+            "abbrev": "CHI",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/CHI_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/CHI_dark.svg",
+            "homeSplitSquad": false,
+            "score": 4
+          },
+          "periodDescriptor": { "number": 5, "periodType": "SO" },
+          "gameOutcome": { "lastPeriodType": "SO" },
+          "winningGoalie": {
+            "playerId": 8480947,
+            "firstInitial": { "default": "K." },
+            "lastName": { "default": "Lankinen" }
+          },
+          "threeMinRecap": "/video/recap-chi-4-vgk-3-f-so-333504924",
+          "gameCenterLink": "/gamecenter/vgk-vs-chi/2022/04/27/2021021286"
+        },
+        {
+          "id": 2021021287,
+          "season": 20212022,
+          "gameType": 2,
+          "venue": { "default": "American Airlines Center" },
+          "neutralSite": false,
+          "startTimeUTC": "2022-04-28T00:30:00Z",
+          "easternUTCOffset": "-04:00",
+          "venueUTCOffset": "-05:00",
+          "venueTimezone": "US/Central",
+          "gameState": "OFF",
+          "gameScheduleState": "OK",
+          "tvBroadcasts": [
+            {
+              "id": 381,
+              "market": "A",
+              "countryCode": "US",
+              "network": "BSAZX"
+            },
+            {
+              "id": 401,
+              "market": "H",
+              "countryCode": "US",
+              "network": "BSSWX"
+            }
+          ],
+          "awayTeam": {
+            "id": 53,
+            "placeName": { "default": "Arizona" },
+            "abbrev": "ARI",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/ARI_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/ARI_dark.svg",
+            "awaySplitSquad": false,
+            "score": 4
+          },
+          "homeTeam": {
+            "id": 25,
+            "placeName": { "default": "Dallas" },
+            "abbrev": "DAL",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/DAL_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/DAL_dark.svg",
+            "homeSplitSquad": false,
+            "score": 3
+          },
+          "periodDescriptor": { "number": 4, "periodType": "OT" },
+          "gameOutcome": { "lastPeriodType": "OT" },
+          "winningGoalie": {
+            "playerId": 8474667,
+            "firstInitial": { "default": "H." },
+            "lastName": { "default": "Sateri" }
+          },
+          "winningGoalScorer": {
+            "playerId": 8476329,
+            "firstInitial": { "default": "T." },
+            "lastName": { "default": "Boyd" }
+          },
+          "threeMinRecap": "/video/recap-ari-4-dal-3-f-ot-333504336",
+          "gameCenterLink": "/gamecenter/ari-vs-dal/2022/04/27/2021021287"
+        },
+        {
+          "id": 2021021289,
+          "season": 20212022,
+          "gameType": 2,
+          "venue": { "default": "Climate Pledge Arena" },
+          "neutralSite": false,
+          "startTimeUTC": "2022-04-28T02:00:00Z",
+          "easternUTCOffset": "-04:00",
+          "venueUTCOffset": "-07:00",
+          "venueTimezone": "US/Pacific",
+          "gameState": "OFF",
+          "gameScheduleState": "OK",
+          "tvBroadcasts": [
+            {
+              "id": 281,
+              "market": "N",
+              "countryCode": "CA",
+              "network": "TVAS"
+            },
+            { "id": 355, "market": "A", "countryCode": "US", "network": "BSW" },
+            {
+              "id": 405,
+              "market": "H",
+              "countryCode": "US",
+              "network": "ROOT-NW+"
+            }
+          ],
+          "awayTeam": {
+            "id": 26,
+            "placeName": { "default": "Los Angeles" },
+            "abbrev": "LAK",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/LAK_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/LAK_dark.svg",
+            "awaySplitSquad": false,
+            "score": 5
+          },
+          "homeTeam": {
+            "id": 55,
+            "placeName": { "default": "Seattle" },
+            "abbrev": "SEA",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/SEA_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/SEA_dark.svg",
+            "homeSplitSquad": false,
+            "score": 3
+          },
+          "periodDescriptor": { "number": 3, "periodType": "REG" },
+          "gameOutcome": { "lastPeriodType": "REG" },
+          "winningGoalie": {
+            "playerId": 8471734,
+            "firstInitial": { "default": "J." },
+            "lastName": { "default": "Quick" }
+          },
+          "winningGoalScorer": {
+            "playerId": 8480072,
+            "firstInitial": { "default": "L." },
+            "lastName": { "default": "Andersson" }
+          },
+          "threeMinRecap": "/video/recap-lak-5-sea-3-333508466",
+          "gameCenterLink": "/gamecenter/lak-vs-sea/2022/04/27/2021021289"
+        }
+      ]
+    },
+    {
+      "date": "2022-04-28",
+      "dayAbbrev": "THU",
+      "numberOfGames": 9,
+      "games": [
+        {
+          "id": 2021020513,
+          "season": 20212022,
+          "gameType": 2,
+          "venue": { "default": "UBS Arena" },
+          "neutralSite": false,
+          "startTimeUTC": "2022-04-28T23:00:00Z",
+          "easternUTCOffset": "-04:00",
+          "venueUTCOffset": "-04:00",
+          "venueTimezone": "America/New_York",
+          "gameState": "OFF",
+          "gameScheduleState": "OK",
+          "tvBroadcasts": [
+            {
+              "id": 281,
+              "market": "N",
+              "countryCode": "CA",
+              "network": "TVAS"
+            },
+            {
+              "id": 299,
+              "market": "H",
+              "countryCode": "US",
+              "network": "MSG+"
+            },
+            {
+              "id": 320,
+              "market": "A",
+              "countryCode": "US",
+              "network": "NBCSWA"
+            }
+          ],
+          "awayTeam": {
+            "id": 15,
+            "placeName": { "default": "Washington" },
+            "abbrev": "WSH",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/WSH_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/WSH_dark.svg",
+            "awaySplitSquad": false,
+            "score": 1
+          },
+          "homeTeam": {
+            "id": 2,
+            "placeName": { "default": "New York" },
+            "abbrev": "NYI",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/NYI_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/NYI_dark.svg",
+            "homeSplitSquad": false,
+            "score": 5
+          },
+          "periodDescriptor": { "number": 3, "periodType": "REG" },
+          "gameOutcome": { "lastPeriodType": "REG" },
+          "winningGoalie": {
+            "playerId": 8473575,
+            "firstInitial": { "default": "S." },
+            "lastName": { "default": "Varlamov" }
+          },
+          "winningGoalScorer": {
+            "playerId": 8475314,
+            "firstInitial": { "default": "A." },
+            "lastName": { "default": "Lee" }
+          },
+          "threeMinRecap": "/video/recap-nyi-5-wsh-1-333534824",
+          "gameCenterLink": "/gamecenter/wsh-vs-nyi/2022/04/28/2021020513"
+        },
+        {
+          "id": 2021021290,
+          "season": 20212022,
+          "gameType": 2,
+          "venue": { "default": "TD Garden" },
+          "neutralSite": false,
+          "startTimeUTC": "2022-04-28T23:00:00Z",
+          "easternUTCOffset": "-04:00",
+          "venueUTCOffset": "-04:00",
+          "venueTimezone": "US/Eastern",
+          "gameState": "OFF",
+          "gameScheduleState": "OK",
+          "tvBroadcasts": [
+            {
+              "id": 28,
+              "market": "A",
+              "countryCode": "US",
+              "network": "MSG-B"
+            },
+            { "id": 31, "market": "H", "countryCode": "US", "network": "NESN" }
+          ],
+          "awayTeam": {
+            "id": 7,
+            "placeName": { "default": "Buffalo" },
+            "abbrev": "BUF",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/BUF_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/BUF_dark.svg",
+            "awaySplitSquad": false,
+            "score": 0
+          },
+          "homeTeam": {
+            "id": 6,
+            "placeName": { "default": "Boston" },
+            "abbrev": "BOS",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/BOS_20082009-20222023_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/BOS_20082009-20222023_dark.svg",
+            "homeSplitSquad": false,
+            "score": 5
+          },
+          "periodDescriptor": { "number": 3, "periodType": "REG" },
+          "gameOutcome": { "lastPeriodType": "REG" },
+          "winningGoalie": {
+            "playerId": 8476999,
+            "firstInitial": { "default": "L." },
+            "lastName": { "default": "Ullmark" }
+          },
+          "winningGoalScorer": {
+            "playerId": 8470638,
+            "firstInitial": { "default": "P." },
+            "lastName": { "default": "Bergeron" }
+          },
+          "threeMinRecap": "/video/recap-bos-5-buf-0-333536438",
+          "gameCenterLink": "/gamecenter/buf-vs-bos/2022/04/28/2021021290"
+        },
+        {
+          "id": 2021021291,
+          "season": 20212022,
+          "gameType": 2,
+          "venue": { "default": "Canadian Tire Centre" },
+          "neutralSite": false,
+          "startTimeUTC": "2022-04-28T23:00:00Z",
+          "easternUTCOffset": "-04:00",
+          "venueUTCOffset": "-04:00",
+          "venueTimezone": "US/Eastern",
+          "gameState": "OFF",
+          "gameScheduleState": "OK",
+          "tvBroadcasts": [
+            { "id": 33, "market": "H", "countryCode": "CA", "network": "RDS" },
+            {
+              "id": 294,
+              "market": "H",
+              "countryCode": "CA",
+              "network": "TSN5"
+            },
+            { "id": 353, "market": "A", "countryCode": "US", "network": "BSFL" }
+          ],
+          "awayTeam": {
+            "id": 13,
+            "placeName": { "default": "Florida", "fr": "Floride" },
+            "abbrev": "FLA",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/FLA_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/FLA_dark.svg",
+            "awaySplitSquad": false,
+            "score": 4
+          },
+          "homeTeam": {
+            "id": 9,
+            "placeName": { "default": "Ottawa" },
+            "abbrev": "OTT",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/OTT_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/OTT_dark.svg",
+            "homeSplitSquad": false,
+            "score": 0
+          },
+          "periodDescriptor": { "number": 3, "periodType": "REG" },
+          "gameOutcome": { "lastPeriodType": "REG" },
+          "winningGoalie": {
+            "playerId": 8481519,
+            "firstInitial": { "default": "S." },
+            "lastName": { "default": "Knight" }
+          },
+          "winningGoalScorer": {
+            "playerId": 8477933,
+            "firstInitial": { "default": "S." },
+            "lastName": { "default": "Reinhart" }
+          },
+          "threeMinRecap": "/video/recap-fla-4-ott-0-333532130",
+          "gameCenterLink": "/gamecenter/fla-vs-ott/2022/04/28/2021021291"
+        },
+        {
+          "id": 2021021294,
+          "season": 20212022,
+          "gameType": 2,
+          "venue": { "default": "PNC Arena" },
+          "neutralSite": false,
+          "startTimeUTC": "2022-04-28T23:00:00Z",
+          "easternUTCOffset": "-04:00",
+          "venueUTCOffset": "-04:00",
+          "venueTimezone": "US/Eastern",
+          "gameState": "OFF",
+          "gameScheduleState": "OK",
+          "tvBroadcasts": [
+            {
+              "id": 299,
+              "market": "A",
+              "countryCode": "US",
+              "network": "MSG+"
+            },
+            { "id": 375, "market": "H", "countryCode": "US", "network": "BSSO" }
+          ],
+          "awayTeam": {
+            "id": 1,
+            "placeName": { "default": "New Jersey" },
+            "abbrev": "NJD",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/NJD_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/NJD_dark.svg",
+            "awaySplitSquad": false,
+            "score": 3
+          },
+          "homeTeam": {
+            "id": 12,
+            "placeName": { "default": "Carolina", "fr": "Caroline" },
+            "abbrev": "CAR",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/CAR_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/CAR_dark.svg",
+            "homeSplitSquad": false,
+            "score": 6
+          },
+          "periodDescriptor": { "number": 3, "periodType": "REG" },
+          "gameOutcome": { "lastPeriodType": "REG" },
+          "winningGoalie": {
+            "playerId": 8477293,
+            "firstInitial": { "default": "A." },
+            "lastName": { "default": "Raanta" }
+          },
+          "winningGoalScorer": {
+            "playerId": 8476882,
+            "firstInitial": { "default": "T." },
+            "lastName": { "default": "Teravainen" }
+          },
+          "threeMinRecap": "/video/recap-car-6-njd-3-333532496",
+          "gameCenterLink": "/gamecenter/njd-vs-car/2022/04/28/2021021294"
+        },
+        {
+          "id": 2021021305,
+          "season": 20212022,
+          "gameType": 2,
+          "venue": { "default": "Nationwide Arena" },
+          "neutralSite": false,
+          "startTimeUTC": "2022-04-28T23:00:00Z",
+          "easternUTCOffset": "-04:00",
+          "venueUTCOffset": "-04:00",
+          "venueTimezone": "US/Eastern",
+          "gameState": "OFF",
+          "gameScheduleState": "OK",
+          "tvBroadcasts": [
+            {
+              "id": 347,
+              "market": "H",
+              "countryCode": "US",
+              "network": "BSOH"
+            },
+            {
+              "id": 359,
+              "market": "A",
+              "countryCode": "US",
+              "network": "BSSUN"
+            }
+          ],
+          "awayTeam": {
+            "id": 14,
+            "placeName": { "default": "Tampa Bay" },
+            "abbrev": "TBL",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/TBL_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/TBL_dark.svg",
+            "awaySplitSquad": false,
+            "score": 2
+          },
+          "homeTeam": {
+            "id": 29,
+            "placeName": { "default": "Columbus" },
+            "abbrev": "CBJ",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/CBJ_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/CBJ_dark.svg",
+            "homeSplitSquad": false,
+            "score": 5
+          },
+          "periodDescriptor": { "number": 3, "periodType": "REG" },
+          "gameOutcome": { "lastPeriodType": "REG" },
+          "winningGoalie": {
+            "playerId": 8478007,
+            "firstInitial": { "default": "E." },
+            "lastName": { "default": "Merzlikins" }
+          },
+          "winningGoalScorer": {
+            "playerId": 8478458,
+            "firstInitial": { "default": "J." },
+            "lastName": { "default": "Roslovic" }
+          },
+          "threeMinRecap": "/video/recap-cbj-5-tbl-2-333533914",
+          "gameCenterLink": "/gamecenter/tbl-vs-cbj/2022/04/28/2021021305"
+        },
+        {
+          "id": 2021021295,
+          "season": 20212022,
+          "gameType": 2,
+          "venue": { "default": "Xcel Energy Center" },
+          "neutralSite": false,
+          "startTimeUTC": "2022-04-29T00:00:00Z",
+          "easternUTCOffset": "-04:00",
+          "venueUTCOffset": "-05:00",
+          "venueTimezone": "US/Central",
+          "gameState": "OFF",
+          "gameScheduleState": "OK",
+          "tvBroadcasts": [
+            { "id": 289, "market": "A", "countryCode": "CA", "network": "SNW" },
+            {
+              "id": 324,
+              "market": "N",
+              "countryCode": "US",
+              "network": "NHLN"
+            },
+            { "id": 361, "market": "H", "countryCode": "US", "network": "BSN" },
+            {
+              "id": 396,
+              "market": "H",
+              "countryCode": "US",
+              "network": "BSWIX"
+            }
+          ],
+          "awayTeam": {
+            "id": 20,
+            "placeName": { "default": "Calgary" },
+            "abbrev": "CGY",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/CGY_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/CGY_dark.svg",
+            "awaySplitSquad": false,
+            "score": 2
+          },
+          "homeTeam": {
+            "id": 30,
+            "placeName": { "default": "Minnesota" },
+            "abbrev": "MIN",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/MIN_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/MIN_dark.svg",
+            "homeSplitSquad": false,
+            "score": 3
+          },
+          "periodDescriptor": { "number": 4, "periodType": "OT" },
+          "gameOutcome": { "lastPeriodType": "OT" },
+          "winningGoalie": {
+            "playerId": 8475660,
+            "firstInitial": { "default": "C." },
+            "lastName": { "default": "Talbot" }
+          },
+          "winningGoalScorer": {
+            "playerId": 8478864,
+            "firstInitial": { "default": "K." },
+            "lastName": { "default": "Kaprizov" }
+          },
+          "threeMinRecap": "/video/recap-min-3-cgy-2-f-ot-333540776",
+          "gameCenterLink": "/gamecenter/cgy-vs-min/2022/04/28/2021021295"
+        },
+        {
+          "id": 2021021296,
+          "season": 20212022,
+          "gameType": 2,
+          "venue": { "default": "Ball Arena" },
+          "neutralSite": false,
+          "startTimeUTC": "2022-04-29T01:00:00Z",
+          "easternUTCOffset": "-04:00",
+          "venueUTCOffset": "-06:00",
+          "venueTimezone": "America/Denver",
+          "gameState": "OFF",
+          "gameScheduleState": "OK",
+          "tvBroadcasts": [
+            { "id": 2, "market": "H", "countryCode": "US", "network": "ALT" },
+            { "id": 375, "market": "A", "countryCode": "US", "network": "BSSO" }
+          ],
+          "awayTeam": {
+            "id": 18,
+            "placeName": { "default": "Nashville" },
+            "abbrev": "NSH",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/NSH_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/NSH_dark.svg",
+            "awaySplitSquad": false,
+            "score": 5
+          },
+          "homeTeam": {
+            "id": 21,
+            "placeName": { "default": "Colorado" },
+            "abbrev": "COL",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/COL_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/COL_dark.svg",
+            "homeSplitSquad": false,
+            "score": 4
+          },
+          "periodDescriptor": { "number": 5, "periodType": "SO" },
+          "gameOutcome": { "lastPeriodType": "SO" },
+          "winningGoalie": {
+            "playerId": 8479496,
+            "firstInitial": { "default": "D." },
+            "lastName": { "default": "Rittich" }
+          },
+          "threeMinRecap": "/video/recap-nsh-5-col-4-f-so-333547142",
+          "gameCenterLink": "/gamecenter/nsh-vs-col/2022/04/28/2021021296"
+        },
+        {
+          "id": 2021021297,
+          "season": 20212022,
+          "gameType": 2,
+          "venue": { "default": "Rogers Place" },
+          "neutralSite": false,
+          "startTimeUTC": "2022-04-29T01:00:00Z",
+          "easternUTCOffset": "-04:00",
+          "venueUTCOffset": "-06:00",
+          "venueTimezone": "America/Edmonton",
+          "gameState": "OFF",
+          "gameScheduleState": "OK",
+          "tvBroadcasts": [
+            { "id": 284, "market": "N", "countryCode": "CA", "network": "SN1" },
+            {
+              "id": 314,
+              "market": "A",
+              "countryCode": "US",
+              "network": "NBCSCA"
+            }
+          ],
+          "awayTeam": {
+            "id": 28,
+            "placeName": { "default": "San Jose" },
+            "abbrev": "SJS",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/SJS_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/SJS_dark.svg",
+            "awaySplitSquad": false,
+            "score": 4
+          },
+          "homeTeam": {
+            "id": 22,
+            "placeName": { "default": "Edmonton" },
+            "abbrev": "EDM",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/EDM_20172018-20212022_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/EDM_20172018-20212022_dark.svg",
+            "homeSplitSquad": false,
+            "score": 5
+          },
+          "periodDescriptor": { "number": 4, "periodType": "OT" },
+          "gameOutcome": { "lastPeriodType": "OT" },
+          "winningGoalie": {
+            "playerId": 8475156,
+            "firstInitial": { "default": "M." },
+            "lastName": { "default": "Koskinen" }
+          },
+          "winningGoalScorer": {
+            "playerId": 8475786,
+            "firstInitial": { "default": "Z." },
+            "lastName": { "default": "Hyman" }
+          },
+          "threeMinRecap": "/video/recap-edm-5-sjs-4-f-ot-333545582",
+          "gameCenterLink": "/gamecenter/sjs-vs-edm/2022/04/28/2021021297"
+        },
+        {
+          "id": 2021021310,
+          "season": 20212022,
+          "gameType": 2,
+          "venue": { "default": "Rogers Arena" },
+          "neutralSite": false,
+          "startTimeUTC": "2022-04-29T02:00:00Z",
+          "easternUTCOffset": "-04:00",
+          "venueUTCOffset": "-07:00",
+          "venueTimezone": "America/Vancouver",
+          "gameState": "OFF",
+          "gameScheduleState": "OK",
+          "tvBroadcasts": [
+            { "id": 290, "market": "H", "countryCode": "CA", "network": "SNP" },
+            { "id": 355, "market": "A", "countryCode": "US", "network": "BSW" }
+          ],
+          "awayTeam": {
+            "id": 26,
+            "placeName": { "default": "Los Angeles" },
+            "abbrev": "LAK",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/LAK_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/LAK_dark.svg",
+            "awaySplitSquad": false,
+            "score": 2
+          },
+          "homeTeam": {
+            "id": 23,
+            "placeName": { "default": "Vancouver" },
+            "abbrev": "VAN",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/VAN_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/VAN_dark.svg",
+            "homeSplitSquad": false,
+            "score": 3
+          },
+          "periodDescriptor": { "number": 4, "periodType": "OT" },
+          "gameOutcome": { "lastPeriodType": "OT" },
+          "winningGoalie": {
+            "playerId": 8477484,
+            "firstInitial": { "default": "S." },
+            "lastName": { "default": "Martin" }
+          },
+          "winningGoalScorer": {
+            "playerId": 8478444,
+            "firstInitial": { "default": "B." },
+            "lastName": { "default": "Boeser" }
+          },
+          "threeMinRecap": "/video/recap-van-3-lak-2-f-ot-333550298",
+          "gameCenterLink": "/gamecenter/lak-vs-van/2022/04/28/2021021310"
+        }
+      ]
+    },
+    {
+      "date": "2022-04-29",
+      "dayAbbrev": "FRI",
+      "numberOfGames": 15,
+      "games": [
+        {
+          "id": 2021021169,
+          "season": 20212022,
+          "gameType": 2,
+          "venue": { "default": "PPG Paints Arena" },
+          "neutralSite": false,
+          "startTimeUTC": "2022-04-29T23:00:00Z",
+          "easternUTCOffset": "-04:00",
+          "venueUTCOffset": "-04:00",
+          "venueTimezone": "US/Eastern",
+          "gameState": "OFF",
+          "gameScheduleState": "OK",
+          "tvBroadcasts": [
+            {
+              "id": 316,
+              "market": "H",
+              "countryCode": "US",
+              "network": "ATTSN-PT"
+            },
+            { "id": 347, "market": "A", "countryCode": "US", "network": "BSOH" }
+          ],
+          "awayTeam": {
+            "id": 29,
+            "placeName": { "default": "Columbus" },
+            "abbrev": "CBJ",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/CBJ_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/CBJ_dark.svg",
+            "awaySplitSquad": false,
+            "score": 3
+          },
+          "homeTeam": {
+            "id": 5,
+            "placeName": { "default": "Pittsburgh" },
+            "abbrev": "PIT",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/PIT_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/PIT_dark.svg",
+            "homeSplitSquad": false,
+            "score": 5
+          },
+          "periodDescriptor": { "number": 3, "periodType": "REG" },
+          "gameOutcome": { "lastPeriodType": "REG" },
+          "winningGoalie": {
+            "playerId": 8479193,
+            "firstInitial": { "default": "C." },
+            "lastName": { "default": "DeSmith" }
+          },
+          "winningGoalScorer": {
+            "playerId": 8471724,
+            "firstInitial": { "default": "K." },
+            "lastName": { "default": "Letang" }
+          },
+          "threeMinRecap": "/video/recap-pit-5-cbj-3-333589404",
+          "gameCenterLink": "/gamecenter/cbj-vs-pit/2022/04/29/2021021169"
+        },
+        {
+          "id": 2021021298,
+          "season": 20212022,
+          "gameType": 2,
+          "venue": { "default": "KeyBank Center" },
+          "neutralSite": false,
+          "startTimeUTC": "2022-04-29T23:00:00Z",
+          "easternUTCOffset": "-04:00",
+          "venueUTCOffset": "-04:00",
+          "venueTimezone": "America/New_York",
+          "gameState": "OFF",
+          "gameScheduleState": "OK",
+          "tvBroadcasts": [
+            {
+              "id": 28,
+              "market": "H",
+              "countryCode": "US",
+              "network": "MSG-B"
+            },
+            {
+              "id": 318,
+              "market": "A",
+              "countryCode": "US",
+              "network": "NBCSCH"
+            }
+          ],
+          "awayTeam": {
+            "id": 16,
+            "placeName": { "default": "Chicago" },
+            "abbrev": "CHI",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/CHI_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/CHI_dark.svg",
+            "awaySplitSquad": false,
+            "score": 2
+          },
+          "homeTeam": {
+            "id": 7,
+            "placeName": { "default": "Buffalo" },
+            "abbrev": "BUF",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/BUF_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/BUF_dark.svg",
+            "homeSplitSquad": false,
+            "score": 3
+          },
+          "periodDescriptor": { "number": 4, "periodType": "OT" },
+          "gameOutcome": { "lastPeriodType": "OT" },
+          "winningGoalie": {
+            "playerId": 8474682,
+            "firstInitial": { "default": "D." },
+            "lastName": { "default": "Tokarski" }
+          },
+          "winningGoalScorer": {
+            "playerId": 8479999,
+            "firstInitial": { "default": "C." },
+            "lastName": { "default": "Mittelstadt" }
+          },
+          "threeMinRecap": "/video/recap-buf-3-chi-2-f-ot-333587694",
+          "gameCenterLink": "/gamecenter/chi-vs-buf/2022/04/29/2021021298"
+        },
+        {
+          "id": 2021021299,
+          "season": 20212022,
+          "gameType": 2,
+          "venue": { "default": "Scotiabank Arena" },
+          "neutralSite": false,
+          "startTimeUTC": "2022-04-29T23:00:00Z",
+          "easternUTCOffset": "-04:00",
+          "venueUTCOffset": "-04:00",
+          "venueTimezone": "America/Toronto",
+          "gameState": "OFF",
+          "gameScheduleState": "OK",
+          "tvBroadcasts": [
+            {
+              "id": 128,
+              "market": "A",
+              "countryCode": "US",
+              "network": "NESNplus"
+            },
+            {
+              "id": 281,
+              "market": "N",
+              "countryCode": "CA",
+              "network": "TVAS"
+            },
+            { "id": 293, "market": "H", "countryCode": "CA", "network": "TSN4" }
+          ],
+          "awayTeam": {
+            "id": 6,
+            "placeName": { "default": "Boston" },
+            "abbrev": "BOS",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/BOS_20082009-20222023_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/BOS_20082009-20222023_dark.svg",
+            "awaySplitSquad": false,
+            "score": 2
+          },
+          "homeTeam": {
+            "id": 10,
+            "placeName": { "default": "Toronto" },
+            "abbrev": "TOR",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/TOR_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/TOR_dark.svg",
+            "homeSplitSquad": false,
+            "score": 5
+          },
+          "periodDescriptor": { "number": 3, "periodType": "REG" },
+          "gameOutcome": { "lastPeriodType": "REG" },
+          "winningGoalie": {
+            "playerId": 8478902,
+            "firstInitial": { "default": "E." },
+            "lastName": { "default": "Kallgren" }
+          },
+          "winningGoalScorer": {
+            "playerId": 8481720,
+            "firstInitial": { "default": "N." },
+            "lastName": { "default": "Abruzzese" }
+          },
+          "threeMinRecap": "/video/recap-tor-5-bos-2-333587990",
+          "gameCenterLink": "/gamecenter/bos-vs-tor/2022/04/29/2021021299"
+        },
+        {
+          "id": 2021021300,
+          "season": 20212022,
+          "gameType": 2,
+          "venue": { "default": "Centre Bell" },
+          "neutralSite": false,
+          "startTimeUTC": "2022-04-29T23:00:00Z",
+          "easternUTCOffset": "-04:00",
+          "venueUTCOffset": "-04:00",
+          "venueTimezone": "America/Montreal",
+          "gameState": "OFF",
+          "gameScheduleState": "OK",
+          "tvBroadcasts": [
+            { "id": 33, "market": "H", "countryCode": "CA", "network": "RDS" },
+            {
+              "id": 131,
+              "market": "H",
+              "countryCode": "CA",
+              "network": "TSN2"
+            },
+            { "id": 353, "market": "A", "countryCode": "US", "network": "BSFL" }
+          ],
+          "awayTeam": {
+            "id": 13,
+            "placeName": { "default": "Florida", "fr": "Floride" },
+            "abbrev": "FLA",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/FLA_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/FLA_dark.svg",
+            "awaySplitSquad": false,
+            "score": 2
+          },
+          "homeTeam": {
+            "id": 8,
+            "placeName": { "default": "Montréal" },
+            "abbrev": "MTL",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/MTL_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/MTL_dark.svg",
+            "homeSplitSquad": false,
+            "score": 10
+          },
+          "periodDescriptor": { "number": 3, "periodType": "REG" },
+          "gameOutcome": { "lastPeriodType": "REG" },
+          "winningGoalie": {
+            "playerId": 8471679,
+            "firstInitial": { "default": "C." },
+            "lastName": { "default": "Price" }
+          },
+          "winningGoalScorer": {
+            "playerId": 8481540,
+            "firstInitial": { "default": "C." },
+            "lastName": { "default": "Caufield" }
+          },
+          "threeMinRecap": "/video/recap-mtl-10-fla-2-333589030",
+          "gameCenterLink": "/gamecenter/fla-vs-mtl/2022/04/29/2021021300"
+        },
+        {
+          "id": 2021021301,
+          "season": 20212022,
+          "gameType": 2,
+          "venue": { "default": "Prudential Center" },
+          "neutralSite": false,
+          "startTimeUTC": "2022-04-29T23:00:00Z",
+          "easternUTCOffset": "-04:00",
+          "venueUTCOffset": "-04:00",
+          "venueTimezone": "US/Eastern",
+          "gameState": "OFF",
+          "gameScheduleState": "OK",
+          "tvBroadcasts": [
+            {
+              "id": 299,
+              "market": "H",
+              "countryCode": "US",
+              "network": "MSG+"
+            },
+            {
+              "id": 351,
+              "market": "A",
+              "countryCode": "US",
+              "network": "BSDET"
+            }
+          ],
+          "awayTeam": {
+            "id": 17,
+            "placeName": { "default": "Detroit" },
+            "abbrev": "DET",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/DET_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/DET_dark.svg",
+            "awaySplitSquad": false,
+            "score": 5
+          },
+          "homeTeam": {
+            "id": 1,
+            "placeName": { "default": "New Jersey" },
+            "abbrev": "NJD",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/NJD_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/NJD_dark.svg",
+            "homeSplitSquad": false,
+            "score": 3
+          },
+          "periodDescriptor": { "number": 3, "periodType": "REG" },
+          "gameOutcome": { "lastPeriodType": "REG" },
+          "winningGoalie": {
+            "playerId": 8476433,
+            "firstInitial": { "default": "M." },
+            "lastName": { "default": "Hellberg" }
+          },
+          "winningGoalScorer": {
+            "playerId": 8480459,
+            "firstInitial": { "default": "P." },
+            "lastName": { "default": "Suter" }
+          },
+          "threeMinRecap": "/video/recap-det-5-njd-3-333588528",
+          "gameCenterLink": "/gamecenter/det-vs-njd/2022/04/29/2021021301"
+        },
+        {
+          "id": 2021021302,
+          "season": 20212022,
+          "gameType": 2,
+          "venue": { "default": "Madison Square Garden" },
+          "neutralSite": false,
+          "startTimeUTC": "2022-04-29T23:00:00Z",
+          "easternUTCOffset": "-04:00",
+          "venueUTCOffset": "-04:00",
+          "venueTimezone": "America/New_York",
+          "gameState": "OFF",
+          "gameScheduleState": "OK",
+          "tvBroadcasts": [
+            { "id": 27, "market": "H", "countryCode": "US", "network": "MSG" },
+            {
+              "id": 320,
+              "market": "A",
+              "countryCode": "US",
+              "network": "NBCSWA"
+            }
+          ],
+          "awayTeam": {
+            "id": 15,
+            "placeName": { "default": "Washington" },
+            "abbrev": "WSH",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/WSH_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/WSH_dark.svg",
+            "awaySplitSquad": false,
+            "score": 2
+          },
+          "homeTeam": {
+            "id": 3,
+            "placeName": { "default": "New York" },
+            "abbrev": "NYR",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/NYR_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/NYR_dark.svg",
+            "homeSplitSquad": false,
+            "score": 3
+          },
+          "periodDescriptor": { "number": 3, "periodType": "REG" },
+          "gameOutcome": { "lastPeriodType": "REG" },
+          "winningGoalie": {
+            "playerId": 8480382,
+            "firstInitial": { "default": "A." },
+            "lastName": {
+              "default": "Georgiev",
+              "cs": "Georgijev",
+              "fi": "Georgijev",
+              "sk": "Georgijev"
+            }
+          },
+          "winningGoalScorer": {
+            "playerId": 8478211,
+            "firstInitial": { "default": "D." },
+            "lastName": { "default": "Hunt" }
+          },
+          "threeMinRecap": "/video/recap-nyr-3-wsh-2-333588034",
+          "gameCenterLink": "/gamecenter/wsh-vs-nyr/2022/04/29/2021021302"
+        },
+        {
+          "id": 2021021303,
+          "season": 20212022,
+          "gameType": 2,
+          "venue": { "default": "Wells Fargo Center" },
+          "neutralSite": false,
+          "startTimeUTC": "2022-04-29T23:00:00Z",
+          "easternUTCOffset": "-04:00",
+          "venueUTCOffset": "-04:00",
+          "venueTimezone": "US/Eastern",
+          "gameState": "OFF",
+          "gameScheduleState": "OK",
+          "tvBroadcasts": [
+            {
+              "id": 230,
+              "market": "A",
+              "countryCode": "CA",
+              "network": "RDS2"
+            },
+            {
+              "id": 294,
+              "market": "A",
+              "countryCode": "CA",
+              "network": "TSN5"
+            },
+            {
+              "id": 322,
+              "market": "H",
+              "countryCode": "US",
+              "network": "NBCSP"
+            }
+          ],
+          "awayTeam": {
+            "id": 9,
+            "placeName": { "default": "Ottawa" },
+            "abbrev": "OTT",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/OTT_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/OTT_dark.svg",
+            "awaySplitSquad": false,
+            "score": 4
+          },
+          "homeTeam": {
+            "id": 4,
+            "placeName": { "default": "Philadelphia", "fr": "Philadelphie" },
+            "abbrev": "PHI",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/PHI_19992000-20222023_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/PHI_19992000-20222023_dark.svg",
+            "homeSplitSquad": false,
+            "score": 2
+          },
+          "periodDescriptor": { "number": 3, "periodType": "REG" },
+          "gameOutcome": { "lastPeriodType": "REG" },
+          "winningGoalie": {
+            "playerId": 8476341,
+            "firstInitial": { "default": "A." },
+            "lastName": { "default": "Forsberg" }
+          },
+          "winningGoalScorer": {
+            "playerId": 8480801,
+            "firstInitial": { "default": "B." },
+            "lastName": { "default": "Tkachuk" }
+          },
+          "gameCenterLink": "/gamecenter/ott-vs-phi/2022/04/29/2021021303"
+        },
+        {
+          "id": 2021021292,
+          "season": 20212022,
+          "gameType": 2,
+          "venue": { "default": "UBS Arena" },
+          "neutralSite": false,
+          "startTimeUTC": "2022-04-29T23:30:00Z",
+          "easternUTCOffset": "-04:00",
+          "venueUTCOffset": "-04:00",
+          "venueTimezone": "America/New_York",
+          "gameState": "OFF",
+          "gameScheduleState": "OK",
+          "tvBroadcasts": [
+            {
+              "id": 291,
+              "market": "N",
+              "countryCode": "CA",
+              "network": "TVAS2"
+            },
+            {
+              "id": 300,
+              "market": "H",
+              "countryCode": "US",
+              "network": "MSG+ 2"
+            },
+            {
+              "id": 359,
+              "market": "A",
+              "countryCode": "US",
+              "network": "BSSUN"
+            }
+          ],
+          "awayTeam": {
+            "id": 14,
+            "placeName": { "default": "Tampa Bay" },
+            "abbrev": "TBL",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/TBL_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/TBL_dark.svg",
+            "awaySplitSquad": false,
+            "score": 6
+          },
+          "homeTeam": {
+            "id": 2,
+            "placeName": { "default": "New York" },
+            "abbrev": "NYI",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/NYI_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/NYI_dark.svg",
+            "homeSplitSquad": false,
+            "score": 4
+          },
+          "periodDescriptor": { "number": 3, "periodType": "REG" },
+          "gameOutcome": { "lastPeriodType": "REG" },
+          "winningGoalie": {
+            "playerId": 8476883,
+            "firstInitial": { "default": "A." },
+            "lastName": {
+              "default": "Vasilevskiy",
+              "cs": "Vasilevskij",
+              "fi": "Vasilevski",
+              "sk": "Vasilevskij"
+            }
+          },
+          "winningGoalScorer": {
+            "playerId": 8474564,
+            "firstInitial": { "default": "S." },
+            "lastName": { "default": "Stamkos" }
+          },
+          "threeMinRecap": "/video/recap-tbl-6-nyi-4-333592948",
+          "gameCenterLink": "/gamecenter/tbl-vs-nyi/2022/04/29/2021021292"
+        },
+        {
+          "id": 2021021306,
+          "season": 20212022,
+          "gameType": 2,
+          "venue": { "default": "Enterprise Center" },
+          "neutralSite": false,
+          "startTimeUTC": "2022-04-30T00:00:00Z",
+          "easternUTCOffset": "-04:00",
+          "venueUTCOffset": "-05:00",
+          "venueTimezone": "US/Central",
+          "gameState": "OFF",
+          "gameScheduleState": "OK",
+          "tvBroadcasts": [
+            {
+              "id": 317,
+              "market": "A",
+              "countryCode": "US",
+              "network": "ATTSN-RM"
+            },
+            {
+              "id": 324,
+              "market": "N",
+              "countryCode": "US",
+              "network": "NHLN"
+            },
+            { "id": 357, "market": "H", "countryCode": "US", "network": "BSMW" }
+          ],
+          "awayTeam": {
+            "id": 54,
+            "placeName": { "default": "Vegas" },
+            "abbrev": "VGK",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/VGK_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/VGK_dark.svg",
+            "awaySplitSquad": false,
+            "score": 7
+          },
+          "homeTeam": {
+            "id": 19,
+            "placeName": { "default": "St. Louis" },
+            "abbrev": "STL",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/STL_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/STL_dark.svg",
+            "homeSplitSquad": false,
+            "score": 4
+          },
+          "periodDescriptor": { "number": 3, "periodType": "REG" },
+          "gameOutcome": { "lastPeriodType": "REG" },
+          "winningGoalie": {
+            "playerId": 8480313,
+            "firstInitial": { "default": "L." },
+            "lastName": { "default": "Thompson" }
+          },
+          "winningGoalScorer": {
+            "playerId": 8476539,
+            "firstInitial": { "default": "J." },
+            "lastName": { "default": "Marchessault" }
+          },
+          "threeMinRecap": "/video/recap-vgk-7-stl-4-333598756",
+          "gameCenterLink": "/gamecenter/vgk-vs-stl/2022/04/29/2021021306"
+        },
+        {
+          "id": 2021021308,
+          "season": 20212022,
+          "gameType": 2,
+          "venue": { "default": "Xcel Energy Center" },
+          "neutralSite": false,
+          "startTimeUTC": "2022-04-30T00:00:00Z",
+          "easternUTCOffset": "-04:00",
+          "venueUTCOffset": "-05:00",
+          "venueTimezone": "US/Central",
+          "gameState": "OFF",
+          "gameScheduleState": "OK",
+          "tvBroadcasts": [
+            { "id": 2, "market": "A", "countryCode": "US", "network": "ALT" },
+            { "id": 361, "market": "H", "countryCode": "US", "network": "BSN" },
+            {
+              "id": 396,
+              "market": "H",
+              "countryCode": "US",
+              "network": "BSWIX"
+            }
+          ],
+          "awayTeam": {
+            "id": 21,
+            "placeName": { "default": "Colorado" },
+            "abbrev": "COL",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/COL_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/COL_dark.svg",
+            "awaySplitSquad": false,
+            "score": 1
+          },
+          "homeTeam": {
+            "id": 30,
+            "placeName": { "default": "Minnesota" },
+            "abbrev": "MIN",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/MIN_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/MIN_dark.svg",
+            "homeSplitSquad": false,
+            "score": 4
+          },
+          "periodDescriptor": { "number": 3, "periodType": "REG" },
+          "gameOutcome": { "lastPeriodType": "REG" },
+          "winningGoalie": {
+            "playerId": 8470594,
+            "firstInitial": { "default": "M." },
+            "lastName": { "default": "Fleury" }
+          },
+          "winningGoalScorer": {
+            "playerId": 8479370,
+            "firstInitial": { "default": "T." },
+            "lastName": { "default": "Jost" }
+          },
+          "threeMinRecap": "/video/recap-min-4-col-1-333598658",
+          "gameCenterLink": "/gamecenter/col-vs-min/2022/04/29/2021021308"
+        },
+        {
+          "id": 2021021309,
+          "season": 20212022,
+          "gameType": 2,
+          "venue": { "default": "Canada Life Centre" },
+          "neutralSite": false,
+          "startTimeUTC": "2022-04-30T00:00:00Z",
+          "easternUTCOffset": "-04:00",
+          "venueUTCOffset": "-05:00",
+          "venueTimezone": "America/Winnipeg",
+          "gameState": "OFF",
+          "gameScheduleState": "OK",
+          "tvBroadcasts": [
+            { "id": 289, "market": "A", "countryCode": "CA", "network": "SNW" },
+            { "id": 292, "market": "H", "countryCode": "CA", "network": "TSN3" }
+          ],
+          "awayTeam": {
+            "id": 20,
+            "placeName": { "default": "Calgary" },
+            "abbrev": "CGY",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/CGY_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/CGY_dark.svg",
+            "awaySplitSquad": false,
+            "score": 1
+          },
+          "homeTeam": {
+            "id": 52,
+            "placeName": { "default": "Winnipeg" },
+            "abbrev": "WPG",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/WPG_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/WPG_dark.svg",
+            "homeSplitSquad": false,
+            "score": 3
+          },
+          "periodDescriptor": { "number": 3, "periodType": "REG" },
+          "gameOutcome": { "lastPeriodType": "REG" },
+          "winningGoalie": {
+            "playerId": 8476945,
+            "firstInitial": { "default": "C." },
+            "lastName": { "default": "Hellebuyck" }
+          },
+          "winningGoalScorer": {
+            "playerId": 8478891,
+            "firstInitial": { "default": "M." },
+            "lastName": { "default": "Appleton" }
+          },
+          "threeMinRecap": "/video/recap-wpg-3-cgy-1-333595972",
+          "gameCenterLink": "/gamecenter/cgy-vs-wpg/2022/04/29/2021021309"
+        },
+        {
+          "id": 2021021307,
+          "season": 20212022,
+          "gameType": 2,
+          "venue": { "default": "American Airlines Center" },
+          "neutralSite": false,
+          "startTimeUTC": "2022-04-30T00:30:00Z",
+          "easternUTCOffset": "-04:00",
+          "venueUTCOffset": "-05:00",
+          "venueTimezone": "US/Central",
+          "gameState": "OFF",
+          "gameScheduleState": "OK",
+          "tvBroadcasts": [
+            {
+              "id": 341,
+              "market": "A",
+              "countryCode": "US",
+              "network": "BSSC"
+            },
+            {
+              "id": 401,
+              "market": "H",
+              "countryCode": "US",
+              "network": "BSSWX"
+            }
+          ],
+          "awayTeam": {
+            "id": 24,
+            "placeName": { "default": "Anaheim" },
+            "abbrev": "ANA",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/ANA_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/ANA_dark.svg",
+            "awaySplitSquad": false,
+            "score": 2
+          },
+          "homeTeam": {
+            "id": 25,
+            "placeName": { "default": "Dallas" },
+            "abbrev": "DAL",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/DAL_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/DAL_dark.svg",
+            "homeSplitSquad": false,
+            "score": 4
+          },
+          "periodDescriptor": { "number": 3, "periodType": "REG" },
+          "gameOutcome": { "lastPeriodType": "REG" },
+          "winningGoalie": {
+            "playerId": 8479979,
+            "firstInitial": { "default": "J." },
+            "lastName": { "default": "Oettinger" }
+          },
+          "winningGoalScorer": {
+            "playerId": 8480027,
+            "firstInitial": { "default": "J." },
+            "lastName": { "default": "Robertson" }
+          },
+          "threeMinRecap": "/video/recap-dal-4-ana-2-333602372",
+          "gameCenterLink": "/gamecenter/ana-vs-dal/2022/04/29/2021021307"
+        },
+        {
+          "id": 2021021207,
+          "season": 20212022,
+          "gameType": 2,
+          "venue": { "default": "Rogers Place" },
+          "neutralSite": false,
+          "startTimeUTC": "2022-04-30T01:00:00Z",
+          "easternUTCOffset": "-04:00",
+          "venueUTCOffset": "-06:00",
+          "venueTimezone": "America/Edmonton",
+          "gameState": "OFF",
+          "gameScheduleState": "OK",
+          "tvBroadcasts": [
+            { "id": 284, "market": "N", "countryCode": "CA", "network": "SN1" },
+            { "id": 290, "market": "N", "countryCode": "CA", "network": "SNP" }
+          ],
+          "awayTeam": {
+            "id": 23,
+            "placeName": { "default": "Vancouver" },
+            "abbrev": "VAN",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/VAN_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/VAN_dark.svg",
+            "awaySplitSquad": false,
+            "score": 2
+          },
+          "homeTeam": {
+            "id": 22,
+            "placeName": { "default": "Edmonton" },
+            "abbrev": "EDM",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/EDM_20172018-20212022_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/EDM_20172018-20212022_dark.svg",
+            "homeSplitSquad": false,
+            "score": 3
+          },
+          "periodDescriptor": { "number": 5, "periodType": "SO" },
+          "gameOutcome": { "lastPeriodType": "SO" },
+          "winningGoalie": {
+            "playerId": 8475156,
+            "firstInitial": { "default": "M." },
+            "lastName": { "default": "Koskinen" }
+          },
+          "threeMinRecap": "/video/recap-edm-3-van-2-f-so-333607670",
+          "gameCenterLink": "/gamecenter/van-vs-edm/2022/04/29/2021021207"
+        },
+        {
+          "id": 2021021312,
+          "season": 20212022,
+          "gameType": 2,
+          "venue": { "default": "Climate Pledge Arena" },
+          "neutralSite": false,
+          "startTimeUTC": "2022-04-30T02:00:00Z",
+          "easternUTCOffset": "-04:00",
+          "venueUTCOffset": "-07:00",
+          "venueTimezone": "US/Pacific",
+          "gameState": "OFF",
+          "gameScheduleState": "OK",
+          "tvBroadcasts": [
+            {
+              "id": 314,
+              "market": "A",
+              "countryCode": "US",
+              "network": "NBCSCA"
+            },
+            {
+              "id": 405,
+              "market": "H",
+              "countryCode": "US",
+              "network": "ROOT-NW+"
+            }
+          ],
+          "awayTeam": {
+            "id": 28,
+            "placeName": { "default": "San Jose" },
+            "abbrev": "SJS",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/SJS_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/SJS_dark.svg",
+            "awaySplitSquad": false,
+            "score": 0
+          },
+          "homeTeam": {
+            "id": 55,
+            "placeName": { "default": "Seattle" },
+            "abbrev": "SEA",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/SEA_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/SEA_dark.svg",
+            "homeSplitSquad": false,
+            "score": 3
+          },
+          "periodDescriptor": { "number": 3, "periodType": "REG" },
+          "gameOutcome": { "lastPeriodType": "REG" },
+          "winningGoalie": {
+            "playerId": 8476904,
+            "firstInitial": { "default": "C." },
+            "lastName": { "default": "Driedger" }
+          },
+          "winningGoalScorer": {
+            "playerId": 8476826,
+            "firstInitial": { "default": "Y." },
+            "lastName": { "default": "Gourde" }
+          },
+          "threeMinRecap": "/video/recap-sea-3-sjs-0-333611534",
+          "gameCenterLink": "/gamecenter/sjs-vs-sea/2022/04/29/2021021312"
+        },
+        {
+          "id": 2021021311,
+          "season": 20212022,
+          "gameType": 2,
+          "venue": { "default": "Gila River Arena" },
+          "neutralSite": false,
+          "startTimeUTC": "2022-04-30T02:30:00Z",
+          "easternUTCOffset": "-04:00",
+          "venueUTCOffset": "-07:00",
+          "venueTimezone": "America/Phoenix",
+          "gameState": "OFF",
+          "gameScheduleState": "OK",
+          "tvBroadcasts": [
+            {
+              "id": 375,
+              "market": "A",
+              "countryCode": "US",
+              "network": "BSSO"
+            },
+            {
+              "id": 381,
+              "market": "H",
+              "countryCode": "US",
+              "network": "BSAZX"
+            }
+          ],
+          "awayTeam": {
+            "id": 18,
+            "placeName": { "default": "Nashville" },
+            "abbrev": "NSH",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/NSH_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/NSH_dark.svg",
+            "awaySplitSquad": false,
+            "score": 4
+          },
+          "homeTeam": {
+            "id": 53,
+            "placeName": { "default": "Arizona" },
+            "abbrev": "ARI",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/ARI_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/ARI_dark.svg",
+            "homeSplitSquad": false,
+            "score": 5
+          },
+          "periodDescriptor": { "number": 3, "periodType": "REG" },
+          "gameOutcome": { "lastPeriodType": "REG" },
+          "winningGoalie": {
+            "playerId": 8474667,
+            "firstInitial": { "default": "H." },
+            "lastName": { "default": "Sateri" }
+          },
+          "winningGoalScorer": {
+            "playerId": 8476906,
+            "firstInitial": { "default": "S." },
+            "lastName": { "default": "Gostisbehere" }
+          },
+          "threeMinRecap": "/video/recap-ari-5-nsh-4-333615628",
+          "gameCenterLink": "/gamecenter/nsh-vs-ari/2022/04/29/2021021311"
+        }
+      ]
+    },
+    {
+      "date": "2022-04-30",
+      "dayAbbrev": "SAT",
+      "numberOfGames": 0,
+      "games": []
+    },
+    {
+      "date": "2022-05-01",
+      "dayAbbrev": "SUN",
+      "numberOfGames": 1,
+      "games": [
+        {
+          "id": 2021021179,
+          "season": 20212022,
+          "gameType": 2,
+          "venue": { "default": "Canada Life Centre" },
+          "neutralSite": false,
+          "startTimeUTC": "2022-05-01T18:00:00Z",
+          "easternUTCOffset": "-04:00",
+          "venueUTCOffset": "-05:00",
+          "venueTimezone": "America/Winnipeg",
+          "gameState": "OFF",
+          "gameScheduleState": "OK",
+          "tvBroadcasts": [
+            {
+              "id": 292,
+              "market": "H",
+              "countryCode": "CA",
+              "network": "TSN3"
+            },
+            {
+              "id": 405,
+              "market": "A",
+              "countryCode": "US",
+              "network": "ROOT-NW+"
+            }
+          ],
+          "awayTeam": {
+            "id": 55,
+            "placeName": { "default": "Seattle" },
+            "abbrev": "SEA",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/SEA_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/SEA_dark.svg",
+            "awaySplitSquad": false,
+            "score": 3
+          },
+          "homeTeam": {
+            "id": 52,
+            "placeName": { "default": "Winnipeg" },
+            "abbrev": "WPG",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/WPG_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/WPG_dark.svg",
+            "homeSplitSquad": false,
+            "score": 4
+          },
+          "periodDescriptor": { "number": 3, "periodType": "REG" },
+          "gameOutcome": { "lastPeriodType": "REG" },
+          "winningGoalie": {
+            "playerId": 8477480,
+            "firstInitial": { "default": "E." },
+            "lastName": { "default": "Comrie" }
+          },
+          "winningGoalScorer": {
+            "playerId": 8478398,
+            "firstInitial": { "default": "K." },
+            "lastName": { "default": "Connor" }
+          },
+          "threeMinRecap": "/video/recap-wpg-4-sea-3-333654094",
+          "gameCenterLink": "/gamecenter/sea-vs-wpg/2022/05/01/2021021179"
+        }
+      ]
+    },
+    {
+      "date": "2022-05-02",
+      "dayAbbrev": "MON",
+      "numberOfGames": 4,
+      "games": [
+        {
+          "id": 2021030131,
+          "season": 20212022,
+          "gameType": 3,
+          "venue": { "default": "PNC Arena" },
+          "neutralSite": false,
+          "startTimeUTC": "2022-05-02T23:00:00Z",
+          "easternUTCOffset": "-04:00",
+          "venueUTCOffset": "-04:00",
+          "venueTimezone": "US/Eastern",
+          "gameState": "OFF",
+          "gameScheduleState": "OK",
+          "tvBroadcasts": [
+            { "id": 31, "market": "A", "countryCode": "US", "network": "NESN" },
+            {
+              "id": 283,
+              "market": "N",
+              "countryCode": "CA",
+              "network": "SN360"
+            },
+            {
+              "id": 291,
+              "market": "N",
+              "countryCode": "CA",
+              "network": "TVAS2"
+            },
+            {
+              "id": 309,
+              "market": "N",
+              "countryCode": "US",
+              "network": "ESPN"
+            },
+            { "id": 375, "market": "H", "countryCode": "US", "network": "BSSO" }
+          ],
+          "awayTeam": {
+            "id": 6,
+            "placeName": { "default": "Boston" },
+            "abbrev": "BOS",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/BOS_20082009-20222023_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/BOS_20082009-20222023_dark.svg",
+            "awaySplitSquad": false,
+            "score": 1
+          },
+          "homeTeam": {
+            "id": 12,
+            "placeName": { "default": "Carolina", "fr": "Caroline" },
+            "abbrev": "CAR",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/CAR_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/CAR_dark.svg",
+            "homeSplitSquad": false,
+            "score": 5
+          },
+          "periodDescriptor": { "number": 3, "periodType": "REG" },
+          "gameOutcome": { "lastPeriodType": "REG" },
+          "winningGoalie": {
+            "playerId": 8477293,
+            "firstInitial": { "default": "A." },
+            "lastName": { "default": "Raanta" }
+          },
+          "winningGoalScorer": {
+            "playerId": 8475799,
+            "firstInitial": { "default": "N." },
+            "lastName": { "default": "Niederreiter" }
+          },
+          "seriesStatus": {
+            "round": 1,
+            "gameNumberOfSeries": 1,
+            "roundAbbrev": "R1",
+            "roundCode": "1st_round",
+            "seriesLetter": "C",
+            "neededToWin": 4,
+            "length": 7,
+            "topSeedTeamId": 12,
+            "topSeedWins": 1,
+            "bottomSeedTeamId": 6,
+            "bottomSeedWins": 0,
+            "awayTeamWins": 0,
+            "homeTeamWins": 1
+          },
+          "threeMinRecap": "/video/recap-car-5-bos-1-333686022",
+          "gameCenterLink": "/gamecenter/bos-vs-car/2022/05/02/2021030131"
+        },
+        {
+          "id": 2021030121,
+          "season": 20212022,
+          "gameType": 3,
+          "venue": { "default": "Scotiabank Arena" },
+          "neutralSite": false,
+          "startTimeUTC": "2022-05-02T23:30:00Z",
+          "easternUTCOffset": "-04:00",
+          "venueUTCOffset": "-04:00",
+          "venueTimezone": "America/Toronto",
+          "gameState": "OFF",
+          "gameScheduleState": "OK",
+          "tvBroadcasts": [
+            { "id": 4, "market": "N", "countryCode": "CA", "network": "CBC" },
+            {
+              "id": 281,
+              "market": "N",
+              "countryCode": "CA",
+              "network": "TVAS"
+            },
+            { "id": 282, "market": "N", "countryCode": "CA", "network": "SN" },
+            {
+              "id": 307,
+              "market": "N",
+              "countryCode": "US",
+              "network": "ESPN2"
+            },
+            {
+              "id": 359,
+              "market": "A",
+              "countryCode": "US",
+              "network": "BSSUN"
+            }
+          ],
+          "awayTeam": {
+            "id": 14,
+            "placeName": { "default": "Tampa Bay" },
+            "abbrev": "TBL",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/TBL_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/TBL_dark.svg",
+            "awaySplitSquad": false,
+            "score": 0
+          },
+          "homeTeam": {
+            "id": 10,
+            "placeName": { "default": "Toronto" },
+            "abbrev": "TOR",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/TOR_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/TOR_dark.svg",
+            "homeSplitSquad": false,
+            "score": 5
+          },
+          "periodDescriptor": { "number": 3, "periodType": "REG" },
+          "gameOutcome": { "lastPeriodType": "REG" },
+          "winningGoalie": {
+            "playerId": 8475789,
+            "firstInitial": { "default": "J." },
+            "lastName": { "default": "Campbell" }
+          },
+          "winningGoalScorer": {
+            "playerId": 8474162,
+            "firstInitial": { "default": "J." },
+            "lastName": { "default": "Muzzin" }
+          },
+          "seriesStatus": {
+            "round": 1,
+            "gameNumberOfSeries": 1,
+            "roundAbbrev": "R1",
+            "roundCode": "1st_round",
+            "seriesLetter": "B",
+            "neededToWin": 4,
+            "length": 7,
+            "topSeedTeamId": 10,
+            "topSeedWins": 1,
+            "bottomSeedTeamId": 14,
+            "bottomSeedWins": 0,
+            "awayTeamWins": 0,
+            "homeTeamWins": 1
+          },
+          "threeMinRecap": "/video/recap-tor-5-tbl-0-333688026",
+          "gameCenterLink": "/gamecenter/tbl-vs-tor/2022/05/02/2021030121"
+        },
+        {
+          "id": 2021030161,
+          "season": 20212022,
+          "gameType": 3,
+          "venue": { "default": "Xcel Energy Center" },
+          "neutralSite": false,
+          "startTimeUTC": "2022-05-03T01:30:00Z",
+          "easternUTCOffset": "-04:00",
+          "venueUTCOffset": "-05:00",
+          "venueTimezone": "US/Central",
+          "gameState": "OFF",
+          "gameScheduleState": "OK",
+          "tvBroadcasts": [
+            {
+              "id": 283,
+              "market": "N",
+              "countryCode": "CA",
+              "network": "SN360"
+            },
+            {
+              "id": 291,
+              "market": "N",
+              "countryCode": "CA",
+              "network": "TVAS2"
+            },
+            {
+              "id": 309,
+              "market": "N",
+              "countryCode": "US",
+              "network": "ESPN"
+            },
+            {
+              "id": 357,
+              "market": "A",
+              "countryCode": "US",
+              "network": "BSMW"
+            },
+            { "id": 361, "market": "H", "countryCode": "US", "network": "BSN" },
+            { "id": 363, "market": "H", "countryCode": "US", "network": "BSWI" }
+          ],
+          "awayTeam": {
+            "id": 19,
+            "placeName": { "default": "St. Louis" },
+            "abbrev": "STL",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/STL_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/STL_dark.svg",
+            "awaySplitSquad": false,
+            "score": 4
+          },
+          "homeTeam": {
+            "id": 30,
+            "placeName": { "default": "Minnesota" },
+            "abbrev": "MIN",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/MIN_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/MIN_dark.svg",
+            "homeSplitSquad": false,
+            "score": 0
+          },
+          "periodDescriptor": { "number": 3, "periodType": "REG" },
+          "gameOutcome": { "lastPeriodType": "REG" },
+          "winningGoalie": {
+            "playerId": 8478024,
+            "firstInitial": { "default": "V." },
+            "lastName": { "default": "Husso" }
+          },
+          "winningGoalScorer": {
+            "playerId": 8474102,
+            "firstInitial": { "default": "D." },
+            "lastName": { "default": "Perron" }
+          },
+          "seriesStatus": {
+            "round": 1,
+            "gameNumberOfSeries": 1,
+            "roundAbbrev": "R1",
+            "roundCode": "1st_round",
+            "seriesLetter": "F",
+            "neededToWin": 4,
+            "length": 7,
+            "topSeedTeamId": 30,
+            "topSeedWins": 0,
+            "bottomSeedTeamId": 19,
+            "bottomSeedWins": 1,
+            "awayTeamWins": 1,
+            "homeTeamWins": 0
+          },
+          "threeMinRecap": "/video/recap-stl-4-min-0-333693056",
+          "gameCenterLink": "/gamecenter/stl-vs-min/2022/05/02/2021030161"
+        },
+        {
+          "id": 2021030181,
+          "season": 20212022,
+          "gameType": 3,
+          "venue": { "default": "Rogers Place" },
+          "neutralSite": false,
+          "startTimeUTC": "2022-05-03T02:00:00Z",
+          "easternUTCOffset": "-04:00",
+          "venueUTCOffset": "-06:00",
+          "venueTimezone": "America/Edmonton",
+          "gameState": "OFF",
+          "gameScheduleState": "OK",
+          "tvBroadcasts": [
+            { "id": 4, "market": "N", "countryCode": "CA", "network": "CBC" },
+            {
+              "id": 281,
+              "market": "N",
+              "countryCode": "CA",
+              "network": "TVAS"
+            },
+            { "id": 282, "market": "N", "countryCode": "CA", "network": "SN" },
+            {
+              "id": 307,
+              "market": "N",
+              "countryCode": "US",
+              "network": "ESPN2"
+            },
+            { "id": 355, "market": "A", "countryCode": "US", "network": "BSW" }
+          ],
+          "awayTeam": {
+            "id": 26,
+            "placeName": { "default": "Los Angeles" },
+            "abbrev": "LAK",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/LAK_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/LAK_dark.svg",
+            "awaySplitSquad": false,
+            "score": 4
+          },
+          "homeTeam": {
+            "id": 22,
+            "placeName": { "default": "Edmonton" },
+            "abbrev": "EDM",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/EDM_20172018-20212022_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/EDM_20172018-20212022_dark.svg",
+            "homeSplitSquad": false,
+            "score": 3
+          },
+          "periodDescriptor": { "number": 3, "periodType": "REG" },
+          "gameOutcome": { "lastPeriodType": "REG" },
+          "winningGoalie": {
+            "playerId": 8471734,
+            "firstInitial": { "default": "J." },
+            "lastName": { "default": "Quick" }
+          },
+          "winningGoalScorer": {
+            "playerId": 8476479,
+            "firstInitial": { "default": "P." },
+            "lastName": { "default": "Danault" }
+          },
+          "seriesStatus": {
+            "round": 1,
+            "gameNumberOfSeries": 1,
+            "roundAbbrev": "R1",
+            "roundCode": "1st_round",
+            "seriesLetter": "H",
+            "neededToWin": 4,
+            "length": 7,
+            "topSeedTeamId": 22,
+            "topSeedWins": 0,
+            "bottomSeedTeamId": 26,
+            "bottomSeedWins": 1,
+            "awayTeamWins": 1,
+            "homeTeamWins": 0
+          },
+          "threeMinRecap": "/video/recap-lak-4-edm-3-333695320",
+          "gameCenterLink": "/gamecenter/lak-vs-edm/2022/05/02/2021030181"
+        }
+      ]
+    },
+    {
+      "date": "2022-05-03",
+      "dayAbbrev": "TUE",
+      "numberOfGames": 4,
+      "games": [
+        {
+          "id": 2021030141,
+          "season": 20212022,
+          "gameType": 3,
+          "venue": { "default": "Madison Square Garden" },
+          "neutralSite": false,
+          "startTimeUTC": "2022-05-03T23:00:00Z",
+          "easternUTCOffset": "-04:00",
+          "venueUTCOffset": "-04:00",
+          "venueTimezone": "America/New_York",
+          "gameState": "OFF",
+          "gameScheduleState": "OK",
+          "tvBroadcasts": [
+            { "id": 4, "market": "N", "countryCode": "CA", "network": "CBC" },
+            { "id": 27, "market": "H", "countryCode": "US", "network": "MSG" },
+            {
+              "id": 281,
+              "market": "N",
+              "countryCode": "CA",
+              "network": "TVAS"
+            },
+            { "id": 282, "market": "N", "countryCode": "CA", "network": "SN" },
+            {
+              "id": 309,
+              "market": "N",
+              "countryCode": "US",
+              "network": "ESPN"
+            },
+            {
+              "id": 316,
+              "market": "A",
+              "countryCode": "US",
+              "network": "ATTSN-PT"
+            }
+          ],
+          "awayTeam": {
+            "id": 5,
+            "placeName": { "default": "Pittsburgh" },
+            "abbrev": "PIT",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/PIT_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/PIT_dark.svg",
+            "awaySplitSquad": false,
+            "score": 4
+          },
+          "homeTeam": {
+            "id": 3,
+            "placeName": { "default": "New York" },
+            "abbrev": "NYR",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/NYR_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/NYR_dark.svg",
+            "homeSplitSquad": false,
+            "score": 3
+          },
+          "periodDescriptor": {
+            "number": 6,
+            "periodType": "OT",
+            "otPeriods": 3
+          },
+          "gameOutcome": { "lastPeriodType": "OT" },
+          "winningGoalie": {
+            "playerId": 8475839,
+            "firstInitial": { "default": "L." },
+            "lastName": { "default": "Domingue" }
+          },
+          "winningGoalScorer": {
+            "playerId": 8471215,
+            "firstInitial": { "default": "E." },
+            "lastName": { "default": "Malkin" }
+          },
+          "seriesStatus": {
+            "round": 1,
+            "gameNumberOfSeries": 1,
+            "roundAbbrev": "R1",
+            "roundCode": "1st_round",
+            "seriesLetter": "D",
+            "neededToWin": 4,
+            "length": 7,
+            "topSeedTeamId": 3,
+            "topSeedWins": 0,
+            "bottomSeedTeamId": 5,
+            "bottomSeedWins": 1,
+            "awayTeamWins": 1,
+            "homeTeamWins": 0
+          },
+          "threeMinRecap": "/video/recap-pit-4-nyr-3-f-3ot-333727806",
+          "gameCenterLink": "/gamecenter/pit-vs-nyr/2022/05/03/2021030141"
+        },
+        {
+          "id": 2021030111,
+          "season": 20212022,
+          "gameType": 3,
+          "venue": { "default": "FLA Live Arena" },
+          "neutralSite": false,
+          "startTimeUTC": "2022-05-03T23:30:00Z",
+          "easternUTCOffset": "-04:00",
+          "venueUTCOffset": "-04:00",
+          "venueTimezone": "US/Eastern",
+          "gameState": "OFF",
+          "gameScheduleState": "OK",
+          "tvBroadcasts": [
+            {
+              "id": 283,
+              "market": "N",
+              "countryCode": "CA",
+              "network": "SN360"
+            },
+            {
+              "id": 291,
+              "market": "N",
+              "countryCode": "CA",
+              "network": "TVAS2"
+            },
+            {
+              "id": 307,
+              "market": "N",
+              "countryCode": "US",
+              "network": "ESPN2"
+            },
+            {
+              "id": 320,
+              "market": "A",
+              "countryCode": "US",
+              "network": "NBCSWA"
+            },
+            { "id": 353, "market": "H", "countryCode": "US", "network": "BSFL" }
+          ],
+          "awayTeam": {
+            "id": 15,
+            "placeName": { "default": "Washington" },
+            "abbrev": "WSH",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/WSH_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/WSH_dark.svg",
+            "awaySplitSquad": false,
+            "score": 4
+          },
+          "homeTeam": {
+            "id": 13,
+            "placeName": { "default": "Florida", "fr": "Floride" },
+            "abbrev": "FLA",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/FLA_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/FLA_dark.svg",
+            "homeSplitSquad": false,
+            "score": 2
+          },
+          "periodDescriptor": { "number": 3, "periodType": "REG" },
+          "gameOutcome": { "lastPeriodType": "REG" },
+          "winningGoalie": {
+            "playerId": 8477970,
+            "firstInitial": { "default": "V." },
+            "lastName": { "default": "Vanecek" }
+          },
+          "winningGoalScorer": {
+            "playerId": 8471698,
+            "firstInitial": { "default": "T." },
+            "lastName": { "default": "Oshie" }
+          },
+          "seriesStatus": {
+            "round": 1,
+            "gameNumberOfSeries": 1,
+            "roundAbbrev": "R1",
+            "roundCode": "1st_round",
+            "seriesLetter": "A",
+            "neededToWin": 4,
+            "length": 7,
+            "topSeedTeamId": 13,
+            "topSeedWins": 0,
+            "bottomSeedTeamId": 15,
+            "bottomSeedWins": 1,
+            "awayTeamWins": 1,
+            "homeTeamWins": 0
+          },
+          "threeMinRecap": "/video/recap-wsh-4-fla-2-333723360",
+          "gameCenterLink": "/gamecenter/wsh-vs-fla/2022/05/03/2021030111"
+        },
+        {
+          "id": 2021030151,
+          "season": 20212022,
+          "gameType": 3,
+          "venue": { "default": "Ball Arena" },
+          "neutralSite": false,
+          "startTimeUTC": "2022-05-04T01:30:00Z",
+          "easternUTCOffset": "-04:00",
+          "venueUTCOffset": "-06:00",
+          "venueTimezone": "America/Denver",
+          "gameState": "OFF",
+          "gameScheduleState": "OK",
+          "tvBroadcasts": [
+            { "id": 2, "market": "H", "countryCode": "US", "network": "ALT" },
+            {
+              "id": 281,
+              "market": "N",
+              "countryCode": "CA",
+              "network": "TVAS"
+            },
+            { "id": 287, "market": "N", "countryCode": "CA", "network": "SNE" },
+            {
+              "id": 309,
+              "market": "N",
+              "countryCode": "US",
+              "network": "ESPN"
+            },
+            {
+              "id": 375,
+              "market": "A",
+              "countryCode": "US",
+              "network": "BSSO"
+            },
+            {
+              "id": 408,
+              "market": "N",
+              "countryCode": "US",
+              "network": "SN360 (JIP)"
+            }
+          ],
+          "awayTeam": {
+            "id": 18,
+            "placeName": { "default": "Nashville" },
+            "abbrev": "NSH",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/NSH_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/NSH_dark.svg",
+            "awaySplitSquad": false,
+            "score": 2
+          },
+          "homeTeam": {
+            "id": 21,
+            "placeName": { "default": "Colorado" },
+            "abbrev": "COL",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/COL_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/COL_dark.svg",
+            "homeSplitSquad": false,
+            "score": 7
+          },
+          "periodDescriptor": { "number": 3, "periodType": "REG" },
+          "gameOutcome": { "lastPeriodType": "REG" },
+          "winningGoalie": {
+            "playerId": 8475311,
+            "firstInitial": { "default": "D." },
+            "lastName": { "default": "Kuemper" }
+          },
+          "winningGoalScorer": {
+            "playerId": 8471699,
+            "firstInitial": { "default": "A." },
+            "lastName": { "default": "Cogliano" }
+          },
+          "seriesStatus": {
+            "round": 1,
+            "gameNumberOfSeries": 1,
+            "roundAbbrev": "R1",
+            "roundCode": "1st_round",
+            "seriesLetter": "E",
+            "neededToWin": 4,
+            "length": 7,
+            "topSeedTeamId": 21,
+            "topSeedWins": 1,
+            "bottomSeedTeamId": 18,
+            "bottomSeedWins": 0,
+            "awayTeamWins": 0,
+            "homeTeamWins": 1
+          },
+          "gameCenterLink": "/gamecenter/nsh-vs-col/2022/05/03/2021030151"
+        },
+        {
+          "id": 2021030171,
+          "season": 20212022,
+          "gameType": 3,
+          "venue": { "default": "Scotiabank Saddledome" },
+          "neutralSite": false,
+          "startTimeUTC": "2022-05-04T02:00:00Z",
+          "easternUTCOffset": "-04:00",
+          "venueUTCOffset": "-06:00",
+          "venueTimezone": "US/Mountain",
+          "gameState": "OFF",
+          "gameScheduleState": "OK",
+          "tvBroadcasts": [
+            { "id": 4, "market": "N", "countryCode": "CA", "network": "CBC" },
+            { "id": 282, "market": "N", "countryCode": "CA", "network": "SN" },
+            {
+              "id": 291,
+              "market": "N",
+              "countryCode": "CA",
+              "network": "TVAS2"
+            },
+            {
+              "id": 307,
+              "market": "N",
+              "countryCode": "US",
+              "network": "ESPN2"
+            },
+            { "id": 349, "market": "A", "countryCode": "US", "network": "BSSW" }
+          ],
+          "awayTeam": {
+            "id": 25,
+            "placeName": { "default": "Dallas" },
+            "abbrev": "DAL",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/DAL_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/DAL_dark.svg",
+            "awaySplitSquad": false,
+            "score": 0
+          },
+          "homeTeam": {
+            "id": 20,
+            "placeName": { "default": "Calgary" },
+            "abbrev": "CGY",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/CGY_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/CGY_dark.svg",
+            "homeSplitSquad": false,
+            "score": 1
+          },
+          "periodDescriptor": { "number": 3, "periodType": "REG" },
+          "gameOutcome": { "lastPeriodType": "REG" },
+          "winningGoalie": {
+            "playerId": 8474593,
+            "firstInitial": { "default": "J." },
+            "lastName": { "default": "Markstrom" }
+          },
+          "winningGoalScorer": {
+            "playerId": 8477496,
+            "firstInitial": { "default": "E." },
+            "lastName": { "default": "Lindholm" }
+          },
+          "seriesStatus": {
+            "round": 1,
+            "gameNumberOfSeries": 1,
+            "roundAbbrev": "R1",
+            "roundCode": "1st_round",
+            "seriesLetter": "G",
+            "neededToWin": 4,
+            "length": 7,
+            "topSeedTeamId": 20,
+            "topSeedWins": 1,
+            "bottomSeedTeamId": 25,
+            "bottomSeedWins": 0,
+            "awayTeamWins": 0,
+            "homeTeamWins": 1
+          },
+          "threeMinRecap": "/video/recap-cgy-1-dal-0-333732956",
+          "gameCenterLink": "/gamecenter/dal-vs-cgy/2022/05/03/2021030171"
+        }
+      ]
+    }
+  ],
+  "preSeasonStartDate": "2021-09-25",
+  "regularSeasonStartDate": "2021-10-12",
+  "regularSeasonEndDate": "2022-05-01",
+  "playoffEndDate": "2022-06-29",
+  "numberOfGames": 38
+}

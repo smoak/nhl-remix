@@ -1,0 +1,532 @@
+{
+  "id": 2023020180,
+  "season": 20232024,
+  "gameType": 2,
+  "gameDate": "2023-11-07",
+  "venue": { "default": "PNC Arena" },
+  "startTimeUTC": "2023-11-08T00:00:00Z",
+  "easternUTCOffset": "-05:00",
+  "venueUTCOffset": "-05:00",
+  "venueTimezone": "US/Eastern",
+  "tvBroadcasts": [
+    { "id": 28, "market": "A", "countryCode": "US", "network": "MSG-B" },
+    { "id": 375, "market": "H", "countryCode": "US", "network": "BSSO" }
+  ],
+  "gameState": "OFF",
+  "gameScheduleState": "OK",
+  "awayTeam": {
+    "id": 7,
+    "name": { "default": "Sabres" },
+    "abbrev": "BUF",
+    "placeName": { "default": "Buffalo" },
+    "score": 2,
+    "sog": 22,
+    "logo": "https://assets.nhle.com/logos/nhl/svg/BUF_light.svg"
+  },
+  "homeTeam": {
+    "id": 12,
+    "name": { "default": "Hurricanes", "es": "Hurri\tcanes" },
+    "abbrev": "CAR",
+    "placeName": { "default": "Carolina", "fr": "Caroline" },
+    "score": 3,
+    "sog": 27,
+    "logo": "https://assets.nhle.com/logos/nhl/svg/CAR_light.svg"
+  },
+  "shootoutInUse": true,
+  "maxPeriods": 5,
+  "regPeriods": 3,
+  "otInUse": true,
+  "tiesInUse": false,
+  "clock": {
+    "timeRemaining": "03:30",
+    "secondsRemaining": 210,
+    "running": false,
+    "inIntermission": false
+  },
+  "summary": {
+    "linescore": {
+      "byPeriod": [
+        {
+          "period": 1,
+          "periodDescriptor": { "number": 1, "periodType": "REG" },
+          "away": 0,
+          "home": 1
+        },
+        {
+          "period": 2,
+          "periodDescriptor": { "number": 2, "periodType": "REG" },
+          "away": 1,
+          "home": 0
+        },
+        {
+          "period": 3,
+          "periodDescriptor": { "number": 3, "periodType": "REG" },
+          "away": 1,
+          "home": 1
+        },
+        {
+          "period": 4,
+          "periodDescriptor": { "number": 4, "periodType": "OT" },
+          "away": 0,
+          "home": 1
+        }
+      ],
+      "totals": { "away": 2, "home": 3 }
+    },
+    "scoring": [
+      {
+        "period": 1,
+        "periodDescriptor": { "number": 1, "periodType": "REG" },
+        "goals": [
+          {
+            "situationCode": "1451",
+            "strength": "pp",
+            "playerId": 8477950,
+            "firstName": "Tony",
+            "lastName": "DeAngelo",
+            "name": "T. DeAngelo",
+            "teamAbbrev": "CAR",
+            "headshot": "https://assets.nhle.com/mugs/nhl/20232024/CAR/8477950.png",
+            "highlightClip": 6340703139112,
+            "goalsToDate": 1,
+            "awayScore": 0,
+            "homeScore": 1,
+            "leadingTeamAbbrev": "CAR",
+            "timeInPeriod": "12:43",
+            "shotType": "wrist",
+            "goalModifier": "none",
+            "assists": []
+          }
+        ]
+      },
+      {
+        "period": 2,
+        "periodDescriptor": { "number": 2, "periodType": "REG" },
+        "goals": [
+          {
+            "situationCode": "1551",
+            "strength": "ev",
+            "playerId": 8477949,
+            "firstName": "Alex",
+            "lastName": "Tuch",
+            "name": "A. Tuch",
+            "teamAbbrev": "BUF",
+            "headshot": "https://assets.nhle.com/mugs/nhl/20232024/BUF/8477949.png",
+            "highlightClip": 6340702620112,
+            "goalsToDate": 4,
+            "awayScore": 1,
+            "homeScore": 1,
+            "timeInPeriod": "03:51",
+            "shotType": "snap",
+            "goalModifier": "none",
+            "assists": []
+          }
+        ]
+      },
+      {
+        "period": 3,
+        "periodDescriptor": { "number": 3, "periodType": "REG" },
+        "goals": [
+          {
+            "situationCode": "1551",
+            "strength": "ev",
+            "playerId": 8476869,
+            "firstName": "Brady",
+            "lastName": "Skjei",
+            "name": "B. Skjei",
+            "teamAbbrev": "CAR",
+            "headshot": "https://assets.nhle.com/mugs/nhl/20232024/CAR/8476869.png",
+            "highlightClip": 6340705323112,
+            "goalsToDate": 2,
+            "awayScore": 1,
+            "homeScore": 2,
+            "leadingTeamAbbrev": "CAR",
+            "timeInPeriod": "07:54",
+            "shotType": "snap",
+            "goalModifier": "none",
+            "assists": [
+              {
+                "playerId": 8478427,
+                "firstName": "Sebastian",
+                "lastName": "Aho",
+                "assistsToDate": 7
+              },
+              {
+                "playerId": 8475200,
+                "firstName": "Dmitry",
+                "lastName": "Orlov",
+                "assistsToDate": 5
+              }
+            ]
+          },
+          {
+            "situationCode": "1541",
+            "strength": "pp",
+            "playerId": 8480839,
+            "firstName": "Rasmus",
+            "lastName": "Dahlin",
+            "name": "R. Dahlin",
+            "teamAbbrev": "BUF",
+            "headshot": "https://assets.nhle.com/mugs/nhl/20232024/BUF/8480839.png",
+            "highlightClip": 6340705534112,
+            "goalsToDate": 3,
+            "awayScore": 2,
+            "homeScore": 2,
+            "timeInPeriod": "09:23",
+            "shotType": "wrist",
+            "goalModifier": "none",
+            "assists": [
+              {
+                "playerId": 8479420,
+                "firstName": "Tage",
+                "lastName": "Thompson",
+                "assistsToDate": 5
+              },
+              {
+                "playerId": 8479999,
+                "firstName": "Casey",
+                "lastName": "Mittelstadt",
+                "assistsToDate": 9
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "period": 4,
+        "periodDescriptor": { "number": 4, "periodType": "OT" },
+        "goals": [
+          {
+            "situationCode": "1331",
+            "strength": "ev",
+            "playerId": 8480039,
+            "firstName": "Martin",
+            "lastName": "Necas",
+            "name": "M. Necas",
+            "teamAbbrev": "CAR",
+            "headshot": "https://assets.nhle.com/mugs/nhl/20232024/CAR/8480039.png",
+            "highlightClip": 6340707811112,
+            "goalsToDate": 5,
+            "awayScore": 2,
+            "homeScore": 3,
+            "leadingTeamAbbrev": "CAR",
+            "timeInPeriod": "01:30",
+            "shotType": "tip-in",
+            "goalModifier": "none",
+            "assists": [
+              {
+                "playerId": 8478427,
+                "firstName": "Sebastian",
+                "lastName": "Aho",
+                "assistsToDate": 8
+              },
+              {
+                "playerId": 8476869,
+                "firstName": "Brady",
+                "lastName": "Skjei",
+                "assistsToDate": 8
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "shootout": [],
+    "threeStars": [
+      {
+        "star": 1,
+        "playerId": 8480039,
+        "teamAbbrev": "CAR",
+        "headshot": "https://assets.nhle.com/mugs/nhl/20232024/CAR/8480039.png",
+        "name": "M. Necas",
+        "firstName": "Martin",
+        "lastName": "Necas",
+        "sweaterNo": 88,
+        "position": "C",
+        "goals": 1,
+        "assists": 0,
+        "points": 1
+      },
+      {
+        "star": 2,
+        "playerId": 8477293,
+        "teamAbbrev": "CAR",
+        "headshot": "https://assets.nhle.com/mugs/nhl/20232024/CAR/8477293.png",
+        "name": "A. Raanta",
+        "firstName": "Antti",
+        "lastName": "Raanta",
+        "sweaterNo": 32,
+        "position": "G",
+        "goalsAgainstAverage": 1.96,
+        "savePctg": 0.909
+      },
+      {
+        "star": 3,
+        "playerId": 8475200,
+        "teamAbbrev": "CAR",
+        "headshot": "https://assets.nhle.com/mugs/nhl/20232024/CAR/8475200.png",
+        "name": "D. Orlov",
+        "firstName": "Dmitry",
+        "lastName": "Orlov",
+        "sweaterNo": 7,
+        "position": "D",
+        "goals": 0,
+        "assists": 1,
+        "points": 1
+      }
+    ],
+    "teamGameStats": [
+      { "category": "sog", "awayValue": "22", "homeValue": "27" },
+      { "category": "faceoffPctg", "awayValue": "40.4", "homeValue": "59.6" },
+      { "category": "powerPlay", "awayValue": "1/4", "homeValue": "1/4" },
+      { "category": "pim", "awayValue": "8", "homeValue": "8" },
+      { "category": "hits", "awayValue": "12", "homeValue": "17" },
+      { "category": "blockedShots", "awayValue": "20", "homeValue": "7" },
+      { "category": "giveaways", "awayValue": "11", "homeValue": "18" },
+      { "category": "takeaways", "awayValue": "14", "homeValue": "6" }
+    ],
+    "shotsByPeriod": [
+      {
+        "period": 1,
+        "periodDescriptor": { "number": 1, "periodType": "REG" },
+        "away": 6,
+        "home": 9
+      },
+      {
+        "period": 2,
+        "periodDescriptor": { "number": 2, "periodType": "REG" },
+        "away": 9,
+        "home": 9
+      },
+      {
+        "period": 3,
+        "periodDescriptor": { "number": 3, "periodType": "REG" },
+        "away": 5,
+        "home": 7
+      },
+      {
+        "period": 4,
+        "periodDescriptor": { "number": 4, "periodType": "OT" },
+        "away": 2,
+        "home": 2
+      }
+    ],
+    "penalties": [
+      {
+        "period": 1,
+        "periodDescriptor": { "number": 1, "periodType": "REG" },
+        "penalties": [
+          {
+            "timeInPeriod": "05:09",
+            "type": "MIN",
+            "duration": 2,
+            "committedByPlayer": "Jordan Staal",
+            "teamAbbrev": "CAR",
+            "drawnBy": "Connor Clifton",
+            "descKey": "hooking"
+          },
+          {
+            "timeInPeriod": "08:19",
+            "type": "MIN",
+            "duration": 2,
+            "committedByPlayer": "Jordan Staal",
+            "teamAbbrev": "CAR",
+            "drawnBy": "Tage Thompson",
+            "descKey": "tripping"
+          },
+          {
+            "timeInPeriod": "12:19",
+            "type": "MIN",
+            "duration": 2,
+            "committedByPlayer": "Victor Olofsson",
+            "teamAbbrev": "BUF",
+            "drawnBy": "Brent Burns",
+            "descKey": "interference"
+          }
+        ]
+      },
+      {
+        "period": 2,
+        "periodDescriptor": { "number": 2, "periodType": "REG" },
+        "penalties": [
+          {
+            "timeInPeriod": "01:25",
+            "type": "MIN",
+            "duration": 2,
+            "committedByPlayer": "JJ Peterka",
+            "teamAbbrev": "BUF",
+            "drawnBy": "Brady Skjei",
+            "descKey": "holding"
+          },
+          {
+            "timeInPeriod": "08:06",
+            "type": "MIN",
+            "duration": 2,
+            "committedByPlayer": "Ryan Johnson",
+            "teamAbbrev": "BUF",
+            "drawnBy": "Jesperi Kotkaniemi",
+            "descKey": "tripping"
+          },
+          {
+            "timeInPeriod": "19:31",
+            "type": "MIN",
+            "duration": 2,
+            "committedByPlayer": "Rasmus Dahlin",
+            "teamAbbrev": "BUF",
+            "drawnBy": "Sebastian Aho",
+            "descKey": "slashing"
+          }
+        ]
+      },
+      {
+        "period": 3,
+        "periodDescriptor": { "number": 3, "periodType": "REG" },
+        "penalties": [
+          {
+            "timeInPeriod": "08:32",
+            "type": "MIN",
+            "duration": 2,
+            "committedByPlayer": "Andrei Svechnikov",
+            "teamAbbrev": "CAR",
+            "drawnBy": "Tyson Jost",
+            "descKey": "boarding"
+          },
+          {
+            "timeInPeriod": "16:12",
+            "type": "MIN",
+            "duration": 2,
+            "committedByPlayer": "Jordan Martinook",
+            "teamAbbrev": "CAR",
+            "drawnBy": "JJ Peterka",
+            "descKey": "tripping"
+          }
+        ]
+      }
+    ],
+    "seasonSeries": [
+      {
+        "id": 2023020180,
+        "season": 20232024,
+        "gameType": 2,
+        "gameDate": "2023-11-07",
+        "startTimeUTC": "2023-11-08T00:00:00Z",
+        "easternUTCOffset": "-05:00",
+        "venueUTCOffset": "-05:00",
+        "gameState": "OFF",
+        "gameScheduleState": "OK",
+        "awayTeam": {
+          "id": 7,
+          "abbrev": "BUF",
+          "logo": "https://assets.nhle.com/logos/nhl/svg/BUF_light.svg",
+          "score": 2
+        },
+        "homeTeam": {
+          "id": 12,
+          "abbrev": "CAR",
+          "logo": "https://assets.nhle.com/logos/nhl/svg/CAR_light.svg",
+          "score": 3
+        },
+        "clock": {
+          "timeRemaining": "03:30",
+          "secondsRemaining": 210,
+          "running": false,
+          "inIntermission": false
+        },
+        "period": 4,
+        "periodDescriptor": { "number": 4, "periodType": "OT" },
+        "gameOutcome": { "lastPeriodType": "OT", "otPeriods": 1 }
+      },
+      {
+        "id": 2023020360,
+        "season": 20232024,
+        "gameType": 2,
+        "gameDate": "2023-12-02",
+        "startTimeUTC": "2023-12-03T00:00:00Z",
+        "easternUTCOffset": "-05:00",
+        "venueUTCOffset": "-05:00",
+        "gameState": "FUT",
+        "gameScheduleState": "OK",
+        "awayTeam": {
+          "id": 7,
+          "abbrev": "BUF",
+          "logo": "https://assets.nhle.com/logos/nhl/svg/BUF_light.svg"
+        },
+        "homeTeam": {
+          "id": 12,
+          "abbrev": "CAR",
+          "logo": "https://assets.nhle.com/logos/nhl/svg/CAR_light.svg"
+        }
+      },
+      {
+        "id": 2023020918,
+        "season": 20232024,
+        "gameType": 2,
+        "gameDate": "2024-02-25",
+        "startTimeUTC": "2024-02-25T23:00:00Z",
+        "easternUTCOffset": "-05:00",
+        "venueUTCOffset": "-05:00",
+        "gameState": "FUT",
+        "gameScheduleState": "OK",
+        "awayTeam": {
+          "id": 12,
+          "abbrev": "CAR",
+          "logo": "https://assets.nhle.com/logos/nhl/svg/CAR_light.svg"
+        },
+        "homeTeam": {
+          "id": 7,
+          "abbrev": "BUF",
+          "logo": "https://assets.nhle.com/logos/nhl/svg/BUF_light.svg"
+        }
+      }
+    ],
+    "gameInfo": {
+      "referees": [
+        { "default": "Jon McIsaac" },
+        { "default": "Beau Halkidis" }
+      ],
+      "linesmen": [
+        { "default": "Jesse Marquis" },
+        { "default": "Ben O'Quinn" }
+      ],
+      "awayTeam": {
+        "headCoach": { "default": "Don Granato" },
+        "scratches": [
+          {
+            "id": 8480196,
+            "firstName": { "default": "Jacob" },
+            "lastName": { "default": "Bryson" }
+          },
+          {
+            "id": 8481528,
+            "firstName": { "default": "Dylan" },
+            "lastName": { "default": "Cozens" }
+          },
+          {
+            "id": 8483512,
+            "firstName": { "default": "Matt" },
+            "lastName": { "default": "Savoie" }
+          }
+        ]
+      },
+      "homeTeam": {
+        "headCoach": { "default": "Rod Brind'Amour" },
+        "scratches": [
+          {
+            "id": 8477488,
+            "firstName": { "default": "Brett" },
+            "lastName": { "default": "Pesce" }
+          },
+          {
+            "id": 8477962,
+            "firstName": { "default": "Brendan" },
+            "lastName": { "default": "Lemieux" }
+          }
+        ]
+      }
+    },
+    "gameVideo": {
+      "threeMinRecap": 6340707822112,
+      "condensedGame": 6340707523112
+    }
+  }
+}
