@@ -10,6 +10,17 @@ type SizeMap = {
   [key in Sizes]: string;
 };
 
+const widthVariants: SizeMap = {
+  lg: "64px",
+  md: "48px",
+  sm: "32px",
+};
+const heightVariants: SizeMap = {
+  lg: "64px",
+  md: "48px",
+  sm: "32px",
+};
+
 export const TeamLogo = ({
   teamAbbreviation,
   teamName,
@@ -27,6 +38,8 @@ export const TeamLogo = ({
       role="presentation"
       src={`https://assets.nhle.com/logos/nhl/svg/${teamAbbreviation}_light.svg`}
       className={`${sizeVariants[size]}`}
+      width={widthVariants[size]}
+      height={heightVariants[size]}
     />
   );
 };
