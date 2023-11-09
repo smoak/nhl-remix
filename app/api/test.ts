@@ -1,10 +1,10 @@
 import { getGamesByDate } from "./index";
-import type { Game } from "./types";
+import type { ScheduleGame } from "./types";
 
 describe("api", () => {
   describe(".getGamesByDate", () => {
     describe("when a date is provided", () => {
-      let games: Game[];
+      let games: ScheduleGame[];
 
       beforeEach(async () => {
         games = await getGamesByDate("2022-04-27");
@@ -16,7 +16,7 @@ describe("api", () => {
     });
 
     describe("when there are no games scheduled", () => {
-      let games: Game[];
+      let games: ScheduleGame[];
 
       beforeEach(async () => {
         games = await getGamesByDate("2023-09-07");

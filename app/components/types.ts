@@ -62,20 +62,14 @@ export type FinalGame =
 
 export type Game = LiveGame | ScheduledGame | FinalGame;
 
-export type TeamRecord = {
-  readonly wins: number;
-  readonly losses: number;
-  readonly ot?: number;
-};
-
 export type Team = {
   readonly abbreviation: string;
   readonly id: number;
   readonly name: string;
-  readonly record?: string;
-  readonly score: number;
+  readonly record: string;
   readonly isGoaliePulled: boolean;
   readonly isOnPowerPlay: boolean;
+  readonly score: number;
 };
 
 export type GameList = {

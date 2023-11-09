@@ -1,7 +1,7 @@
 import { useLoaderData, useParams } from "@remix-run/react";
 import { json } from "@remix-run/node";
 import type { LoaderFunction } from "@remix-run/node";
-import { getGamesByDate } from "~/api";
+import { getGamesByDate, getScoreboard } from "~/api";
 import { DateSelector } from "~/components/DateSelector";
 import { GamesList } from "~/components/GamesList";
 import { Layout } from "~/components/Layout";
@@ -9,6 +9,7 @@ import { useDays } from "~/hooks/useDays";
 import { useGames } from "~/hooks/useGames";
 import type { Game } from "~/components/types";
 import { normalizeGames } from "~/data/normalization";
+import type { ScoreboardGame } from "~/api/types";
 
 export const loader: LoaderFunction = async ({ params }) => {
   const { date } = params;
@@ -18,7 +19,17 @@ export const loader: LoaderFunction = async ({ params }) => {
   }
 
   const scheduledGames = await getGamesByDate(date);
-  const games = normalizeGames(scheduledGames);
+  const scoreboard = await getScoreboard();
+  const scoreboardDate = scoreboard.gamesByDate.find((g) => g.date === date);
+  const scoreboardGames =
+    scoreboardDate?.games.reduce<Record<number, ScoreboardGame>>(
+      (accum, sg) => {
+        accum[sg.id] = sg;
+        return accum;
+      },
+      {}
+    ) ?? {};
+  const games = normalizeGames({ scheduledGames, scoreboardGames });
 
   return json<Game[]>(games);
 };

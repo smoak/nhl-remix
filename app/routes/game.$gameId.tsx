@@ -1,10 +1,10 @@
 import { useLoaderData } from "@remix-run/react";
-import { json } from "@remix-run/node";
+// import { json } from "@remix-run/node";
 import type { LoaderFunction } from "@remix-run/node";
 import { Layout } from "~/components/Layout";
-import { getGameDetails } from "~/api";
+// import { getGameDetails } from "~/api";
 import type { GameDetails } from "~/components/types";
-import { normalizeGameDetails } from "~/data/normalization";
+// import { normalizeGameDetails } from "~/data/normalization";
 import { BackButton } from "~/components/BackButton";
 import { GameCard } from "~/components/GameCard";
 import { GameSummary } from "~/components/GameSummary";
@@ -21,17 +21,17 @@ export const loader: LoaderFunction = async ({ params }) => {
     });
   }
 
-  const gameDetailsResponse = await getGameDetails(gameId);
+  // const gameDetailsResponse = await getGameDetails(gameId);
 
-  if (!gameDetailsResponse) {
-    throw new Response(null, {
-      status: 404,
-      statusText: "Not Found",
-    });
-  }
+  // if (!gameDetailsResponse) {
+  throw new Response(null, {
+    status: 404,
+    statusText: "Not Found",
+  });
+  // }
 
-  const gameDetails = normalizeGameDetails(gameDetailsResponse);
-  return json<GameDetails>(gameDetails);
+  // const gameDetails = normalizeGameDetails(gameDetailsResponse);
+  // return json<GameDetails>(gameDetails);
 };
 
 export const Index = () => {

@@ -1,7 +1,7 @@
 import { fetch } from "cross-fetch";
 import type {
-  Game,
-  GamecenterResponse,
+  ScheduleGame,
+  // GamecenterResponse,
   ScheduleResponse,
   ScoreboardResponse,
 } from "~/api/types";
@@ -11,7 +11,17 @@ export const SCHEDULE_URL = `${BASE_URL}/schedule`;
 export const GAME_CENTER_URL = `${BASE_URL}/gamecenter`;
 export const SCOREBOARD_URL = `${BASE_URL}/scoreboard/now`;
 
-type GetGamesByDate = (date: string) => Promise<Game[]>;
+// type GameDetail = {
+//   readonly clock: GameClock;
+//   readonly
+// }
+
+// type GamesByDate = {
+//   readonly scheduleGames: ScheduleGame[];
+//   readonly gameDetails: Record<number, GameDetail>;
+// }
+
+type GetGamesByDate = (date: string) => Promise<ScheduleGame[]>;
 export const getGamesByDate: GetGamesByDate = async (date) => {
   const url = new URL(`${SCHEDULE_URL}/${date}`);
 
@@ -21,51 +31,51 @@ export const getGamesByDate: GetGamesByDate = async (date) => {
   // the first "gameWeek" item is the date we care about
   const { games } = scheduleResponse.gameWeek[0];
 
-  if (games.some((g) => g.gameState === "LIVE" || g.gameState === "CRIT")) {
-    const scoreboard = await getScoreboard();
-    const scoreboardGames =
-      scoreboard.gamesByDate.find((gd) => gd.date === date)?.games ?? [];
+  // if (games.some((g) => g.gameState === "LIVE" || g.gameState === "CRIT")) {
+  //   const scoreboard = await getScoreboard();
+  //   const scoreboardGames =
+  //     scoreboard.gamesByDate.find((gd) => gd.date === date)?.games ?? [];
 
-    return games.reduce<Game[]>((accum, g) => {
-      if (g.gameState === "LIVE" || g.gameState === "CRIT") {
-        const sg = scoreboardGames.find((sg) => sg.id === g.id);
+  //   return games.reduce<Game[]>((accum, g) => {
+  //     if (g.gameState === "LIVE" || g.gameState === "CRIT") {
+  //       const sg = scoreboardGames.find((sg) => sg.id === g.id);
 
-        if (sg == null) {
-          throw new Error("Missing game from the scoreboard!");
-        }
+  //       if (sg == null) {
+  //         throw new Error("Missing game from the scoreboard!");
+  //       }
 
-        const { clock, situation } = sg;
+  //       const { clock, situation } = sg;
 
-        accum.push({
-          ...g,
-          clock,
-          situation,
-        });
-      } else {
-        accum.push(g);
-      }
+  //       accum.push({
+  //         ...g,
+  //         clock,
+  //         situation,
+  //       });
+  //     } else {
+  //       accum.push(g);
+  //     }
 
-      return accum;
-    }, []);
-  }
+  //     return accum;
+  //   }, []);
+  // }
 
   return games;
 };
 
-type GetGameDetails = (
-  gameId: string
-) => Promise<GamecenterResponse | undefined>;
-export const getGameDetails: GetGameDetails = async (gameId) => {
-  const url = new URL(`${GAME_CENTER_URL}/${gameId}/landing`);
+// type GetGameDetails = (
+//   gameId: string
+// ) => Promise<GamecenterResponse | undefined>;
+// export const getGameDetails: GetGameDetails = async (gameId) => {
+//   const url = new URL(`${GAME_CENTER_URL}/${gameId}/landing`);
 
-  const response = await fetch(url.toString());
-  const gamecenterResponse = (await response.json()) as GamecenterResponse;
+//   const response = await fetch(url.toString());
+//   const gamecenterResponse = (await response.json()) as GamecenterResponse;
 
-  return gamecenterResponse;
-};
+//   return gamecenterResponse;
+// };
 
 type GetScoreboard = () => Promise<ScoreboardResponse>;
-const getScoreboard: GetScoreboard = async () => {
+export const getScoreboard: GetScoreboard = async () => {
   const url = new URL(SCOREBOARD_URL);
 
   const response = await fetch(url.toString());
