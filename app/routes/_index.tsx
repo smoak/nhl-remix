@@ -3,31 +3,30 @@ import { json } from "@remix-run/node";
 import type { LoaderFunction } from "@remix-run/node";
 import { GamesList } from "~/components/GamesList";
 import { Layout } from "~/components/Layout";
-import { getGamesByDate, getScoreboard } from "~/api";
 import { DATE_LINK_FORMAT, getToday } from "~/date-fns";
 import { format } from "date-fns";
 import { useDays } from "~/hooks/useDays";
 import { DateSelector } from "~/components/DateSelector";
 import { useGames } from "~/hooks/useGames";
-import type { Game } from "~/components/types";
-import { normalizeGames } from "~/data/normalization";
+import { getSchedule } from "~/data";
+import type { Schedule } from "~/data/types";
 
 export const loader: LoaderFunction = async () => {
   const today = getToday();
   const date = format(today, DATE_LINK_FORMAT);
-  const [scheduledGames] = await Promise.all([
-    getGamesByDate(date),
-    getScoreboard(),
-  ]);
-  const games = normalizeGames(scheduledGames);
 
-  return json<Game[]>(games);
+  const schedule = await getSchedule(date);
+
+  return json<Schedule>(schedule);
 };
 
 export const Index = () => {
   const { prevDay, day, nextDay } = useDays();
-  const loadedGames = useLoaderData<Game[]>();
-  const games = useGames({ route: "?index", preloadedGames: loadedGames });
+  const loadedSchedule = useLoaderData<Schedule>();
+  const games = useGames({
+    route: "?index",
+    preloadedGames: loadedSchedule.games,
+  });
 
   return (
     <Layout>

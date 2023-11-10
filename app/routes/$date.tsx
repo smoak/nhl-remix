@@ -1,14 +1,13 @@
 import { useLoaderData, useParams } from "@remix-run/react";
 import { json } from "@remix-run/node";
 import type { LoaderFunction } from "@remix-run/node";
-import { getGamesByDate } from "~/api";
 import { DateSelector } from "~/components/DateSelector";
 import { GamesList } from "~/components/GamesList";
 import { Layout } from "~/components/Layout";
 import { useDays } from "~/hooks/useDays";
 import { useGames } from "~/hooks/useGames";
-import type { Game } from "~/components/types";
-import { normalizeGames } from "~/data/normalization";
+import { getSchedule } from "~/data";
+import type { Schedule } from "~/data/types";
 
 export const loader: LoaderFunction = async ({ params }) => {
   const { date } = params;
@@ -17,17 +16,19 @@ export const loader: LoaderFunction = async ({ params }) => {
     throw new Response(null, { status: 404, statusText: "Not Found" });
   }
 
-  const scheduledGames = await getGamesByDate(date);
-  const games = normalizeGames(scheduledGames);
+  const schedule = await getSchedule(date);
 
-  return json<Game[]>(games);
+  return json<Schedule>(schedule);
 };
 
 export const Index = () => {
   const { date } = useParams();
   const { prevDay, day, nextDay } = useDays(date);
-  const loadedGames = useLoaderData<Game[]>();
-  const games = useGames({ route: `/${date}`, preloadedGames: loadedGames });
+  const loadedSchedule = useLoaderData<Schedule>();
+  const games = useGames({
+    route: `/${date}`,
+    preloadedGames: loadedSchedule.games,
+  });
 
   return (
     <Layout>

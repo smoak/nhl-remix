@@ -5,6 +5,7 @@ import type {
   LiveGame,
   ScheduledGame,
   Team,
+  TeamRecords,
 } from "~/components/types";
 import {
   type Game as ApiGame,
@@ -17,9 +18,9 @@ import {
   isLiveGame,
 } from "~/api/types";
 
-type NormalizeGames = (games: ApiGame[]) => Game[];
-export const normalizeGames: NormalizeGames = (games) =>
-  games.map(normalizeGame);
+type NormalizeGames = (games: ApiGame[], teamRecords: TeamRecords) => Game[];
+export const normalizeGames: NormalizeGames = (games, teamRecords) =>
+  games.map((g) => normalizeGame(g, teamRecords));
 
 export const ApiGameTypeToGameType: Record<ApiGameType, GameType> = {
   "1": "PreSeason",
@@ -27,27 +28,21 @@ export const ApiGameTypeToGameType: Record<ApiGameType, GameType> = {
   "3": "Playoff",
 };
 
-type NormalizeTeam = (team: ApiTeam) => Team;
-const normalizeTeam: NormalizeTeam = (team) => {
+type NormalizeTeam = (team: ApiTeam, record: string) => Team;
+const normalizeTeam: NormalizeTeam = (team, record) => {
   return {
     abbreviation: team.abbrev,
     id: team.id,
     name: team.name.default,
-    record: "",
+    record,
   };
 };
 
 type NormalizeScheduledGame = (game: FutureGame) => ScheduledGame;
 const normalizeScheduledGame: NormalizeScheduledGame = (game) => {
   return {
-    awayTeam: {
-      ...normalizeTeam(game.awayTeam),
-      record: game.awayTeam.record,
-    },
-    homeTeam: {
-      ...normalizeTeam(game.homeTeam),
-      record: game.homeTeam.record,
-    },
+    awayTeam: normalizeTeam(game.awayTeam, game.awayTeam.record),
+    homeTeam: normalizeTeam(game.homeTeam, game.homeTeam.record),
     id: game.id,
     isCurrentlyInProgress: false,
     startTime: game.startTimeUTC,
@@ -56,11 +51,14 @@ const normalizeScheduledGame: NormalizeScheduledGame = (game) => {
   };
 };
 
-type NormalizeFinalGame = (game: FinishedGame) => FinalGame;
-const normalizeFinalGame: NormalizeFinalGame = (game) => {
+type NormalizeFinalGame = (
+  game: FinishedGame,
+  teamRecords: TeamRecords
+) => FinalGame;
+const normalizeFinalGame: NormalizeFinalGame = (game, teamRecords) => {
   return {
-    awayTeam: normalizeTeam(game.awayTeam),
-    homeTeam: normalizeTeam(game.homeTeam),
+    awayTeam: normalizeTeam(game.awayTeam, teamRecords[game.awayTeam.abbrev]),
+    homeTeam: normalizeTeam(game.homeTeam, teamRecords[game.homeTeam.abbrev]),
     id: game.id,
     endedInPeriod: game.periodDescriptor.number,
     gameState: "Final",
@@ -78,11 +76,14 @@ const normalizeFinalGame: NormalizeFinalGame = (game) => {
   };
 };
 
-type NormalizeLiveGame = (game: ApiLiveGame) => LiveGame;
-const normalizeLiveGame: NormalizeLiveGame = (game) => {
+type NormalizeLiveGame = (
+  game: ApiLiveGame,
+  teamRecords: TeamRecords
+) => LiveGame;
+const normalizeLiveGame: NormalizeLiveGame = (game, teamRecords) => {
   return {
-    awayTeam: normalizeTeam(game.awayTeam),
-    homeTeam: normalizeTeam(game.homeTeam),
+    awayTeam: normalizeTeam(game.awayTeam, teamRecords[game.awayTeam.abbrev]),
+    homeTeam: normalizeTeam(game.homeTeam, teamRecords[game.homeTeam.abbrev]),
     id: game.id,
     gameState: "Live",
     type: ApiGameTypeToGameType[game.gameType],
@@ -108,14 +109,14 @@ const normalizeLiveGame: NormalizeLiveGame = (game) => {
   };
 };
 
-type NormalizeGame = (game: ApiGame) => Game;
-export const normalizeGame: NormalizeGame = (game) => {
+type NormalizeGame = (game: ApiGame, teamRecords: TeamRecords) => Game;
+export const normalizeGame: NormalizeGame = (game, teamRecords) => {
   if (isFinishedGame(game)) {
-    return normalizeFinalGame(game);
+    return normalizeFinalGame(game, teamRecords);
   }
 
   if (isLiveGame(game)) {
-    return normalizeLiveGame(game);
+    return normalizeLiveGame(game, teamRecords);
   }
 
   return normalizeScheduledGame(game);

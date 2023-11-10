@@ -89,6 +89,8 @@ export type Team = {
   readonly record: string;
 };
 
+export type TeamRecords = Record<string, string>;
+
 export type GameList = {
   readonly games: Game[];
 };
