@@ -3,7 +3,7 @@ import { json } from "@remix-run/node";
 import type { LoaderFunction } from "@remix-run/node";
 import { GamesList } from "~/components/GamesList";
 import { Layout } from "~/components/Layout";
-import { getGamesByDate } from "~/api";
+import { getGamesByDate, getScoreboard } from "~/api";
 import { DATE_LINK_FORMAT, getToday } from "~/date-fns";
 import { format } from "date-fns";
 import { useDays } from "~/hooks/useDays";
@@ -15,7 +15,10 @@ import { normalizeGames } from "~/data/normalization";
 export const loader: LoaderFunction = async () => {
   const today = getToday();
   const date = format(today, DATE_LINK_FORMAT);
-  const scheduledGames = await getGamesByDate(date);
+  const [scheduledGames] = await Promise.all([
+    getGamesByDate(date),
+    getScoreboard(),
+  ]);
   const games = normalizeGames(scheduledGames);
 
   return json<Game[]>(games);

@@ -28,18 +28,28 @@ export const LiveGameSummaryTable = ({
       </thead>
       <tbody>
         <tr className="text-black">
-          <TeamNameTableCell team={game.awayTeam} shotsOnGoal={game.sog.away} />
+          <TeamNameTableCell
+            team={game.awayTeam}
+            shotsOnGoal={game.gameStats.awayTeam.sog}
+          />
           <TableCell>{firstPeriod.awayScore}</TableCell>
           <TableCell>{secondPeriod?.awayScore ?? "-"}</TableCell>
           <TableCell>{thirdPeriod?.awayScore ?? "-"}</TableCell>
-          <TableCell className="font-bold">{game.awayTeam.score}</TableCell>
+          <TableCell className="font-bold">
+            {game.gameStats.awayTeam.score}
+          </TableCell>
         </tr>
         <tr className="text-black">
-          <TeamNameTableCell team={game.homeTeam} shotsOnGoal={game.sog.home} />
+          <TeamNameTableCell
+            team={game.homeTeam}
+            shotsOnGoal={game.gameStats.homeTeam.sog}
+          />
           <TableCell>{firstPeriod.homeScore}</TableCell>
           <TableCell>{secondPeriod?.homeScore ?? "-"}</TableCell>
           <TableCell>{thirdPeriod?.homeScore ?? "-"}</TableCell>
-          <TableCell className="font-bold">{game.homeTeam.score}</TableCell>
+          <TableCell className="font-bold">
+            {game.gameStats.homeTeam.score}
+          </TableCell>
         </tr>
       </tbody>
     </table>

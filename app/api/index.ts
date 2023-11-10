@@ -1,71 +1,54 @@
 import { fetch } from "cross-fetch";
+import type { Game, ScoreResponse, ScoreboardResponse } from "~/api/types";
 import type {
-  Game,
-  GamecenterResponse,
-  ScheduleResponse,
-  ScoreboardResponse,
-} from "~/api/types";
+  GamecenterBoxscoreResponse,
+  GamecenterLandingResponse,
+} from "./gamecenter/types";
 
 export const BASE_URL = "https://api-web.nhle.com/v1";
 export const SCHEDULE_URL = `${BASE_URL}/schedule`;
 export const GAME_CENTER_URL = `${BASE_URL}/gamecenter`;
 export const SCOREBOARD_URL = `${BASE_URL}/scoreboard/now`;
+export const SCORE_URL = `${BASE_URL}/score`;
 
 type GetGamesByDate = (date: string) => Promise<Game[]>;
 export const getGamesByDate: GetGamesByDate = async (date) => {
-  const url = new URL(`${SCHEDULE_URL}/${date}`);
+  const url = new URL(`${SCORE_URL}/${date}`);
 
   const response = await fetch(url.toString());
-  const scheduleResponse = (await response.json()) as ScheduleResponse;
-
-  // the first "gameWeek" item is the date we care about
-  const { games } = scheduleResponse.gameWeek[0];
-
-  if (games.some((g) => g.gameState === "LIVE" || g.gameState === "CRIT")) {
-    const scoreboard = await getScoreboard();
-    const scoreboardGames =
-      scoreboard.gamesByDate.find((gd) => gd.date === date)?.games ?? [];
-
-    return games.reduce<Game[]>((accum, g) => {
-      if (g.gameState === "LIVE" || g.gameState === "CRIT") {
-        const sg = scoreboardGames.find((sg) => sg.id === g.id);
-
-        if (sg == null) {
-          throw new Error("Missing game from the scoreboard!");
-        }
-
-        const { clock, situation } = sg;
-
-        accum.push({
-          ...g,
-          clock,
-          situation,
-        });
-      } else {
-        accum.push(g);
-      }
-
-      return accum;
-    }, []);
-  }
+  const { games } = (await response.json()) as ScoreResponse;
 
   return games;
 };
 
-type GetGameDetails = (
+type GetGamecenterLanding = (
   gameId: string
-) => Promise<GamecenterResponse | undefined>;
-export const getGameDetails: GetGameDetails = async (gameId) => {
+) => Promise<GamecenterLandingResponse | undefined>;
+export const getGamecenterLanding: GetGamecenterLanding = async (gameId) => {
   const url = new URL(`${GAME_CENTER_URL}/${gameId}/landing`);
 
   const response = await fetch(url.toString());
-  const gamecenterResponse = (await response.json()) as GamecenterResponse;
+  const gamecenterResponse =
+    (await response.json()) as GamecenterLandingResponse;
+
+  return gamecenterResponse;
+};
+
+type GetGamecenterBoxscore = (
+  gameId: string
+) => Promise<GamecenterBoxscoreResponse | undefined>;
+export const getGamecenterBoxscore: GetGamecenterBoxscore = async (gameId) => {
+  const url = new URL(`${GAME_CENTER_URL}/${gameId}/boxscore`);
+  const response = await fetch(url.toString());
+
+  const gamecenterResponse =
+    (await response.json()) as GamecenterBoxscoreResponse;
 
   return gamecenterResponse;
 };
 
 type GetScoreboard = () => Promise<ScoreboardResponse>;
-const getScoreboard: GetScoreboard = async () => {
+export const getScoreboard: GetScoreboard = async () => {
   const url = new URL(SCOREBOARD_URL);
 
   const response = await fetch(url.toString());

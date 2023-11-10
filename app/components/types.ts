@@ -25,38 +25,58 @@ export type ScoringPlay = {
   readonly secondaryAssist?: ScoringPlayAssister;
 };
 
-export type GameType = "R" | "P" | "PR";
+export type GameType = "RegularSeason" | "PreSeason" | "Playoff";
 export type GameState = "Live" | "Scheduled" | "Final";
 
 type BaseGame = {
   readonly id: number;
-  readonly startTime: string;
-  readonly homeTeam: Team;
-  readonly awayTeam: Team;
   readonly type: GameType;
   readonly gameState: GameState;
-  readonly seriesStatusShort?: string;
+  readonly homeTeam: Team;
+  readonly awayTeam: Team;
+};
+
+export type GameClock = {
+  readonly currentPeriod: number;
+  readonly timeRemaining: string;
+  readonly isIntermission: boolean;
+};
+
+export type TeamStats = {
+  readonly score: number;
+  readonly sog: number;
+};
+
+export type GameStats = {
+  readonly homeTeam: TeamStats;
+  readonly awayTeam: TeamStats;
+};
+
+type TeamSituation = "even" | "sh" | "pp" | "en";
+
+export type GameSituation = {
+  readonly homeTeam: TeamSituation;
+  readonly awayTeam: TeamSituation;
 };
 
 export type LiveGame =
   | BaseGame & {
       readonly gameState: "Live";
-      readonly currentPeriod: number;
-      readonly currentPeriodTimeRemaining: string;
-      readonly sog: {
-        readonly home: number;
-        readonly away: number;
-      };
+      readonly gameClock: GameClock;
+      readonly gameStats: GameStats;
+      readonly gameSituation: GameSituation;
     };
 
 export type ScheduledGame =
   | BaseGame & {
       readonly gameState: "Scheduled";
+      readonly startTime: string;
     };
 
 export type FinalGame =
   | BaseGame & {
       readonly gameState: "Final";
+      readonly gameStats: GameStats;
       readonly endedInPeriod: number;
     };
 
@@ -66,10 +86,7 @@ export type Team = {
   readonly abbreviation: string;
   readonly id: number;
   readonly name: string;
-  readonly record?: string;
-  readonly score: number;
-  readonly isGoaliePulled: boolean;
-  readonly isOnPowerPlay: boolean;
+  readonly record: string;
 };
 
 export type GameList = {

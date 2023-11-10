@@ -68,7 +68,8 @@ export const ScoringDetail = ({
           <div className="flex flex-col">
             Score
             <div className="font-bold">
-              {homeScore}-{awayScore} {leadingTeamAbbrev}
+              {homeScore}-{awayScore}{" "}
+              {leadingTeamAbbrev == null ? "Tied" : leadingTeamAbbrev}
             </div>
           </div>
           <div className="flex flex-col">

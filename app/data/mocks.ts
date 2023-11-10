@@ -34,9 +34,6 @@ export const createTeam = (overrides?: Partial<Team>): Team => {
     id: 23,
     name: "Canucks",
     record: "0-0",
-    score: 0,
-    isGoaliePulled: false,
-    isOnPowerPlay: false,
     ...overrides,
   };
 };
@@ -44,17 +41,29 @@ export const createTeam = (overrides?: Partial<Team>): Team => {
 export const createLiveGame = (overrides?: Partial<LiveGame>): LiveGame => {
   return {
     awayTeam: createTeam(),
-    currentPeriod: 1,
-    sog: {
-      away: 5,
-      home: 3,
-    },
-    currentPeriodTimeRemaining: "20:00",
     homeTeam: createTeam(),
     id: 123,
-    startTime: "2022-02-04T00:00:00Z",
     gameState: "Live",
-    type: "R",
+    type: "RegularSeason",
+    gameClock: {
+      currentPeriod: 2,
+      isIntermission: false,
+      timeRemaining: "20:00",
+    },
+    gameSituation: {
+      awayTeam: "even",
+      homeTeam: "even",
+    },
+    gameStats: {
+      awayTeam: {
+        score: 1,
+        sog: 16,
+      },
+      homeTeam: {
+        score: 0,
+        sog: 13,
+      },
+    },
     ...overrides,
   };
 };
@@ -65,9 +74,18 @@ export const createFinalGame = (overrides?: Partial<FinalGame>): FinalGame => {
     homeTeam: createTeam(),
     endedInPeriod: 3,
     id: 123,
-    startTime: "2022-02-04T00:00:00Z",
     gameState: "Final",
-    type: "R",
+    type: "RegularSeason",
+    gameStats: {
+      awayTeam: {
+        score: 2,
+        sog: 30,
+      },
+      homeTeam: {
+        score: 3,
+        sog: 27,
+      },
+    },
     ...overrides,
   };
 };
@@ -81,7 +99,7 @@ export const createScheduledGame = (
     id: 123,
     startTime: "2022-02-04T00:00:00Z",
     gameState: "Scheduled",
-    type: "R",
+    type: "RegularSeason",
     ...overrides,
   };
 };

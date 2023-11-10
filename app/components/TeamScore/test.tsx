@@ -2,23 +2,9 @@ import { render, screen } from "@testing-library/react";
 import { TeamScore } from ".";
 
 describe("TeamScore", () => {
-  describe("when the game has not started yet", () => {
-    let container: HTMLElement;
-
+  describe("when rendered", () => {
     beforeEach(() => {
-      container = render(
-        <TeamScore score={0} isScheduledGame={true} />
-      ).container;
-    });
-
-    it("renders empty", () => {
-      expect(container).toBeEmptyDOMElement();
-    });
-  });
-
-  describe("when the game has started or finished", () => {
-    beforeEach(() => {
-      render(<TeamScore score={5} isScheduledGame={false} />);
+      render(<TeamScore score={5} />);
     });
 
     it("should render the score", () => {

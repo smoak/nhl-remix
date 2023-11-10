@@ -32,22 +32,32 @@ export const GameSummaryTable = ({
       </thead>
       <tbody>
         <tr className="text-black">
-          <TeamNameTableCell shotsOnGoal={0} team={game.awayTeam} />
+          <TeamNameTableCell
+            shotsOnGoal={game.gameStats.awayTeam.sog}
+            team={game.awayTeam}
+          />
           {periodSummaries.map((p) => (
             <TableCell key={[p.periodNumber, game.awayTeam.id].join("")}>
               {p.awayScore}
             </TableCell>
           ))}
-          <TableCell className="font-bold">{game.awayTeam.score}</TableCell>
+          <TableCell className="font-bold">
+            {game.gameStats.awayTeam.score}
+          </TableCell>
         </tr>
         <tr className="text-black">
-          <TeamNameTableCell shotsOnGoal={0} team={game.homeTeam} />
+          <TeamNameTableCell
+            shotsOnGoal={game.gameStats.homeTeam.sog}
+            team={game.homeTeam}
+          />
           {periodSummaries.map((p) => (
             <TableCell key={[p.periodNumber, game.homeTeam.id].join("")}>
               {p.homeScore}
             </TableCell>
           ))}
-          <TableCell className="font-bold">{game.homeTeam.score}</TableCell>
+          <TableCell className="font-bold">
+            {game.gameStats.homeTeam.score}
+          </TableCell>
         </tr>
       </tbody>
     </table>

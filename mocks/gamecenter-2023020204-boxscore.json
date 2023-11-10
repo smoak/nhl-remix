@@ -1,0 +1,38 @@
+{
+  "id": 2023020204,
+  "season": 20232024,
+  "gameType": 2,
+  "gameDate": "2023-11-10",
+  "venue": { "default": "KeyBank Center" },
+  "startTimeUTC": "2023-11-11T00:00:00Z",
+  "easternUTCOffset": "-05:00",
+  "venueUTCOffset": "-05:00",
+  "tvBroadcasts": [
+    { "id": 28, "market": "H", "countryCode": "US", "network": "MSG-B" },
+    { "id": 284, "market": "N", "countryCode": "CA", "network": "SN1" },
+    { "id": 363, "market": "A", "countryCode": "US", "network": "BSWI" },
+    { "id": 395, "market": "A", "countryCode": "US", "network": "BSNX" }
+  ],
+  "gameState": "FUT",
+  "gameScheduleState": "OK",
+  "awayTeam": {
+    "id": 30,
+    "name": { "default": "Wild" },
+    "abbrev": "MIN",
+    "logo": "https://assets.nhle.com/logos/nhl/svg/MIN_light.svg",
+    "radioLink": "https://d2igy0yla8zi0u.cloudfront.net/min/20232024/min-radio.m3u8"
+  },
+  "homeTeam": {
+    "id": 7,
+    "name": { "default": "Sabres" },
+    "abbrev": "BUF",
+    "logo": "https://assets.nhle.com/logos/nhl/svg/BUF_light.svg",
+    "radioLink": "https://d2igy0yla8zi0u.cloudfront.net/buf/20232024/buf-radio.m3u8"
+  },
+  "clock": {
+    "timeRemaining": "20:00",
+    "secondsRemaining": 1200,
+    "running": false,
+    "inIntermission": false
+  }
+}

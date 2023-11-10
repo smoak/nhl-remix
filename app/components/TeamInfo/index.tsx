@@ -1,13 +1,12 @@
 import { TeamLogo } from "~/components/TeamLogo";
 import { TeamName } from "../TeamName";
-import { TeamRecord } from "../TeamRecord";
 
 export type TeamInfoProps = {
   readonly isGoaliePulled: boolean;
   readonly isOnPowerPlay: boolean;
   readonly teamAbbrev: string;
   readonly teamName: string;
-  readonly teamRecord?: string;
+  readonly teamRecord: string;
 };
 
 export const TeamInfo = ({
@@ -24,6 +23,6 @@ export const TeamInfo = ({
       isOnPowerPlay={isOnPowerPlay}
       name={teamName}
     />
-    <TeamRecord record={teamRecord} />
+    <p className="text-xs">{teamRecord}</p>
   </div>
 );

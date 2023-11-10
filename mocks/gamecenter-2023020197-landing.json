@@ -1,0 +1,580 @@
+{
+  "id": 2023020197,
+  "season": 20232024,
+  "gameType": 2,
+  "gameDate": "2023-11-09",
+  "venue": { "default": "Canadian Tire Centre" },
+  "startTimeUTC": "2023-11-10T00:00:00Z",
+  "easternUTCOffset": "-05:00",
+  "venueUTCOffset": "-05:00",
+  "venueTimezone": "US/Eastern",
+  "tvBroadcasts": [
+    { "id": 230, "market": "H", "countryCode": "CA", "network": "RDS2" },
+    { "id": 290, "market": "A", "countryCode": "CA", "network": "SNP" },
+    { "id": 294, "market": "H", "countryCode": "CA", "network": "TSN5" }
+  ],
+  "gameState": "OFF",
+  "gameScheduleState": "OK",
+  "awayTeam": {
+    "id": 23,
+    "name": { "default": "Canucks" },
+    "abbrev": "VAN",
+    "placeName": { "default": "Vancouver" },
+    "score": 5,
+    "sog": 16,
+    "logo": "https://assets.nhle.com/logos/nhl/svg/VAN_light.svg"
+  },
+  "homeTeam": {
+    "id": 9,
+    "name": { "default": "Senators", "fr": "Sénateurs" },
+    "abbrev": "OTT",
+    "placeName": { "default": "Ottawa" },
+    "score": 2,
+    "sog": 30,
+    "logo": "https://assets.nhle.com/logos/nhl/svg/OTT_light.svg"
+  },
+  "shootoutInUse": true,
+  "maxPeriods": 5,
+  "regPeriods": 3,
+  "otInUse": true,
+  "tiesInUse": false,
+  "clock": {
+    "timeRemaining": "00:00",
+    "secondsRemaining": 0,
+    "running": false,
+    "inIntermission": false
+  },
+  "summary": {
+    "linescore": {
+      "byPeriod": [
+        {
+          "period": 1,
+          "periodDescriptor": { "number": 1, "periodType": "REG" },
+          "away": 2,
+          "home": 1
+        },
+        {
+          "period": 2,
+          "periodDescriptor": { "number": 2, "periodType": "REG" },
+          "away": 1,
+          "home": 1
+        },
+        {
+          "period": 3,
+          "periodDescriptor": { "number": 3, "periodType": "REG" },
+          "away": 2,
+          "home": 0
+        }
+      ],
+      "totals": { "away": 5, "home": 2 }
+    },
+    "scoring": [
+      {
+        "period": 1,
+        "periodDescriptor": { "number": 1, "periodType": "REG" },
+        "goals": [
+          {
+            "situationCode": "1551",
+            "strength": "ev",
+            "playerId": 8478444,
+            "firstName": "Brock",
+            "lastName": "Boeser",
+            "name": "B. Boeser",
+            "teamAbbrev": "VAN",
+            "headshot": "https://assets.nhle.com/mugs/nhl/20232024/VAN/8478444.png",
+            "highlightClip": 6340831491112,
+            "highlightClipFr": 6340831388112,
+            "goalsToDate": 11,
+            "awayScore": 1,
+            "homeScore": 0,
+            "leadingTeamAbbrev": "VAN",
+            "timeInPeriod": "00:15",
+            "shotType": "snap",
+            "goalModifier": "none",
+            "assists": [
+              {
+                "playerId": 8476858,
+                "firstName": "Phillip",
+                "lastName": "Di Giuseppe",
+                "assistsToDate": 3
+              },
+              {
+                "playerId": 8479425,
+                "firstName": "Filip",
+                "lastName": "Hronek",
+                "assistsToDate": 14
+              }
+            ]
+          },
+          {
+            "situationCode": "1551",
+            "strength": "ev",
+            "playerId": 8481624,
+            "firstName": "Ilya",
+            "lastName": "Mikheyev",
+            "name": "I. Mikheyev",
+            "teamAbbrev": "VAN",
+            "headshot": "https://assets.nhle.com/mugs/nhl/20232024/VAN/8481624.png",
+            "highlightClip": 6340832374112,
+            "highlightClipFr": 6340831396112,
+            "goalsToDate": 4,
+            "awayScore": 2,
+            "homeScore": 0,
+            "leadingTeamAbbrev": "VAN",
+            "timeInPeriod": "03:00",
+            "shotType": "wrist",
+            "goalModifier": "none",
+            "assists": [
+              {
+                "playerId": 8480012,
+                "firstName": "Elias",
+                "lastName": "Pettersson",
+                "assistsToDate": 16
+              },
+              {
+                "playerId": 8483808,
+                "firstName": "Andrei",
+                "lastName": "Kuzmenko",
+                "assistsToDate": 8
+              }
+            ]
+          },
+          {
+            "situationCode": "1551",
+            "strength": "ev",
+            "playerId": 8480208,
+            "firstName": "Drake",
+            "lastName": "Batherson",
+            "name": "D. Batherson",
+            "teamAbbrev": "OTT",
+            "headshot": "https://assets.nhle.com/mugs/nhl/20232024/OTT/8480208.png",
+            "highlightClip": 6340834474112,
+            "highlightClipFr": 6340833783112,
+            "goalsToDate": 3,
+            "awayScore": 2,
+            "homeScore": 1,
+            "leadingTeamAbbrev": "VAN",
+            "timeInPeriod": "18:15",
+            "shotType": "wrist",
+            "goalModifier": "none",
+            "assists": []
+          }
+        ]
+      },
+      {
+        "period": 2,
+        "periodDescriptor": { "number": 2, "periodType": "REG" },
+        "goals": [
+          {
+            "situationCode": "1551",
+            "strength": "ev",
+            "playerId": 8482245,
+            "firstName": "Artem",
+            "lastName": "Zub",
+            "name": "A. Zub",
+            "teamAbbrev": "OTT",
+            "headshot": "https://assets.nhle.com/mugs/nhl/20232024/OTT/8482245.png",
+            "highlightClip": 6340834230112,
+            "highlightClipFr": 6340834728112,
+            "goalsToDate": 2,
+            "awayScore": 2,
+            "homeScore": 2,
+            "timeInPeriod": "10:58",
+            "shotType": "slap",
+            "goalModifier": "none",
+            "assists": [
+              {
+                "playerId": 8480448,
+                "firstName": "Parker",
+                "lastName": "Kelly",
+                "assistsToDate": 3
+              },
+              {
+                "playerId": 8478146,
+                "firstName": "Matthew",
+                "lastName": "Highmore",
+                "assistsToDate": 1
+              }
+            ]
+          },
+          {
+            "situationCode": "1551",
+            "strength": "ev",
+            "playerId": 8476468,
+            "firstName": "J.T.",
+            "lastName": "Miller",
+            "name": "J. Miller",
+            "teamAbbrev": "VAN",
+            "headshot": "https://assets.nhle.com/mugs/nhl/20232024/VAN/8476468.png",
+            "highlightClip": 6340836694112,
+            "highlightClipFr": 6340836597112,
+            "goalsToDate": 8,
+            "awayScore": 3,
+            "homeScore": 2,
+            "leadingTeamAbbrev": "VAN",
+            "timeInPeriod": "18:08",
+            "shotType": "snap",
+            "goalModifier": "none",
+            "assists": [
+              {
+                "playerId": 8476858,
+                "firstName": "Phillip",
+                "lastName": "Di Giuseppe",
+                "assistsToDate": 4
+              },
+              {
+                "playerId": 8474013,
+                "firstName": "Ian",
+                "lastName": "Cole",
+                "assistsToDate": 3
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "period": 3,
+        "periodDescriptor": { "number": 3, "periodType": "REG" },
+        "goals": [
+          {
+            "situationCode": "1551",
+            "strength": "ev",
+            "playerId": 8481624,
+            "firstName": "Ilya",
+            "lastName": "Mikheyev",
+            "name": "I. Mikheyev",
+            "teamAbbrev": "VAN",
+            "headshot": "https://assets.nhle.com/mugs/nhl/20232024/VAN/8481624.png",
+            "highlightClip": 6340838988112,
+            "highlightClipFr": 6340839102112,
+            "goalsToDate": 5,
+            "awayScore": 4,
+            "homeScore": 2,
+            "leadingTeamAbbrev": "VAN",
+            "timeInPeriod": "09:23",
+            "shotType": "deflected",
+            "goalModifier": "none",
+            "assists": [
+              {
+                "playerId": 8480012,
+                "firstName": "Elias",
+                "lastName": "Pettersson",
+                "assistsToDate": 17
+              },
+              {
+                "playerId": 8483808,
+                "firstName": "Andrei",
+                "lastName": "Kuzmenko",
+                "assistsToDate": 9
+              }
+            ]
+          },
+          {
+            "situationCode": "1541",
+            "strength": "pp",
+            "playerId": 8480012,
+            "firstName": "Elias",
+            "lastName": "Pettersson",
+            "name": "E. Pettersson",
+            "teamAbbrev": "VAN",
+            "headshot": "https://assets.nhle.com/mugs/nhl/20232024/VAN/8480012.png",
+            "highlightClip": 6340839794112,
+            "highlightClipFr": 6340839795112,
+            "goalsToDate": 7,
+            "awayScore": 5,
+            "homeScore": 2,
+            "leadingTeamAbbrev": "VAN",
+            "timeInPeriod": "13:28",
+            "shotType": "slap",
+            "goalModifier": "none",
+            "assists": [
+              {
+                "playerId": 8480800,
+                "firstName": "Quinn",
+                "lastName": "Hughes",
+                "assistsToDate": 16
+              },
+              {
+                "playerId": 8476468,
+                "firstName": "J.T.",
+                "lastName": "Miller",
+                "assistsToDate": 12
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "shootout": [],
+    "threeStars": [
+      {
+        "star": 1,
+        "playerId": 8481624,
+        "teamAbbrev": "VAN",
+        "headshot": "https://assets.nhle.com/mugs/nhl/20232024/VAN/8481624.png",
+        "name": "I. Mikheyev",
+        "firstName": "Ilya",
+        "lastName": "Mikheyev",
+        "sweaterNo": 65,
+        "position": "R",
+        "goals": 2,
+        "assists": 0,
+        "points": 2
+      },
+      {
+        "star": 2,
+        "playerId": 8480012,
+        "teamAbbrev": "VAN",
+        "headshot": "https://assets.nhle.com/mugs/nhl/20232024/VAN/8480012.png",
+        "name": "E. Pettersson",
+        "firstName": "Elias",
+        "lastName": "Pettersson",
+        "sweaterNo": 40,
+        "position": "C",
+        "goals": 1,
+        "assists": 2,
+        "points": 3
+      },
+      {
+        "star": 3,
+        "playerId": 8476468,
+        "teamAbbrev": "VAN",
+        "headshot": "https://assets.nhle.com/mugs/nhl/20232024/VAN/8476468.png",
+        "name": "J. Miller",
+        "firstName": "J.T.",
+        "lastName": "Miller",
+        "sweaterNo": 9,
+        "position": "C",
+        "goals": 1,
+        "assists": 1,
+        "points": 2
+      }
+    ],
+    "teamGameStats": [
+      { "category": "sog", "awayValue": "16", "homeValue": "30" },
+      { "category": "faceoffPctg", "awayValue": "41.7", "homeValue": "58.3" },
+      { "category": "powerPlay", "awayValue": "1/3", "homeValue": "0/2" },
+      { "category": "pim", "awayValue": "4", "homeValue": "6" },
+      { "category": "hits", "awayValue": "19", "homeValue": "23" },
+      { "category": "blockedShots", "awayValue": "15", "homeValue": "19" },
+      { "category": "giveaways", "awayValue": "9", "homeValue": "21" },
+      { "category": "takeaways", "awayValue": "4", "homeValue": "7" }
+    ],
+    "shotsByPeriod": [
+      {
+        "period": 1,
+        "periodDescriptor": { "number": 1, "periodType": "REG" },
+        "away": 3,
+        "home": 11
+      },
+      {
+        "period": 2,
+        "periodDescriptor": { "number": 2, "periodType": "REG" },
+        "away": 7,
+        "home": 7
+      },
+      {
+        "period": 3,
+        "periodDescriptor": { "number": 3, "periodType": "REG" },
+        "away": 6,
+        "home": 12
+      }
+    ],
+    "penalties": [
+      {
+        "period": 1,
+        "periodDescriptor": { "number": 1, "periodType": "REG" },
+        "penalties": [
+          {
+            "timeInPeriod": "06:21",
+            "type": "MIN",
+            "duration": 2,
+            "committedByPlayer": "Ian Cole",
+            "teamAbbrev": "VAN",
+            "drawnBy": "Jakob Chychrun",
+            "descKey": "tripping"
+          },
+          {
+            "timeInPeriod": "14:14",
+            "type": "MIN",
+            "duration": 2,
+            "committedByPlayer": "Conor Garland",
+            "teamAbbrev": "VAN",
+            "drawnBy": "Rourke Chartier",
+            "descKey": "tripping"
+          },
+          {
+            "timeInPeriod": "19:01",
+            "type": "MIN",
+            "duration": 2,
+            "committedByPlayer": "Roby Jarventie",
+            "teamAbbrev": "OTT",
+            "drawnBy": "Brock Boeser",
+            "descKey": "slashing"
+          }
+        ]
+      },
+      {
+        "period": 2,
+        "periodDescriptor": { "number": 2, "periodType": "REG" },
+        "penalties": [
+          {
+            "timeInPeriod": "13:36",
+            "type": "MIN",
+            "duration": 2,
+            "committedByPlayer": "Josh Norris",
+            "teamAbbrev": "OTT",
+            "drawnBy": "Dakota Joshua",
+            "descKey": "interference"
+          }
+        ]
+      },
+      {
+        "period": 3,
+        "periodDescriptor": { "number": 3, "periodType": "REG" },
+        "penalties": [
+          {
+            "timeInPeriod": "13:26",
+            "type": "MIN",
+            "duration": 2,
+            "committedByPlayer": "Jakob Chychrun",
+            "teamAbbrev": "OTT",
+            "drawnBy": "Conor Garland",
+            "descKey": "high-sticking"
+          }
+        ]
+      }
+    ],
+    "seasonSeries": [
+      {
+        "id": 2023020197,
+        "season": 20232024,
+        "gameType": 2,
+        "gameDate": "2023-11-09",
+        "startTimeUTC": "2023-11-10T00:00:00Z",
+        "easternUTCOffset": "-05:00",
+        "venueUTCOffset": "-05:00",
+        "gameState": "OFF",
+        "gameScheduleState": "OK",
+        "awayTeam": {
+          "id": 23,
+          "abbrev": "VAN",
+          "logo": "https://assets.nhle.com/logos/nhl/svg/VAN_light.svg",
+          "score": 5
+        },
+        "homeTeam": {
+          "id": 9,
+          "abbrev": "OTT",
+          "logo": "https://assets.nhle.com/logos/nhl/svg/OTT_light.svg",
+          "score": 2
+        },
+        "clock": {
+          "timeRemaining": "00:00",
+          "secondsRemaining": 0,
+          "running": false,
+          "inIntermission": false
+        },
+        "period": 3,
+        "periodDescriptor": { "number": 3, "periodType": "REG" },
+        "gameOutcome": { "lastPeriodType": "REG" }
+      },
+      {
+        "id": 2023020584,
+        "season": 20232024,
+        "gameType": 2,
+        "gameDate": "2024-01-02",
+        "startTimeUTC": "2024-01-03T03:00:00Z",
+        "easternUTCOffset": "-05:00",
+        "venueUTCOffset": "-08:00",
+        "gameState": "FUT",
+        "gameScheduleState": "OK",
+        "awayTeam": {
+          "id": 9,
+          "abbrev": "OTT",
+          "logo": "https://assets.nhle.com/logos/nhl/svg/OTT_light.svg"
+        },
+        "homeTeam": {
+          "id": 23,
+          "abbrev": "VAN",
+          "logo": "https://assets.nhle.com/logos/nhl/svg/VAN_light.svg"
+        }
+      }
+    ],
+    "gameInfo": {
+      "referees": [
+        { "default": "Chris Rooney" },
+        { "default": "Jordan Samuels-Thomas" }
+      ],
+      "linesmen": [
+        { "default": "Jonathan Deschamps" },
+        { "default": "Tyson Baker" }
+      ],
+      "awayTeam": {
+        "headCoach": { "default": "Rick Tocchet" },
+        "scratches": [
+          {
+            "id": 8476927,
+            "firstName": {
+              "default": "Teddy",
+              "cs": "Theodors",
+              "sk": "Theodors"
+            },
+            "lastName": {
+              "default": "Blueger",
+              "cs": "Blugers",
+              "sk": "Blugers"
+            }
+          },
+          {
+            "id": 8478454,
+            "firstName": { "default": "Noah" },
+            "lastName": { "default": "Juulsen" }
+          },
+          {
+            "id": 8480021,
+            "firstName": { "default": "Jack" },
+            "lastName": { "default": "Studnicka" }
+          }
+        ]
+      },
+      "homeTeam": {
+        "headCoach": { "default": "D.J. Smith" },
+        "scratches": [
+          {
+            "id": 8479772,
+            "firstName": { "default": "Zack" },
+            "lastName": {
+              "default": "MacEwen",
+              "cs": "Macewen",
+              "de": "Macewen",
+              "es": "Macewen",
+              "fi": "Macewen",
+              "sk": "Macewen",
+              "sv": "Macewen"
+            }
+          },
+          {
+            "id": 8480073,
+            "firstName": { "default": "Erik" },
+            "lastName": {
+              "default": "Brannstrom",
+              "cs": "Brännström",
+              "fi": "Brännström",
+              "sk": "Brännström"
+            }
+          },
+          {
+            "id": 8484321,
+            "firstName": { "default": "Nikolas" },
+            "lastName": { "default": "Matinpalo" }
+          }
+        ]
+      }
+    },
+    "gameVideo": {
+      "threeMinRecap": 6340840205112,
+      "threeMinRecapFr": 6340838365112,
+      "condensedGame": 6340840211112
+    }
+  }
+}
