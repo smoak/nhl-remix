@@ -9,7 +9,7 @@ export const teamIdToColors: Record<number, string> = {
   8: "#A71930",
   9: "#191919",
   10: "#002868",
-  12: "#CC0000",
+  12: "#CC0000", // CAR
   13: "#CF102D",
   // TBL:
   14: "#ECECEC",
@@ -20,7 +20,7 @@ export const teamIdToColors: Record<number, string> = {
   19: "#003087",
   20: "#CE1126",
   21: "#75263D",
-  22: "#00205B",
+  22: "#00205B", // TOR
   23: "#003D7D",
   24: "#111111",
   25: "#006847",

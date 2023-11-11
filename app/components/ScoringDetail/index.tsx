@@ -1,5 +1,6 @@
 import { PlayerAvatar } from "../PlayerAvatar";
-import type { ScoringPlay } from "../types";
+import { TeamLogo } from "../TeamLogo";
+import type { ScoringPlay, TeamAbbreviation } from "../types";
 
 type ScoringDetailProps = {
   readonly scoringPlay: ScoringPlay;
@@ -44,6 +45,7 @@ export const ScoringDetail = ({
     timeInPeriod,
     primaryAssist,
     secondaryAssist,
+    teamAbbrev,
   } = scoringPlay;
 
   return (
@@ -53,15 +55,23 @@ export const ScoringDetail = ({
           <PlayerAvatar
             playerName={goalScorer.name}
             playerHeadshot={goalScorer.headshot}
+            teamAbbrev={teamAbbrev as TeamAbbreviation}
           />
           <div className="flex flex-col whitespace-nowrap pl-3">
             <span className="font-bold">
               {goalScorer.name} ({goalScorer.seasonGoals})
             </span>
-            <AssistInfo
-              primaryAssist={primaryAssist}
-              secondaryAssist={secondaryAssist}
-            />
+            <span className="flex flex-row items-center">
+              <TeamLogo
+                size="sm"
+                teamAbbreviation={teamAbbrev}
+                teamName={teamAbbrev}
+              />
+              <AssistInfo
+                primaryAssist={primaryAssist}
+                secondaryAssist={secondaryAssist}
+              />
+            </span>
           </div>
         </div>
         <div className="flex gap-6">

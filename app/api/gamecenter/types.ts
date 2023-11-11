@@ -54,7 +54,7 @@ export type GamecenterBoxscoreFinishedGame = GamecenterBaseResponse & {
   readonly homeTeam: GamecenterBoxscoreFinishedTeam;
   readonly period: number;
   readonly periodDescriptor: PeriodDescriptor;
-  readonly gameState: "OFF";
+  readonly gameState: "OFF" | "FINAL";
 };
 
 export type GamecenterBoxscoreFutureGame = GamecenterBaseResponse & {
@@ -166,4 +166,4 @@ export const isFutureGamecenterResponse = (
 export const isFinishedGamecenterResponse = (
   response: GamecenterBaseResponse
 ): response is GamecenterBoxscoreFinishedGame | GamecenterLandingFinishedGame =>
-  response.gameState === "OFF";
+  response.gameState === "OFF" || response.gameState === "FINAL";
