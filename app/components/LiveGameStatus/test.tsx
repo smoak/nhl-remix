@@ -13,6 +13,7 @@ describe("LiveGameStatus", () => {
           currentPeriod={periodNumber}
           currentPeriodTimeRemaining="02:00"
           isRegularSeasonGame={true}
+          isInIntermission={false}
         />
       );
     });
@@ -29,6 +30,7 @@ describe("LiveGameStatus", () => {
           currentPeriod={4}
           currentPeriodTimeRemaining="02:00"
           isRegularSeasonGame={true}
+          isInIntermission={false}
         />
       );
     });
@@ -45,6 +47,7 @@ describe("LiveGameStatus", () => {
           currentPeriod={5}
           currentPeriodTimeRemaining="00:00"
           isRegularSeasonGame={true}
+          isInIntermission={false}
         />
       );
     });
@@ -61,6 +64,7 @@ describe("LiveGameStatus", () => {
           currentPeriod={5}
           currentPeriodTimeRemaining="02:00"
           isRegularSeasonGame={false}
+          isInIntermission={false}
         />
       );
     });

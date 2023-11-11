@@ -1,6 +1,7 @@
 import type {
   FinalGame,
   Game,
+  GameSituation,
   GameType,
   LiveGame,
   ScheduledGame,
@@ -16,6 +17,7 @@ import {
   type Team as ApiTeam,
   type FutureGame,
   isLiveGame,
+  type GameSituation as ApiGameSituation,
 } from "~/api/types";
 
 type NormalizeGames = (games: ApiGame[], teamRecords: TeamRecords) => Game[];
@@ -76,6 +78,34 @@ const normalizeFinalGame: NormalizeFinalGame = (game, teamRecords) => {
   };
 };
 
+export const normalizeSituation = (
+  situation?: ApiGameSituation
+): GameSituation => {
+  if (situation == null) {
+    return {
+      homeTeam: "even",
+      awayTeam: "even",
+    };
+  }
+
+  if (situation.situationCode === "0651") {
+    // away empty net
+    return {
+      awayTeam: "en",
+      homeTeam: "even",
+    };
+  }
+
+  return {
+    homeTeam: situation.homeTeam.situationDescriptions?.includes("PP")
+      ? "pp"
+      : "even",
+    awayTeam: situation.awayTeam.situationDescriptions?.includes("PP")
+      ? "pp"
+      : "even",
+  };
+};
+
 type NormalizeLiveGame = (
   game: ApiLiveGame,
   teamRecords: TeamRecords
@@ -92,10 +122,7 @@ const normalizeLiveGame: NormalizeLiveGame = (game, teamRecords) => {
       isIntermission: game.clock.inIntermission,
       timeRemaining: game.clock.timeRemaining,
     },
-    gameSituation: {
-      awayTeam: "even",
-      homeTeam: "even",
-    },
+    gameSituation: normalizeSituation(game.situation),
     gameStats: {
       awayTeam: {
         score: game.awayTeam.score,

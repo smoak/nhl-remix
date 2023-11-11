@@ -24,6 +24,7 @@ export const LiveGameCardContents = ({ game }: LiveGameCardContentsProps) => {
             currentPeriod={game.gameClock.currentPeriod}
             currentPeriodTimeRemaining={game.gameClock.timeRemaining}
             isRegularSeasonGame={game.type === "RegularSeason"}
+            isInIntermission={game.gameClock.isIntermission}
           />
         </p>
         <TeamScore score={game.gameStats.awayTeam.score} />

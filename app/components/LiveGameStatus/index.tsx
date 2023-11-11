@@ -4,6 +4,7 @@ export type LiveGameStatusProps = {
   readonly isRegularSeasonGame: boolean;
   readonly currentPeriod: number;
   readonly currentPeriodTimeRemaining: string;
+  readonly isInIntermission: boolean;
 };
 
 const LiveIndicator = () => (
@@ -17,11 +18,14 @@ export const LiveGameStatus = ({
   currentPeriod,
   currentPeriodTimeRemaining,
   isRegularSeasonGame,
+  isInIntermission,
 }: LiveGameStatusProps) => {
+  const timeRemaining = isInIntermission ? "END" : currentPeriodTimeRemaining;
+
   if (currentPeriod < 4) {
     return (
       <>
-        <PeriodOrdinal period={currentPeriod} /> - {currentPeriodTimeRemaining}
+        <PeriodOrdinal period={currentPeriod} /> - {timeRemaining}
         <LiveIndicator />
       </>
     );
@@ -30,7 +34,7 @@ export const LiveGameStatus = ({
   if (currentPeriod === 4) {
     return (
       <>
-        OT - {currentPeriodTimeRemaining}
+        OT - {timeRemaining}
         <LiveIndicator />
       </>
     );
@@ -39,7 +43,7 @@ export const LiveGameStatus = ({
   if (isRegularSeasonGame) {
     return (
       <>
-        SO - {currentPeriodTimeRemaining}
+        SO - {timeRemaining}
         <LiveIndicator />
       </>
     );
@@ -49,7 +53,7 @@ export const LiveGameStatus = ({
 
   return (
     <>
-      {otPeriods}OT - {currentPeriodTimeRemaining}
+      {otPeriods}OT - {timeRemaining}
       <LiveIndicator />
     </>
   );

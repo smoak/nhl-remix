@@ -22,7 +22,10 @@ import type {
   ScoringPlays,
   Team,
 } from "~/components/types";
-import { ApiGameTypeToGameType } from "~/data/normalization";
+import {
+  ApiGameTypeToGameType,
+  normalizeSituation,
+} from "~/data/normalization";
 
 const normalizeBaseTeam = (team: GamecenterBaseTeam): Team => {
   return {
@@ -73,23 +76,20 @@ const normalizeLiveGame = (game: GamecenterBoxscoreLiveGame): LiveGame => {
   return {
     awayTeam: normalizeBaseTeam(game.awayTeam),
     gameClock: {
-      currentPeriod: 0,
-      isIntermission: false,
-      timeRemaining: "",
+      currentPeriod: game.period,
+      isIntermission: game.clock.inIntermission,
+      timeRemaining: game.clock.timeRemaining,
     },
-    gameSituation: {
-      awayTeam: "even",
-      homeTeam: "even",
-    },
+    gameSituation: normalizeSituation(game.situation),
     gameState: "Live",
     gameStats: {
       awayTeam: {
-        score: 0,
-        sog: 0,
+        score: game.awayTeam.score,
+        sog: game.awayTeam.sog,
       },
       homeTeam: {
-        score: 0,
-        sog: 0,
+        score: game.homeTeam.score,
+        sog: game.homeTeam.sog,
       },
     },
     homeTeam: normalizeBaseTeam(game.homeTeam),

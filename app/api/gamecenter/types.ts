@@ -1,4 +1,5 @@
 import type {
+  GameSituation,
   GameState,
   GameType,
   GameVenue,
@@ -31,6 +32,18 @@ type GamecenterBoxscoreFinishedTeam = GamecenterBaseTeam & {
   readonly pim: number;
 };
 
+type GamecenterBoxscoreClock = {
+  readonly timeRemaining: string;
+  readonly secondsRemaining: number;
+  readonly running: boolean;
+  readonly inIntermission: boolean;
+};
+
+type GamecenterBoxscoreLiveTeam = GamecenterBaseTeam & {
+  readonly score: number;
+  readonly sog: number;
+};
+
 type GamecenterLandingFinishedTeam = GamecenterBaseTeam & {
   readonly score: number;
   readonly sog: number;
@@ -52,8 +65,12 @@ export type GamecenterBoxscoreFutureGame = GamecenterBaseResponse & {
 
 export type GamecenterBoxscoreLiveGame = GamecenterBaseResponse & {
   readonly gameState: "LIVE" | "CRIT";
-  readonly awayTeam: GamecenterBaseTeam;
-  readonly homeTeam: GamecenterBaseTeam;
+  readonly awayTeam: GamecenterBoxscoreLiveTeam;
+  readonly homeTeam: GamecenterBoxscoreLiveTeam;
+  readonly period: number;
+  readonly periodDescriptor: PeriodDescriptor;
+  readonly clock: GamecenterBoxscoreClock;
+  readonly situation?: GameSituation;
 };
 
 export type GamecenterLandingFinishedGame = GamecenterBaseResponse & {

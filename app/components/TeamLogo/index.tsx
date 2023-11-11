@@ -35,7 +35,6 @@ export const TeamLogo = ({
   return (
     <img
       alt={`${teamName} logo`}
-      role="presentation"
       src={`https://assets.nhle.com/logos/nhl/svg/${teamAbbreviation}_light.svg`}
       className={`${sizeVariants[size]}`}
       width={widthVariants[size]}

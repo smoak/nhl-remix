@@ -4,6 +4,7 @@ import type { Game } from "~/components/types";
 import { isLiveGame } from "~/components/types";
 import { useRevalidateOnInterval } from "./useRevalidateOnInterval";
 import { useRevalidateOnVisible } from "./useRevalidateOnVisible";
+import type { Schedule } from "~/data/types";
 
 const WAIT = 10000;
 
@@ -13,7 +14,7 @@ type Options = {
 };
 
 export const useGames = ({ route, preloadedGames }: Options) => {
-  const fetcher = useFetcher<Game[]>();
+  const fetcher = useFetcher<Schedule>();
   const [games, setGames] = useState(preloadedGames);
   const revalidate = () => {
     if (preloadedGames.some(isLiveGame)) {
@@ -22,7 +23,7 @@ export const useGames = ({ route, preloadedGames }: Options) => {
   };
   useEffect(() => {
     if (fetcher.data) {
-      setGames(fetcher.data);
+      setGames(fetcher.data.games);
     }
   }, [fetcher.data]);
 

@@ -70,13 +70,21 @@ type GameOutcome = {
 // 3 - playoff
 export type GameType = 1 | 2 | 3;
 
-type PowerPlayGameSituation = {
-  readonly teamAbbrev: string;
+export type GameSituation = {
+  readonly homeTeam: {
+    readonly abbrev: string;
+    readonly situationDescriptions?: string[];
+    readonly strength: number;
+  };
+  readonly awayTeam: {
+    readonly abbrev: string;
+    readonly situationDescriptions?: string[];
+    readonly strength: number;
+  };
+  readonly situationCode: "1451" | "1541" | "0651";
   readonly timeRemaining: string;
-  readonly situationCode: "PP";
+  readonly secondsRemaining: number;
 };
-
-export type GameSituation = PowerPlayGameSituation;
 
 type BaseGame = {
   readonly id: number;

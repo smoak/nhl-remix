@@ -16,7 +16,7 @@ describe("TeamInfo", () => {
 
   it("displays the team logo", () => {
     expect(
-      screen.getByRole("presentation", { hidden: true })
+      screen.getByRole("img", { name: "Canucks logo" })
     ).toBeInTheDocument();
   });
 

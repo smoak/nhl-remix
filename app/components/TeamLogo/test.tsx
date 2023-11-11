@@ -4,13 +4,13 @@ import { TeamLogo } from "./index";
 describe("TeamLogo", () => {
   describe("when there is a logo for the team", () => {
     beforeEach(() => {
-      render(<TeamLogo teamAbbreviation="VAN" teamName="Vancouver Canucks" />);
+      render(<TeamLogo teamAbbreviation="VAN" teamName="Canucks" />);
     });
 
     it("renders the team logo", () => {
       expect(
-        screen.getByRole("presentation", {
-          hidden: true,
+        screen.getByRole("img", {
+          name: "Canucks logo",
         })
       ).toBeInTheDocument();
     });
