@@ -81,7 +81,7 @@ export type GameSituation = {
     readonly situationDescriptions?: string[];
     readonly strength: number;
   };
-  readonly situationCode: "1451" | "1541" | "0651";
+  readonly situationCode: "1451" | "1541" | "0651" | "1560";
   readonly timeRemaining: string;
   readonly secondsRemaining: number;
 };

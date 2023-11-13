@@ -96,6 +96,14 @@ export const normalizeSituation = (
     };
   }
 
+  if (situation.situationCode === "1560") {
+    // home empty net
+    return {
+      awayTeam: "even",
+      homeTeam: "en",
+    };
+  }
+
   return {
     homeTeam: situation.homeTeam.situationDescriptions?.includes("PP")
       ? "pp"
