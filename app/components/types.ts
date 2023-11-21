@@ -154,3 +154,22 @@ export type TeamAbbreviation =
   | "VGK"
   | "WPG"
   | "WSH";
+
+export type StandingsRecord = {
+  readonly teamAbbrev: string;
+  readonly teamName: string;
+  readonly gamesPlayed: number;
+  readonly wins: number;
+  readonly losses: number;
+  readonly otLosses: number;
+  readonly points: number;
+};
+
+export type Standings = {
+  readonly conference: ConferenceStandings;
+};
+
+export type ConferenceStandings = {
+  readonly east: StandingsRecord[];
+  readonly west: StandingsRecord[];
+};

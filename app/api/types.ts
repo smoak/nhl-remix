@@ -170,18 +170,3 @@ export const isFinishedGame = (game: Game): game is FinishedGame =>
 
 export const isFutureGame = (game: Game): game is FutureGame =>
   game.gameState === "FUT" || game.gameState === "PRE";
-
-// export const isFutureGamecenterGame = (
-//   game: GamecenterGame
-// ): game is GamecenterFutureGame =>
-//   game.gameState === "FUT" || game.gameState === "PRE";
-
-// export const isLiveGamecenterGame = (
-//   game: GamecenterGame
-// ): game is GamecenterLiveGame =>
-//   game.gameState === "LIVE" || game.gameState === "CRIT";
-
-// export const isFinishedGamecenterGame = (
-//   game: GamecenterGame
-// ): game is GamecenterFinishedGame =>
-//   game.gameState === "OFF" || game.gameState === "FINAL";
