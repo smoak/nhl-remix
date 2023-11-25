@@ -119,7 +119,7 @@ export type GamecenterLandingSummaryScoringGoalAssist = {
 
 export type GamecenterLandingSummaryScoringGoal = {
   readonly situationCode: string;
-  readonly strength: "ev" | "pp";
+  readonly strength: "ev" | "pp" | "sh";
   readonly playerId: number;
   readonly firstName: string;
   readonly lastName: string;

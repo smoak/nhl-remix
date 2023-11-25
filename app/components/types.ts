@@ -20,6 +20,7 @@ export type ScoringPlay = {
   readonly highlightClip: number;
   readonly awayScore: number;
   readonly homeScore: number;
+  readonly strength: "sh" | "pp" | "ev";
   readonly leadingTeamAbbrev?: string;
   readonly primaryAssist?: ScoringPlayAssister;
   readonly secondaryAssist?: ScoringPlayAssister;

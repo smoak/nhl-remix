@@ -1,6 +1,7 @@
 import { PlayerAvatar } from "../PlayerAvatar";
 import { TeamLogo } from "../TeamLogo";
 import type { ScoringPlay, TeamAbbreviation } from "../types";
+import { QuickScore } from "./QuickScore";
 
 type ScoringDetailProps = {
   readonly scoringPlay: ScoringPlay;
@@ -34,6 +35,12 @@ const AssistInfo = ({
   );
 };
 
+const strengthToText: Record<"sh" | "pp" | "ev", string> = {
+  ev: "EVEN",
+  pp: "PP",
+  sh: "SHG",
+};
+
 export const ScoringDetail = ({
   scoringPlay,
 }: ScoringDetailProps): JSX.Element => {
@@ -46,6 +53,7 @@ export const ScoringDetail = ({
     primaryAssist,
     secondaryAssist,
     teamAbbrev,
+    strength,
   } = scoringPlay;
 
   return (
@@ -77,14 +85,19 @@ export const ScoringDetail = ({
         <div className="flex gap-6">
           <div className="flex flex-col">
             Score
-            <div className="font-bold">
-              {homeScore}-{awayScore}{" "}
-              {leadingTeamAbbrev == null ? "Tied" : leadingTeamAbbrev}
-            </div>
+            <QuickScore
+              awayScore={awayScore}
+              homeScore={homeScore}
+              leadingTeamAbbrev={leadingTeamAbbrev}
+            />
           </div>
           <div className="flex flex-col">
             Time
             <div className="font-bold">{timeInPeriod}</div>
+          </div>
+          <div className="flex flex-col">
+            Type
+            <div className="font-bold">{strengthToText[strength]}</div>
           </div>
         </div>
       </div>
