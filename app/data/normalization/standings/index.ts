@@ -13,18 +13,33 @@ const normalizeStanding = (s: ApiStandings): StandingsRecord => {
     points: s.points,
     teamName: s.teamName.default,
     wins: s.wins,
+    conference: s.conferenceName,
+    division: s.divisionName,
   };
 };
 
 export const normalizeStandings = (response: StandingsResponse): Standings => {
+  const east = response.standings
+    .filter((s) => s.conferenceAbbrev === "E")
+    .map(normalizeStanding);
+  const west = response.standings
+    .filter((s) => s.conferenceAbbrev === "W")
+    .map(normalizeStanding);
+  const pacific = west.filter((s) => s.division === "Pacific");
+  const atlantic = east.filter((s) => s.division === "Atlantic");
+  const central = west.filter((s) => s.division === "Central");
+  const metropolitan = east.filter((s) => s.division === "Metropolitan");
+
   return {
     conference: {
-      east: response.standings
-        .filter((s) => s.conferenceAbbrev === "E")
-        .map(normalizeStanding),
-      west: response.standings
-        .filter((s) => s.conferenceAbbrev === "W")
-        .map(normalizeStanding),
+      east,
+      west,
+    },
+    division: {
+      atlantic,
+      central,
+      metropolitan,
+      pacific,
     },
   };
 };

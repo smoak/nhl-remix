@@ -164,10 +164,20 @@ export type StandingsRecord = {
   readonly losses: number;
   readonly otLosses: number;
   readonly points: number;
+  readonly division: "Pacific" | "Atlantic" | "Metropolitan" | "Central";
+  readonly conference: "Western" | "Eastern";
 };
 
 export type Standings = {
   readonly conference: ConferenceStandings;
+  readonly division: DivisionStandings;
+};
+
+export type DivisionStandings = {
+  readonly metropolitan: StandingsRecord[];
+  readonly atlantic: StandingsRecord[];
+  readonly central: StandingsRecord[];
+  readonly pacific: StandingsRecord[];
 };
 
 export type ConferenceStandings = {

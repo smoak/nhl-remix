@@ -1,30 +1,38 @@
 import { TeamLogo } from "~/components/TeamLogo";
 import type { StandingsRecord } from "~/components/types";
 
-type ConferenceSectionProps = {
-  readonly label: string;
+type StandingsSectionProps = {
+  readonly headingText?: string;
+  readonly subheadingText?: string;
   readonly standings: StandingsRecord[];
 };
 
 type CellProps = {
   readonly children: React.ReactNode;
+  readonly className?: string;
 };
 
-const Cell = ({ children }: CellProps) => {
+const Cell = ({ children, className }: CellProps) => {
   return (
-    <div className="table-cell border-b border-black align-middle">
+    <div
+      className={`${className} table-cell border-b border-black align-middle`}
+    >
       {children}
     </div>
   );
 };
 
-export const ConferenceSection = ({
-  label,
+export const StandingsSection = ({
+  headingText,
   standings,
-}: ConferenceSectionProps) => {
+  subheadingText,
+}: StandingsSectionProps) => {
   return (
     <div>
-      <h5 className="text-2xl font-bold">{label}</h5>
+      {headingText && <h5 className="text-2xl font-bold">{headingText}</h5>}
+      {subheadingText && (
+        <div className="pb-2 text-base font-bold">{subheadingText}</div>
+      )}
       <section className="table w-full">
         <header className="table-header-group h-8 bg-black text-center text-white">
           <div className="table-row">
@@ -41,8 +49,8 @@ export const ConferenceSection = ({
           {standings.map((s, index) => (
             <div className="table-row h-14 text-center" key={s.teamAbbrev}>
               <Cell>{index + 1}</Cell>
-              <Cell>
-                <div className="flex max-w-xs items-center gap-2">
+              <Cell className="w-1/4">
+                <div className="flex items-center gap-2">
                   <TeamLogo
                     teamAbbreviation={s.teamAbbrev}
                     teamName={s.teamName}
