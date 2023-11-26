@@ -131,6 +131,7 @@ const normalizeGoal = (
   g: GamecenterLandingSummaryScoringGoal,
   period: number
 ): ScoringPlay => {
+  const goalType = g.goalModifier === "empty-net" ? "en" : g.strength;
   return {
     awayScore: g.awayScore,
     goalScorer: {
@@ -146,7 +147,7 @@ const normalizeGoal = (
     leadingTeamAbbrev: g.leadingTeamAbbrev,
     teamAbbrev: g.teamAbbrev,
     period,
-    strength: g.strength,
+    goalType,
     timeInPeriod: g.timeInPeriod,
     primaryAssist: normalizeAssist(g.assists[0]),
     secondaryAssist: normalizeAssist(g.assists[1]),

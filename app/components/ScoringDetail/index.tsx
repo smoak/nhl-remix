@@ -2,6 +2,7 @@ import { PlayerAvatar } from "../PlayerAvatar";
 import { TeamLogo } from "../TeamLogo";
 import type { ScoringPlay, TeamAbbreviation } from "../types";
 import { QuickScore } from "./QuickScore";
+import { ScoringType } from "./ScoringType";
 
 type ScoringDetailProps = {
   readonly scoringPlay: ScoringPlay;
@@ -35,12 +36,6 @@ const AssistInfo = ({
   );
 };
 
-const strengthToText: Record<"sh" | "pp" | "ev", string> = {
-  ev: "EVEN",
-  pp: "PP",
-  sh: "SHG",
-};
-
 export const ScoringDetail = ({
   scoringPlay,
 }: ScoringDetailProps): JSX.Element => {
@@ -53,7 +48,7 @@ export const ScoringDetail = ({
     primaryAssist,
     secondaryAssist,
     teamAbbrev,
-    strength,
+    goalType,
   } = scoringPlay;
 
   return (
@@ -95,10 +90,7 @@ export const ScoringDetail = ({
             Time
             <div className="font-bold">{timeInPeriod}</div>
           </div>
-          <div className="flex flex-col">
-            Type
-            <div className="font-bold">{strengthToText[strength]}</div>
-          </div>
+          <ScoringType goalType={goalType} />
         </div>
       </div>
     </div>

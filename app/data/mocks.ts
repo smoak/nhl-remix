@@ -24,7 +24,7 @@ export const createScoringPlay = (
     teamAbbrev: "ABBR",
     period: 1,
     timeInPeriod: "10:00",
-    strength: "ev",
+    goalType: "ev",
     ...overrides,
   };
 };

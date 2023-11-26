@@ -5,6 +5,8 @@ export type ScoringPlayAssister = {
   readonly seasonAssists: number;
 };
 
+export type GoalType = "sh" | "pp" | "ev" | "en";
+
 export type ScoringPlay = {
   readonly period: number;
   readonly timeInPeriod: string;
@@ -20,7 +22,7 @@ export type ScoringPlay = {
   readonly highlightClip: number;
   readonly awayScore: number;
   readonly homeScore: number;
-  readonly strength: "sh" | "pp" | "ev";
+  readonly goalType: GoalType;
   readonly leadingTeamAbbrev?: string;
   readonly primaryAssist?: ScoringPlayAssister;
   readonly secondaryAssist?: ScoringPlayAssister;
