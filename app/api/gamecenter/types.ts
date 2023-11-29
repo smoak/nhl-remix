@@ -126,7 +126,7 @@ export type GamecenterLandingSummaryScoringGoal = {
   readonly name: string;
   readonly teamAbbrev: string;
   readonly headshot: string;
-  readonly highlightClip: number;
+  readonly highlightClip?: number;
   readonly goalsToDate: number;
   readonly awayScore: number;
   readonly homeScore: number;

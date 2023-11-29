@@ -19,7 +19,7 @@ export type ScoringPlay = {
     readonly headshot: string;
   };
   readonly teamAbbrev: string;
-  readonly highlightClip: number;
+  readonly highlightClip?: number;
   readonly awayScore: number;
   readonly homeScore: number;
   readonly goalType: GoalType;

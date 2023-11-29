@@ -1,12 +1,9 @@
-import { Dialog } from "@headlessui/react";
-import { PlayCircleIcon } from "../PlayCircleIcon";
 import { PlayerAvatar } from "../PlayerAvatar";
 import { TeamLogo } from "../TeamLogo";
 import type { ScoringPlay, TeamAbbreviation } from "../types";
 import { QuickScore } from "./QuickScore";
 import { ScoringType } from "./ScoringType";
-import { HighlightPlayer } from "./HighlightPlayer";
-import { useState } from "react";
+import { HighlightClipButton } from "./HighlightClipButton";
 
 type ScoringDetailProps = {
   readonly scoringPlay: ScoringPlay;
@@ -43,7 +40,6 @@ const AssistInfo = ({
 export const ScoringDetail = ({
   scoringPlay,
 }: ScoringDetailProps): JSX.Element => {
-  const [isVideoPlayerOpen, setVideoPlayerOpen] = useState(false);
   const {
     goalScorer,
     awayScore,
@@ -83,14 +79,7 @@ export const ScoringDetail = ({
                 />
               </span>
             </div>
-            <div className="flex flex-col pl-3">
-              <div className="flex flex-row items-center">
-                <button onClick={() => setVideoPlayerOpen(true)}>
-                  <PlayCircleIcon size="md" />
-                  Play highlight clip
-                </button>
-              </div>
-            </div>
+            <HighlightClipButton clipId={highlightClip} />
           </div>
           <div className="flex gap-6">
             <div className="flex flex-col">
@@ -109,18 +98,6 @@ export const ScoringDetail = ({
           </div>
         </div>
       </div>
-      <Dialog
-        open={isVideoPlayerOpen}
-        onClose={() => setVideoPlayerOpen(false)}
-        className="relative z-50"
-      >
-        <div className="fixed inset-0 bg-black/30" aria-hidden="true" />
-        <div className="fixed inset-0 flex w-screen items-center justify-center p-4">
-          <Dialog.Panel className="h-[calc(100%-1rem)] max-h-full w-full max-w-2xl rounded bg-white">
-            <HighlightPlayer videoId={highlightClip} />
-          </Dialog.Panel>
-        </div>
-      </Dialog>
     </>
   );
 };
