@@ -26,12 +26,11 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@brightcove/react-player-loader": "^1.4.2",
     "@remix-run/css-bundle": "^2.1.0",
     "@remix-run/node": "^2.0.0",
     "@remix-run/react": "^2.0.0",
-    "@remix-run/serve": "^2.0.0",
     "@vercel/analytics": "^1.0.2",
-    "@vercel/remix": "^2.0.0",
     "cross-fetch": "^3.1.5",
     "date-fns": "^2.29.3",
     "date-fns-tz": "^2.0.0",

@@ -1,8 +1,12 @@
+import { Dialog } from "@headlessui/react";
+import { PlayCircleIcon } from "../PlayCircleIcon";
 import { PlayerAvatar } from "../PlayerAvatar";
 import { TeamLogo } from "../TeamLogo";
 import type { ScoringPlay, TeamAbbreviation } from "../types";
 import { QuickScore } from "./QuickScore";
 import { ScoringType } from "./ScoringType";
+import { HighlightPlayer } from "./HighlightPlayer";
+import { useState } from "react";
 
 type ScoringDetailProps = {
   readonly scoringPlay: ScoringPlay;
@@ -39,6 +43,7 @@ const AssistInfo = ({
 export const ScoringDetail = ({
   scoringPlay,
 }: ScoringDetailProps): JSX.Element => {
+  const [isVideoPlayerOpen, setVideoPlayerOpen] = useState(false);
   const {
     goalScorer,
     awayScore,
@@ -49,50 +54,73 @@ export const ScoringDetail = ({
     secondaryAssist,
     teamAbbrev,
     goalType,
+    highlightClip,
   } = scoringPlay;
 
   return (
-    <div className="flex flex-col pb-4">
-      <div className="border-nhl-200 flex flex-col rounded-lg border bg-white p-4">
-        <div className="flex items-center gap-2">
-          <PlayerAvatar
-            playerName={goalScorer.name}
-            playerHeadshot={goalScorer.headshot}
-            teamAbbrev={teamAbbrev as TeamAbbreviation}
-          />
-          <div className="flex flex-col whitespace-nowrap pl-3">
-            <span className="font-bold">
-              {goalScorer.name} ({goalScorer.seasonGoals})
-            </span>
-            <span className="flex flex-row items-center">
-              <TeamLogo
-                size="sm"
-                teamAbbreviation={teamAbbrev}
-                teamName={teamAbbrev}
-              />
-              <AssistInfo
-                primaryAssist={primaryAssist}
-                secondaryAssist={secondaryAssist}
-              />
-            </span>
-          </div>
-        </div>
-        <div className="flex gap-6">
-          <div className="flex flex-col">
-            Score
-            <QuickScore
-              awayScore={awayScore}
-              homeScore={homeScore}
-              leadingTeamAbbrev={leadingTeamAbbrev}
+    <>
+      <div className="flex flex-col pb-4">
+        <div className="border-nhl-200 flex flex-col rounded-lg border bg-white p-4">
+          <div className="flex items-center gap-2">
+            <PlayerAvatar
+              playerName={goalScorer.name}
+              playerHeadshot={goalScorer.headshot}
+              teamAbbrev={teamAbbrev as TeamAbbreviation}
             />
+            <div className="flex flex-col whitespace-nowrap pl-3">
+              <span className="font-bold">
+                {goalScorer.name} ({goalScorer.seasonGoals})
+              </span>
+              <span className="flex flex-row items-center">
+                <TeamLogo
+                  size="sm"
+                  teamAbbreviation={teamAbbrev}
+                  teamName={teamAbbrev}
+                />
+                <AssistInfo
+                  primaryAssist={primaryAssist}
+                  secondaryAssist={secondaryAssist}
+                />
+              </span>
+            </div>
+            <div className="flex flex-col pl-3">
+              <div className="flex flex-row items-center">
+                <button onClick={() => setVideoPlayerOpen(true)}>
+                  <PlayCircleIcon size="md" />
+                  Play highlight clip
+                </button>
+              </div>
+            </div>
           </div>
-          <div className="flex flex-col">
-            Time
-            <div className="font-bold">{timeInPeriod}</div>
+          <div className="flex gap-6">
+            <div className="flex flex-col">
+              Score
+              <QuickScore
+                awayScore={awayScore}
+                homeScore={homeScore}
+                leadingTeamAbbrev={leadingTeamAbbrev}
+              />
+            </div>
+            <div className="flex flex-col">
+              Time
+              <div className="font-bold">{timeInPeriod}</div>
+            </div>
+            <ScoringType goalType={goalType} />
           </div>
-          <ScoringType goalType={goalType} />
         </div>
       </div>
-    </div>
+      <Dialog
+        open={isVideoPlayerOpen}
+        onClose={() => setVideoPlayerOpen(false)}
+        className="relative z-50"
+      >
+        <div className="fixed inset-0 bg-black/30" aria-hidden="true" />
+        <div className="fixed inset-0 flex w-screen items-center justify-center p-4">
+          <Dialog.Panel className="h-[calc(100%-1rem)] max-h-full w-full max-w-2xl rounded bg-white">
+            <HighlightPlayer videoId={highlightClip} />
+          </Dialog.Panel>
+        </div>
+      </Dialog>
+    </>
   );
 };
