@@ -1,7 +1,7 @@
 import ReactPlayerLoader from "@brightcove/react-player-loader";
 import React from "react";
 
-type HighlightPlayerProps = {
+type VideoPlayerProps = {
   readonly videoId: number;
 };
 
@@ -11,7 +11,7 @@ const onEmbedCreated = (e: Element) => {
   return e;
 };
 
-const Player = ({ videoId }: HighlightPlayerProps) => {
+const Player = ({ videoId }: VideoPlayerProps) => {
   return (
     <ReactPlayerLoader
       playerId="default"
@@ -28,4 +28,4 @@ const Player = ({ videoId }: HighlightPlayerProps) => {
   );
 };
 
-export const HighlightPlayer = React.memo(Player);
+export const VideoPlayer = React.memo(Player);

@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { Dialog } from "@headlessui/react";
 import { PlayCircleIcon } from "../../PlayCircleIcon";
-import { HighlightPlayer } from "../HighlightPlayer";
+import { VideoPlayerDialog } from "~/components/VideoPlayerDialog";
 
 type HighlightClipButtonProps = {
   readonly clipId?: number;
@@ -16,26 +15,19 @@ export const HighlightClipButton = ({ clipId }: HighlightClipButtonProps) => {
 
   return (
     <>
-      <div className="flex flex-col pl-3">
+      <div className="flex flex-col">
         <div className="flex flex-row items-center">
           <button onClick={() => setVideoPlayerOpen(true)}>
             <PlayCircleIcon size="md" />
-            Play highlight clip
+            <span className="md:hidden lg:block">Play highlight clip</span>
           </button>
         </div>
       </div>
-      <Dialog
-        open={isVideoPlayerOpen}
+      <VideoPlayerDialog
+        clipId={clipId}
+        isOpen={isVideoPlayerOpen}
         onClose={() => setVideoPlayerOpen(false)}
-        className="relative z-50"
-      >
-        <div className="fixed inset-0 bg-black/30" aria-hidden="true" />
-        <div className="fixed inset-0 flex w-screen items-center justify-center p-4">
-          <Dialog.Panel className="h-[calc(100%-1rem)] max-h-full w-full max-w-2xl rounded bg-white">
-            <HighlightPlayer videoId={clipId} />
-          </Dialog.Panel>
-        </div>
-      </Dialog>
+      />
     </>
   );
 };

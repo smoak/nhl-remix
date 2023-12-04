@@ -55,6 +55,10 @@ export type GamecenterBoxscoreFinishedGame = GamecenterBaseResponse & {
   readonly period: number;
   readonly periodDescriptor: PeriodDescriptor;
   readonly gameState: "OFF" | "FINAL";
+  readonly gameVideo: {
+    readonly threeMinRecap: number;
+    readonly condensedGame: number;
+  };
 };
 
 export type GamecenterBoxscoreFutureGame = GamecenterBaseResponse & {

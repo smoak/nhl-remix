@@ -63,7 +63,7 @@ export const ScoringDetail = ({
               playerHeadshot={goalScorer.headshot}
               teamAbbrev={teamAbbrev as TeamAbbreviation}
             />
-            <div className="flex flex-col whitespace-nowrap pl-3">
+            <div className="flex flex-col whitespace-nowrap sm:w-48 md:w-80 lg:w-48">
               <span className="font-bold">
                 {goalScorer.name} ({goalScorer.seasonGoals})
               </span>

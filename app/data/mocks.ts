@@ -87,6 +87,8 @@ export const createFinalGame = (overrides?: Partial<FinalGame>): FinalGame => {
         sog: 27,
       },
     },
+    condensedGame: 5,
+    threeMinRecap: 6,
     ...overrides,
   };
 };
