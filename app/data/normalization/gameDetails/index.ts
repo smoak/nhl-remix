@@ -69,8 +69,8 @@ const normalizeFinishedGame = (
     },
     id: game.id,
     type: ApiGameTypeToGameType[game.gameType],
-    condensedGame: game.gameVideo.condensedGame,
-    threeMinRecap: game.gameVideo.threeMinRecap,
+    condensedGame: game.gameVideo?.condensedGame,
+    threeMinRecap: game.gameVideo?.threeMinRecap,
   };
 };
 

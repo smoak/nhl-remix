@@ -23,6 +23,11 @@ export const GameRecapButtons = ({ game }: GameRecapButtonsProps) => {
   }
 
   const { threeMinRecap, condensedGame } = game;
+
+  if (!threeMinRecap || !condensedGame) {
+    return null;
+  }
+
   const onCondensedGameClicked = () => {
     setVideoPlayerState({
       clipId: condensedGame,

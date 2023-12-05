@@ -75,8 +75,6 @@ const normalizeFinalGame: NormalizeFinalGame = (game, teamRecords) => {
       },
     },
     type: ApiGameTypeToGameType[game.gameType],
-    condensedGame: 0,
-    threeMinRecap: 0,
   };
 };
 

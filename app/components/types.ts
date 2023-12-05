@@ -81,8 +81,8 @@ export type FinalGame =
       readonly gameState: "Final";
       readonly gameStats: GameStats;
       readonly endedInPeriod: number;
-      readonly threeMinRecap: number;
-      readonly condensedGame: number;
+      readonly threeMinRecap?: number;
+      readonly condensedGame?: number;
     };
 
 export type Game = LiveGame | ScheduledGame | FinalGame;
