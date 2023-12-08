@@ -64,7 +64,7 @@ export type GamecenterBoxscoreFinishedGame = GamecenterBaseResponse & {
 export type GamecenterBoxscoreFutureGame = GamecenterBaseResponse & {
   readonly awayTeam: GamecenterBaseTeam;
   readonly homeTeam: GamecenterBaseTeam;
-  readonly gameState: "FUT";
+  readonly gameState: "FUT" | "PRE";
 };
 
 export type GamecenterBoxscoreLiveGame = GamecenterBaseResponse & {
@@ -85,7 +85,7 @@ export type GamecenterLandingFinishedGame = GamecenterBaseResponse & {
 };
 
 export type GamecenterLandingFutureGame = GamecenterBaseResponse & {
-  readonly gameState: "FUT";
+  readonly gameState: "FUT" | "PRE";
   readonly awayTeam: GamecenterBaseTeam;
   readonly homeTeam: GamecenterBaseTeam;
 };
@@ -165,7 +165,7 @@ type GamecenterLandingSummary = {
 export const isFutureGamecenterResponse = (
   response: GamecenterBaseResponse
 ): response is GamecenterBoxscoreFutureGame | GamecenterLandingFutureGame =>
-  response.gameState === "FUT";
+  response.gameState === "FUT" || response.gameState === "PRE";
 
 export const isFinishedGamecenterResponse = (
   response: GamecenterBaseResponse
