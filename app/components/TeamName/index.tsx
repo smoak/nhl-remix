@@ -20,7 +20,7 @@ export const TeamName = ({
   if (isGoaliePulled) {
     return (
       <p className="mt-1 whitespace-nowrap text-sm font-semibold">
-        {name} <span className="italic text-red-500">EN</span>
+        {name} <span className="italic text-red-700">EN</span>
       </p>
     );
   }
