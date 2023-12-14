@@ -1,3 +1,4 @@
+import { StartTime } from "~/components/StartTime";
 import { TeamInfo } from "~/components/TeamInfo";
 import type { ScheduledGame } from "~/components/types";
 
@@ -19,9 +20,7 @@ export const ScheduledGameCardContents = ({
       />
       <div className="mt-3 flex flex-1">
         <p className="flex-1 whitespace-nowrap px-3 pt-1.5 text-center uppercase">
-          {new Intl.DateTimeFormat("en-US", { timeStyle: "short" }).format(
-            new Date(game.startTime)
-          )}
+          <StartTime date={new Date(game.startTime)} />
         </p>
       </div>
       <TeamInfo
