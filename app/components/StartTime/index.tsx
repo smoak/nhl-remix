@@ -1,28 +1,30 @@
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
+import { useHydration } from "~/hooks/useHydration";
 
 export type StartTimeProps = {
   readonly date: Date;
 };
 
-const useFormattedTime = (initialDate: Date) => {
-  const [formattedTime, setFormattedTime] = useState(initialDate.toISOString());
+const useLocales = (): string[] => {
+  const [locales, setLocales] = useState(["en"]);
 
-  // See
-  // https://remix.run/docs/en/main/guides/constraints#rendering-with-browser-only-apis
   useEffect(() => {
-    const languages = [...window.navigator.languages];
-    setFormattedTime(
-      new Intl.DateTimeFormat(languages, { timeStyle: "short" }).format(
-        initialDate
-      )
-    );
-  }, [initialDate]);
+    setLocales([...window.navigator.languages]);
+  }, []);
 
-  return formattedTime;
+  return locales;
 };
 
 export const StartTime = ({ date }: StartTimeProps) => {
-  const formattedTime = useFormattedTime(date);
+  const iso = date.toISOString();
+  const hydrated = useHydration();
+  const locales = useLocales();
 
-  return <time dateTime={date.toISOString()}>{formattedTime}</time>;
+  return (
+    <Suspense key={hydrated ? "local" : "utc"}>
+      <time dateTime={iso} title={iso}>
+        {new Intl.DateTimeFormat(locales, { timeStyle: "short" }).format(date)}
+      </time>
+    </Suspense>
+  );
 };
