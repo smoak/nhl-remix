@@ -19,7 +19,7 @@ export const ScheduledGameCardContents = ({
         teamRecord={game.homeTeam.record}
       />
       <div className="mt-3 flex flex-1">
-        <p className="flex-1 whitespace-nowrap px-3 pt-1.5 text-center uppercase">
+        <p className="flex flex-1 justify-center whitespace-nowrap px-3 pt-1.5 text-center uppercase">
           <StartTime date={new Date(game.startTime)} />
         </p>
       </div>

@@ -16,7 +16,7 @@ export const TeamInfo = ({
   teamName,
   teamRecord,
 }: TeamInfoProps) => (
-  <div className="flex w-1/3 w-16 flex-col items-center text-center">
+  <div className="flex w-1/3 flex-col items-center text-center">
     <TeamLogo teamAbbreviation={teamAbbrev} teamName={teamName} size="lg" />
     <TeamName
       isGoaliePulled={isGoaliePulled}
