@@ -165,9 +165,11 @@ export type StandingsRecord = {
   readonly teamName: string;
   readonly gamesPlayed: number;
   readonly wins: number;
+  readonly regulationWins: number;
   readonly losses: number;
   readonly otLosses: number;
   readonly points: number;
+  readonly pointsPercentage: number;
   readonly division: "Pacific" | "Atlantic" | "Metropolitan" | "Central";
   readonly conference: "Western" | "Eastern";
 };
@@ -175,6 +177,19 @@ export type StandingsRecord = {
 export type Standings = {
   readonly conference: ConferenceStandings;
   readonly division: DivisionStandings;
+};
+
+export type WildCardStandings = {
+  readonly east: {
+    readonly atlantic: StandingsRecord[];
+    readonly metropolitan: StandingsRecord[];
+    readonly wildCard: StandingsRecord[];
+  };
+  readonly west: {
+    readonly central: StandingsRecord[];
+    readonly pacific: StandingsRecord[];
+    readonly wildCard: StandingsRecord[];
+  };
 };
 
 export type DivisionStandings = {

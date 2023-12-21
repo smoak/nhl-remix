@@ -15,6 +15,8 @@ const normalizeStanding = (s: ApiStandings): StandingsRecord => {
     wins: s.wins,
     conference: s.conferenceName,
     division: s.divisionName,
+    regulationWins: s.regulationWins,
+    pointsPercentage: s.pointPctg,
   };
 };
 

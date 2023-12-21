@@ -20,6 +20,11 @@ export type Standings = {
   readonly wins: number;
   readonly ties: number;
   readonly points: number;
+  readonly pointPctg: number;
+  readonly regulationPlusOtWinPctg: number;
+  readonly regulationPlusOtWins: number;
+  readonly regulationWinPctg: number;
+  readonly regulationWins: number;
   readonly losses: number;
   readonly otLosses: number;
 };
