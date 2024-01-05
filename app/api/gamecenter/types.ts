@@ -6,10 +6,16 @@ import type {
   PeriodDescriptor,
 } from "../types";
 
+type I18NString = {
+  readonly default: string;
+  readonly cs?: string;
+  readonly sk?: string;
+};
+
 export type GamecenterBaseTeam = {
   readonly id: number;
   readonly abbrev: string;
-  readonly name: { readonly default: string };
+  readonly name: I18NString;
   readonly logo: string;
 };
 
@@ -116,8 +122,8 @@ type GamecenterLandingSummaryLinescore = {
 
 export type GamecenterLandingSummaryScoringGoalAssist = {
   readonly playerId: number;
-  readonly firstName: string;
-  readonly lastName: string;
+  readonly firstName: I18NString;
+  readonly lastName: I18NString;
   readonly assistsToDate: number;
 };
 
@@ -125,16 +131,16 @@ export type GamecenterLandingSummaryScoringGoal = {
   readonly situationCode: string;
   readonly strength: "ev" | "pp" | "sh";
   readonly playerId: number;
-  readonly firstName: string;
-  readonly lastName: string;
-  readonly name: string;
-  readonly teamAbbrev: string;
+  readonly firstName: I18NString;
+  readonly lastName: I18NString;
+  readonly name: I18NString;
+  readonly teamAbbrev: I18NString;
   readonly headshot: string;
   readonly highlightClip?: number;
   readonly goalsToDate: number;
   readonly awayScore: number;
   readonly homeScore: number;
-  readonly leadingTeamAbbrev?: string;
+  readonly leadingTeamAbbrev?: I18NString;
   readonly timeInPeriod: string;
   readonly shotType: string;
   readonly goalModifier: string;

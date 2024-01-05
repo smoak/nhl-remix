@@ -122,9 +122,9 @@ const normalizeAssist = (
   }
 
   return {
-    firstName: assist.firstName,
+    firstName: assist.firstName.default,
     id: assist.playerId,
-    lastName: assist.lastName,
+    lastName: assist.lastName.default,
     seasonAssists: assist.assistsToDate,
   };
 };
@@ -137,17 +137,17 @@ const normalizeGoal = (
   return {
     awayScore: g.awayScore,
     goalScorer: {
-      firstName: g.firstName,
+      firstName: g.firstName.default,
       id: g.playerId,
-      lastName: g.lastName,
+      lastName: g.lastName.default,
       seasonGoals: g.goalsToDate,
-      name: g.name,
+      name: g.name.default,
       headshot: g.headshot,
     },
     highlightClip: g.highlightClip,
     homeScore: g.homeScore,
-    leadingTeamAbbrev: g.leadingTeamAbbrev,
-    teamAbbrev: g.teamAbbrev,
+    leadingTeamAbbrev: g.leadingTeamAbbrev?.default,
+    teamAbbrev: g.teamAbbrev.default,
     period,
     goalType,
     timeInPeriod: g.timeInPeriod,
