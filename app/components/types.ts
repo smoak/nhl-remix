@@ -177,6 +177,7 @@ export type StandingsRecord = {
 export type Standings = {
   readonly conference: ConferenceStandings;
   readonly division: DivisionStandings;
+  readonly league: StandingsRecord[];
 };
 
 export type WildCardStandings = {

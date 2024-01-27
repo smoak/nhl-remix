@@ -15,7 +15,9 @@ type CellProps = {
 const Cell = ({ children, className }: CellProps) => {
   return (
     <div
-      className={`${className} table-cell border-b border-black align-middle`}
+      className={`${
+        className != null ? className : ""
+      } table-cell border-b border-black align-middle`}
     >
       {children}
     </div>
