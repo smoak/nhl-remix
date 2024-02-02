@@ -11,7 +11,7 @@ export const LiveGameCardContents = ({ game }: LiveGameCardContentsProps) => {
   return (
     <>
       <TeamInfo
-        teamAbbrev={game.homeTeam.abbreviation}
+        logoUrl={game.homeTeam.logo}
         teamName={game.homeTeam.name}
         isGoaliePulled={game.gameSituation.homeTeam === "en"}
         isOnPowerPlay={game.gameSituation.homeTeam === "pp"}
@@ -30,7 +30,7 @@ export const LiveGameCardContents = ({ game }: LiveGameCardContentsProps) => {
         <TeamScore score={game.gameStats.awayTeam.score} />
       </div>
       <TeamInfo
-        teamAbbrev={game.awayTeam.abbreviation}
+        logoUrl={game.awayTeam.logo}
         teamName={game.awayTeam.name}
         isGoaliePulled={game.gameSituation.awayTeam === "en"}
         isOnPowerPlay={game.gameSituation.awayTeam === "pp"}

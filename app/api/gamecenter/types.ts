@@ -84,7 +84,7 @@ export type GamecenterBoxscoreLiveGame = GamecenterBaseResponse & {
 };
 
 export type GamecenterLandingFinishedGame = GamecenterBaseResponse & {
-  readonly gameState: "OFF";
+  readonly gameState: "OFF" | "FINAL";
   readonly homeTeam: GamecenterLandingFinishedTeam;
   readonly awayTeam: GamecenterLandingFinishedTeam;
   readonly summary: GamecenterLandingSummary;

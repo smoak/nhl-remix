@@ -7,6 +7,7 @@ import type { Standings, StandingsRecord } from "~/components/types";
 const normalizeStanding = (s: ApiStandings): StandingsRecord => {
   return {
     teamAbbrev: s.teamAbbrev.default,
+    teamLogoUrl: s.teamLogo,
     gamesPlayed: s.gamesPlayed,
     losses: s.losses,
     otLosses: s.otLosses,

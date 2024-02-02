@@ -11,7 +11,7 @@ export const FinalGameCardContents = ({ game }: FinalGameCardContentsProps) => {
   return (
     <>
       <TeamInfo
-        teamAbbrev={game.homeTeam.abbreviation}
+        logoUrl={game.homeTeam.logo}
         teamName={game.homeTeam.name}
         isGoaliePulled={false}
         isOnPowerPlay={false}
@@ -28,7 +28,7 @@ export const FinalGameCardContents = ({ game }: FinalGameCardContentsProps) => {
         <TeamScore score={game.gameStats.awayTeam.score} />
       </div>
       <TeamInfo
-        teamAbbrev={game.awayTeam.abbreviation}
+        logoUrl={game.awayTeam.logo}
         teamName={game.awayTeam.name}
         isGoaliePulled={false}
         isOnPowerPlay={false}

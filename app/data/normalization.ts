@@ -37,6 +37,7 @@ const normalizeTeam: NormalizeTeam = (team, record) => {
     id: team.id,
     name: team.name.default,
     record,
+    logo: team.logo,
   };
 };
 

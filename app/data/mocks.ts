@@ -25,6 +25,7 @@ export const createScoringPlay = (
     period: 1,
     timeInPeriod: "10:00",
     goalType: "ev",
+    teamLogoUrl: "teamLogoUrl",
     ...overrides,
   };
 };
@@ -32,6 +33,7 @@ export const createScoringPlay = (
 export const createTeam = (overrides?: Partial<Team>): Team => {
   return {
     abbreviation: "VAN",
+    logo: "https://picsum.photos/200",
     id: 23,
     name: "Canucks",
     record: "0-0",

@@ -5,7 +5,7 @@ describe("TeamInfo", () => {
   beforeEach(() => {
     render(
       <TeamInfo
-        teamAbbrev="VAN"
+        logoUrl="logoUrl"
         teamName="Canucks"
         teamRecord="35-28-10"
         isGoaliePulled={false}

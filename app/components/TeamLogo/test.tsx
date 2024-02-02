@@ -4,7 +4,7 @@ import { TeamLogo } from "./index";
 describe("TeamLogo", () => {
   describe("when there is a logo for the team", () => {
     beforeEach(() => {
-      render(<TeamLogo teamAbbreviation="VAN" teamName="Canucks" />);
+      render(<TeamLogo logoUrl="logoUrl" teamName="Canucks" />);
     });
 
     it("renders the team logo", () => {

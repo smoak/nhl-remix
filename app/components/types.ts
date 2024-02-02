@@ -19,6 +19,7 @@ export type ScoringPlay = {
     readonly headshot: string;
   };
   readonly teamAbbrev: string;
+  readonly teamLogoUrl: string;
   readonly highlightClip?: number;
   readonly awayScore: number;
   readonly homeScore: number;
@@ -92,6 +93,7 @@ export type Team = {
   readonly id: number;
   readonly name: string;
   readonly record: string;
+  readonly logo: string;
 };
 
 export type TeamRecords = Record<string, string>;
@@ -163,6 +165,7 @@ export type TeamAbbreviation =
 export type StandingsRecord = {
   readonly teamAbbrev: string;
   readonly teamName: string;
+  readonly teamLogoUrl: string;
   readonly gamesPlayed: number;
   readonly wins: number;
   readonly regulationWins: number;

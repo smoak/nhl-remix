@@ -54,7 +54,7 @@ export const StandingsSection = ({
               <Cell className="w-1/4">
                 <div className="flex items-center justify-center gap-2">
                   <TeamLogo
-                    teamAbbreviation={s.teamAbbrev}
+                    logoUrl={s.teamLogoUrl}
                     teamName={s.teamName}
                     size="sm"
                   />

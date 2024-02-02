@@ -1,7 +1,7 @@
 import type { Sizes } from "../sizes";
 
 export type TeamLogoProps = {
-  readonly teamAbbreviation: string;
+  readonly logoUrl: string;
   readonly teamName: string;
   readonly size?: Sizes;
 };
@@ -21,11 +21,7 @@ const heightVariants: SizeMap = {
   sm: "32px",
 };
 
-export const TeamLogo = ({
-  teamAbbreviation,
-  teamName,
-  size = "sm",
-}: TeamLogoProps) => {
+export const TeamLogo = ({ logoUrl, teamName, size = "sm" }: TeamLogoProps) => {
   const sizeVariants: SizeMap = {
     lg: "h-16 w-16",
     md: "h-12 w-12",
@@ -35,7 +31,7 @@ export const TeamLogo = ({
   return (
     <img
       alt={`${teamName} logo`}
-      src={`https://assets.nhle.com/logos/nhl/svg/${teamAbbreviation}_light.svg`}
+      src={logoUrl}
       className={`${sizeVariants[size]}`}
       width={widthVariants[size]}
       height={heightVariants[size]}

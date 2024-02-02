@@ -17,6 +17,10 @@ export type Standings = {
   readonly teamName: {
     readonly default: string;
   };
+  readonly teamCommonName: {
+    readonly default: string;
+  };
+  readonly teamLogo: string;
   readonly wins: number;
   readonly ties: number;
   readonly points: number;

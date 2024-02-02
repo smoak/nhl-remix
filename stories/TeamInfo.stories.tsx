@@ -14,7 +14,7 @@ export const Default: Story = {
   args: {
     isGoaliePulled: false,
     isOnPowerPlay: false,
-    teamAbbrev: "VAN",
+    logoUrl: "https://assets.nhle.com/logos/nhl/svg/VAN_light.svg",
     teamName: "Canucks",
   },
 };
@@ -23,7 +23,7 @@ export const PowerPlay: Story = {
   args: {
     isGoaliePulled: false,
     isOnPowerPlay: true,
-    teamAbbrev: "VAN",
+    logoUrl: "https://assets.nhle.com/logos/nhl/svg/VAN_light.svg",
     teamName: "Canucks",
   },
 };
@@ -32,7 +32,7 @@ export const EmptyNet: Story = {
   args: {
     isGoaliePulled: true,
     isOnPowerPlay: false,
-    teamAbbrev: "VAN",
+    logoUrl: "https://assets.nhle.com/logos/nhl/svg/VAN_light.svg",
     teamName: "Canucks",
   },
 };

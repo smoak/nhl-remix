@@ -14,7 +14,7 @@ export const TeamNameTableCell = ({
   return (
     <TableCell>
       <div className="flex">
-        <TeamLogo teamAbbreviation={team.abbreviation} teamName={team.name} />
+        <TeamLogo logoUrl={team.logo} teamName={team.name} />
         <div className="items-center px-2 text-left text-sm">
           {team.name}
           <p className="text-xs">{shotsOnGoal} SOG</p>

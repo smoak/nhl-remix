@@ -49,6 +49,7 @@ export const ScoringDetail = ({
     primaryAssist,
     secondaryAssist,
     teamAbbrev,
+    teamLogoUrl,
     goalType,
     highlightClip,
   } = scoringPlay;
@@ -70,7 +71,7 @@ export const ScoringDetail = ({
               <span className="flex flex-row items-center">
                 <TeamLogo
                   size="sm"
-                  teamAbbreviation={teamAbbrev}
+                  logoUrl={teamLogoUrl}
                   teamName={teamAbbrev}
                 />
                 <AssistInfo

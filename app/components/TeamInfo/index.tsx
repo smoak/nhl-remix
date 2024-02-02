@@ -4,7 +4,7 @@ import { TeamName } from "../TeamName";
 export type TeamInfoProps = {
   readonly isGoaliePulled: boolean;
   readonly isOnPowerPlay: boolean;
-  readonly teamAbbrev: string;
+  readonly logoUrl: string;
   readonly teamName: string;
   readonly teamRecord: string;
 };
@@ -12,12 +12,12 @@ export type TeamInfoProps = {
 export const TeamInfo = ({
   isGoaliePulled,
   isOnPowerPlay,
-  teamAbbrev,
+  logoUrl,
   teamName,
   teamRecord,
 }: TeamInfoProps) => (
   <div className="flex w-1/3 flex-col items-center text-center">
-    <TeamLogo teamAbbreviation={teamAbbrev} teamName={teamName} size="lg" />
+    <TeamLogo logoUrl={logoUrl} teamName={teamName} size="lg" />
     <TeamName
       isGoaliePulled={isGoaliePulled}
       isOnPowerPlay={isOnPowerPlay}

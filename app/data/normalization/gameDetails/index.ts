@@ -33,6 +33,7 @@ const normalizeBaseTeam = (team: GamecenterBaseTeam): Team => {
     id: team.id,
     name: team.name.default,
     record: "",
+    logo: team.logo,
   };
 };
 
@@ -129,10 +130,16 @@ const normalizeAssist = (
   };
 };
 
-const normalizeGoal = (
-  g: GamecenterLandingSummaryScoringGoal,
-  period: number
-): ScoringPlay => {
+type NormalizeGoalOptions = {
+  readonly goal: GamecenterLandingSummaryScoringGoal;
+  readonly period: number;
+  readonly scoringTeam: GamecenterBaseTeam;
+};
+const normalizeGoal = ({
+  goal: g,
+  period,
+  scoringTeam,
+}: NormalizeGoalOptions): ScoringPlay => {
   const goalType = g.goalModifier === "empty-net" ? "en" : g.strength;
   return {
     awayScore: g.awayScore,
@@ -147,8 +154,9 @@ const normalizeGoal = (
     highlightClip: g.highlightClip,
     homeScore: g.homeScore,
     leadingTeamAbbrev: g.leadingTeamAbbrev?.default,
-    teamAbbrev: g.teamAbbrev.default,
     period,
+    teamAbbrev: g.teamAbbrev.default,
+    teamLogoUrl: scoringTeam.logo,
     goalType,
     timeInPeriod: g.timeInPeriod,
     primaryAssist: normalizeAssist(g.assists[0]),
@@ -165,7 +173,14 @@ const normalizeScoringPlays = (
 
   return response.summary.scoring.reduce<ScoringPlays>((accum, scoring) => {
     accum[scoring.period] = scoring.goals.map((g) =>
-      normalizeGoal(g, scoring.period)
+      normalizeGoal({
+        goal: g,
+        period: scoring.period,
+        scoringTeam:
+          g.teamAbbrev.default === response.awayTeam.abbrev
+            ? response.awayTeam
+            : response.homeTeam,
+      })
     );
     return accum;
   }, {});
