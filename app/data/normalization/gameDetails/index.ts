@@ -56,7 +56,7 @@ const normalizeFinishedGame = (
   return {
     awayTeam: normalizeBaseTeam(game.awayTeam),
     homeTeam: normalizeBaseTeam(game.homeTeam),
-    endedInPeriod: game.period,
+    endedInPeriod: game.periodDescriptor.number,
     gameState: "Final",
     gameStats: {
       awayTeam: {
@@ -79,7 +79,7 @@ const normalizeLiveGame = (game: GamecenterBoxscoreLiveGame): LiveGame => {
   return {
     awayTeam: normalizeBaseTeam(game.awayTeam),
     gameClock: {
-      currentPeriod: game.period,
+      currentPeriod: game.periodDescriptor.number,
       isIntermission: game.clock.inIntermission,
       timeRemaining: game.clock.timeRemaining,
     },
@@ -111,7 +111,7 @@ const normalizePeriodSummaries = (
   return response.summary.linescore.byPeriod.map((p) => ({
     awayScore: p.away,
     homeScore: p.home,
-    periodNumber: p.period,
+    periodNumber: p.periodDescriptor.number,
   }));
 };
 
@@ -172,10 +172,11 @@ const normalizeScoringPlays = (
   }
 
   return response.summary.scoring.reduce<ScoringPlays>((accum, scoring) => {
-    accum[scoring.period] = scoring.goals.map((g) =>
+    const { number: period } = scoring.periodDescriptor;
+    accum[period] = scoring.goals.map((g) =>
       normalizeGoal({
         goal: g,
-        period: scoring.period,
+        period,
         scoringTeam:
           g.teamAbbrev.default === response.awayTeam.abbrev
             ? response.awayTeam

@@ -58,7 +58,6 @@ type GamecenterLandingFinishedTeam = GamecenterBaseTeam & {
 export type GamecenterBoxscoreFinishedGame = GamecenterBaseResponse & {
   readonly awayTeam: GamecenterBoxscoreFinishedTeam;
   readonly homeTeam: GamecenterBoxscoreFinishedTeam;
-  readonly period: number;
   readonly periodDescriptor: PeriodDescriptor;
   readonly gameState: "OFF" | "FINAL";
   readonly gameVideo?: {
@@ -77,7 +76,6 @@ export type GamecenterBoxscoreLiveGame = GamecenterBaseResponse & {
   readonly gameState: "LIVE" | "CRIT";
   readonly awayTeam: GamecenterBoxscoreLiveTeam;
   readonly homeTeam: GamecenterBoxscoreLiveTeam;
-  readonly period: number;
   readonly periodDescriptor: PeriodDescriptor;
   readonly clock: GamecenterBoxscoreClock;
   readonly situation?: GameSituation;
@@ -106,7 +104,6 @@ export type GamecenterLandingResponse =
   | GamecenterLandingFutureGame;
 
 type GamecenterLandingSummaryLinescorePeriod = {
-  readonly period: number;
   readonly periodDescriptor: PeriodDescriptor;
   readonly away: number;
   readonly home: number;
@@ -148,7 +145,6 @@ export type GamecenterLandingSummaryScoringGoal = {
 };
 
 export type GamecenterLandingSummaryScoring = {
-  readonly period: number;
   readonly periodDescriptor: PeriodDescriptor;
   readonly goals: GamecenterLandingSummaryScoringGoal[];
 };
