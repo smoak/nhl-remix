@@ -77,7 +77,7 @@ export const WildCard = () => {
         standings={centralSection.division}
       />
       <StandingsSection
-        subheadingText="Paficic"
+        subheadingText="Pacific"
         standings={pacificSection.division}
       />
       <StandingsSection
