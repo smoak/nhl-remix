@@ -1,6 +1,6 @@
 import { OvertimePeriodScoringSummary } from "../OvertimePeriodScoringSummary";
 import { PeriodScoringSummary } from "../PeriodScoringSummary";
-import { type ScoringPlays } from "../types";
+import { type ScoringPlay, type ScoringPlays } from "../types";
 
 type ScoringSummaryProps = {
   readonly isScheduledGame: boolean;
@@ -18,6 +18,16 @@ export const ScoringSummary = ({
   const firstPeriod = scoringPlays[1] ?? [];
   const secondPeriod = scoringPlays[2] ?? [];
   const thirdPeriod = scoringPlays[3] ?? [];
+  const ot = Object.entries(scoringPlays).reduce<ScoringPlay | null>(
+    (accum, [period, scoringPlays]) => {
+      if (parseInt(period) > 3) {
+        return scoringPlays[0];
+      }
+
+      return accum;
+    },
+    null
+  );
 
   return (
     <div>
@@ -25,7 +35,7 @@ export const ScoringSummary = ({
       <PeriodScoringSummary periodNumber={1} scoringPlays={firstPeriod} />
       <PeriodScoringSummary periodNumber={2} scoringPlays={secondPeriod} />
       <PeriodScoringSummary periodNumber={3} scoringPlays={thirdPeriod} />
-      <OvertimePeriodScoringSummary scoringPlays={scoringPlays[4] ?? []} />
+      <OvertimePeriodScoringSummary scoringPlay={ot} />
     </div>
   );
 };

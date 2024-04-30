@@ -1,25 +1,22 @@
-import { GameSummaryTable } from "../GameSummaryTable";
-import type { Game, PeriodSummary } from "../types";
-import { isFinalGame, isLiveGame } from "../types";
-import { GameRecapButtons } from "./GameRecapButtons";
+import type { GameDetails } from "../types";
+import { ScoringSection } from "./ScoringSection";
+import { SummarySection } from "./SummarySection";
 
 type GameSummaryProps = {
-  readonly game: Game;
-  readonly periodSummaries: PeriodSummary[];
+  readonly gameDetails: GameDetails;
 };
 
-export const GameSummary = ({ game, periodSummaries }: GameSummaryProps) => {
-  if (!isLiveGame(game) && !isFinalGame(game)) {
+export const GameSummary = ({ gameDetails }: GameSummaryProps) => {
+  const { game, periodSummaries, scoringPlays } = gameDetails;
+
+  if (game.gameState === "Scheduled" || scoringPlays == null) {
     return <h1 className="text-2xl font-semibold">Game has not started.</h1>;
   }
 
   return (
-    <div>
-      <h1 className="text-2xl font-semibold">Game Summary</h1>
-      <div className="overflow-x-auto">
-        <GameSummaryTable game={game} periodSummaries={periodSummaries} />
-        <GameRecapButtons game={game} />
-      </div>
-    </div>
+    <>
+      <SummarySection game={game} periodSummaries={periodSummaries} />
+      <ScoringSection scoringPlays={scoringPlays} />
+    </>
   );
 };

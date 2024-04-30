@@ -10,6 +10,10 @@ import {
   type GamecenterBoxscoreLiveGame,
   type GamecenterLandingSummaryScoringGoal,
   type GamecenterLandingSummaryScoringGoalAssist,
+  type GamecenterLandingFinishedGame,
+  type GamecenterLandingSummaryScoring,
+  type GamecenterLandingFinishedTeam,
+  type GamecenterLandingLiveGame,
 } from "~/api/gamecenter/types";
 import type {
   FinalGame,
@@ -102,12 +106,8 @@ const normalizeLiveGame = (game: GamecenterBoxscoreLiveGame): LiveGame => {
 };
 
 const normalizePeriodSummaries = (
-  response: GamecenterLandingResponse
+  response: GamecenterLandingFinishedGame | GamecenterLandingLiveGame
 ): PeriodSummary[] => {
-  if (isFutureGamecenterResponse(response)) {
-    return [];
-  }
-
   return response.summary.linescore.byPeriod.map((p) => ({
     awayScore: p.away,
     homeScore: p.home,
@@ -164,61 +164,160 @@ const normalizeGoal = ({
   };
 };
 
-const normalizeScoringPlays = (
-  response: GamecenterLandingResponse
-): ScoringPlays => {
-  if (isFutureGamecenterResponse(response)) {
-    return {};
+type NormalizeScoringPlayOptions = {
+  readonly scoring: GamecenterLandingSummaryScoring;
+  readonly awayTeam: GamecenterLandingFinishedTeam;
+  readonly homeTeam: GamecenterLandingFinishedTeam;
+};
+const normalizeScoringPlay = ({
+  awayTeam,
+  homeTeam,
+  scoring,
+}: NormalizeScoringPlayOptions) => {
+  const { number: period } = scoring.periodDescriptor;
+
+  return scoring.goals.map((g) =>
+    normalizeGoal({
+      goal: g,
+      period,
+      scoringTeam:
+        g.teamAbbrev.default === awayTeam.abbrev ? awayTeam : homeTeam,
+    })
+  );
+};
+
+const normalizeOvertimeScoringPlay = (
+  otScoring: GamecenterLandingSummaryScoring | undefined,
+  response: GamecenterLandingFinishedGame | GamecenterLandingLiveGame
+): ScoringPlays["overtime"] => {
+  if (!otScoring) {
+    return;
   }
 
-  return response.summary.scoring.reduce<ScoringPlays>((accum, scoring) => {
-    const { number: period } = scoring.periodDescriptor;
-    accum[period] = scoring.goals.map((g) =>
-      normalizeGoal({
-        goal: g,
-        period,
-        scoringTeam:
-          g.teamAbbrev.default === response.awayTeam.abbrev
-            ? response.awayTeam
-            : response.homeTeam,
-      })
-    );
-    return accum;
-  }, {});
+  const overtime = normalizeScoringPlay({
+    scoring: otScoring,
+    awayTeam: response.awayTeam,
+    homeTeam: response.homeTeam,
+  });
+
+  return {
+    otPeriod: otScoring.periodDescriptor.number - 3,
+    scoringPlay: overtime[0],
+  };
 };
 
-type NormalizeGameDetailsOptions = {
-  readonly boxscore: GamecenterBoxscoreResponse;
-  readonly landing: GamecenterLandingResponse;
+const normalzieShootoutScoringPlay = (
+  scoring: GamecenterLandingSummaryScoring | undefined,
+  {
+    awayTeam,
+    homeTeam,
+  }: GamecenterLandingFinishedGame | GamecenterLandingLiveGame
+): ScoringPlays["shootout"] => {
+  if (!scoring) {
+    return;
+  }
+
+  return normalizeScoringPlay({ scoring, awayTeam, homeTeam })[0];
 };
+
+const normalizeScoringPlays = (
+  response: GamecenterLandingFinishedGame | GamecenterLandingLiveGame
+): ScoringPlays => {
+  const firstPeriod = response.summary.scoring
+    .filter((scoring) => scoring.periodDescriptor.number === 1)
+    .flatMap((scoring) => {
+      return normalizeScoringPlay({
+        scoring,
+        awayTeam: response.awayTeam,
+        homeTeam: response.homeTeam,
+      });
+    });
+  const secondPeriod = response.summary.scoring
+    .filter((scoring) => scoring.periodDescriptor.number === 2)
+    .flatMap((scoring) => {
+      return normalizeScoringPlay({
+        scoring,
+        awayTeam: response.awayTeam,
+        homeTeam: response.homeTeam,
+      });
+    });
+  const thirdPeriod = response.summary.scoring
+    .filter((scoring) => scoring.periodDescriptor.number === 3)
+    .flatMap((scoring) => {
+      return normalizeScoringPlay({
+        scoring,
+        awayTeam: response.awayTeam,
+        homeTeam: response.homeTeam,
+      });
+    });
+  const otScoring = response.summary.scoring.find(
+    (scoring) =>
+      scoring.periodDescriptor.periodType === "OT" && scoring.goals.length > 0
+  );
+  const soScoring = response.summary.scoring.find(
+    (s) => s.periodDescriptor.periodType === "SO"
+  );
+
+  return {
+    firstPeriod,
+    secondPeriod,
+    thirdPeriod,
+    overtime: normalizeOvertimeScoringPlay(otScoring, response),
+    shootout: normalzieShootoutScoringPlay(soScoring, response),
+  };
+};
+
+const normalizeGameFromBoxscore = (boxscore: GamecenterBoxscoreResponse) => {
+  if (isFutureGamecenterResponse(boxscore)) {
+    return normalizeFutureGame(boxscore);
+  }
+
+  if (isFinishedGamecenterResponse(boxscore)) {
+    return normalizeFinishedGame(boxscore);
+  }
+
+  return normalizeLiveGame(boxscore);
+};
+
+type NormalizeDetailsFromLanding = (
+  landing: GamecenterLandingResponse
+) => Omit<GameDetails, "game">;
+const normalizeDetailsFromLanding: NormalizeDetailsFromLanding = (landing) => {
+  if (isFutureGamecenterResponse(landing)) {
+    return {
+      periodSummaries: [],
+    };
+  }
+  const periodSummaries = normalizePeriodSummaries(landing);
+  const scoringPlays = normalizeScoringPlays(landing);
+
+  return {
+    periodSummaries,
+    scoringPlays,
+  };
+};
+
 type NormalizeGameDetails = (
-  options: NormalizeGameDetailsOptions
+  boxscore: GamecenterBoxscoreResponse,
+  landing: GamecenterLandingResponse
 ) => GameDetails;
-export const normalizeGameDetails: NormalizeGameDetails = ({
+export const normalizeGameDetails: NormalizeGameDetails = (
   boxscore,
-  landing,
-}) => {
+  landing
+) => {
   if (isFutureGamecenterResponse(boxscore)) {
     return {
       game: normalizeFutureGame(boxscore),
       periodSummaries: [],
-      scoringPlays: {},
     };
   }
 
-  const periodSummaries = normalizePeriodSummaries(landing);
-  const scoringPlays = normalizeScoringPlays(landing);
-
-  if (isFinishedGamecenterResponse(boxscore)) {
-    return {
-      game: normalizeFinishedGame(boxscore),
-      periodSummaries,
-      scoringPlays,
-    };
-  }
+  const game = normalizeGameFromBoxscore(boxscore);
+  const { periodSummaries, scoringPlays } =
+    normalizeDetailsFromLanding(landing);
 
   return {
-    game: normalizeLiveGame(boxscore),
+    game,
     periodSummaries,
     scoringPlays,
   };

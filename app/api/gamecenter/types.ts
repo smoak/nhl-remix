@@ -50,7 +50,7 @@ type GamecenterBoxscoreLiveTeam = GamecenterBaseTeam & {
   readonly sog: number;
 };
 
-type GamecenterLandingFinishedTeam = GamecenterBaseTeam & {
+export type GamecenterLandingFinishedTeam = GamecenterBaseTeam & {
   readonly score: number;
   readonly sog: number;
 };
@@ -88,11 +88,34 @@ export type GamecenterLandingFinishedGame = GamecenterBaseResponse & {
   readonly summary: GamecenterLandingSummary;
 };
 
+export type GamecenterLandingLiveGame = GamecenterBaseResponse & {
+  readonly gameState: "LIVE" | "CRIT";
+  readonly summary: GamecenterLandingSummary;
+  readonly homeTeam: GamecenterLandingFinishedTeam;
+  readonly awayTeam: GamecenterLandingFinishedTeam;
+};
+
 export type GamecenterLandingFutureGame = GamecenterBaseResponse & {
   readonly gameState: "FUT" | "PRE";
   readonly awayTeam: GamecenterBaseTeam;
   readonly homeTeam: GamecenterBaseTeam;
 };
+
+export type GamecenterCombinedFinishedResponse = {
+  readonly gameState: "OFF" | "FINAL";
+  readonly landing: GamecenterLandingFinishedGame;
+  readonly boxscore: GamecenterBoxscoreFinishedGame;
+};
+
+export type GamecenterCombinedFutureResponse = {
+  readonly gameState: "FUT" | "PRE";
+  readonly landing: GamecenterLandingFutureGame;
+  readonly boxscore: GamecenterBoxscoreFutureGame;
+};
+
+export type GamecenterCombinedResponse =
+  | GamecenterCombinedFinishedResponse
+  | GamecenterCombinedFutureResponse;
 
 export type GamecenterBoxscoreResponse =
   | GamecenterBoxscoreFinishedGame
@@ -101,7 +124,8 @@ export type GamecenterBoxscoreResponse =
 
 export type GamecenterLandingResponse =
   | GamecenterLandingFinishedGame
-  | GamecenterLandingFutureGame;
+  | GamecenterLandingFutureGame
+  | GamecenterLandingLiveGame;
 
 type GamecenterLandingSummaryLinescorePeriod = {
   readonly periodDescriptor: PeriodDescriptor;

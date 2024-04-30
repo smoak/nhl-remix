@@ -14,6 +14,7 @@ export const SCORE_URL = `${BASE_URL}/score`;
 type GetGamesByDate = (date: string) => Promise<Game[]>;
 export const getGamesByDate: GetGamesByDate = async (date) => {
   const url = new URL(`${SCORE_URL}/${date}`);
+  console.log("fetching", url.toString());
 
   const response = await fetch(url.toString());
   const { games } = (await response.json()) as ScoreResponse;
@@ -26,6 +27,7 @@ type GetGamecenterLanding = (
 ) => Promise<GamecenterLandingResponse | undefined>;
 export const getGamecenterLanding: GetGamecenterLanding = async (gameId) => {
   const url = new URL(`${GAME_CENTER_URL}/${gameId}/landing`);
+  console.log("fetching from", url.toString());
 
   const response = await fetch(url.toString());
   const gamecenterResponse =
@@ -39,6 +41,7 @@ type GetGamecenterBoxscore = (
 ) => Promise<GamecenterBoxscoreResponse | undefined>;
 export const getGamecenterBoxscore: GetGamecenterBoxscore = async (gameId) => {
   const url = new URL(`${GAME_CENTER_URL}/${gameId}/boxscore`);
+  console.log("fetching from", url.toString());
   const response = await fetch(url.toString());
 
   const gamecenterResponse =

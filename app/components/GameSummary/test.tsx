@@ -7,7 +7,7 @@ describe("GameSummary", () => {
     const game = createScheduledGame();
 
     beforeEach(() => {
-      render(<GameSummary game={game} periodSummaries={[]} />);
+      render(<GameSummary gameDetails={{ game, periodSummaries: [] }} />);
     });
 
     it("should render correctly", () => {

@@ -114,7 +114,18 @@ export const isScheduledGame = (g: Game): g is ScheduledGame => {
   return g.gameState === "Scheduled";
 };
 
-export type ScoringPlays = Record<number, ScoringPlay[]>;
+export type OvertimeScoringPlay = {
+  readonly otPeriod: number;
+  readonly scoringPlay: ScoringPlay;
+};
+
+export type ScoringPlays = {
+  readonly firstPeriod: ScoringPlay[];
+  readonly secondPeriod: ScoringPlay[];
+  readonly thirdPeriod: ScoringPlay[];
+  readonly overtime?: OvertimeScoringPlay;
+  readonly shootout?: ScoringPlay;
+};
 
 export type PeriodSummary = {
   readonly homeScore: number;
@@ -124,7 +135,7 @@ export type PeriodSummary = {
 
 export type GameDetails = {
   readonly game: Game;
-  readonly scoringPlays: ScoringPlays;
+  readonly scoringPlays?: ScoringPlays;
   readonly periodSummaries: PeriodSummary[];
 };
 

@@ -59,6 +59,7 @@ export type PeriodType = "REG" | "SO" | "OT";
 export type PeriodDescriptor = {
   readonly number: number;
   readonly periodType: PeriodType;
+  readonly otPeriods?: number;
 };
 
 type GameOutcome = {
@@ -111,11 +112,24 @@ export type LiveGame = BaseGame & {
   readonly awayTeam: LiveTeam;
 };
 
+export type SeriesStatus = {
+  readonly round: number;
+  readonly seriesAbbrev: string;
+  readonly seriesLetter: string;
+  readonly neededToWin: number;
+  readonly topSeedTeamAbbrev: string;
+  readonly topSeedWins: number;
+  readonly bottomSeedTeamAbbrev: string;
+  readonly bottomSeedWins: number;
+  readonly gameNumberOfSeries: number;
+};
+
 export type FutureGame = BaseGame & {
   readonly homeTeam: FutureTeam;
   readonly awayTeam: FutureTeam;
   readonly gameState: "FUT" | "PRE";
   readonly ticketsLink: string;
+  readonly seriesStatus?: SeriesStatus;
 };
 
 export type FinishedGame = BaseGame & {
