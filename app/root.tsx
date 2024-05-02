@@ -1,3 +1,4 @@
+import nProgressStyles from "nprogress/nprogress.css";
 import { cssBundleHref } from "@remix-run/css-bundle";
 import {
   Links,
@@ -10,6 +11,7 @@ import {
 import type { MetaFunction, LinksFunction } from "@remix-run/node";
 import { Analytics } from "@vercel/analytics/react";
 import "~/tailwind.css";
+import { useNProgress } from "./hooks/useNProgress";
 
 export const meta: MetaFunction = () => {
   return [
@@ -21,10 +23,13 @@ export const meta: MetaFunction = () => {
 
 export const links: LinksFunction = () => [
   ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
+  { rel: "stylesheet", href: nProgressStyles },
   { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
 ];
 
-export default function App() {
+const App = () => {
+  useNProgress();
+
   return (
     <html lang="en">
       <head>
@@ -42,4 +47,6 @@ export default function App() {
       </body>
     </html>
   );
-}
+};
+
+export default App;
