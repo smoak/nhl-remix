@@ -18,6 +18,8 @@ import {
   type FutureGame,
   isLiveGame,
   type GameSituation as ApiGameSituation,
+  isPlayoffGame,
+  type SeriesStatus,
 } from "~/api/types";
 
 type NormalizeGames = (games: ApiGame[], teamRecords: TeamRecords) => Game[];
@@ -43,9 +45,16 @@ const normalizeTeam: NormalizeTeam = (team, record) => {
 
 type NormalizeScheduledGame = (game: FutureGame) => ScheduledGame;
 const normalizeScheduledGame: NormalizeScheduledGame = (game) => {
+  const homeRecord = isPlayoffGame(game)
+    ? playoffTeamRecord(game.homeTeam, game.seriesStatus)
+    : game.homeTeam.record;
+  const awayRecord = isPlayoffGame(game)
+    ? playoffTeamRecord(game.awayTeam, game.seriesStatus)
+    : game.awayTeam.record;
+
   return {
-    awayTeam: normalizeTeam(game.awayTeam, game.awayTeam.record),
-    homeTeam: normalizeTeam(game.homeTeam, game.homeTeam.record),
+    awayTeam: normalizeTeam(game.awayTeam, awayRecord),
+    homeTeam: normalizeTeam(game.homeTeam, homeRecord),
     id: game.id,
     isCurrentlyInProgress: false,
     startTime: game.startTimeUTC,
@@ -54,14 +63,32 @@ const normalizeScheduledGame: NormalizeScheduledGame = (game) => {
   };
 };
 
+const playoffTeamRecord = (
+  team: ApiTeam,
+  seriesStatus: SeriesStatus
+): string => {
+  if (team.abbrev === seriesStatus.bottomSeedTeamAbbrev) {
+    return [seriesStatus.bottomSeedWins, seriesStatus.topSeedWins].join("-");
+  }
+
+  return [seriesStatus.topSeedWins, seriesStatus.bottomSeedWins].join("-");
+};
+
 type NormalizeFinalGame = (
   game: FinishedGame,
   teamRecords: TeamRecords
 ) => FinalGame;
 const normalizeFinalGame: NormalizeFinalGame = (game, teamRecords) => {
+  const homeRecord = isPlayoffGame(game)
+    ? playoffTeamRecord(game.homeTeam, game.seriesStatus)
+    : teamRecords[game.homeTeam.abbrev];
+  const awayRecord = isPlayoffGame(game)
+    ? playoffTeamRecord(game.awayTeam, game.seriesStatus)
+    : teamRecords[game.awayTeam.abbrev];
+
   return {
-    awayTeam: normalizeTeam(game.awayTeam, teamRecords[game.awayTeam.abbrev]),
-    homeTeam: normalizeTeam(game.homeTeam, teamRecords[game.homeTeam.abbrev]),
+    awayTeam: normalizeTeam(game.awayTeam, awayRecord),
+    homeTeam: normalizeTeam(game.homeTeam, homeRecord),
     id: game.id,
     endedInPeriod: game.periodDescriptor.number,
     gameState: "Final",

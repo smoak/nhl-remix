@@ -124,15 +124,20 @@ export type SeriesStatus = {
   readonly gameNumberOfSeries: number;
 };
 
-export type FutureGame = BaseGame & {
+export type RegularSeasonFutureGame = BaseGame & {
   readonly homeTeam: FutureTeam;
   readonly awayTeam: FutureTeam;
   readonly gameState: "FUT" | "PRE";
   readonly ticketsLink: string;
-  readonly seriesStatus?: SeriesStatus;
 };
 
-export type FinishedGame = BaseGame & {
+export type PlayoffFutureGame = RegularSeasonFutureGame & {
+  readonly seriesStatus: SeriesStatus;
+};
+
+export type FutureGame = RegularSeasonFutureGame | PlayoffFutureGame;
+
+export type RegularSeasonFinishedGame = BaseGame & {
   readonly gameState: "OFF" | "FINAL";
   readonly periodDescriptor: PeriodDescriptor;
   readonly gameOutcome: GameOutcome;
@@ -140,6 +145,12 @@ export type FinishedGame = BaseGame & {
   readonly homeTeam: FinishedTeam;
   readonly awayTeam: FinishedTeam;
 };
+
+export type PlayoffFinishedGame = RegularSeasonFinishedGame & {
+  readonly seriesStatus: SeriesStatus;
+};
+
+export type FinishedGame = RegularSeasonFinishedGame | PlayoffFinishedGame;
 
 export type Game = FutureGame | FinishedGame | LiveGame;
 
@@ -184,3 +195,7 @@ export const isFinishedGame = (game: Game): game is FinishedGame =>
 
 export const isFutureGame = (game: Game): game is FutureGame =>
   game.gameState === "FUT" || game.gameState === "PRE";
+
+export const isPlayoffGame = (
+  game: FinishedGame | FutureGame
+): game is PlayoffFinishedGame | PlayoffFutureGame => game.gameType === 3;
