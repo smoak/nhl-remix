@@ -103,7 +103,7 @@ type BaseGame = {
   readonly gameCenterLink?: string;
 };
 
-export type LiveGame = BaseGame & {
+export type RegularSeasonLiveGame = BaseGame & {
   readonly gameState: "LIVE" | "CRIT";
   readonly periodDescriptor: PeriodDescriptor;
   readonly clock: GameClock;
@@ -111,6 +111,12 @@ export type LiveGame = BaseGame & {
   readonly homeTeam: LiveTeam;
   readonly awayTeam: LiveTeam;
 };
+
+export type PlayoffLiveGame = RegularSeasonLiveGame & {
+  readonly seriesStatus: SeriesStatus;
+};
+
+export type LiveGame = RegularSeasonLiveGame | PlayoffLiveGame;
 
 export type SeriesStatus = {
   readonly round: number;
@@ -197,5 +203,6 @@ export const isFutureGame = (game: Game): game is FutureGame =>
   game.gameState === "FUT" || game.gameState === "PRE";
 
 export const isPlayoffGame = (
-  game: FinishedGame | FutureGame
-): game is PlayoffFinishedGame | PlayoffFutureGame => game.gameType === 3;
+  game: FinishedGame | FutureGame | LiveGame
+): game is PlayoffFinishedGame | PlayoffFutureGame | PlayoffLiveGame =>
+  game.gameType === 3;

@@ -147,9 +147,16 @@ type NormalizeLiveGame = (
   teamRecords: TeamRecords
 ) => LiveGame;
 const normalizeLiveGame: NormalizeLiveGame = (game, teamRecords) => {
+  const homeRecord = isPlayoffGame(game)
+    ? playoffTeamRecord(game.homeTeam, game.seriesStatus)
+    : teamRecords[game.homeTeam.abbrev];
+  const awayRecord = isPlayoffGame(game)
+    ? playoffTeamRecord(game.awayTeam, game.seriesStatus)
+    : teamRecords[game.awayTeam.abbrev];
+
   return {
-    awayTeam: normalizeTeam(game.awayTeam, teamRecords[game.awayTeam.abbrev]),
-    homeTeam: normalizeTeam(game.homeTeam, teamRecords[game.homeTeam.abbrev]),
+    awayTeam: normalizeTeam(game.awayTeam, awayRecord),
+    homeTeam: normalizeTeam(game.homeTeam, homeRecord),
     id: game.id,
     gameState: "Live",
     type: ApiGameTypeToGameType[game.gameType],
