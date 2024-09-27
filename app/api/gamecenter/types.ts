@@ -127,14 +127,20 @@ export type GamecenterLandingResponse =
   | GamecenterLandingFutureGame
   | GamecenterLandingLiveGame;
 
-type GamecenterLandingSummaryLinescorePeriod = {
+export type GamecenterRightFailFinishedGame = {
+  readonly linescore: GamecenterRightRailLinescore;
+};
+
+export type GamecenterRightRailResponse = GamecenterRightFailFinishedGame;
+
+type GamecenterRightRailLinescorePeriod = {
   readonly periodDescriptor: PeriodDescriptor;
   readonly away: number;
   readonly home: number;
 };
 
-type GamecenterLandingSummaryLinescore = {
-  readonly byPeriod: GamecenterLandingSummaryLinescorePeriod[];
+type GamecenterRightRailLinescore = {
+  readonly byPeriod: GamecenterRightRailLinescorePeriod[];
   readonly totals: {
     readonly away: number;
     readonly home: number;
@@ -174,7 +180,6 @@ export type GamecenterLandingSummaryScoring = {
 };
 
 type GamecenterLandingSummary = {
-  readonly linescore: GamecenterLandingSummaryLinescore;
   readonly scoring: GamecenterLandingSummaryScoring[];
   readonly shootout: object[];
   readonly threeStars: object[];

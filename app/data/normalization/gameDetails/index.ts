@@ -108,11 +108,29 @@ const normalizeLiveGame = (game: GamecenterBoxscoreLiveGame): LiveGame => {
 const normalizePeriodSummaries = (
   response: GamecenterLandingFinishedGame | GamecenterLandingLiveGame
 ): PeriodSummary[] => {
-  return response.summary.linescore.byPeriod.map((p) => ({
-    awayScore: p.away,
-    homeScore: p.home,
-    periodNumber: p.periodDescriptor.number,
-  }));
+  const awayTeamAbbrev = response.awayTeam.abbrev;
+  return response.summary.scoring.map((s) => {
+    const { awayScore, homeScore } = s.goals.reduce(
+      (accum, g) => {
+        const isAwayTeamGoal = g.teamAbbrev.default === awayTeamAbbrev;
+
+        return {
+          homeScore: accum.homeScore + (isAwayTeamGoal ? 0 : 1),
+          awayScore: accum.awayScore + (isAwayTeamGoal ? 1 : 0),
+        };
+      },
+      {
+        awayScore: 0,
+        homeScore: 0,
+      }
+    );
+    return {
+      periodNumber: s.periodDescriptor.number,
+      awayScore,
+      homeScore,
+      periodType: s.periodDescriptor.periodType,
+    };
+  });
 };
 
 const normalizeAssist = (

@@ -60,6 +60,7 @@ export type PeriodDescriptor = {
   readonly number: number;
   readonly periodType: PeriodType;
   readonly otPeriods?: number;
+  readonly maxRegulationPeriods: number;
 };
 
 type GameOutcome = {

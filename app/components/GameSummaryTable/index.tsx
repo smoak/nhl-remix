@@ -18,7 +18,6 @@ export const GameSummaryTable = ({
       <LiveGameSummaryTable game={game} periodSummaries={periodSummaries} />
     );
   }
-
   return (
     <table className="my-5 min-w-full border border-black text-center text-nhl-gray-50 md:w-80 md:min-w-min lg:w-96">
       <thead className="bg-black font-bold">

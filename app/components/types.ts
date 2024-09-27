@@ -131,6 +131,7 @@ export type PeriodSummary = {
   readonly homeScore: number;
   readonly awayScore: number;
   readonly periodNumber: number;
+  readonly periodType: "REG" | "OT" | "SO";
 };
 
 export type GameDetails = {
