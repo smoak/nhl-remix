@@ -51,6 +51,7 @@ const normalizeFutureGame = (
     startTime: game.startTimeUTC,
     type: ApiGameTypeToGameType[game.gameType],
     gameState: "Scheduled",
+    isCancelled: game.gameScheduleState === "CNCL",
   };
 };
 

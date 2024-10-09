@@ -27,7 +27,7 @@ type GamecenterBaseResponse = {
   readonly venue: GameVenue;
   readonly startTimeUTC: string;
   readonly gameState: GameState;
-  readonly gameScheduleState: "OK";
+  readonly gameScheduleState: "OK" | "CNCL";
 };
 
 type GamecenterBoxscoreFinishedTeam = GamecenterBaseTeam & {
