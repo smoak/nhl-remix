@@ -60,6 +60,7 @@ const normalizeScheduledGame: NormalizeScheduledGame = (game) => {
     startTime: game.startTimeUTC,
     gameState: "Scheduled",
     type: ApiGameTypeToGameType[game.gameType],
+    isCancelled: game.gameScheduleState === "CNCL",
   };
 };
 

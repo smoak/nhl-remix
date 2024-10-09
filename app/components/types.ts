@@ -75,6 +75,7 @@ export type ScheduledGame =
   | BaseGame & {
       readonly gameState: "Scheduled";
       readonly startTime: string;
+      readonly isCancelled: boolean;
     };
 
 export type FinalGame =

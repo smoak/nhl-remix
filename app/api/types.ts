@@ -97,7 +97,7 @@ type BaseGame = {
   readonly easternUTCOffset: string;
   readonly venueUTCOffset: string;
   readonly gameState: GameState;
-  readonly gameScheduleState: "OK";
+  readonly gameScheduleState: "OK" | "CNCL";
   readonly tvBroadcasts: object[];
   readonly awayTeam: Team;
   readonly homeTeam: Team;
