@@ -1,4 +1,5 @@
 import type {
+  GameScheduleState,
   GameSituation,
   GameState,
   GameType,
@@ -27,7 +28,7 @@ type GamecenterBaseResponse = {
   readonly venue: GameVenue;
   readonly startTimeUTC: string;
   readonly gameState: GameState;
-  readonly gameScheduleState: "OK" | "CNCL";
+  readonly gameScheduleState: GameScheduleState;
 };
 
 type GamecenterBoxscoreFinishedTeam = GamecenterBaseTeam & {

@@ -20,6 +20,7 @@ export type ScheduleResponse = {
 };
 
 export type GameState = "FUT" | "OFF" | "FINAL" | "LIVE" | "PRE" | "CRIT";
+export type GameScheduleState = "OK" | "CNCL" | "PPD";
 
 type GameWeek = {
   readonly date: string;
@@ -97,7 +98,7 @@ type BaseGame = {
   readonly easternUTCOffset: string;
   readonly venueUTCOffset: string;
   readonly gameState: GameState;
-  readonly gameScheduleState: "OK" | "CNCL";
+  readonly gameScheduleState: GameScheduleState;
   readonly tvBroadcasts: object[];
   readonly awayTeam: Team;
   readonly homeTeam: Team;

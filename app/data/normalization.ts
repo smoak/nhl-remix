@@ -2,6 +2,7 @@ import type {
   FinalGame,
   Game,
   GameSituation,
+  GameState,
   GameType,
   LiveGame,
   ScheduledGame,
@@ -20,6 +21,7 @@ import {
   type GameSituation as ApiGameSituation,
   isPlayoffGame,
   type SeriesStatus,
+  type GameScheduleState,
 } from "~/api/types";
 
 type NormalizeGames = (games: ApiGame[], teamRecords: TeamRecords) => Game[];
@@ -58,9 +60,8 @@ const normalizeScheduledGame: NormalizeScheduledGame = (game) => {
     id: game.id,
     isCurrentlyInProgress: false,
     startTime: game.startTimeUTC,
-    gameState: "Scheduled",
+    gameState: normalizeFutureGameState(game.gameScheduleState),
     type: ApiGameTypeToGameType[game.gameType],
-    isCancelled: game.gameScheduleState === "CNCL",
   };
 };
 
@@ -105,6 +106,20 @@ const normalizeFinalGame: NormalizeFinalGame = (game, teamRecords) => {
     },
     type: ApiGameTypeToGameType[game.gameType],
   };
+};
+
+export const normalizeFutureGameState = (
+  gameScheduleState: GameScheduleState
+): Exclude<GameState, "Live" | "Final"> => {
+  if (gameScheduleState === "CNCL") {
+    return "Cancelled";
+  }
+
+  if (gameScheduleState === "PPD") {
+    return "Postponed";
+  }
+
+  return "Scheduled";
 };
 
 export const normalizeSituation = (

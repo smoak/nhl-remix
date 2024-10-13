@@ -28,6 +28,7 @@ import type {
 } from "~/components/types";
 import {
   ApiGameTypeToGameType,
+  normalizeFutureGameState,
   normalizeSituation,
 } from "~/data/normalization";
 
@@ -50,8 +51,7 @@ const normalizeFutureGame = (
     id: game.id,
     startTime: game.startTimeUTC,
     type: ApiGameTypeToGameType[game.gameType],
-    gameState: "Scheduled",
-    isCancelled: game.gameScheduleState === "CNCL",
+    gameState: normalizeFutureGameState(game.gameScheduleState),
   };
 };
 

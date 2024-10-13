@@ -105,7 +105,6 @@ export const createScheduledGame = (
     startTime: "2022-02-04T00:00:00Z",
     gameState: "Scheduled",
     type: "RegularSeason",
-    isCancelled: false,
     ...overrides,
   };
 };

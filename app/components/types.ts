@@ -30,7 +30,12 @@ export type ScoringPlay = {
 };
 
 export type GameType = "RegularSeason" | "PreSeason" | "Playoff";
-export type GameState = "Live" | "Scheduled" | "Final";
+export type GameState =
+  | "Live"
+  | "Scheduled"
+  | "Final"
+  | "Postponed"
+  | "Cancelled";
 
 type BaseGame = {
   readonly id: number;
@@ -73,9 +78,8 @@ export type LiveGame =
 
 export type ScheduledGame =
   | BaseGame & {
-      readonly gameState: "Scheduled";
+      readonly gameState: "Scheduled" | "Cancelled" | "Postponed";
       readonly startTime: string;
-      readonly isCancelled: boolean;
     };
 
 export type FinalGame =
@@ -112,7 +116,11 @@ export const isFinalGame = (g: Game): g is FinalGame => {
 };
 
 export const isScheduledGame = (g: Game): g is ScheduledGame => {
-  return g.gameState === "Scheduled";
+  return (
+    g.gameState === "Scheduled" ||
+    g.gameState === "Cancelled" ||
+    g.gameState === "Postponed"
+  );
 };
 
 export type OvertimeScoringPlay = {
