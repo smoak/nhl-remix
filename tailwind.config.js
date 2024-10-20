@@ -2,6 +2,9 @@ module.exports = {
   content: ["./app/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      animation: {
+        "kofi-wiggle": "kofi-wiggle 3s infinite",
+      },
       colors: {
         "nhl-ana": "#000000",
         "nhl-ari": "#6F263D",
@@ -51,6 +54,18 @@ module.exports = {
       },
       gridTemplateColumns: {
         "auto-fill": "repeat(auto-fill, minmax(300px, 1fr))",
+      },
+      keyframes: {
+        "kofi-wiggle": {
+          "0%": { transform: "rotate(0) scale(1)" },
+          "60%": { transform: "rotate(0) scale(1)" },
+          "75%": { transform: "rotate(0) scale(1.12)" },
+          "80%": { transform: "rotate(0) scale(1.1)" },
+          "84%": { transform: "rotate(-10deg) scale(1.1)" },
+          "88%": { transform: "rotate(10deg) scale(1.1)" },
+          "92%": { transform: "rotate(-10deg) scale(1.1)" },
+          "100%": { transform: "rotate(0) scale(1)" },
+        },
       },
     },
   },
