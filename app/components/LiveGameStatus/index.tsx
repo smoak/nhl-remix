@@ -1,10 +1,11 @@
 import { PeriodOrdinal } from "../PeriodOrdinal";
+import type { GameClock } from "../types";
+import { WhistleIcon } from "../WhistleIcon";
+import { ZambonieIcon } from "../ZambonieIcon";
 
 export type LiveGameStatusProps = {
   readonly isRegularSeasonGame: boolean;
-  readonly currentPeriod: number;
-  readonly currentPeriodTimeRemaining: string;
-  readonly isInIntermission: boolean;
+  readonly gameClock: GameClock;
 };
 
 const LiveIndicator = () => (
@@ -14,18 +15,52 @@ const LiveIndicator = () => (
   </span>
 );
 
+type ClockStatusIconProps = {
+  readonly isWhistle: boolean;
+  readonly isIntermission: boolean;
+};
+const ClockStatusIcon = ({
+  isWhistle,
+  isIntermission,
+}: ClockStatusIconProps) => {
+  if (isIntermission) {
+    return (
+      <span className="flex max-h-6 justify-center">
+        <ZambonieIcon />
+      </span>
+    );
+  }
+
+  if (isWhistle) {
+    return (
+      <span className="flex justify-center">
+        <WhistleIcon />
+      </span>
+    );
+  }
+
+  return null;
+};
+
 export const LiveGameStatus = ({
-  currentPeriod,
-  currentPeriodTimeRemaining,
+  gameClock,
   isRegularSeasonGame,
-  isInIntermission,
 }: LiveGameStatusProps) => {
-  const timeRemaining = isInIntermission ? "END" : currentPeriodTimeRemaining;
+  const { currentPeriod } = gameClock;
 
   if (currentPeriod < 4) {
     return (
       <>
-        <PeriodOrdinal period={currentPeriod} /> - {timeRemaining}
+        <span className="flex flex-row gap-1">
+          <span>
+            <PeriodOrdinal period={currentPeriod} />
+          </span>
+          {gameClock.isIntermission ? "END" : gameClock.timeRemaining}
+        </span>
+        <ClockStatusIcon
+          isIntermission={gameClock.isIntermission}
+          isWhistle={!gameClock.isRunning}
+        />
         <LiveIndicator />
       </>
     );
@@ -34,7 +69,7 @@ export const LiveGameStatus = ({
   if (currentPeriod === 4) {
     return (
       <>
-        OT - {timeRemaining}
+        OT - {gameClock.timeRemaining}
         <LiveIndicator />
       </>
     );
@@ -43,7 +78,7 @@ export const LiveGameStatus = ({
   if (isRegularSeasonGame) {
     return (
       <>
-        SO - {timeRemaining}
+        SO - {gameClock.timeRemaining}
         <LiveIndicator />
       </>
     );
@@ -53,7 +88,7 @@ export const LiveGameStatus = ({
 
   return (
     <>
-      {otPeriods}OT - {timeRemaining}
+      {otPeriods}OT - {gameClock.timeRemaining}
       <LiveIndicator />
     </>
   );

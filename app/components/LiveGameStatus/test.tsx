@@ -1,5 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { LiveGameStatus } from "./index";
+import type { GameClock } from "../types";
 
 describe("LiveGameStatus", () => {
   describe.each([
@@ -7,31 +8,39 @@ describe("LiveGameStatus", () => {
     [2, "2nd"],
     [3, "3rd"],
   ])("when the current period is %i", (periodNumber, expected) => {
+    const gameClock: GameClock = {
+      currentPeriod: periodNumber,
+      isIntermission: false,
+      isRunning: true,
+      timeRemaining: "02:00",
+    };
+
     beforeEach(() => {
       render(
-        <LiveGameStatus
-          currentPeriod={periodNumber}
-          currentPeriodTimeRemaining="02:00"
-          isRegularSeasonGame={true}
-          isInIntermission={false}
-        />
+        <LiveGameStatus gameClock={gameClock} isRegularSeasonGame={true} />
       );
     });
 
     it("displays the correct period with ordinal", () => {
-      expect(screen.getByText(`${expected} - 02:00`)).toBeInTheDocument();
+      expect(screen.getByText(`${expected}`)).toBeInTheDocument();
+    });
+
+    it("displays the correct time remaining", () => {
+      expect(screen.getByText("02:00")).toBeInTheDocument();
     });
   });
 
   describe("when the game is in overtime", () => {
+    const gameClock: GameClock = {
+      currentPeriod: 4,
+      isIntermission: false,
+      isRunning: true,
+      timeRemaining: "02:00",
+    };
+
     beforeEach(() => {
       render(
-        <LiveGameStatus
-          currentPeriod={4}
-          currentPeriodTimeRemaining="02:00"
-          isRegularSeasonGame={true}
-          isInIntermission={false}
-        />
+        <LiveGameStatus isRegularSeasonGame={true} gameClock={gameClock} />
       );
     });
 
@@ -41,14 +50,16 @@ describe("LiveGameStatus", () => {
   });
 
   describe("when the game is a regular season game and in a shootout", () => {
+    const gameClock: GameClock = {
+      currentPeriod: 5,
+      isIntermission: false,
+      isRunning: false,
+      timeRemaining: "00:00",
+    };
+
     beforeEach(() => {
       render(
-        <LiveGameStatus
-          currentPeriod={5}
-          currentPeriodTimeRemaining="00:00"
-          isRegularSeasonGame={true}
-          isInIntermission={false}
-        />
+        <LiveGameStatus isRegularSeasonGame={true} gameClock={gameClock} />
       );
     });
 
@@ -58,14 +69,16 @@ describe("LiveGameStatus", () => {
   });
 
   describe("when the game is a playoff game and past the first overtime", () => {
+    const gameClock: GameClock = {
+      currentPeriod: 5,
+      isIntermission: false,
+      isRunning: true,
+      timeRemaining: "02:00",
+    };
+
     beforeEach(() => {
       render(
-        <LiveGameStatus
-          currentPeriod={5}
-          currentPeriodTimeRemaining="02:00"
-          isRegularSeasonGame={false}
-          isInIntermission={false}
-        />
+        <LiveGameStatus isRegularSeasonGame={false} gameClock={gameClock} />
       );
     });
 

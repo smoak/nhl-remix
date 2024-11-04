@@ -52,6 +52,7 @@ export const createLiveGame = (overrides?: Partial<LiveGame>): LiveGame => {
       currentPeriod: 2,
       isIntermission: false,
       timeRemaining: "20:00",
+      isRunning: true,
     },
     gameSituation: {
       awayTeam: "even",

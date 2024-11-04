@@ -49,6 +49,7 @@ export type GameClock = {
   readonly currentPeriod: number;
   readonly timeRemaining: string;
   readonly isIntermission: boolean;
+  readonly isRunning: boolean;
 };
 
 export type TeamStats = {

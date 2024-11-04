@@ -1,11 +1,11 @@
 export const DonateButton = () => {
   return (
-    <div className="min-w-11 flex items-center">
+    <div className="flex min-w-11 items-center">
       <a
         href="https://ko-fi.com/sashamoak"
         target="_blank"
         rel="noreferrer noopener external"
-        className="min-w-36 flex items-center rounded-lg bg-[#29abe0] px-3 py-0.5 text-center text-white shadow"
+        className="flex min-w-36 items-center rounded-lg bg-[#29abe0] px-3 py-0.5 text-center text-white shadow"
       >
         <img
           alt=""

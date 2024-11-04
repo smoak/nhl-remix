@@ -1,8 +1,5 @@
-import nProgressStyles from "nprogress/nprogress.css";
-import { cssBundleHref } from "@remix-run/css-bundle";
 import {
   Links,
-  LiveReload,
   Meta,
   Outlet,
   Scripts,
@@ -22,9 +19,11 @@ export const meta: MetaFunction = () => {
 };
 
 export const links: LinksFunction = () => [
-  ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
-  { rel: "stylesheet", href: nProgressStyles },
   { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+  {
+    rel: "stylesheet",
+    href: "https://unpkg.com/nprogress@0.2.0/nprogress.css",
+  },
 ];
 
 const App = () => {
@@ -42,7 +41,6 @@ const App = () => {
         <Outlet />
         <ScrollRestoration />
         <Scripts />
-        <LiveReload />
         <Analytics />
       </body>
     </html>

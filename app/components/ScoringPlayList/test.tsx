@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
-import { ScoringPlayList } from ".";
-import { createScoringPlay } from "~/data/mocks";
+import { ScoringPlayList } from "./index.js";
+import { createScoringPlay } from "../../data/mocks";
 
 describe("ScoringPlayList", () => {
   describe("when there are no scoring plays", () => {

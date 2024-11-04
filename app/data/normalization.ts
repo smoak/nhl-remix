@@ -180,6 +180,7 @@ const normalizeLiveGame: NormalizeLiveGame = (game, teamRecords) => {
       currentPeriod: game.periodDescriptor.number,
       isIntermission: game.clock.inIntermission,
       timeRemaining: game.clock.timeRemaining,
+      isRunning: game.clock.running,
     },
     gameSituation: normalizeSituation(game.situation),
     gameStats: {
