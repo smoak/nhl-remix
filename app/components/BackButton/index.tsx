@@ -1,5 +1,5 @@
+import { ArrowLeftIcon } from "@heroicons/react/24/outline";
 import { useNavigate } from "@remix-run/react";
-import { ArrowIcon } from "../ArrowIcon";
 
 export const BackButton = () => {
   const navigate = useNavigate();
@@ -12,7 +12,7 @@ export const BackButton = () => {
       role="button"
       aria-labelledby="back-button-text"
     >
-      <ArrowIcon size={16} />
+      <ArrowLeftIcon className="w-4 text-black" title="Back" />
       <span id="back-button-text" className="pl-3 text-xl">
         Back
       </span>

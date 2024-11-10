@@ -1,7 +1,7 @@
 import { Link } from "@remix-run/react";
 import { format } from "date-fns";
 import { DATE_DISPLAY_FORMAT, DATE_LINK_FORMAT } from "~/date-fns";
-import { ArrowIcon } from "../ArrowIcon";
+import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/24/outline";
 
 type DateSelectorProps = {
   readonly day: Date;
@@ -15,13 +15,13 @@ export const DateSelector = ({ day, nextDay, prevDay }: DateSelectorProps) => {
 
   return (
     <div className="flex flex-col pb-4">
-      <div className="flex items-center justify-between gap-5 pt-4 sm:justify-start">
-        <Link prefetch="intent" className="p-2" to={prevDayLink}>
-          <ArrowIcon title="previous day" />
+      <div className="flex items-center justify-between gap-5 pt-4 md:justify-end">
+        <Link prefetch="intent" className="w-8 p-2" to={prevDayLink}>
+          <ArrowLeftIcon className="text-black" title="previous day" />
         </Link>
         {format(day, DATE_DISPLAY_FORMAT)}
-        <Link prefetch="intent" className="p-2" to={nextDayLink}>
-          <ArrowIcon className="rotate-180" title="next day" />
+        <Link prefetch="intent" className="w-8 p-2" to={nextDayLink}>
+          <ArrowRightIcon className="text-black" title="previous day" />
         </Link>
       </div>
     </div>
