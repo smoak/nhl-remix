@@ -1,18 +1,28 @@
-import { addDays, parseISO, subDays } from "date-fns";
-import { getToday } from "~/date-fns";
+import {
+  parseDate,
+  today,
+  CalendarDate,
+  DateDuration,
+} from "@internationalized/date";
 
 type Days = {
-  readonly prevDay: Date;
-  readonly nextDay: Date;
-  readonly day: Date;
+  readonly prevDay: string;
+  readonly nextDay: string;
+  readonly day: CalendarDate;
+};
+
+const oneDay: DateDuration = {
+  days: 1,
 };
 
 export const useDays = (date?: string): Days => {
-  const day = date ? parseISO(date) : getToday();
+  const day = date
+    ? parseDate(date)
+    : today(Intl.DateTimeFormat().resolvedOptions().timeZone);
 
   return {
     day,
-    prevDay: subDays(day, 1),
-    nextDay: addDays(day, 1),
+    prevDay: day.subtract(oneDay).toString(),
+    nextDay: day.add(oneDay).toString(),
   };
 };

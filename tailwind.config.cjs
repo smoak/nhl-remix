@@ -46,6 +46,12 @@ module.exports = {
           100: "#E3E4E6",
           200: "#E5E5E5",
         },
+        "nhl-blue": {
+          50: "#0055E9",
+          100: "#004DD2",
+          200: "#0044BA",
+          300: "#003BA3",
+        },
         blue: {
           1000: "#5963b3",
         },
@@ -70,5 +76,8 @@ module.exports = {
       },
     },
   },
-  plugins: [require("@headlessui/tailwindcss")],
+  plugins: [
+    require("@headlessui/tailwindcss"),
+    require("tailwindcss-react-aria-components"),
+  ],
 };
