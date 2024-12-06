@@ -16,8 +16,11 @@ type I18NString = {
 export type GamecenterBaseTeam = {
   readonly id: number;
   readonly abbrev: string;
-  readonly name: I18NString;
+  readonly commonName: I18NString;
+  readonly placeName: I18NString;
+  readonly placeNameWithPreposition: I18NString;
   readonly logo: string;
+  readonly darkLogo: string;
 };
 
 type GamecenterBaseResponse = {

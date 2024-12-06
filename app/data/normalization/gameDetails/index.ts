@@ -36,7 +36,7 @@ const normalizeBaseTeam = (team: GamecenterBaseTeam): Team => {
   return {
     abbreviation: team.abbrev,
     id: team.id,
-    name: team.name.default,
+    name: team.commonName.default,
     record: "",
     logo: team.logo,
   };
