@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { PlayCircleIcon } from "~/components/PlayCircleIcon";
 import { VideoPlayerDialog } from "~/components/VideoPlayerDialog";
-import { type Game, isFinalGame } from "~/components/types";
+import { type Game, GameRecapInfo, isFinalGame } from "~/components/types";
 
 type GameRecapButtonsProps = {
-  readonly game: Game;
+  readonly gameRecap?: GameRecapInfo;
 };
 
 type VideoPlayerState = {
@@ -12,21 +12,17 @@ type VideoPlayerState = {
   readonly clipId: number;
 };
 
-export const GameRecapButtons = ({ game }: GameRecapButtonsProps) => {
+export const GameRecapButtons = ({ gameRecap }: GameRecapButtonsProps) => {
   const [videoPlayerState, setVideoPlayerState] = useState<VideoPlayerState>({
     isOpen: false,
     clipId: 0,
   });
 
-  if (!isFinalGame(game)) {
+  if (!gameRecap) {
     return null;
   }
 
-  const { threeMinRecap, condensedGame } = game;
-
-  if (!threeMinRecap || !condensedGame) {
-    return null;
-  }
+  const { threeMinRecap, condensedGame } = gameRecap;
 
   const onCondensedGameClicked = () => {
     setVideoPlayerState({

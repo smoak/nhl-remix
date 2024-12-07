@@ -88,8 +88,6 @@ export type FinalGame =
       readonly gameState: "Final";
       readonly gameStats: GameStats;
       readonly endedInPeriod: number;
-      readonly threeMinRecap?: number;
-      readonly condensedGame?: number;
     };
 
 export type Game = LiveGame | ScheduledGame | FinalGame;
@@ -144,10 +142,16 @@ export type PeriodSummary = {
   readonly periodType: "REG" | "OT" | "SO";
 };
 
+export type GameRecapInfo = {
+  readonly condensedGame: number;
+  readonly threeMinRecap: number;
+};
+
 export type GameDetails = {
   readonly game: Game;
   readonly scoringPlays?: ScoringPlays;
   readonly periodSummaries: PeriodSummary[];
+  readonly gameRecap?: GameRecapInfo;
 };
 
 export type TeamAbbreviation =

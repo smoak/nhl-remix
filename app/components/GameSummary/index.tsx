@@ -27,7 +27,7 @@ const ScheduledGameSummary = ({ game }: ScheduledGameSummary) => {
 };
 
 export const GameSummary = ({ gameDetails }: GameSummaryProps) => {
-  const { game, periodSummaries, scoringPlays } = gameDetails;
+  const { game, gameRecap, periodSummaries, scoringPlays } = gameDetails;
 
   if (isScheduledGame(game)) {
     return <ScheduledGameSummary game={game} />;
@@ -39,7 +39,11 @@ export const GameSummary = ({ gameDetails }: GameSummaryProps) => {
 
   return (
     <>
-      <SummarySection game={game} periodSummaries={periodSummaries} />
+      <SummarySection
+        game={game}
+        periodSummaries={periodSummaries}
+        gameRecap={gameRecap}
+      />
       <ScoringSection scoringPlays={scoringPlays} />
     </>
   );

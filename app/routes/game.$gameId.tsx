@@ -7,7 +7,11 @@ import { BackButton } from "~/components/BackButton";
 import { GameCard } from "~/components/GameCard";
 import { GameSummary } from "~/components/GameSummary";
 import { useGameDetails } from "~/hooks/useGameDetails";
-import { getGamecenterBoxscore, getGamecenterLanding } from "~/api";
+import {
+  getGamecenterBoxscore,
+  getGamecenterLanding,
+  getGamecenterRightRail,
+} from "~/api";
 import { normalizeGameDetails } from "~/data/normalization/gameDetails";
 
 export const loader: LoaderFunction = async ({ params }) => {
@@ -20,19 +24,20 @@ export const loader: LoaderFunction = async ({ params }) => {
     });
   }
 
-  const [boxscore, landing] = await Promise.all([
+  const [boxscore, landing, rightRail] = await Promise.all([
     getGamecenterBoxscore(gameId),
     getGamecenterLanding(gameId),
+    getGamecenterRightRail(gameId),
   ]);
 
-  if (!boxscore || !landing) {
+  if (!boxscore || !landing || !rightRail) {
     throw new Response(null, {
       status: 404,
       statusText: "Not Found",
     });
   }
 
-  const gameDetails = normalizeGameDetails(boxscore, landing);
+  const gameDetails = normalizeGameDetails({ boxscore, landing, rightRail });
   return json<GameDetails>(gameDetails);
 };
 

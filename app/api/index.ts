@@ -3,6 +3,7 @@ import type { Game, ScoreResponse, ScoreboardResponse } from "~/api/types";
 import type {
   GamecenterBoxscoreResponse,
   GamecenterLandingResponse,
+  GamecenterRightRailResponse,
 } from "./gamecenter/types";
 
 export const BASE_URL = "https://api-web.nhle.com/v1";
@@ -46,6 +47,22 @@ export const getGamecenterBoxscore: GetGamecenterBoxscore = async (gameId) => {
 
   const gamecenterResponse =
     (await response.json()) as GamecenterBoxscoreResponse;
+
+  return gamecenterResponse;
+};
+
+type GetGamecenterRightRail = (
+  gameId: string
+) => Promise<GamecenterRightRailResponse | undefined>;
+export const getGamecenterRightRail: GetGamecenterRightRail = async (
+  gameId
+) => {
+  const url = new URL(`${GAME_CENTER_URL}/${gameId}/right-rail`);
+  console.log("fetching from", url.toString());
+  const response = await fetch(url.toString());
+
+  const gamecenterResponse =
+    (await response.json()) as GamecenterRightRailResponse;
 
   return gamecenterResponse;
 };

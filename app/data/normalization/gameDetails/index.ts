@@ -14,10 +14,13 @@ import {
   type GamecenterLandingSummaryScoring,
   type GamecenterLandingFinishedTeam,
   type GamecenterLandingLiveGame,
+  GamecenterRightRailResponse,
+  isFinishedGamecenterRightRailResponse,
 } from "~/api/gamecenter/types";
 import type {
   FinalGame,
   GameDetails,
+  GameRecapInfo,
   LiveGame,
   PeriodSummary,
   ScheduledGame,
@@ -75,8 +78,6 @@ const normalizeFinishedGame = (
     },
     id: game.id,
     type: ApiGameTypeToGameType[game.gameType],
-    condensedGame: game.gameVideo?.condensedGame,
-    threeMinRecap: game.gameVideo?.threeMinRecap,
   };
 };
 
@@ -317,14 +318,32 @@ const normalizeDetailsFromLanding: NormalizeDetailsFromLanding = (landing) => {
   };
 };
 
+const normalizeGameRecapInfoFromRightRail = (
+  rightRail: GamecenterRightRailResponse
+): GameRecapInfo | undefined => {
+  if (!isFinishedGamecenterRightRailResponse(rightRail)) {
+    return;
+  }
+
+  return {
+    condensedGame: rightRail.gameVideo.condensedGame,
+    threeMinRecap: rightRail.gameVideo.threeMinRecap,
+  };
+};
+
+type NormalizeGameDetailsOptions = {
+  readonly boxscore: GamecenterBoxscoreResponse;
+  readonly landing: GamecenterLandingResponse;
+  readonly rightRail: GamecenterRightRailResponse;
+};
 type NormalizeGameDetails = (
-  boxscore: GamecenterBoxscoreResponse,
-  landing: GamecenterLandingResponse
+  options: NormalizeGameDetailsOptions
 ) => GameDetails;
-export const normalizeGameDetails: NormalizeGameDetails = (
+export const normalizeGameDetails: NormalizeGameDetails = ({
   boxscore,
-  landing
-) => {
+  landing,
+  rightRail,
+}) => {
   if (isFutureGamecenterResponse(boxscore)) {
     return {
       game: normalizeFutureGame(boxscore),
@@ -335,10 +354,12 @@ export const normalizeGameDetails: NormalizeGameDetails = (
   const game = normalizeGameFromBoxscore(boxscore);
   const { periodSummaries, scoringPlays } =
     normalizeDetailsFromLanding(landing);
+  const gameRecap = normalizeGameRecapInfoFromRightRail(rightRail);
 
   return {
     game,
     periodSummaries,
     scoringPlays,
+    gameRecap,
   };
 };

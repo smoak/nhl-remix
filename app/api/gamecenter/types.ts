@@ -131,11 +131,39 @@ export type GamecenterLandingResponse =
   | GamecenterLandingFutureGame
   | GamecenterLandingLiveGame;
 
-export type GamecenterRightFailFinishedGame = {
+export type GamecenterRightRailResponseGameVideo = {
+  readonly threeMinRecap: number;
+  readonly threeMinRecapFr: number;
+  readonly condensedGame: number;
+  readonly condensedGameFr: number;
+};
+
+export type GamecenterRightRailBaseResponse = {
+  readonly seasionSeries: object[];
+  readonly seasonSeriesWins: {
+    readonly awayTeamWins: number;
+    readonly homeTeamWins: number;
+  };
+};
+
+export type GamecenterRightRailFinishedGame =
+  GamecenterRightRailBaseResponse & {
+    readonly gameVideo: GamecenterRightRailResponseGameVideo;
+    readonly linescore: GamecenterRightRailLinescore;
+  };
+
+export type GamecenterRightRailFutureGame = GamecenterRightRailBaseResponse & {
+  readonly last10Record: object;
+};
+
+export type GamecenterRightRailLiveGame = GamecenterRightRailBaseResponse & {
   readonly linescore: GamecenterRightRailLinescore;
 };
 
-export type GamecenterRightRailResponse = GamecenterRightFailFinishedGame;
+export type GamecenterRightRailResponse =
+  | GamecenterRightRailFutureGame
+  | GamecenterRightRailLiveGame
+  | GamecenterRightRailFinishedGame;
 
 type GamecenterRightRailLinescorePeriod = {
   readonly periodDescriptor: PeriodDescriptor;
@@ -206,3 +234,9 @@ export const isFinishedGamecenterResponse = (
   response: GamecenterBaseResponse
 ): response is GamecenterBoxscoreFinishedGame | GamecenterLandingFinishedGame =>
   response.gameState === "OFF" || response.gameState === "FINAL";
+
+export const isFinishedGamecenterRightRailResponse = (
+  response: GamecenterRightRailResponse
+): response is GamecenterRightRailFinishedGame => {
+  return (response as GamecenterRightRailFinishedGame).gameVideo != null;
+};
