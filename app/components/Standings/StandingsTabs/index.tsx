@@ -5,7 +5,7 @@ import { WildCard } from "../WildCard";
 import { League } from "../League";
 
 const tabClasses =
-  "my-2 border-x-0 border-t-0 border-b-2 border-transparent px-6 py-3 text-lg font-medium leading-tight hover:border-transparent hover:bg-nhl-gray-100 focus:border-transparent ui-selected:bg-black ui-selected:text-white";
+  "my-2 border-x-0 border-t-0 border-b-2 border-transparent px-6 py-3 text-lg font-medium leading-tight hover:border-transparent hover:bg-nhl-gray-600 hover:text-black focus:border-transparent ui-selected:bg-black ui-selected:text-white";
 
 export const StandingsTabs = () => {
   return (

@@ -11,3 +11,9 @@ A simple app to show NHL games and scores/details
 ```bash
 $ npm install
 ```
+
+## Running
+
+```bash
+$ npm start
+```

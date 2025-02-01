@@ -42,9 +42,15 @@ module.exports = {
         "nhl-wpg": "#041E42",
         "nhl-wsh": "#C8102E",
         "nhl-gray": {
-          50: "#ECECEC",
-          100: "#E3E4E6",
-          200: "#E5E5E5",
+          100: "#f4f4f4",
+          200: "#f2f2f2",
+          300: "#f0f0f0",
+          400: "#eeeeee",
+          500: "#ECECEC",
+          600: "#d4d4d4",
+          700: "#bdbdbd",
+          800: "#a5a5a5",
+          900: "#8e8e8e",
         },
         "nhl-blue": {
           50: "#0055E9",

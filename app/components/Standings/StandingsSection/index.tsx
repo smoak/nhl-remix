@@ -52,14 +52,16 @@ export const StandingsSection = ({
             <div className="table-row h-14 text-center" key={s.teamAbbrev}>
               <Cell>{index + 1}</Cell>
               <Cell className="w-1/4">
-                <div className="flex items-center justify-center gap-2">
-                  <TeamLogo
-                    logoUrl={s.teamLogoUrl}
-                    teamName={s.teamName}
-                    size="sm"
-                  />
-                  <span className="hidden md:block">{s.teamName}</span>
-                  <span className="md:hidden">{s.teamAbbrev}</span>
+                <div className="flex">
+                  <div className="flex flex-auto items-center gap-2">
+                    <TeamLogo
+                      logoUrl={s.teamLogoUrl}
+                      teamName={s.teamName}
+                      size="sm"
+                    />
+                    <span className="hidden md:block">{s.teamName}</span>
+                    <span className="md:hidden">{s.teamAbbrev}</span>
+                  </div>
                 </div>
               </Cell>
               <Cell>{s.gamesPlayed}</Cell>

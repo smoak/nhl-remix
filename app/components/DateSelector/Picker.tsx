@@ -44,7 +44,7 @@ export const Picker = ({ date, onDateChanged }: PickerProps) => {
       onChange={onDateChanged}
       aria-label="Date"
     >
-      <Group className="flex rounded-lg border border-nhl-black bg-nhl-gray-50 pl-3 text-gray-700 ring-black transition group-open:bg-white focus-within:bg-white focus-visible:ring-2">
+      <Group className="flex rounded-lg border border-nhl-black bg-nhl-gray-500 pl-3 text-gray-700 ring-black transition group-open:bg-white focus-within:bg-white focus-visible:ring-2">
         <DateInput className="flex flex-1 py-2">
           {(segment) => (
             <DateSegment

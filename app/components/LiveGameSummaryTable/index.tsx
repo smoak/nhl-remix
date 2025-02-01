@@ -16,7 +16,7 @@ export const LiveGameSummaryTable = ({
   const thirdPeriod = periodSummaries[2];
 
   return (
-    <table className="my-5 min-w-full border border-black text-center text-nhl-gray-50 md:min-w-min">
+    <table className="my-5 min-w-full border border-black text-center text-nhl-gray-500 md:min-w-min">
       <thead className="bg-black font-bold">
         <tr>
           <TableCell>Team</TableCell>
