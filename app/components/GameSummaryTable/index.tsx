@@ -1,8 +1,34 @@
 import { LiveGameSummaryTable } from "../LiveGameSummaryTable";
 import { TableCell } from "../Table";
 import { TeamNameTableCell } from "../Table/TeamNameTableCell";
-import type { FinalGame, LiveGame, PeriodSummary } from "../types";
+import type { FinalGame, GameType, LiveGame, PeriodSummary } from "../types";
 import { isLiveGame } from "../types";
+
+type PeriodTableHeaderProps = {
+  readonly periodSummary: PeriodSummary;
+  readonly gameType: GameType;
+};
+const PeriodTableHeader = ({
+  gameType,
+  periodSummary,
+}: PeriodTableHeaderProps) => {
+  const { periodNumber, periodType } = periodSummary;
+
+  if (gameType === "Playoff" && periodType === "OT") {
+    const otNumber = periodNumber - 3;
+    return <TableCell>OT{otNumber}</TableCell>;
+  }
+
+  if (periodType === "OT") {
+    return <TableCell>OT</TableCell>;
+  }
+
+  if (periodType === "SO") {
+    return <TableCell>SO</TableCell>;
+  }
+
+  return <TableCell>{periodNumber}</TableCell>;
+};
 
 type GameSummaryTableProps = {
   readonly game: LiveGame | FinalGame;
@@ -18,13 +44,18 @@ export const GameSummaryTable = ({
       <LiveGameSummaryTable game={game} periodSummaries={periodSummaries} />
     );
   }
+
   return (
     <table className="my-5 min-w-full border border-black text-center text-nhl-gray-500 md:w-80 md:min-w-min lg:w-96">
       <thead className="bg-black font-bold">
         <tr>
           <TableCell>Team</TableCell>
           {periodSummaries.map((p) => (
-            <TableCell key={p.periodNumber}>{p.periodNumber}</TableCell>
+            <PeriodTableHeader
+              key={p.periodNumber}
+              periodSummary={p}
+              gameType={game.type}
+            />
           ))}
           <TableCell>T</TableCell>
         </tr>

@@ -16,12 +16,14 @@ import {
   type GamecenterLandingLiveGame,
   GamecenterRightRailResponse,
   isFinishedGamecenterRightRailResponse,
+  type Penalty as ApiPenalty,
 } from "~/api/gamecenter/types";
 import type {
   FinalGame,
   GameDetails,
   GameRecapInfo,
   LiveGame,
+  Penalty,
   PeriodSummary,
   ScheduledGame,
   ScoringPlay,
@@ -111,8 +113,10 @@ const normalizeLiveGame = (game: GamecenterBoxscoreLiveGame): LiveGame => {
 const normalizePeriodSummaries = (
   response: GamecenterLandingFinishedGame | GamecenterLandingLiveGame
 ): PeriodSummary[] => {
-  const awayTeamAbbrev = response.awayTeam.abbrev;
-  return response.summary.scoring.map((s) => {
+  const { awayTeam, homeTeam, summary } = response;
+  const awayTeamAbbrev = awayTeam.abbrev;
+
+  return summary.scoring.map((s) => {
     const { awayScore, homeScore } = s.goals.reduce(
       (accum, g) => {
         const isAwayTeamGoal = g.teamAbbrev.default === awayTeamAbbrev;
@@ -127,11 +131,24 @@ const normalizePeriodSummaries = (
         homeScore: 0,
       }
     );
+
+    const penaltySection = summary.penalties.find(
+      (p) => p.periodDescriptor.number === s.periodDescriptor.number
+    );
+    const penalties = penaltySection?.penalties.map((pe) =>
+      normalizePenalty({ penalty: pe, awayTeam, homeTeam })
+    ) ?? [];
+
+    // const penalties = summary.penalties[i].penalties.flatMap((pe) =>
+    //   normalizePenalty({ penalty: pe, awayTeam, homeTeam })
+    // );
+
     return {
       periodNumber: s.periodDescriptor.number,
       awayScore,
       homeScore,
       periodType: s.periodDescriptor.periodType,
+      penalties,
     };
   });
 };
@@ -298,6 +315,28 @@ const normalizeGameFromBoxscore = (boxscore: GamecenterBoxscoreResponse) => {
   }
 
   return normalizeLiveGame(boxscore);
+};
+
+type NormalizePenaltyOptions = {
+  readonly penalty: ApiPenalty;
+  readonly homeTeam: GamecenterLandingFinishedTeam;
+  readonly awayTeam: GamecenterLandingFinishedTeam;
+};
+type NormalizePenalty = (o: NormalizePenaltyOptions) => Penalty;
+const normalizePenalty: NormalizePenalty = ({
+  awayTeam,
+  homeTeam,
+  penalty,
+}) => {
+  const isAwayTeamPenalty = penalty.teamAbbrev.default === awayTeam.abbrev;
+
+  return {
+    ...penalty,
+    teamLogoUrl: isAwayTeamPenalty ? awayTeam.logo : homeTeam.logo,
+    teamName: isAwayTeamPenalty
+      ? awayTeam.commonName.default
+      : homeTeam.commonName.default,
+  };
 };
 
 type NormalizeDetailsFromLanding = (

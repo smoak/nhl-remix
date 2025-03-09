@@ -1,3 +1,5 @@
+import { Penalty as ApiPenalty } from "~/api/gamecenter/types";
+
 export type ScoringPlayAssister = {
   readonly id: number;
   readonly firstName: string;
@@ -135,11 +137,17 @@ export type ScoringPlays = {
   readonly shootout?: ScoringPlay;
 };
 
+export type Penalty = ApiPenalty & {
+  readonly teamLogoUrl: string;
+  readonly teamName: string;
+};
+
 export type PeriodSummary = {
   readonly homeScore: number;
   readonly awayScore: number;
   readonly periodNumber: number;
   readonly periodType: "REG" | "OT" | "SO";
+  readonly penalties: Penalty[];
 };
 
 export type GameRecapInfo = {
