@@ -211,13 +211,48 @@ export type GamecenterLandingSummaryScoring = {
   readonly goals: GamecenterLandingSummaryScoringGoal[];
 };
 
+type BasePenalty = {
+  readonly timeInPeriod: string;
+  readonly duration: number;
+  readonly descKey: string;
+  readonly teamAbbrev: I18NString;
+};
+
+type MinorPenalty = BasePenalty & {
+  readonly type: "MIN";
+  readonly committedByPlayer: I18NString;
+  readonly drawnBy?: I18NString;
+};
+
+type MajorPenalty = BasePenalty & {
+  readonly type: "MAJ";
+  readonly committedByPlayer: I18NString;
+  readonly drawnBy?: I18NString;
+};
+
+type BenchMinorPenalty = BasePenalty & {
+  readonly type: "BEN";
+  readonly servedBy: I18NString;
+};
+
+type GameMisconductPenalty = BasePenalty & {
+  readonly type: "GAM";
+};
+
+export type Penalty = MinorPenalty | MajorPenalty | BenchMinorPenalty;
+
+export type GamecenterLandingSummaryPenalty = {
+  readonly periodDescriptor: PeriodDescriptor;
+  readonly penalties: Penalty[];
+};
+
 type GamecenterLandingSummary = {
   readonly scoring: GamecenterLandingSummaryScoring[];
   readonly shootout: object[];
   readonly threeStars: object[];
-  readonly teamGameStats: object[];
-  readonly shotsByPeriod: object[];
-  readonly penalties: object[];
+  readonly teamGameStats?: object[];
+  readonly shotsByPeriod?: object[];
+  readonly penalties: GamecenterLandingSummaryPenalty[];
   readonly seasonSeries: object[];
   readonly gameVideo: {
     readonly threeMinRecap: number;

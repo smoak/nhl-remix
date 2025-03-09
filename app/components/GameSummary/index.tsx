@@ -3,6 +3,7 @@ import {
   type GameDetails,
   type ScheduledGame,
 } from "../types";
+import { PenaltySectionContents } from "./PenaltySectionContents";
 import { ScoringSection } from "./ScoringSection";
 import { SummarySection } from "./SummarySection";
 
@@ -45,6 +46,9 @@ export const GameSummary = ({ gameDetails }: GameSummaryProps) => {
         gameRecap={gameRecap}
       />
       <ScoringSection scoringPlays={scoringPlays} />
+      <section className="md:hidden">
+        <PenaltySectionContents periodSummaries={periodSummaries} />
+      </section>
     </>
   );
 };

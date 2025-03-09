@@ -6,6 +6,7 @@ import type {
   PeriodSummary,
 } from "~/components/types";
 import { GameRecapButtons } from "../GameRecapButtons";
+import { PenaltySectionContents } from "../PenaltySectionContents";
 
 type SummarySectionProps = {
   readonly game: LiveGame | FinalGame;
@@ -19,12 +20,17 @@ export const SummarySection = ({
   periodSummaries,
 }: SummarySectionProps) => {
   return (
-    <section>
-      <h1 className="text-2xl font-semibold">Game Summary</h1>
-      <div className="overflow-x-auto">
-        <GameSummaryTable game={game} periodSummaries={periodSummaries} />
-        <GameRecapButtons gameRecap={gameRecap} />
-      </div>
-    </section>
+    <div className="flex flex-col gap-4">
+      <section>
+        <h1 className="text-2xl font-semibold">Game Summary</h1>
+        <div className="overflow-x-auto">
+          <GameSummaryTable game={game} periodSummaries={periodSummaries} />
+          <GameRecapButtons gameRecap={gameRecap} />
+        </div>
+      </section>
+      <section className="hidden md:block">
+        <PenaltySectionContents periodSummaries={periodSummaries} />
+      </section>
+    </div>
   );
 };
