@@ -135,13 +135,10 @@ const normalizePeriodSummaries = (
     const penaltySection = summary.penalties.find(
       (p) => p.periodDescriptor.number === s.periodDescriptor.number
     );
-    const penalties = penaltySection?.penalties.map((pe) =>
-      normalizePenalty({ penalty: pe, awayTeam, homeTeam })
-    ) ?? [];
-
-    // const penalties = summary.penalties[i].penalties.flatMap((pe) =>
-    //   normalizePenalty({ penalty: pe, awayTeam, homeTeam })
-    // );
+    const penalties =
+      penaltySection?.penalties.map((pe) =>
+        normalizePenalty({ penalty: pe, awayTeam, homeTeam })
+      ) ?? [];
 
     return {
       periodNumber: s.periodDescriptor.number,
