@@ -10,13 +10,19 @@ type ScoringDetailProps = {
 };
 
 type AssistInfoProps = {
+  readonly period: number;
   readonly primaryAssist?: ScoringPlay["primaryAssist"];
   readonly secondaryAssist?: ScoringPlay["secondaryAssist"];
 };
 const AssistInfo = ({
+  period,
   primaryAssist,
   secondaryAssist,
 }: AssistInfoProps): JSX.Element | null => {
+  if (period === 5) {
+    return <span className="text-xs">Game Winning Goal</span>;
+  }
+
   if (!primaryAssist) {
     return <span className="text-xs">Unassisted</span>;
   }
@@ -37,10 +43,44 @@ const AssistInfo = ({
   );
 };
 
+type GoalScorerProps = {
+  readonly name: string;
+  readonly seasonGoals?: number;
+};
+const GoalScorer = ({ name, seasonGoals }: GoalScorerProps) => {
+  if (!seasonGoals) {
+    return <span className="font-bold">{name}</span>;
+  }
+
+  return (
+    <span className="font-bold">
+      {name} ({seasonGoals})
+    </span>
+  );
+};
+
+type TimeInPeriodProps = {
+  readonly period: number;
+  readonly timeInPeriod: string;
+};
+const TimeInPeriod = ({ period, timeInPeriod }: TimeInPeriodProps) => {
+  if (period === 5) {
+    return null;
+  }
+
+  return (
+    <div className="flex flex-col">
+      Time
+      <div className="font-bold">{timeInPeriod}</div>
+    </div>
+  );
+};
+
 export const ScoringDetail = ({
   scoringPlay,
 }: ScoringDetailProps): JSX.Element => {
   const {
+    period,
     goalScorer,
     awayScore,
     homeScore,
@@ -65,9 +105,10 @@ export const ScoringDetail = ({
               teamAbbrev={teamAbbrev as TeamAbbreviation}
             />
             <div className="flex flex-col whitespace-nowrap sm:w-48 md:w-80 lg:w-48">
-              <span className="font-bold">
-                {goalScorer.name} ({goalScorer.seasonGoals})
-              </span>
+              <GoalScorer
+                name={goalScorer.name}
+                seasonGoals={goalScorer.seasonGoals}
+              />
               <span className="flex flex-row items-center">
                 <TeamLogo
                   size="sm"
@@ -77,6 +118,7 @@ export const ScoringDetail = ({
                 <AssistInfo
                   primaryAssist={primaryAssist}
                   secondaryAssist={secondaryAssist}
+                  period={period}
                 />
               </span>
             </div>
@@ -91,10 +133,7 @@ export const ScoringDetail = ({
                 leadingTeamAbbrev={leadingTeamAbbrev}
               />
             </div>
-            <div className="flex flex-col">
-              Time
-              <div className="font-bold">{timeInPeriod}</div>
-            </div>
+            <TimeInPeriod period={period} timeInPeriod={timeInPeriod} />
             <ScoringType goalType={goalType} />
           </div>
         </div>

@@ -1,3 +1,4 @@
+import { ClinchIndicator as ApiClinchIndicator } from "~/api/standings/types";
 import { TeamLogo } from "~/components/TeamLogo";
 import type { StandingsRecord } from "~/components/types";
 
@@ -22,6 +23,18 @@ const Cell = ({ children, className }: CellProps) => {
       {children}
     </div>
   );
+};
+
+type ClinchIndicatorProps = {
+  readonly clinchIndicator?: ApiClinchIndicator;
+};
+
+const ClinchIndicator = ({ clinchIndicator }: ClinchIndicatorProps) => {
+  if (!clinchIndicator) {
+    return null;
+  }
+
+  return <span>- {clinchIndicator}</span>;
 };
 
 export const StandingsSection = ({
@@ -61,6 +74,7 @@ export const StandingsSection = ({
                     />
                     <span className="hidden md:block">{s.teamName}</span>
                     <span className="md:hidden">{s.teamAbbrev}</span>
+                    <ClinchIndicator clinchIndicator={s.clinchIndicator} />
                   </div>
                 </div>
               </Cell>

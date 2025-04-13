@@ -196,7 +196,7 @@ export type GamecenterLandingSummaryScoringGoal = {
   readonly teamAbbrev: I18NString;
   readonly headshot: string;
   readonly highlightClip?: number;
-  readonly goalsToDate: number;
+  readonly goalsToDate?: number;
   readonly awayScore: number;
   readonly homeScore: number;
   readonly leadingTeamAbbrev?: I18NString;

@@ -12,6 +12,16 @@ export const StandingsLegend = () => {
               <span className="font-bold">y</span> - Clinched Division
             </span>
             <span>
+              <span className="font-bold">p</span> - President's Trophy
+            </span>
+            <span>
+              <span className="font-bold">z</span> - Clinched Conference
+            </span>
+            <span>
+              <span className="font-bold">e</span> - Eliminated from Playoff
+              contention
+            </span>
+            <span>
               <span className="font-bold">GP</span> - Games Played
             </span>
             <span>

@@ -1,4 +1,5 @@
 import { Penalty as ApiPenalty } from "~/api/gamecenter/types";
+import { ClinchIndicator } from "~/api/standings/types";
 
 export type ScoringPlayAssister = {
   readonly id: number;
@@ -15,7 +16,7 @@ export type ScoringPlay = {
   readonly goalScorer: {
     readonly id: number;
     readonly name: string;
-    readonly seasonGoals: number;
+    readonly seasonGoals?: number;
     readonly firstName: string;
     readonly lastName: string;
     readonly headshot: string;
@@ -197,6 +198,7 @@ export type TeamAbbreviation =
   | "WSH";
 
 export type StandingsRecord = {
+  readonly clinchIndicator?: ClinchIndicator;
   readonly teamAbbrev: string;
   readonly teamName: string;
   readonly teamLogoUrl: string;

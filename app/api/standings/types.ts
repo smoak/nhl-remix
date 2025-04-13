@@ -1,4 +1,7 @@
+export type ClinchIndicator = "z" | "y" | "x" | "e";
+
 export type Standings = {
+  readonly clinchIndicator?: ClinchIndicator;
   readonly conferenceAbbrev: "E" | "W";
   readonly conferenceHomeSequence: number;
   readonly conferenceL10Sequence: number;
