@@ -72,26 +72,23 @@ export type GameSituation = {
   readonly awayTeam: TeamSituation;
 };
 
-export type LiveGame =
-  | BaseGame & {
-      readonly gameState: "Live";
-      readonly gameClock: GameClock;
-      readonly gameStats: GameStats;
-      readonly gameSituation: GameSituation;
-    };
+export type LiveGame = BaseGame & {
+  readonly gameState: "Live";
+  readonly gameClock: GameClock;
+  readonly gameStats: GameStats;
+  readonly gameSituation: GameSituation;
+};
 
-export type ScheduledGame =
-  | BaseGame & {
-      readonly gameState: "Scheduled" | "Cancelled" | "Postponed";
-      readonly startTime: string;
-    };
+export type ScheduledGame = BaseGame & {
+  readonly gameState: "Scheduled" | "Cancelled" | "Postponed";
+  readonly startTime: string;
+};
 
-export type FinalGame =
-  | BaseGame & {
-      readonly gameState: "Final";
-      readonly gameStats: GameStats;
-      readonly endedInPeriod: number;
-    };
+export type FinalGame = BaseGame & {
+  readonly gameState: "Final";
+  readonly gameStats: GameStats;
+  readonly endedInPeriod: number;
+};
 
 export type Game = LiveGame | ScheduledGame | FinalGame;
 
@@ -242,4 +239,30 @@ export type DivisionStandings = {
 export type ConferenceStandings = {
   readonly east: StandingsRecord[];
   readonly west: StandingsRecord[];
+};
+
+export type PlayoffTeam = {
+  readonly id: number;
+  readonly name: string;
+  readonly abbrev: string;
+  readonly logo: string;
+  readonly seriesWins: number;
+};
+
+export type PlayoffMatchup = {
+  readonly id: string;
+  readonly highSeed: PlayoffTeam;
+  readonly lowSeed: PlayoffTeam;
+  readonly winner?: PlayoffTeam;
+  readonly winsRequired: number;
+};
+
+export type PlayoffRound = {
+  readonly round: number;
+  readonly hasStarted: boolean;
+  readonly matchups: PlayoffMatchup[];
+};
+
+export type PlayoffBracket = {
+  readonly rounds: PlayoffRound[];
 };

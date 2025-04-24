@@ -9,7 +9,7 @@ describe("Footer", () => {
 
   it("should render correctly", () => {
     expect(
-      screen.getByRole("link", { name: "Sasha Moak" })
+      screen.getByRole("link", { name: "Sasha Moak" }),
     ).toBeInTheDocument();
   });
 });

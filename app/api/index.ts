@@ -1,5 +1,10 @@
 import { fetch } from "cross-fetch";
-import type { Game, ScoreResponse, ScoreboardResponse } from "~/api/types";
+import type {
+  Game,
+  PlayoffBracketResponse,
+  ScoreResponse,
+  ScoreboardResponse,
+} from "~/api/types";
 import type {
   GamecenterBoxscoreResponse,
   GamecenterLandingResponse,
@@ -11,6 +16,7 @@ export const SCHEDULE_URL = `${BASE_URL}/schedule`;
 export const GAME_CENTER_URL = `${BASE_URL}/gamecenter`;
 export const SCOREBOARD_URL = `${BASE_URL}/scoreboard/now`;
 export const SCORE_URL = `${BASE_URL}/score`;
+const PLAYOFF_BRACKET_URL = `${BASE_URL}/playoff-bracket`;
 
 type GetGamesByDate = (date: string) => Promise<Game[]>;
 export const getGamesByDate: GetGamesByDate = async (date) => {
@@ -24,7 +30,7 @@ export const getGamesByDate: GetGamesByDate = async (date) => {
 };
 
 type GetGamecenterLanding = (
-  gameId: string
+  gameId: string,
 ) => Promise<GamecenterLandingResponse | undefined>;
 export const getGamecenterLanding: GetGamecenterLanding = async (gameId) => {
   const url = new URL(`${GAME_CENTER_URL}/${gameId}/landing`);
@@ -38,7 +44,7 @@ export const getGamecenterLanding: GetGamecenterLanding = async (gameId) => {
 };
 
 type GetGamecenterBoxscore = (
-  gameId: string
+  gameId: string,
 ) => Promise<GamecenterBoxscoreResponse | undefined>;
 export const getGamecenterBoxscore: GetGamecenterBoxscore = async (gameId) => {
   const url = new URL(`${GAME_CENTER_URL}/${gameId}/boxscore`);
@@ -52,10 +58,10 @@ export const getGamecenterBoxscore: GetGamecenterBoxscore = async (gameId) => {
 };
 
 type GetGamecenterRightRail = (
-  gameId: string
+  gameId: string,
 ) => Promise<GamecenterRightRailResponse | undefined>;
 export const getGamecenterRightRail: GetGamecenterRightRail = async (
-  gameId
+  gameId,
 ) => {
   const url = new URL(`${GAME_CENTER_URL}/${gameId}/right-rail`);
   console.log("fetching from", url.toString());
@@ -75,4 +81,14 @@ export const getScoreboard: GetScoreboard = async () => {
   const scoreboardResponse = (await response.json()) as ScoreboardResponse;
 
   return scoreboardResponse;
+};
+
+type GetPlayoffBracket = (year: number) => Promise<PlayoffBracketResponse>;
+export const getPlayoffBracket: GetPlayoffBracket = async (year) => {
+  const url = new URL(`${PLAYOFF_BRACKET_URL}/${year}`);
+  console.log("fetching from", url.toString());
+
+  const response = await fetch(url.toString());
+
+  return (await response.json()) as PlayoffBracketResponse;
 };

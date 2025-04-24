@@ -19,7 +19,7 @@ const conferenceWildCard = (a: DivisionSection, b: DivisionSection) =>
 
 const regulationWinsTieBreaker = (
   a: StandingsRecord,
-  b: StandingsRecord
+  b: StandingsRecord,
 ): number => {
   return b.regulationWins - a.regulationWins;
 };

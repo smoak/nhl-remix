@@ -4,14 +4,9 @@ import type {
   GameState,
   GameType,
   GameVenue,
+  I18NString,
   PeriodDescriptor,
 } from "../types";
-
-type I18NString = {
-  readonly default: string;
-  readonly cs?: string;
-  readonly sk?: string;
-};
 
 export type GamecenterBaseTeam = {
   readonly id: number;
@@ -261,17 +256,17 @@ type GamecenterLandingSummary = {
 };
 
 export const isFutureGamecenterResponse = (
-  response: GamecenterBaseResponse
+  response: GamecenterBaseResponse,
 ): response is GamecenterBoxscoreFutureGame | GamecenterLandingFutureGame =>
   response.gameState === "FUT" || response.gameState === "PRE";
 
 export const isFinishedGamecenterResponse = (
-  response: GamecenterBaseResponse
+  response: GamecenterBaseResponse,
 ): response is GamecenterBoxscoreFinishedGame | GamecenterLandingFinishedGame =>
   response.gameState === "OFF" || response.gameState === "FINAL";
 
 export const isFinishedGamecenterRightRailResponse = (
-  response: GamecenterRightRailResponse
+  response: GamecenterRightRailResponse,
 ): response is GamecenterRightRailFinishedGame => {
   return (response as GamecenterRightRailFinishedGame).gameVideo != null;
 };

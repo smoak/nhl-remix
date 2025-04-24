@@ -7,7 +7,7 @@ import type {
 } from "~/components/types";
 
 export const createScoringPlay = (
-  overrides?: Partial<ScoringPlay>
+  overrides?: Partial<ScoringPlay>,
 ): ScoringPlay => {
   return {
     awayScore: 2,
@@ -95,7 +95,7 @@ export const createFinalGame = (overrides?: Partial<FinalGame>): FinalGame => {
 };
 
 export const createScheduledGame = (
-  overrides?: Partial<ScheduledGame>
+  overrides?: Partial<ScheduledGame>,
 ): ScheduledGame => {
   return {
     awayTeam: createTeam(),

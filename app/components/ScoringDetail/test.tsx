@@ -17,7 +17,7 @@ describe("ScoringDetail", () => {
               seasonGoals: 1,
             },
           })}
-        />
+        />,
       );
     });
 

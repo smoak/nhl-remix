@@ -18,6 +18,6 @@
     "allowJs": true,
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
-    "types": ["vitest/globals"]
+    "types": ["vitest/globals", "@remix-run/node", "vite/client"]
   }
 }

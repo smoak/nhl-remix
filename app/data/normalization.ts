@@ -67,7 +67,7 @@ const normalizeScheduledGame: NormalizeScheduledGame = (game) => {
 
 const playoffTeamRecord = (
   team: ApiTeam,
-  seriesStatus: SeriesStatus
+  seriesStatus: SeriesStatus,
 ): string => {
   if (team.abbrev === seriesStatus.bottomSeedTeamAbbrev) {
     return [seriesStatus.bottomSeedWins, seriesStatus.topSeedWins].join("-");
@@ -78,7 +78,7 @@ const playoffTeamRecord = (
 
 type NormalizeFinalGame = (
   game: FinishedGame,
-  teamRecords: TeamRecords
+  teamRecords: TeamRecords,
 ) => FinalGame;
 const normalizeFinalGame: NormalizeFinalGame = (game, teamRecords) => {
   const homeRecord = isPlayoffGame(game)
@@ -109,7 +109,7 @@ const normalizeFinalGame: NormalizeFinalGame = (game, teamRecords) => {
 };
 
 export const normalizeFutureGameState = (
-  gameScheduleState: GameScheduleState
+  gameScheduleState: GameScheduleState,
 ): Exclude<GameState, "Live" | "Final"> => {
   if (gameScheduleState === "CNCL") {
     return "Cancelled";
@@ -123,7 +123,7 @@ export const normalizeFutureGameState = (
 };
 
 export const normalizeSituation = (
-  situation?: ApiGameSituation
+  situation?: ApiGameSituation,
 ): GameSituation => {
   if (situation == null) {
     return {
@@ -160,7 +160,7 @@ export const normalizeSituation = (
 
 type NormalizeLiveGame = (
   game: ApiLiveGame,
-  teamRecords: TeamRecords
+  teamRecords: TeamRecords,
 ) => LiveGame;
 const normalizeLiveGame: NormalizeLiveGame = (game, teamRecords) => {
   const homeRecord = isPlayoffGame(game)

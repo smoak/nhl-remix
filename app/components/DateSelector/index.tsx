@@ -14,7 +14,11 @@ export const DateSelector = ({ day, nextDay, prevDay }: DateSelectorProps) => {
   const prevDayLink = `/${prevDay}`;
   const nextDayLink = `/${nextDay}`;
   const navigate = useNavigate();
-  const onDateChanged = useCallback((date: CalendarDate) => {
+  const onDateChanged = useCallback((date: CalendarDate | null) => {
+    if (!date) {
+      return;
+    }
+
     navigate(`/${date.toString()}`);
   }, []);
 

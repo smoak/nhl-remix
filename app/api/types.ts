@@ -1,3 +1,10 @@
+export type I18NString = {
+  readonly default: string;
+  readonly cs?: string;
+  readonly fr?: string;
+  readonly sk?: string;
+};
+
 export type ScoreResponse = {
   readonly prevDate: string;
   readonly currentDate: string;
@@ -195,6 +202,58 @@ export type ScoreboardResponse = {
   readonly gamesByDate: GamesByDate[];
 };
 
+export type PlayoffBracketTeam = {
+  readonly id: number;
+  readonly abbrev: string;
+  readonly name: I18NString;
+  readonly commonName: I18NString;
+  readonly placeNameWithPreposition: I18NString;
+  readonly logo: string;
+  readonly darkLogo: string;
+};
+
+type FuturePlayoffSeries = {
+  readonly seriesTitle: string;
+  readonly seriesAbbrev: string;
+  readonly seriesLetter: string;
+  readonly playoffRound: number;
+  readonly topSeedRank: number;
+  readonly topSeedWins: number;
+  readonly bottomSeedRank: number;
+  readonly bottomSeedWins: number;
+};
+
+export type LivePlayoffSeries = {
+  readonly seriesUrl: string;
+  readonly seriesTitle: string;
+  readonly seriesAbbrev: string;
+  readonly seriesLetter: string;
+  readonly playoffRound: number;
+  readonly topSeedRank: number;
+  readonly topSeedRankAbbrev: string;
+  readonly topSeedWins: number;
+  readonly bottomSeedRank: number;
+  readonly bottomSeedRankAbbrev: string;
+  readonly bottomSeedWins: number;
+  readonly winningTeamId?: number;
+  readonly losingTeamId?: number;
+  readonly topSeedTeam: PlayoffBracketTeam;
+  readonly bottomSeedTeam: PlayoffBracketTeam;
+};
+
+export type PlayoffBracketSeries = FuturePlayoffSeries | LivePlayoffSeries;
+
+export const isLivePlayoffSeries = (
+  series: PlayoffBracketSeries,
+): series is LivePlayoffSeries =>
+  (series as LivePlayoffSeries).topSeedTeam != null;
+
+export type PlayoffBracketResponse = {
+  readonly bracketLogo: string;
+  readonly bracketLogoFr: string;
+  readonly series: PlayoffBracketSeries[];
+};
+
 export const isLiveGame = (game: Game): game is LiveGame =>
   game.gameState === "LIVE" || game.gameState === "CRIT";
 
@@ -205,6 +264,6 @@ export const isFutureGame = (game: Game): game is FutureGame =>
   game.gameState === "FUT" || game.gameState === "PRE";
 
 export const isPlayoffGame = (
-  game: FinishedGame | FutureGame | LiveGame
+  game: FinishedGame | FutureGame | LiveGame,
 ): game is PlayoffFinishedGame | PlayoffFutureGame | PlayoffLiveGame =>
   game.gameType === 3;

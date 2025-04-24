@@ -9,7 +9,7 @@ describe("TeamName", () => {
           isOnPowerPlay={false}
           isGoaliePulled={false}
           name="Test team"
-        />
+        />,
       );
     });
 
@@ -33,7 +33,7 @@ describe("TeamName", () => {
           isGoaliePulled={true}
           isOnPowerPlay={false}
           name="Test team"
-        />
+        />,
       );
     });
 
@@ -57,7 +57,7 @@ describe("TeamName", () => {
           isGoaliePulled={false}
           isOnPowerPlay={true}
           name="Test team"
-        />
+        />,
       );
     });
 

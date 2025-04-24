@@ -10,13 +10,13 @@ describe("TeamInfo", () => {
         teamRecord="35-28-10"
         isGoaliePulled={false}
         isOnPowerPlay={false}
-      />
+      />,
     );
   });
 
   it("displays the team logo", () => {
     expect(
-      screen.getByRole("img", { name: "Canucks logo" })
+      screen.getByRole("img", { name: "Canucks logo" }),
     ).toBeInTheDocument();
   });
 

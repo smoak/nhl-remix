@@ -17,7 +17,7 @@ describe("LiveGameStatus", () => {
 
     beforeEach(() => {
       render(
-        <LiveGameStatus gameClock={gameClock} isRegularSeasonGame={true} />
+        <LiveGameStatus gameClock={gameClock} isRegularSeasonGame={true} />,
       );
     });
 
@@ -40,7 +40,7 @@ describe("LiveGameStatus", () => {
 
     beforeEach(() => {
       render(
-        <LiveGameStatus isRegularSeasonGame={true} gameClock={gameClock} />
+        <LiveGameStatus isRegularSeasonGame={true} gameClock={gameClock} />,
       );
     });
 
@@ -59,7 +59,7 @@ describe("LiveGameStatus", () => {
 
     beforeEach(() => {
       render(
-        <LiveGameStatus isRegularSeasonGame={true} gameClock={gameClock} />
+        <LiveGameStatus isRegularSeasonGame={true} gameClock={gameClock} />,
       );
     });
 
@@ -78,7 +78,7 @@ describe("LiveGameStatus", () => {
 
     beforeEach(() => {
       render(
-        <LiveGameStatus isRegularSeasonGame={false} gameClock={gameClock} />
+        <LiveGameStatus isRegularSeasonGame={false} gameClock={gameClock} />,
       );
     });
 

@@ -1,0 +1,459 @@
+{
+  "bracketLogo": "https://assets.nhle.com/logos/playoffs/png/scp-20242025-horizontal-banner-en.png",
+  "bracketLogoFr": "https://assets.nhle.com/logos/playoffs/png/scp-20242025-horizontal-banner-fr.png",
+  "series": [
+    {
+      "seriesUrl": "/schedule/playoff-series/2025/series-a/senators-vs-mapleleafs",
+      "seriesTitle": "1st Round",
+      "seriesAbbrev": "R1",
+      "seriesLetter": "A",
+      "playoffRound": 1,
+      "topSeedRank": 1,
+      "topSeedRankAbbrev": "D1",
+      "topSeedWins": 2,
+      "bottomSeedRank": 4,
+      "bottomSeedRankAbbrev": "WC1",
+      "bottomSeedWins": 0,
+      "topSeedTeam": {
+        "id": 10,
+        "abbrev": "TOR",
+        "name": {
+          "default": "Toronto Maple Leafs",
+          "fr": "Maple Leafs de Toronto"
+        },
+        "commonName": {
+          "default": "Maple Leafs"
+        },
+        "placeNameWithPreposition": {
+          "default": "Toronto",
+          "fr": "de Toronto"
+        },
+        "logo": "https://assets.nhle.com/logos/nhl/svg/TOR_light.svg",
+        "darkLogo": "https://assets.nhle.com/logos/nhl/svg/TOR_dark.svg"
+      },
+      "bottomSeedTeam": {
+        "id": 9,
+        "abbrev": "OTT",
+        "name": {
+          "default": "Ottawa Senators",
+          "fr": "Sénateurs d'Ottawa"
+        },
+        "commonName": {
+          "default": "Senators",
+          "fr": "Sénateurs"
+        },
+        "placeNameWithPreposition": {
+          "default": "Ottawa",
+          "fr": "d'Ottawa"
+        },
+        "logo": "https://assets.nhle.com/logos/nhl/svg/OTT_light.svg",
+        "darkLogo": "https://assets.nhle.com/logos/nhl/svg/OTT_dark.svg"
+      }
+    },
+    {
+      "seriesUrl": "/schedule/playoff-series/2025/series-b/panthers-vs-lightning",
+      "seriesTitle": "1st Round",
+      "seriesAbbrev": "R1",
+      "seriesLetter": "B",
+      "playoffRound": 1,
+      "topSeedRank": 2,
+      "topSeedRankAbbrev": "D2",
+      "topSeedWins": 0,
+      "bottomSeedRank": 3,
+      "bottomSeedRankAbbrev": "D3",
+      "bottomSeedWins": 1,
+      "topSeedTeam": {
+        "id": 14,
+        "abbrev": "TBL",
+        "name": {
+          "default": "Tampa Bay Lightning",
+          "fr": "Lightning de Tampa Bay"
+        },
+        "commonName": {
+          "default": "Lightning"
+        },
+        "placeNameWithPreposition": {
+          "default": "Tampa Bay",
+          "fr": "de Tampa Bay"
+        },
+        "logo": "https://assets.nhle.com/logos/nhl/svg/TBL_light.svg",
+        "darkLogo": "https://assets.nhle.com/logos/nhl/svg/TBL_dark.svg"
+      },
+      "bottomSeedTeam": {
+        "id": 13,
+        "abbrev": "FLA",
+        "name": {
+          "default": "Florida Panthers",
+          "fr": "Panthers de la Floride"
+        },
+        "commonName": {
+          "default": "Panthers"
+        },
+        "placeNameWithPreposition": {
+          "default": "Florida",
+          "fr": "de la Floride"
+        },
+        "logo": "https://assets.nhle.com/logos/nhl/svg/FLA_light.svg",
+        "darkLogo": "https://assets.nhle.com/logos/nhl/svg/FLA_dark.svg"
+      }
+    },
+    {
+      "seriesUrl": "/schedule/playoff-series/2025/series-c/canadiens-vs-capitals",
+      "seriesTitle": "1st Round",
+      "seriesAbbrev": "R1",
+      "seriesLetter": "C",
+      "playoffRound": 1,
+      "topSeedRank": 1,
+      "topSeedRankAbbrev": "D1",
+      "topSeedWins": 1,
+      "bottomSeedRank": 4,
+      "bottomSeedRankAbbrev": "WC2",
+      "bottomSeedWins": 0,
+      "topSeedTeam": {
+        "id": 15,
+        "abbrev": "WSH",
+        "name": {
+          "default": "Washington Capitals",
+          "fr": "Capitals de Washington"
+        },
+        "commonName": {
+          "default": "Capitals"
+        },
+        "placeNameWithPreposition": {
+          "default": "Washington",
+          "fr": "de Washington"
+        },
+        "logo": "https://assets.nhle.com/logos/nhl/svg/WSH_secondary_light.svg",
+        "darkLogo": "https://assets.nhle.com/logos/nhl/svg/WSH_secondary_dark.svg"
+      },
+      "bottomSeedTeam": {
+        "id": 8,
+        "abbrev": "MTL",
+        "name": {
+          "default": "Montréal Canadiens",
+          "fr": "Canadiens de Montréal"
+        },
+        "commonName": {
+          "default": "Canadiens"
+        },
+        "placeNameWithPreposition": {
+          "default": "Montréal",
+          "fr": "de Montréal"
+        },
+        "logo": "https://assets.nhle.com/logos/nhl/svg/MTL_light.svg",
+        "darkLogo": "https://assets.nhle.com/logos/nhl/svg/MTL_dark.svg"
+      }
+    },
+    {
+      "seriesUrl": "/schedule/playoff-series/2025/series-d/devils-vs-hurricanes",
+      "seriesTitle": "1st Round",
+      "seriesAbbrev": "R1",
+      "seriesLetter": "D",
+      "playoffRound": 1,
+      "topSeedRank": 2,
+      "topSeedRankAbbrev": "D2",
+      "topSeedWins": 2,
+      "bottomSeedRank": 3,
+      "bottomSeedRankAbbrev": "D3",
+      "bottomSeedWins": 0,
+      "topSeedTeam": {
+        "id": 12,
+        "abbrev": "CAR",
+        "name": {
+          "default": "Carolina Hurricanes",
+          "fr": "Hurricanes de la Caroline"
+        },
+        "commonName": {
+          "default": "Hurricanes"
+        },
+        "placeNameWithPreposition": {
+          "default": "Carolina",
+          "fr": "de la Caroline"
+        },
+        "logo": "https://assets.nhle.com/logos/nhl/svg/CAR_light.svg",
+        "darkLogo": "https://assets.nhle.com/logos/nhl/svg/CAR_dark.svg"
+      },
+      "bottomSeedTeam": {
+        "id": 1,
+        "abbrev": "NJD",
+        "name": {
+          "default": "New Jersey Devils",
+          "fr": "Devils du New Jersey"
+        },
+        "commonName": {
+          "default": "Devils"
+        },
+        "placeNameWithPreposition": {
+          "default": "New Jersey",
+          "fr": "du New Jersey"
+        },
+        "logo": "https://assets.nhle.com/logos/nhl/svg/NJD_light.svg",
+        "darkLogo": "https://assets.nhle.com/logos/nhl/svg/NJD_dark.svg"
+      }
+    },
+    {
+      "seriesUrl": "/schedule/playoff-series/2025/series-e/blues-vs-jets",
+      "seriesTitle": "1st Round",
+      "seriesAbbrev": "R1",
+      "seriesLetter": "E",
+      "playoffRound": 1,
+      "topSeedRank": 1,
+      "topSeedRankAbbrev": "D1",
+      "topSeedWins": 2,
+      "bottomSeedRank": 4,
+      "bottomSeedRankAbbrev": "WC2",
+      "bottomSeedWins": 0,
+      "topSeedTeam": {
+        "id": 52,
+        "abbrev": "WPG",
+        "name": {
+          "default": "Winnipeg Jets",
+          "fr": "Jets de Winnipeg"
+        },
+        "commonName": {
+          "default": "Jets"
+        },
+        "placeNameWithPreposition": {
+          "default": "Winnipeg",
+          "fr": "de Winnipeg"
+        },
+        "logo": "https://assets.nhle.com/logos/nhl/svg/WPG_light.svg",
+        "darkLogo": "https://assets.nhle.com/logos/nhl/svg/WPG_dark.svg"
+      },
+      "bottomSeedTeam": {
+        "id": 19,
+        "abbrev": "STL",
+        "name": {
+          "default": "St. Louis Blues",
+          "fr": "Blues de St. Louis"
+        },
+        "commonName": {
+          "default": "Blues"
+        },
+        "placeNameWithPreposition": {
+          "default": "St. Louis",
+          "fr": "de St. Louis"
+        },
+        "logo": "https://assets.nhle.com/logos/nhl/svg/STL_light.svg",
+        "darkLogo": "https://assets.nhle.com/logos/nhl/svg/STL_dark.svg"
+      }
+    },
+    {
+      "seriesUrl": "/schedule/playoff-series/2025/series-f/avalanche-vs-stars",
+      "seriesTitle": "1st Round",
+      "seriesAbbrev": "R1",
+      "seriesLetter": "F",
+      "playoffRound": 1,
+      "topSeedRank": 2,
+      "topSeedRankAbbrev": "D2",
+      "topSeedWins": 1,
+      "bottomSeedRank": 3,
+      "bottomSeedRankAbbrev": "D3",
+      "bottomSeedWins": 1,
+      "topSeedTeam": {
+        "id": 25,
+        "abbrev": "DAL",
+        "name": {
+          "default": "Dallas Stars",
+          "fr": "Stars de Dallas"
+        },
+        "commonName": {
+          "default": "Stars"
+        },
+        "placeNameWithPreposition": {
+          "default": "Dallas",
+          "fr": "de Dallas"
+        },
+        "logo": "https://assets.nhle.com/logos/nhl/svg/DAL_light.svg",
+        "darkLogo": "https://assets.nhle.com/logos/nhl/svg/DAL_dark.svg"
+      },
+      "bottomSeedTeam": {
+        "id": 21,
+        "abbrev": "COL",
+        "name": {
+          "default": "Colorado Avalanche",
+          "fr": "Avalanche du Colorado"
+        },
+        "commonName": {
+          "default": "Avalanche"
+        },
+        "placeNameWithPreposition": {
+          "default": "Colorado",
+          "fr": "du Colorado"
+        },
+        "logo": "https://assets.nhle.com/logos/nhl/svg/COL_light.svg",
+        "darkLogo": "https://assets.nhle.com/logos/nhl/svg/COL_dark.svg"
+      }
+    },
+    {
+      "seriesUrl": "/schedule/playoff-series/2025/series-g/wild-vs-goldenknights",
+      "seriesTitle": "1st Round",
+      "seriesAbbrev": "R1",
+      "seriesLetter": "G",
+      "playoffRound": 1,
+      "topSeedRank": 1,
+      "topSeedRankAbbrev": "D1",
+      "topSeedWins": 1,
+      "bottomSeedRank": 4,
+      "bottomSeedRankAbbrev": "WC1",
+      "bottomSeedWins": 1,
+      "topSeedTeam": {
+        "id": 54,
+        "abbrev": "VGK",
+        "name": {
+          "default": "Vegas Golden Knights",
+          "fr": "Golden Knights de Vegas"
+        },
+        "commonName": {
+          "default": "Golden Knights"
+        },
+        "placeNameWithPreposition": {
+          "default": "Vegas",
+          "fr": "de Vegas"
+        },
+        "logo": "https://assets.nhle.com/logos/nhl/svg/VGK_light.svg",
+        "darkLogo": "https://assets.nhle.com/logos/nhl/svg/VGK_dark.svg"
+      },
+      "bottomSeedTeam": {
+        "id": 30,
+        "abbrev": "MIN",
+        "name": {
+          "default": "Minnesota Wild",
+          "fr": "Wild du Minnesota"
+        },
+        "commonName": {
+          "default": "Wild"
+        },
+        "placeNameWithPreposition": {
+          "default": "Minnesota",
+          "fr": "du Minnesota"
+        },
+        "logo": "https://assets.nhle.com/logos/nhl/svg/MIN_light.svg",
+        "darkLogo": "https://assets.nhle.com/logos/nhl/svg/MIN_dark.svg"
+      }
+    },
+    {
+      "seriesUrl": "/schedule/playoff-series/2025/series-h/oilers-vs-kings",
+      "seriesTitle": "1st Round",
+      "seriesAbbrev": "R1",
+      "seriesLetter": "H",
+      "playoffRound": 1,
+      "topSeedRank": 2,
+      "topSeedRankAbbrev": "D2",
+      "topSeedWins": 1,
+      "bottomSeedRank": 3,
+      "bottomSeedRankAbbrev": "D3",
+      "bottomSeedWins": 0,
+      "topSeedTeam": {
+        "id": 26,
+        "abbrev": "LAK",
+        "name": {
+          "default": "Los Angeles Kings",
+          "fr": "Kings de Los Angeles"
+        },
+        "commonName": {
+          "default": "Kings"
+        },
+        "placeNameWithPreposition": {
+          "default": "Los Angeles",
+          "fr": "de Los Angeles"
+        },
+        "logo": "https://assets.nhle.com/logos/nhl/svg/LAK_light.svg",
+        "darkLogo": "https://assets.nhle.com/logos/nhl/svg/LAK_dark.svg"
+      },
+      "bottomSeedTeam": {
+        "id": 22,
+        "abbrev": "EDM",
+        "name": {
+          "default": "Edmonton Oilers",
+          "fr": "Oilers d'Edmonton"
+        },
+        "commonName": {
+          "default": "Oilers"
+        },
+        "placeNameWithPreposition": {
+          "default": "Edmonton",
+          "fr": "d'Edmonton"
+        },
+        "logo": "https://assets.nhle.com/logos/nhl/svg/EDM_light.svg",
+        "darkLogo": "https://assets.nhle.com/logos/nhl/svg/EDM_dark.svg"
+      }
+    },
+    {
+      "seriesTitle": "2nd Round",
+      "seriesAbbrev": "R2",
+      "seriesLetter": "I",
+      "playoffRound": 2,
+      "topSeedRank": 0,
+      "topSeedWins": 0,
+      "bottomSeedRank": 0,
+      "bottomSeedWins": 0
+    },
+    {
+      "seriesTitle": "2nd Round",
+      "seriesAbbrev": "R2",
+      "seriesLetter": "J",
+      "playoffRound": 2,
+      "topSeedRank": 0,
+      "topSeedWins": 0,
+      "bottomSeedRank": 0,
+      "bottomSeedWins": 0
+    },
+    {
+      "seriesTitle": "2nd Round",
+      "seriesAbbrev": "R2",
+      "seriesLetter": "K",
+      "playoffRound": 2,
+      "topSeedRank": 0,
+      "topSeedWins": 0,
+      "bottomSeedRank": 0,
+      "bottomSeedWins": 0
+    },
+    {
+      "seriesTitle": "2nd Round",
+      "seriesAbbrev": "R2",
+      "seriesLetter": "L",
+      "playoffRound": 2,
+      "topSeedRank": 0,
+      "topSeedWins": 0,
+      "bottomSeedRank": 0,
+      "bottomSeedWins": 0
+    },
+    {
+      "seriesLogo": "https://assets.nhle.com/logos/playoffs/png/ecf-wordmark-en.png",
+      "seriesLogoFr": "https://assets.nhle.com/logos/playoffs/png/ecf-wordmark-fr.png",
+      "seriesTitle": "Conference Finals",
+      "seriesAbbrev": "CF",
+      "seriesLetter": "M",
+      "playoffRound": 3,
+      "topSeedRank": 0,
+      "topSeedWins": 0,
+      "bottomSeedRank": 0,
+      "bottomSeedWins": 0
+    },
+    {
+      "seriesLogo": "https://assets.nhle.com/logos/playoffs/png/wcf-wordmark-en.png",
+      "seriesLogoFr": "https://assets.nhle.com/logos/playoffs/png/wcf-wordmark-fr.png",
+      "seriesTitle": "Conference Finals",
+      "seriesAbbrev": "CF",
+      "seriesLetter": "N",
+      "playoffRound": 3,
+      "topSeedRank": 0,
+      "topSeedWins": 0,
+      "bottomSeedRank": 0,
+      "bottomSeedWins": 0
+    },
+    {
+      "seriesLogo": "https://assets.nhle.com/logos/playoffs/png/stanley_cup_final_primary.png",
+      "seriesLogoFr": "https://assets.nhle.com/logos/playoffs/png/stanley_cup_final_primary_fr.png",
+      "seriesTitle": "Stanley Cup Finals",
+      "seriesAbbrev": "SCF",
+      "seriesLetter": "O",
+      "playoffRound": 4,
+      "topSeedRank": 0,
+      "topSeedWins": 0,
+      "bottomSeedRank": 0,
+      "bottomSeedWins": 0
+    }
+  ]
+}

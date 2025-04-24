@@ -8,7 +8,7 @@ describe("NHL", () => {
 
   it("should render an svg", () => {
     expect(
-      screen.getByRole("presentation", { hidden: true })
+      screen.getByRole("presentation", { hidden: true }),
     ).toBeInTheDocument();
   });
 });

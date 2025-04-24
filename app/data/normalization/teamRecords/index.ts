@@ -2,7 +2,7 @@ import type { StandingsResponse } from "~/api/standings/types";
 import type { TeamRecords } from "~/components/types";
 
 type NormalizeTeamRecords = (
-  standingsResponse: StandingsResponse
+  standingsResponse: StandingsResponse,
 ) => TeamRecords;
 export const normalizeTeamRecords: NormalizeTeamRecords = ({ standings }) =>
   standings.reduce<TeamRecords>((accum, standing) => {

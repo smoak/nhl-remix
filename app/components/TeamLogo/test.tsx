@@ -11,7 +11,7 @@ describe("TeamLogo", () => {
       expect(
         screen.getByRole("img", {
           name: "Canucks logo",
-        })
+        }),
       ).toBeInTheDocument();
     });
   });

@@ -24,7 +24,7 @@ import {
 
 type PickerProps = {
   readonly date: CalendarDate;
-  readonly onDateChanged: (date: CalendarDate) => void;
+  readonly onDateChanged: (date: CalendarDate | null) => void;
 };
 
 const RoundButton = (props: ButtonProps) => {

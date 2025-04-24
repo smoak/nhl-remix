@@ -1,5 +1,5 @@
 import { compareAsc, getHours, startOfDay, subDays } from "date-fns";
-import { utcToZonedTime } from "date-fns-tz";
+import { toZonedTime } from "date-fns-tz";
 
 export const EST_IANA_ZONE_ID = "America/New_York";
 export const DATE_LINK_FORMAT = "yyyy-MM-dd";
@@ -21,7 +21,7 @@ const getTimeZonedDay = (date: Date): Date => {
 
 export const getToday = () => {
   const now = new Date().toISOString();
-  const etNow = utcToZonedTime(now, EST_IANA_ZONE_ID);
+  const etNow = toZonedTime(now, EST_IANA_ZONE_ID);
 
   return getTimeZonedDay(etNow);
 };
@@ -31,12 +31,12 @@ export const isEndOfRegularSeason = () => {
   const seasonEnd = new Date(
     today.getFullYear(),
     REGULAR_SEASON_END_MONTH,
-    REGULAR_SEASON_END_DAY
+    REGULAR_SEASON_END_DAY,
   );
   const playoffEnd = new Date(
     today.getFullYear(),
     PLAYOFF_END_MONTH,
-    PLAYOFF_END_DAY
+    PLAYOFF_END_DAY,
   );
 
   return (

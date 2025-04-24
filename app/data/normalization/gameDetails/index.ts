@@ -48,7 +48,7 @@ const normalizeBaseTeam = (team: GamecenterBaseTeam): Team => {
 };
 
 const normalizeFutureGame = (
-  game: GamecenterBoxscoreFutureGame | GamecenterLandingFutureGame
+  game: GamecenterBoxscoreFutureGame | GamecenterLandingFutureGame,
 ): ScheduledGame => {
   return {
     awayTeam: normalizeBaseTeam(game.awayTeam),
@@ -61,7 +61,7 @@ const normalizeFutureGame = (
 };
 
 const normalizeFinishedGame = (
-  game: GamecenterBoxscoreFinishedGame
+  game: GamecenterBoxscoreFinishedGame,
 ): FinalGame => {
   return {
     awayTeam: normalizeBaseTeam(game.awayTeam),
@@ -111,7 +111,7 @@ const normalizeLiveGame = (game: GamecenterBoxscoreLiveGame): LiveGame => {
 };
 
 const normalizePeriodSummaries = (
-  response: GamecenterLandingFinishedGame | GamecenterLandingLiveGame
+  response: GamecenterLandingFinishedGame | GamecenterLandingLiveGame,
 ): PeriodSummary[] => {
   const { awayTeam, homeTeam, summary } = response;
   const awayTeamAbbrev = awayTeam.abbrev;
@@ -129,15 +129,15 @@ const normalizePeriodSummaries = (
       {
         awayScore: 0,
         homeScore: 0,
-      }
+      },
     );
 
     const penaltySection = summary.penalties.find(
-      (p) => p.periodDescriptor.number === s.periodDescriptor.number
+      (p) => p.periodDescriptor.number === s.periodDescriptor.number,
     );
     const penalties =
       penaltySection?.penalties.map((pe) =>
-        normalizePenalty({ penalty: pe, awayTeam, homeTeam })
+        normalizePenalty({ penalty: pe, awayTeam, homeTeam }),
       ) ?? [];
 
     return {
@@ -151,7 +151,7 @@ const normalizePeriodSummaries = (
 };
 
 const normalizeAssist = (
-  assist?: GamecenterLandingSummaryScoringGoalAssist
+  assist?: GamecenterLandingSummaryScoringGoalAssist,
 ): ScoringPlayAssister | undefined => {
   if (assist == null) {
     return;
@@ -217,13 +217,13 @@ const normalizeScoringPlay = ({
       period,
       scoringTeam:
         g.teamAbbrev.default === awayTeam.abbrev ? awayTeam : homeTeam,
-    })
+    }),
   );
 };
 
 const normalizeOvertimeScoringPlay = (
   otScoring: GamecenterLandingSummaryScoring | undefined,
-  response: GamecenterLandingFinishedGame | GamecenterLandingLiveGame
+  response: GamecenterLandingFinishedGame | GamecenterLandingLiveGame,
 ): ScoringPlays["overtime"] => {
   if (!otScoring) {
     return;
@@ -246,7 +246,7 @@ const normalzieShootoutScoringPlay = (
   {
     awayTeam,
     homeTeam,
-  }: GamecenterLandingFinishedGame | GamecenterLandingLiveGame
+  }: GamecenterLandingFinishedGame | GamecenterLandingLiveGame,
 ): ScoringPlays["shootout"] => {
   if (!scoring) {
     return;
@@ -256,7 +256,7 @@ const normalzieShootoutScoringPlay = (
 };
 
 const normalizeScoringPlays = (
-  response: GamecenterLandingFinishedGame | GamecenterLandingLiveGame
+  response: GamecenterLandingFinishedGame | GamecenterLandingLiveGame,
 ): ScoringPlays => {
   const firstPeriod = response.summary.scoring
     .filter((scoring) => scoring.periodDescriptor.number === 1)
@@ -287,10 +287,10 @@ const normalizeScoringPlays = (
     });
   const otScoring = response.summary.scoring.find(
     (scoring) =>
-      scoring.periodDescriptor.periodType === "OT" && scoring.goals.length > 0
+      scoring.periodDescriptor.periodType === "OT" && scoring.goals.length > 0,
   );
   const soScoring = response.summary.scoring.find(
-    (s) => s.periodDescriptor.periodType === "SO"
+    (s) => s.periodDescriptor.periodType === "SO",
   );
 
   return {
@@ -337,7 +337,7 @@ const normalizePenalty: NormalizePenalty = ({
 };
 
 type NormalizeDetailsFromLanding = (
-  landing: GamecenterLandingResponse
+  landing: GamecenterLandingResponse,
 ) => Omit<GameDetails, "game">;
 const normalizeDetailsFromLanding: NormalizeDetailsFromLanding = (landing) => {
   if (isFutureGamecenterResponse(landing)) {
@@ -355,7 +355,7 @@ const normalizeDetailsFromLanding: NormalizeDetailsFromLanding = (landing) => {
 };
 
 const normalizeGameRecapInfoFromRightRail = (
-  rightRail: GamecenterRightRailResponse
+  rightRail: GamecenterRightRailResponse,
 ): GameRecapInfo | undefined => {
   if (!isFinishedGamecenterRightRailResponse(rightRail)) {
     return;
@@ -373,7 +373,7 @@ type NormalizeGameDetailsOptions = {
   readonly rightRail: GamecenterRightRailResponse;
 };
 type NormalizeGameDetails = (
-  options: NormalizeGameDetailsOptions
+  options: NormalizeGameDetailsOptions,
 ) => GameDetails;
 export const normalizeGameDetails: NormalizeGameDetails = ({
   boxscore,
