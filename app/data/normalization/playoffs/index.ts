@@ -8,7 +8,31 @@ import {
   PlayoffBracket,
   PlayoffMatchup,
   PlayoffRound,
+  PlayoffTeam,
 } from "~/components/types";
+
+type DetermineMatchupWinnerOptions = {
+  readonly highSeed: PlayoffTeam;
+  readonly lowSeed: PlayoffTeam;
+  readonly winningTeamId?: number;
+};
+const determineMatchupWinner = ({
+  highSeed,
+  lowSeed,
+  winningTeamId,
+}: DetermineMatchupWinnerOptions) => {
+  if (!winningTeamId) {
+    return;
+  }
+
+  const highSeedWon = winningTeamId === highSeed.id;
+
+  if (highSeedWon) {
+    return highSeed;
+  }
+
+  return lowSeed;
+};
 
 const normalizePlayoffMatchup = ({
   bottomSeedWins,
@@ -16,26 +40,30 @@ const normalizePlayoffMatchup = ({
   topSeedWins,
   topSeedTeam,
   winningTeamId,
-  losingTeamId,
   seriesAbbrev,
 }: LivePlayoffSeries): PlayoffMatchup => {
+  const highSeed: PlayoffTeam = {
+    abbrev: topSeedTeam.abbrev,
+    id: topSeedTeam.id,
+    logo: topSeedTeam.logo,
+    name: topSeedTeam.name.default,
+    seriesWins: topSeedWins,
+  };
+  const lowSeed: PlayoffTeam = {
+    abbrev: bottomSeedTeam.abbrev,
+    id: bottomSeedTeam.id,
+    logo: bottomSeedTeam.logo,
+    name: bottomSeedTeam.name.default,
+    seriesWins: bottomSeedWins,
+  };
+  const winner = determineMatchupWinner({ highSeed, lowSeed, winningTeamId });
+
   return {
-    highSeed: {
-      abbrev: topSeedTeam.abbrev,
-      id: topSeedTeam.id,
-      logo: topSeedTeam.logo,
-      name: topSeedTeam.name.default,
-      seriesWins: topSeedWins,
-    },
-    lowSeed: {
-      abbrev: bottomSeedTeam.abbrev,
-      id: bottomSeedTeam.id,
-      logo: bottomSeedTeam.logo,
-      name: bottomSeedTeam.name.default,
-      seriesWins: bottomSeedWins,
-    },
+    highSeed,
+    lowSeed,
     winsRequired: 7,
     id: seriesAbbrev,
+    winner,
   };
 };
 
@@ -80,7 +108,6 @@ export const normalizePlayoffRounds = ({
     {},
   );
 
-  // Convert to sorted array
   return {
     rounds: Object.entries(grouped)
       .sort(([roundA], [roundB]) => Number(roundA) - Number(roundB))

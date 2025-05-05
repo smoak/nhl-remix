@@ -24,7 +24,7 @@ export const Matchup = ({ matchup }: MatchupProps) => {
         <SeriesStatus
           highSeed={matchup.highSeed}
           lowSeed={matchup.lowSeed}
-          winsRequired={matchup.winsRequired}
+          winner={matchup.winner}
         />
       </div>
       <div className="flex flex-grow flex-col items-center text-center">

@@ -3,12 +3,12 @@ import type { PlayoffTeam } from "~/components/types";
 type SeriesStatusProps = {
   readonly highSeed: PlayoffTeam;
   readonly lowSeed: PlayoffTeam;
-  readonly winsRequired: number;
+  readonly winner?: PlayoffTeam;
 };
 export const SeriesStatus = ({
   highSeed,
   lowSeed,
-  winsRequired,
+  winner,
 }: SeriesStatusProps) => {
   if (highSeed.seriesWins === 0 && lowSeed.seriesWins === 0) {
     return (
@@ -22,7 +22,7 @@ export const SeriesStatus = ({
     return <span className="flex justify-center text-center">Series Tied</span>;
   }
 
-  if (highSeed.seriesWins === winsRequired) {
+  if (highSeed.id === winner?.id) {
     return (
       <span className="flex justify-center text-center">
         {highSeed.abbrev} wins series
@@ -30,7 +30,7 @@ export const SeriesStatus = ({
     );
   }
 
-  if (lowSeed.seriesWins === winsRequired) {
+  if (lowSeed.id === winner?.id) {
     return (
       <span className="flex justify-center text-center">
         {lowSeed.abbrev} wins series
