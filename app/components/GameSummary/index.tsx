@@ -37,7 +37,6 @@ export const GameSummary = ({ gameDetails }: GameSummaryProps) => {
   if (scoringPlays == null) {
     return <h1 className="text-2xl font-semibold">Game has not started.</h1>;
   }
-  console.log("game type", game.type);
 
   return (
     <>

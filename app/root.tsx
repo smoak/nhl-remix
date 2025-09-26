@@ -5,10 +5,25 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
-import type { MetaFunction, LinksFunction } from "@remix-run/node";
+import type {
+  MetaFunction,
+  LinksFunction,
+  LoaderFunction,
+} from "@remix-run/node";
 import { Analytics } from "@vercel/analytics/react";
 import "~/tailwind.css";
 import { useNProgress } from "./hooks/useNProgress";
+import { getScoreboard } from "./api";
+import { RootLoaderResponse } from "./data/types";
+
+export const loader: LoaderFunction = async (): Promise<RootLoaderResponse> => {
+  const scoreboardResponse = await getScoreboard();
+  const hasPlayoffs = scoreboardResponse.gamesByDate.some((g) =>
+    g.games.some((game) => game.gameType === 3),
+  );
+
+  return { hasPlayoffs };
+};
 
 export const meta: MetaFunction = () => {
   return [

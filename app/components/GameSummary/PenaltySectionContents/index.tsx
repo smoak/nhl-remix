@@ -10,7 +10,6 @@ export const PenaltySectionContents = ({
   isPlayoffGame,
   periodSummaries,
 }: PenaltySectionContentsProps) => {
-  console.log("isPlayoffGame", isPlayoffGame);
   return (
     <>
       <h1 className="text-2xl font-bold">Penalties</h1>
