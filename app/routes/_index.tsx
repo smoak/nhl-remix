@@ -17,7 +17,7 @@ export const loader: LoaderFunction = async () => {
 
   const schedule = await getSchedule(date);
 
-  return json<Schedule>(schedule);
+  return schedule;
 };
 
 export const Index = () => {

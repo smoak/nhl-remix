@@ -217,7 +217,7 @@ export type PenaltyPlayer = {
   readonly firstName: I18NString;
   readonly lastName: I18NString;
   readonly sweaterNumber: number;
-}
+};
 
 type MinorPenalty = BasePenalty & {
   readonly type: "MIN";

@@ -38,7 +38,7 @@ export const loader: LoaderFunction = async ({ params }) => {
   }
 
   const gameDetails = normalizeGameDetails({ boxscore, landing, rightRail });
-  return json<GameDetails>(gameDetails);
+  return gameDetails;
 };
 
 export const Index = () => {
