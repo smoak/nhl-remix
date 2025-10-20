@@ -1,7 +1,7 @@
 import { TeamLogo } from "~/components/TeamLogo";
 import { Penalty } from "~/components/types";
 import penaltyMessages from "./penaltyDescriptions.json";
-import { useId } from "react";
+import { PenaltyPlayer } from "~/api/gamecenter/types";
 
 type PenaltyMessages = Record<string, string>;
 
@@ -10,33 +10,64 @@ const penaltyDescriptionFromKey = (key: string) => {
   return map[key];
 };
 
+const penaltyPlayerName = ({ firstName, lastName }: PenaltyPlayer) =>
+  [firstName.default, lastName.default].join(" ");
+
+type DrawnPenaltyProps = {
+  readonly commitedBy: PenaltyPlayer;
+  readonly description: string;
+  readonly drawnBy: PenaltyPlayer;
+  readonly duration: number;
+};
+const DrawnPenalty = ({
+  commitedBy,
+  description,
+  drawnBy,
+  duration,
+}: DrawnPenaltyProps) => {
+  const committedByPlayer = penaltyPlayerName(commitedBy);
+  const drawnByPlayer = penaltyPlayerName(drawnBy);
+
+  return (
+    <span>
+      {committedByPlayer} #{commitedBy.sweaterNumber} {duration} minutes for{" "}
+      {description} {drawnByPlayer} #{drawnBy.sweaterNumber}
+    </span>
+  );
+};
+
 type PenaltyDescriptionProps = {
   readonly penalty: Penalty;
 };
+
 const PenaltyDescription = ({ penalty }: PenaltyDescriptionProps) => {
-  const { descKey, type } = penalty;
+  const { descKey, type, duration } = penalty;
   const penaltyDescription = penaltyDescriptionFromKey(descKey);
 
   if (type === "BEN") {
-    return <span>{penaltyDescription}</span>;
+    return (
+      <span>
+        {duration} minutes for {penaltyDescription}
+      </span>
+    );
   }
 
   if (penalty.drawnBy != null) {
     return (
-      <span>
-        {[
-          penalty.committedByPlayer.default,
-          penaltyDescription,
-          "against",
-          penalty.drawnBy.default,
-        ].join(" ")}
-      </span>
+      <DrawnPenalty
+        commitedBy={penalty.committedByPlayer}
+        duration={duration}
+        description={penaltyDescription}
+        drawnBy={penalty.drawnBy}
+      />
     );
   }
 
   return (
     <span>
-      {[penalty.committedByPlayer.default, penaltyDescription].join(" ")}
+      {penaltyPlayerName(penalty.committedByPlayer)} #
+      {penalty.committedByPlayer.sweaterNumber} {duration} minutes for{" "}
+      {penaltyDescription}
     </span>
   );
 };
@@ -49,7 +80,7 @@ const PenaltyRow = ({ penalty }: PenaltyRowProps) => {
   return (
     <div className="border-nhl-200 flex gap-2 rounded-lg border bg-white p-4 pb-4">
       <div className="flex items-center">{penalty.timeInPeriod}</div>
-      <div>
+      <div className="flex items-center">
         <TeamLogo
           teamName={penalty.teamName}
           logoUrl={penalty.teamLogoUrl}
@@ -80,7 +111,9 @@ export const PenaltyList = ({ penalties }: PenaltyListProps) => {
             p.timeInPeriod,
             p.type,
             p.descKey,
-            p.type === "BEN" ? p.servedBy.default : p.committedByPlayer.default,
+            p.type === "BEN"
+              ? p.servedBy.sweaterNumber
+              : p.committedByPlayer.sweaterNumber,
           ].join("-")}
           penalty={p}
         />

@@ -213,25 +213,32 @@ type BasePenalty = {
   readonly teamAbbrev: I18NString;
 };
 
+export type PenaltyPlayer = {
+  readonly firstName: I18NString;
+  readonly lastName: I18NString;
+  readonly sweaterNumber: number;
+}
+
 type MinorPenalty = BasePenalty & {
   readonly type: "MIN";
-  readonly committedByPlayer: I18NString;
-  readonly drawnBy?: I18NString;
+  readonly committedByPlayer: PenaltyPlayer;
+  readonly drawnBy?: PenaltyPlayer;
 };
 
 type MajorPenalty = BasePenalty & {
   readonly type: "MAJ";
-  readonly committedByPlayer: I18NString;
-  readonly drawnBy?: I18NString;
+  readonly committedByPlayer: PenaltyPlayer;
+  readonly drawnBy?: PenaltyPlayer;
 };
 
 type BenchMinorPenalty = BasePenalty & {
   readonly type: "BEN";
-  readonly servedBy: I18NString;
+  readonly servedBy: PenaltyPlayer;
 };
 
 type GameMisconductPenalty = BasePenalty & {
   readonly type: "GAM";
+  readonly committedByPlayer: PenaltyPlayer;
 };
 
 export type Penalty = MinorPenalty | MajorPenalty | BenchMinorPenalty;

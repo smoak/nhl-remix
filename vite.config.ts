@@ -7,6 +7,9 @@ export default defineConfig({
     tsconfigPaths(),
     remix({
       ignoredRouteFiles: ["**/.*"],
+      future: {
+        v3_fetcherPersist: true,
+      },
     }),
   ],
 });
